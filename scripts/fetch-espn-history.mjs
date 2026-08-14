@@ -126,8 +126,21 @@ function summarizeSeason(seasonId, league) {
 
   const nameById = new Map(teams.map((t) => [t.teamId, t.name]));
   let weekHigh = null;
+  const matchups = [];
   for (const matchup of league.schedule || []) {
-    for (const side of [matchup.home, matchup.away]) {
+    const home = matchup.home;
+    const away = matchup.away;
+    if (home && away && typeof home.totalPoints === "number" && typeof away.totalPoints === "number") {
+      matchups.push({
+        week: matchup.matchupPeriodId,
+        homeTeamId: home.teamId,
+        homeScore: round1(home.totalPoints),
+        awayTeamId: away.teamId,
+        awayScore: round1(away.totalPoints),
+        winner: matchup.winner || "UNDECIDED",
+      });
+    }
+    for (const side of [home, away]) {
       if (!side || typeof side.totalPoints !== "number") continue;
       if (!weekHigh || side.totalPoints > weekHigh.points) {
         weekHigh = {
@@ -142,6 +155,7 @@ function summarizeSeason(seasonId, league) {
   return {
     season: seasonId,
     teams,
+    matchups,
     champion: champion && {
       name: champion.name,
       wins: champion.wins,

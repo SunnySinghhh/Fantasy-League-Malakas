@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team History</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --loss: #e8544a;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --loss: #e8544a;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --loss: #a3392f;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section > p.lede { color: var(--rail-dim); font-size: 14px; margin: -6px 0 0; max-width: 68ch; }
+
+  .panel {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 20px clamp(16px, 3vw, 26px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ---- chart legend ---- */
+  .chart-legend-row { display: flex; flex-direction: column; gap: 10px; }
+  .chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--rail);
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 999px;
+    padding: 5px 10px 5px 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+  .legend-item:hover { border-color: var(--accent); }
+  .legend-item.hidden { opacity: 0.35; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+  .legend-actions {
+    display: flex;
+    gap: 10px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .legend-actions button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    padding: 0;
+  }
+  .legend-actions button:hover { text-decoration: underline; }
+
+  /* ---- line chart ---- */
+  .chart-wrap { width: 100%; overflow-x: auto; }
+  .line-chart-svg { width: 100%; min-width: 480px; height: auto; display: block; }
+  .chart-gridline { stroke: var(--paper-line); stroke-width: 1; }
+  .chart-axis-label {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    fill: var(--rail-dim);
+  }
+  .chart-line { transition: opacity 0.15s ease; }
+  .chart-dot { transition: opacity 0.15s ease; }
+
+  /* ---- win/loss bars ---- */
+  .wl-list { display: flex; flex-direction: column; gap: 10px; }
+  .wl-row { display: grid; grid-template-columns: minmax(140px, 200px) 1fr auto; align-items: center; gap: 12px; }
+  .wl-team { display: flex; align-items: center; gap: 8px; font-size: 14px; min-width: 0; }
+  .wl-team img, .wl-team .fallback-logo {
+    width: 22px; height: 22px; border-radius: 4px; flex: none; object-fit: cover;
+  }
+  .wl-team .fallback-logo {
+    background: var(--paper-line); display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, monospace; font-size: 9px; color: var(--rail-dim);
+  }
+  .wl-team span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wl-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; background: var(--ground); border: 1px solid var(--paper-line); }
+  .wl-seg.wl-win { background: var(--win); }
+  .wl-seg.wl-loss { background: var(--loss); }
+  .wl-seg.wl-tie { background: var(--rail-dim); }
+  .wl-record {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--rail-dim);
+    white-space: nowrap;
+  }
+
+  /* ---- head to head ---- */
+  .h2h-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .h2h-controls label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  select.h2h-select {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: var(--rail);
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 220px;
+  }
+  select.h2h-select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .rename-note {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    color: var(--rail-dim);
+    opacity: 0.75;
+  }
+  .renamed-mark {
+    color: var(--brass);
+    font-size: 0.85em;
+    cursor: help;
+  }
+
+  .h2h-summary {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--rail-dim);
+  }
+  .h2h-summary strong { color: var(--accent); font-size: 15px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .table-wrap { overflow-x: auto; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--paper-line); vertical-align: middle; }
+  th {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+    font-weight: 400;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { font-family: ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 40px 20px;
+    border: 1px dashed var(--paper-line);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .empty-state .icon { font-size: 30px; opacity: 0.8; }
+  .empty-state p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 48ch; }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">League Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+  <span aria-hidden="true">/</span>
+  <a href="rules.html">League Rules</a>
+  <span aria-hidden="true">/</span>
+  <a href="standings.html">Standings</a>
+  <span aria-hidden="true">/</span>
+  <a href="hall-of-fame.html">Hall of Fame</a>
+  <span aria-hidden="true">/</span>
+  <span class="current">Team History</span>
+  <span aria-hidden="true">/</span>
+  <a href="constitution.html">Constitution</a>
+</nav>
+
+<div class="masthead">
+  <div class="title">Team <em>History</em></div>
+  <div class="sub">Every team's scoring, record, and head-to-head trail across league history</div>
+</div>
+
+<div id="pageBody" class="section">
+  <div class="empty-state">
+    <div class="icon">📈</div>
+    <p>Loading team history&hellip;</p>
+  </div>
+</div>
+
+<footer>Malaka's United &middot; built for our fantasy football crew</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var PALETTE = ["#ffb020", "#e8544a", "#5fb3d9", "#9b7fd4", "#7fd858", "#ff8fb1", "#6bc9c0", "#d9a441", "#8f9bd4", "#e0824a", "#57c785", "#c96bd4"];
+
+  var hiddenPF = new Set();
+  var hiddenPA = new Set();
+  var STATE = null; // { seasons, registry, teamIds, matchups }
+
+  function fmt1(n) { return typeof n === "number" ? n.toFixed(1) : "—"; }
+
+  function fallbackLogoHtml(name) {
+    return '<span class="fallback-logo">' + (name ? name.charAt(0) : "?") + '</span>';
+  }
+
+  function teamLogoHtml(team) {
+    return team.logo
+      ? '<img src="' + team.logo + '" alt="" loading="lazy">'
+      : fallbackLogoHtml(team.name);
+  }
+
+  // ---------------------------------------------------------------------
+  // Data shaping
+  // ---------------------------------------------------------------------
+
+  // Team names change season to season (rebrands, and sometimes a new owner taking
+  // over an existing roster slot). We key everything by ESPN's stable teamId, but
+  // surface every name a slot has used — via a "↺" marker + tooltip — rather than
+  // silently relabeling old seasons under whichever name is current today.
+  function buildRegistry(standings, history) {
+    var registry = new Map();
+    (standings && standings.teams || []).forEach(function (t) {
+      registry.set(t.teamId, { teamId: t.teamId, name: t.name, logo: t.logo || "" });
+    });
+    var seasonsAsc = (history.seasons || []).slice().sort(function (a, b) { return a.season - b.season; });
+    var nameHistory = new Map();
+    seasonsAsc.forEach(function (s) {
+      (s.teams || []).forEach(function (t) {
+        if (!registry.has(t.teamId)) {
+          registry.set(t.teamId, { teamId: t.teamId, name: t.name, logo: "" });
+        }
+        var arr = nameHistory.get(t.teamId) || [];
+        arr.push(t.name);
+        nameHistory.set(t.teamId, arr);
+      });
+    });
+    registry.forEach(function (team) {
+      var seen = new Set([team.name]);
+      var former = [];
+      (nameHistory.get(team.teamId) || []).forEach(function (n) {
+        if (!seen.has(n)) { seen.add(n); former.push(n); }
+      });
+      team.formerNames = former;
+    });
+    return registry;
+  }
+
+  function renamedMarkerHtml(team) {
+    if (!team || !team.formerNames || !team.formerNames.length) return "";
+    return ' <span class="renamed-mark" title="Also played as: ' + team.formerNames.join(", ") + '">&#8635;</span>';
+  }
+
+  function assignColors(teamIds) {
+    var sorted = teamIds.slice().sort(function (a, b) { return a - b; });
+    var colorById = new Map();
+    sorted.forEach(function (id, i) { colorById.set(id, PALETTE[i % PALETTE.length]); });
+    return colorById;
+  }
+
+  // ---------------------------------------------------------------------
+  // Line chart (Points For / Points Against)
+  // ---------------------------------------------------------------------
+
+  function buildSeriesForStat(seasons, teamIds, registry, colorById, statKey) {
+    return teamIds.map(function (teamId) {
+      var team = registry.get(teamId) || { name: "Team " + teamId };
+      var values = [];
+      var seasonNames = [];
+      seasons.forEach(function (s) {
+        var row = (s.teams || []).find(function (t) { return t.teamId === teamId; });
+        values.push(row ? row[statKey] : null);
+        seasonNames.push(row ? row.name : team.name);
+      });
+      return { teamId: teamId, name: team.name, seasonNames: seasonNames, color: colorById.get(teamId), values: values };
+    });
+  }
+
+  function lineChartSvg(seasonsAsc, series, hiddenSet) {
+    var W = 900, H = 400;
+    var padL = 50, padR = 16, padT = 16, padB = 34;
+    var plotW = W - padL - padR;
+    var plotH = H - padT - padB;
+
+    var visible = series.filter(function (s) { return !hiddenSet.has(s.teamId); });
+    var allValues = [];
+    (visible.length ? visible : series).forEach(function (s) {
+      s.values.forEach(function (v) { if (v != null) allValues.push(v); });
+    });
+    if (!allValues.length) allValues = [0, 1];
+    var minV = Math.min.apply(null, allValues);
+    var maxV = Math.max.apply(null, allValues);
+    if (minV === maxV) { minV -= 10; maxV += 10; }
+    var pad = (maxV - minV) * 0.1;
+    minV -= pad; maxV += pad;
+
+    function xFor(i) { return padL + (seasonsAsc.length <= 1 ? plotW / 2 : (i / (seasonsAsc.length - 1)) * plotW); }
+    function yFor(v) { return padT + plotH - ((v - minV) / (maxV - minV)) * plotH; }
+
+    var parts = ['<svg viewBox="0 0 ' + W + ' ' + H + '" class="line-chart-svg" role="img">'];
+
+    var ticks = 5;
+    for (var i = 0; i <= ticks; i++) {
+      var v = minV + (maxV - minV) * (i / ticks);
+      var y = yFor(v);
+      parts.push('<line x1="' + padL + '" y1="' + y.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + y.toFixed(1) + '" class="chart-gridline" />');
+      parts.push('<text x="' + (padL - 8) + '" y="' + (y + 4).toFixed(1) + '" class="chart-axis-label" text-anchor="end">' + Math.round(v) + '</text>');
+    }
+
+    seasonsAsc.forEach(function (yr, i) {
+      parts.push('<text x="' + xFor(i).toFixed(1) + '" y="' + (H - padB + 22) + '" class="chart-axis-label" text-anchor="middle">' + yr + '</text>');
+    });
+
+    series.forEach(function (s) {
+      if (hiddenSet.has(s.teamId)) return;
+      var pts = s.values.map(function (v, i) { return v == null ? null : [xFor(i), yFor(v)]; });
+      var d = "";
+      var drawing = false;
+      pts.forEach(function (p) {
+        if (!p) { drawing = false; return; }
+        d += (drawing ? " L " : "M ") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+        drawing = true;
+      });
+      parts.push('<path d="' + d + '" fill="none" stroke="' + s.color + '" stroke-width="2.5" class="chart-line" />');
+      pts.forEach(function (p, i) {
+        if (!p) return;
+        parts.push(
+          '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.5" fill="' + s.color + '" class="chart-dot">' +
+            '<title>' + (s.seasonNames ? s.seasonNames[i] : s.name) + ' — ' + seasonsAsc[i] + ': ' + fmt1(s.values[i]) + '</title>' +
+          '</circle>'
+        );
+      });
+    });
+
+    parts.push('</svg>');
+    return parts.join("");
+  }
+
+  function legendHtml(series, hiddenSet, groupId) {
+    var items = series.map(function (s) {
+      var isHidden = hiddenSet.has(s.teamId);
+      var team = STATE.registry.get(s.teamId);
+      return (
+        '<div class="legend-item' + (isHidden ? ' hidden' : '') + '" data-group="' + groupId + '" data-team="' + s.teamId + '">' +
+          '<span class="legend-swatch" style="background:' + s.color + '"></span>' +
+          '<span>' + s.name + renamedMarkerHtml(team) + '</span>' +
+        '</div>'
+      );
+    }).join("");
+    return (
+      '<div class="chart-legend-row">' +
+        '<div class="legend-actions">' +
+          '<button type="button" data-action="show-all" data-group="' + groupId + '">Show all</button>' +
+          '<button type="button" data-action="hide-all" data-group="' + groupId + '">Hide all</button>' +
+        '</div>' +
+        '<div class="chart-legend">' + items + '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderPointsChart(containerId, legendId, seasonsAsc, series, hiddenSet) {
+    document.getElementById(containerId).innerHTML = lineChartSvg(seasonsAsc, series, hiddenSet);
+    document.getElementById(legendId).innerHTML = legendHtml(series, hiddenSet, containerId);
+  }
+
+  function wireLegend(groupId, hiddenSet, onChange) {
+    document.addEventListener("click", function (e) {
+      var item = e.target.closest('.legend-item[data-group="' + groupId + '"]');
+      if (item) {
+        var teamId = Number(item.getAttribute("data-team"));
+        if (hiddenSet.has(teamId)) hiddenSet.delete(teamId); else hiddenSet.add(teamId);
+        onChange();
+        return;
+      }
+      var btn = e.target.closest('button[data-group="' + groupId + '"]');
+      if (btn) {
+        var action = btn.getAttribute("data-action");
+        if (action === "show-all") hiddenSet.clear();
+        if (action === "hide-all") STATE.teamIds.forEach(function (id) { hiddenSet.add(id); });
+        onChange();
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------------
+  // Career win/loss bars
+  // ---------------------------------------------------------------------
+
+  function careerRecords(history, registry) {
+    var totals = new Map();
+    (history.seasons || []).forEach(function (s) {
+      (s.teams || []).forEach(function (t) {
+        var rec = totals.get(t.teamId) || { teamId: t.teamId, wins: 0, losses: 0, ties: 0 };
+        rec.wins += t.wins;
+        rec.losses += t.losses;
+        rec.ties += t.ties;
+        totals.set(t.teamId, rec);
+      });
+    });
+    var list = Array.from(totals.values()).map(function (r) {
+      var team = registry.get(r.teamId) || { name: "Team " + r.teamId, logo: "" };
+      var games = r.wins + r.losses + r.ties;
+      var pct = games ? (r.wins + r.ties * 0.5) / games : 0;
+      return { teamId: r.teamId, name: team.name, logo: team.logo, formerNames: team.formerNames || [], wins: r.wins, losses: r.losses, ties: r.ties, pct: pct };
+    });
+    list.sort(function (a, b) { return b.pct - a.pct; });
+    return list;
+  }
+
+  function wlRowHtml(r) {
+    var games = r.wins + r.losses + r.ties;
+    var winPct = games ? (r.wins / games) * 100 : 0;
+    var lossPct = games ? (r.losses / games) * 100 : 0;
+    var tiePct = games ? (r.ties / games) * 100 : 0;
+    var pctStr = "." + String(Math.round(r.pct * 1000)).padStart(3, "0").slice(0, 3);
+    var recordStr = r.wins + "-" + r.losses + (r.ties ? "-" + r.ties : "") + "  (" + pctStr + ")";
+    return (
+      '<div class="wl-row">' +
+        '<div class="wl-team">' + teamLogoHtml(r) + '<span>' + r.name + renamedMarkerHtml(r) + '</span></div>' +
+        '<div class="wl-bar">' +
+          '<div class="wl-seg wl-win" style="width:' + winPct.toFixed(2) + '%"></div>' +
+          (tiePct ? '<div class="wl-seg wl-tie" style="width:' + tiePct.toFixed(2) + '%"></div>' : "") +
+          '<div class="wl-seg wl-loss" style="width:' + lossPct.toFixed(2) + '%"></div>' +
+        '</div>' +
+        '<div class="wl-record">' + recordStr + '</div>' +
+      '</div>'
+    );
+  }
+
+  // ---------------------------------------------------------------------
+  // Head to head
+  // ---------------------------------------------------------------------
+
+  function allMatchups(history) {
+    var all = [];
+    (history.seasons || []).forEach(function (s) {
+      (s.matchups || []).forEach(function (m) { all.push(m); });
+    });
+    return all;
+  }
+
+  function h2hFor(matchups, teamId) {
+    var recs = new Map();
+    matchups.forEach(function (m) {
+      var isHome = m.homeTeamId === teamId;
+      var isAway = m.awayTeamId === teamId;
+      if (!isHome && !isAway) return;
+      var oppId = isHome ? m.awayTeamId : m.homeTeamId;
+      var rec = recs.get(oppId) || { oppId: oppId, w: 0, l: 0, t: 0 };
+      if (m.winner === "TIE") {
+        rec.t++;
+      } else {
+        var teamWon = (m.winner === "HOME" && isHome) || (m.winner === "AWAY" && isAway);
+        if (teamWon) rec.w++; else rec.l++;
+      }
+      recs.set(oppId, rec);
+    });
+    return recs;
+  }
+
+  function renderH2H(teamId) {
+    var registry = STATE.registry;
+    var matchups = STATE.matchups;
+    var recs = h2hFor(matchups, teamId);
+    var team = registry.get(teamId) || { name: "Team " + teamId };
+
+    var totalW = 0, totalL = 0, totalT = 0;
+    var rows = STATE.teamIds
+      .filter(function (id) { return id !== teamId; })
+      .map(function (oppId) {
+        var opp = registry.get(oppId) || { name: "Team " + oppId };
+        var rec = recs.get(oppId) || { w: 0, l: 0, t: 0 };
+        totalW += rec.w; totalL += rec.l; totalT += rec.t;
+        var games = rec.w + rec.l + rec.t;
+        var pct = games ? (rec.w + rec.t * 0.5) / games : null;
+        return { opp: opp, w: rec.w, l: rec.l, t: rec.t, games: games, pct: pct };
+      });
+
+    rows.sort(function (a, b) {
+      if (a.games === 0 && b.games === 0) return a.opp.name.localeCompare(b.opp.name);
+      if (a.games === 0) return 1;
+      if (b.games === 0) return -1;
+      return b.pct - a.pct;
+    });
+
+    var summaryEl = document.getElementById("h2hSummary");
+    summaryEl.innerHTML =
+      team.name + renamedMarkerHtml(team) + '’s all-time record: <strong>' + totalW + '-' + totalL + (totalT ? "-" + totalT : "") + '</strong>' +
+      ' across ' + (totalW + totalL + totalT) + ' games.';
+
+    var bodyEl = document.getElementById("h2hTableBody");
+    bodyEl.innerHTML = rows.map(function (r) {
+      var recordStr = r.games ? (r.w + "-" + r.l + (r.t ? "-" + r.t : "")) : "—";
+      var pctStr = r.pct == null ? "—" : "." + String(Math.round(r.pct * 1000)).padStart(3, "0").slice(0, 3);
+      return (
+        "<tr>" +
+          "<td>" + '<div class="wl-team">' + teamLogoHtml(r.opp) + "<span>" + r.opp.name + renamedMarkerHtml(r.opp) + "</span></div>" + "</td>" +
+          '<td class="num">' + recordStr + "</td>" +
+          '<td class="num">' + r.games + "</td>" +
+          '<td class="num">' + pctStr + "</td>" +
+        "</tr>"
+      );
+    }).join("");
+  }
+
+  // ---------------------------------------------------------------------
+  // Page assembly
+  // ---------------------------------------------------------------------
+
+  function pageHtml() {
+    return (
+      '<div class="section">' +
+        '<div class="section-label">Points For, By Season</div>' +
+        '<p class="lede">Total regular-season points scored, tracked year over year. Click a team in the legend to hide or show its line.</p>' +
+        '<div class="panel">' +
+          '<div class="chart-wrap" id="pfChart"></div>' +
+          '<div id="pfLegend"></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="section">' +
+        '<div class="section-label">Points Against, By Season</div>' +
+        '<p class="lede">Total points surrendered, tracked year over year. Lower is better.</p>' +
+        '<div class="panel">' +
+          '<div class="chart-wrap" id="paChart"></div>' +
+          '<div id="paLegend"></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="section">' +
+        '<div class="section-label">Career Win-Loss</div>' +
+        '<p class="lede">Total regular-season record across every synced season, ranked by win percentage.</p>' +
+        '<div class="panel">' +
+          '<div class="wl-list" id="wlList"></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="section">' +
+        '<div class="section-label">Head-to-Head</div>' +
+        '<p class="lede">Pick a team to see its all-time record against every other franchise in the league.</p>' +
+        '<div class="panel">' +
+          '<div class="h2h-controls">' +
+            '<label for="h2hTeamSelect">Team</label>' +
+            '<select class="h2h-select" id="h2hTeamSelect"></select>' +
+          '</div>' +
+          '<div class="rename-note" id="h2hRenameNote">* has played under a different name in a past season — hover for details</div>' +
+          '<div class="h2h-summary" id="h2hSummary"></div>' +
+          '<div class="table-wrap">' +
+            '<table>' +
+              '<thead><tr><th>Opponent</th><th class="num">Record</th><th class="num">Games</th><th class="num">Win Pct</th></tr></thead>' +
+              '<tbody id="h2hTableBody"></tbody>' +
+            '</table>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function emptyStateHtml() {
+    return (
+      '<div class="empty-state">' +
+        '<div class="icon">📈</div>' +
+        '<p>No completed past seasons have synced yet. Once a season wraps, team scoring trends, win-loss records, and head-to-head history will show up here automatically.</p>' +
+      '</div>'
+    );
+  }
+
+  function init(standings, history) {
+    var seasons = (history.seasons || []).slice().sort(function (a, b) { return a.season - b.season; });
+
+    if (!seasons.length) {
+      document.getElementById("pageBody").innerHTML = emptyStateHtml();
+      return;
+    }
+
+    var registry = buildRegistry(standings, history);
+    var teamIdSet = new Set();
+    seasons.forEach(function (s) { (s.teams || []).forEach(function (t) { teamIdSet.add(t.teamId); }); });
+    var teamIds = Array.from(teamIdSet);
+    var colorById = assignColors(teamIds);
+    var seasonsAsc = seasons.map(function (s) { return s.season; });
+
+    STATE = {
+      registry: registry,
+      teamIds: teamIds.sort(function (a, b) {
+        var an = (registry.get(a) || {}).name || "";
+        var bn = (registry.get(b) || {}).name || "";
+        return an.localeCompare(bn);
+      }),
+      matchups: allMatchups(history),
+    };
+
+    document.getElementById("pageBody").innerHTML = pageHtml();
+
+    var pfSeries = buildSeriesForStat(seasons, teamIds, registry, colorById, "pointsFor");
+    var paSeries = buildSeriesForStat(seasons, teamIds, registry, colorById, "pointsAgainst");
+
+    function renderPF() { renderPointsChart("pfChart", "pfLegend", seasonsAsc, pfSeries, hiddenPF); }
+    function renderPA() { renderPointsChart("paChart", "paLegend", seasonsAsc, paSeries, hiddenPA); }
+    renderPF();
+    renderPA();
+    wireLegend("pfChart", hiddenPF, renderPF);
+    wireLegend("paChart", hiddenPA, renderPA);
+
+    var records = careerRecords(history, registry);
+    document.getElementById("wlList").innerHTML = records.map(wlRowHtml).join("");
+
+    var select = document.getElementById("h2hTeamSelect");
+    var anyRenamed = false;
+    select.innerHTML = STATE.teamIds.map(function (id) {
+      var t = registry.get(id) || { name: "Team " + id };
+      var former = t.formerNames && t.formerNames.length;
+      if (former) anyRenamed = true;
+      var titleAttr = former ? ' title="Also played as: ' + t.formerNames.join(", ") + '"' : "";
+      return '<option value="' + id + '"' + titleAttr + '>' + t.name + (former ? " *" : "") + '</option>';
+    }).join("");
+    document.getElementById("h2hRenameNote").style.display = anyRenamed ? "" : "none";
+    select.addEventListener("change", function () { renderH2H(Number(select.value)); });
+    if (STATE.teamIds.length) {
+      select.value = String(STATE.teamIds[0]);
+      renderH2H(STATE.teamIds[0]);
+    }
+  }
+
+  Promise.all([
+    fetch("data/espn-standings.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch("data/espn-history.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+  ]).then(function (results) {
+    var standings = results[0];
+    var history = results[1] || { seasons: [] };
+    init(standings, history);
+  });
+})();
+</script>
+
+</body>
+</html>
