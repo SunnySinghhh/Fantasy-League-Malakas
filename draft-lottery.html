@@ -1064,7 +1064,8 @@
 
   var TICK_MS = 90;
   var BASE_STEP = 0.0022; // tuned so an equal-odds race runs ~40-45s at 90ms ticks and 1x speed, before the stretch slowdown
-  var STRETCH_START = 0.8; // the last 20% of the lap eases off for a suspenseful, closer finish
+  var STRETCH_START = 0.92; // only the last 8% eases off, so the slowdown can't collapse the whole field together
+  var STRETCH_FLOOR = 0.62; // mild easing — enough for a suspenseful nose-to-nose finish up front, not a field-wide pileup
 
   // Advances every unfinished horse by one tick. Used both by the live
   // setInterval loop and by skipToEnd(), which just calls this in a tight
@@ -1077,9 +1078,13 @@
       var s = rs.state[t.id];
       if (s.done) return;
 
-      var jitter = 0.35 + Math.random() * 1.05;
+      // Same average pace as a tighter range (mean ~0.875), but much more
+      // variance — a narrow range averages out over ~500+ ticks (law of large
+      // numbers), which is what was collapsing the whole field together at
+      // the finish regardless of the stretch easing below.
+      var jitter = 0.05 + Math.random() * 1.65;
       var stretchEase = s.progress > STRETCH_START
-        ? lerp(1, 0.32, Math.min(1, (s.progress - STRETCH_START) / (1 - STRETCH_START)))
+        ? lerp(1, STRETCH_FLOOR, Math.min(1, (s.progress - STRETCH_START) / (1 - STRETCH_START)))
         : 1;
 
       var step = jitter * s.weight * stretchEase * BASE_STEP * speedMultiplier;
