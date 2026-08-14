@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Rules</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --lose: #e2604f;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --lose: #e2604f;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --lose: #a4342a;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--ground);
+    padding: 10px 0;
+  }
+  .toc a {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--rail-dim);
+    border: 1px solid var(--paper-line);
+    background: var(--paper);
+    border-radius: 999px;
+    padding: 7px 14px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .rule-section {
+    scroll-margin-top: 56px;
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 26px clamp(18px, 3vw, 32px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .rule-section h2 { font-size: 24px; }
+  .rule-section > p.lede {
+    color: var(--rail-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .table-wrap { overflow-x: auto; }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--paper-line);
+    vertical-align: top;
+  }
+  th {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+    font-weight: 400;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-variant-numeric: tabular-nums; }
+
+  .zoom-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 4px;
+  }
+  .zoom-link:hover { text-decoration: underline; }
+
+  .pill {
+    display: inline-block;
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+  .pill.paid { color: var(--win); border-color: var(--win); background: color-mix(in srgb, var(--win) 12%, transparent); }
+  .pill.unpaid { color: var(--lose); border-color: var(--lose); background: color-mix(in srgb, var(--lose) 12%, transparent); }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .stat {
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat .label {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .stat .value {
+    font-size: 22px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .value.accent { color: var(--accent); }
+
+  .payout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .payout-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--ground);
+  }
+  .payout-row:not(:last-child) { border-bottom: 1px solid var(--paper-line); }
+  .payout-row .place { font-weight: 700; }
+  .payout-row .amount { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 700; }
+  .payout-row .pct { color: var(--rail-dim); font-size: 12px; margin-left: 8px; }
+
+  .note {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--rail-dim);
+    border-left: 2px solid var(--brass);
+    padding-left: 12px;
+  }
+
+  .bracket-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .bracket-step {
+    flex: 1 1 150px;
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .bracket-step .step-label {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .bracket-step p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--rail-dim); }
+  .bracket-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rail-dim);
+    font-size: 18px;
+    flex: 0 0 auto;
+  }
+
+  .locked-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 40px 20px;
+    border: 1px dashed var(--paper-line);
+    border-radius: 6px;
+    background: var(--ground);
+  }
+  .locked-card .lock-icon { font-size: 34px; opacity: 0.8; }
+  .locked-card .locked-title {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .locked-card p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 42ch; }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">League Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+  <span aria-hidden="true">/</span>
+  <span class="current">League Rules</span>
+</nav>
+
+<div class="masthead">
+  <div class="title">League <em>Rules</em></div>
+  <div class="sub">The fine print, mostly enforced</div>
+</div>
+
+<nav class="toc">
+  <a href="#schedule">Schedule</a>
+  <a href="#buyin">Buy-In &amp; Payouts</a>
+  <a href="#scoring">Scoring &amp; Roster</a>
+  <a href="#playoffs">Playoff Format</a>
+  <a href="#punishment">The Punishment</a>
+</nav>
+
+<section class="rule-section" id="schedule">
+  <div class="section-label">Section 1</div>
+  <h2>Schedule</h2>
+  <p class="lede">Every key date on the league calendar, in one place. Location and Zoom link are shown where they apply.</p>
+  <div class="table-wrap">
+    <table id="scheduleTable">
+      <thead>
+        <tr><th>Event</th><th>Date</th><th>Time</th><th>Location</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="rule-section" id="buyin">
+  <div class="section-label">Section 2</div>
+  <h2>Buy-In &amp; Payouts</h2>
+  <p class="lede">What it costs to play, where the money goes, and who's squared up.</p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="label">Buy-In</div><div class="value" id="buyinValue">—</div></div>
+    <div class="stat"><div class="label">Teams</div><div class="value" id="teamCountValue">—</div></div>
+    <div class="stat"><div class="label">Total Pot</div><div class="value accent" id="potValue">—</div></div>
+    <div class="stat"><div class="label">Collected</div><div class="value" id="collectedValue">—</div></div>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom: 10px;">Payout Structure</div>
+    <div class="payout-list" id="payoutList"></div>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom: 10px;">Who's Paid</div>
+    <div class="table-wrap">
+      <table id="paymentTable">
+        <thead><tr><th>Team</th><th>Status</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="note">This list is updated by hand whenever a payment comes in — it isn't wired to Venmo or any payment processor. If your name says unpaid and you know you sent it, yell at the commissioner.</p>
+  </div>
+</section>
+
+<section class="rule-section" id="scoring">
+  <div class="section-label">Section 3</div>
+  <h2>Scoring &amp; Roster</h2>
+  <p class="lede">12-team, full PPR, run on ESPN Fantasy Football.</p>
+
+  <div>
+    <div class="section-label" style="margin-bottom: 10px;">Starting Lineup</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Slot</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Quarterback (QB)</td><td class="num">1</td></tr>
+          <tr><td>Running Back (RB)</td><td class="num">2</td></tr>
+          <tr><td>Wide Receiver (WR)</td><td class="num">2</td></tr>
+          <tr><td>Flex (RB/WR/TE)</td><td class="num">1</td></tr>
+          <tr><td>Tight End (TE)</td><td class="num">1</td></tr>
+          <tr><td>Kicker (K)</td><td class="num">1</td></tr>
+          <tr><td>Defense/Special Teams (D/ST)</td><td class="num">1</td></tr>
+          <tr><td>Bench</td><td class="num">7</td></tr>
+          <tr><td>Injured Reserve (IR)</td><td class="num">1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">9 starters + 7 bench + 1 IR = 17 roster spots per team. Scoring is full PPR (1 point per reception).</p>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom: 10px;">Waivers: FAAB</div>
+    <p style="font-size: 14.5px; line-height: 1.65; color: var(--rail-dim); max-width: 70ch; margin: 0;">
+      This league uses <strong style="color: var(--rail);">FAAB</strong> (Free Agent Acquisition Budget) instead of a
+      rolling waiver-priority order. Every team starts the season with the same virtual budget. When a player hits
+      the waiver wire, each interested team submits a blind bid &mdash; a secret dollar amount from their remaining
+      budget &mdash; for that player. Nobody sees what anyone else bid. When the waiver period processes, the highest
+      bidder wins the player and that amount is permanently deducted from their budget; everyone else keeps their
+      bid in reserve. If two teams submit the same top bid, ESPN's waiver tiebreaker order decides it. There's no
+      refill during the season, so spend deliberately &mdash; blowing your budget on a Week 3 flyer means nothing left
+      for the Week 12 injury-replacement scramble.
+    </p>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom: 10px;">Injured Reserve (IR)</div>
+    <p style="font-size: 14.5px; line-height: 1.65; color: var(--rail-dim); max-width: 70ch; margin: 0;">
+      The IR slot is a bonus roster spot for players who are genuinely banged up. Only players ESPN has flagged
+      with an IR, IL, or Out designation are eligible to occupy it. Stashing a player there doesn't cost you a
+      bench spot &mdash; it opens one up, so you can use the extra room to add a free agent or waiver pickup while
+      the injured player sits out. To activate someone off IR, you move them back into an open bench or starting
+      spot, dropping a player first if your roster is full. Players who are merely suspended don't qualify &mdash;
+      IR is for injuries, not for suspensions.
+    </p>
+  </div>
+</section>
+
+<section class="rule-section" id="playoffs">
+  <div class="section-label">Section 4</div>
+  <h2>Playoff Format: The Losers Bracket</h2>
+  <p class="lede">Missing the playoffs doesn't mean your season is over &mdash; it means you're playing for something worse than a trophy.</p>
+
+  <div class="bracket-flow">
+    <div class="bracket-step">
+      <div class="step-label">Regular Season</div>
+      <p>All 12 teams play a full regular season. Final standings set seeding for both brackets.</p>
+    </div>
+    <div class="bracket-arrow">&rarr;</div>
+    <div class="bracket-step">
+      <div class="step-label">Top Seeds</div>
+      <p>The top <strong style="color: var(--rail);" id="winnersSeedCount">—</strong> teams enter the Winners Bracket and play for the championship.</p>
+    </div>
+    <div class="bracket-arrow">&rarr;</div>
+    <div class="bracket-step">
+      <div class="step-label">Bottom Seeds</div>
+      <p>The remaining <strong style="color: var(--rail);" id="losersSeedCount">—</strong> teams enter the Losers Bracket, seeded by regular-season finish.</p>
+    </div>
+  </div>
+
+  <p style="font-size: 14.5px; line-height: 1.65; color: var(--rail-dim); max-width: 70ch; margin: 0;">
+    The Losers Bracket runs on the same weekly schedule as the Winners Bracket &mdash; it isn't optional and it
+    isn't over once you're eliminated from title contention. Every team in the bracket keeps setting a real lineup
+    every week; ESPN re-seeds each round based on who wins and loses within the bracket, so a hot week can still
+    move you up the ladder. After the final round, the bracket resolves into a full ranking from best-of-the-worst
+    down to dead last. That last spot is the one that matters most: whoever finishes at the bottom of the Losers
+    Bracket &mdash; meaning last place in the entire league &mdash; is the one who faces
+    <a href="#punishment" style="color: var(--accent);">the punishment</a>.
+  </p>
+
+  <p class="note" id="playoffWeeksNote">Playoff weeks: TBD. Update this section once the league sets the regular-season length and playoff-team count for the year.</p>
+</section>
+
+<section class="rule-section" id="punishment">
+  <div class="section-label">Section 5</div>
+  <h2>The Punishment</h2>
+  <div class="locked-card">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-title">Will Be Revealed Soon</div>
+    <p>Last place in the league doesn't just lose bragging rights. Details drop closer to the season &mdash; for now, just know it's being planned.</p>
+  </div>
+</section>
+
+<footer>Malaka's United &middot; built for our fantasy football crew</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- EDIT THIS SECTION to update league info -------------------------
+
+  var SCHEDULE = [
+    { event: "Draft Lottery", date: "TBD", time: "TBD", location: "TBD", zoom: "" },
+    { event: "Draft", date: "TBD", time: "TBD", location: "TBD", zoom: "" },
+    { event: "Trade Deadline", date: "TBD", time: "TBD", location: "", zoom: "" }
+  ];
+
+  var BUYIN = 50;         // dollars per team
+  var TEAM_COUNT = 12;
+
+  var PAYOUT_SPLIT = [
+    { place: "1st Place", pct: 60 },
+    { place: "2nd Place", pct: 25 },
+    { place: "3rd Place", pct: 15 }
+  ];
+
+  var PAYMENTS = [
+    { name: "Gridiron Gamblers", paid: false },
+    { name: "Waiver Wire Warlocks", paid: false },
+    { name: "Hail Mary Hooligans", paid: false },
+    { name: "Interception Nation", paid: false },
+    { name: "The Blitz Brigade", paid: false },
+    { name: "End Zone Elite", paid: false },
+    { name: "Fumble Dynasty", paid: false },
+    { name: "Red Zone Rogues", paid: false },
+    { name: "Pigskin Pirates", paid: false },
+    { name: "Turf Titans", paid: false },
+    { name: "Sunday Scorchers", paid: false },
+    { name: "Draft Day Dynasty", paid: false }
+  ];
+
+  var WINNERS_BRACKET_TEAMS = 6;
+  var PLAYOFF_WEEKS = "TBD";
+
+  // ------------------------------------------------------------------------
+
+  function money(n) {
+    return "$" + n.toLocaleString("en-US");
+  }
+
+  function renderSchedule() {
+    var tbody = document.querySelector("#scheduleTable tbody");
+    tbody.innerHTML = "";
+    SCHEDULE.forEach(function (row) {
+      var tr = document.createElement("tr");
+
+      var locationCell = row.location ? row.location : "&mdash;";
+      var zoomHtml = row.zoom
+        ? '<br><a class="zoom-link" href="' + row.zoom + '" target="_blank" rel="noopener">&#128421; Join via Zoom</a>'
+        : "";
+
+      tr.innerHTML =
+        "<td>" + row.event + "</td>" +
+        "<td>" + row.date + "</td>" +
+        "<td>" + row.time + "</td>" +
+        "<td>" + locationCell + zoomHtml + "</td>";
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderBuyIn() {
+    var pot = BUYIN * TEAM_COUNT;
+    var paidCount = PAYMENTS.filter(function (p) { return p.paid; }).length;
+    var collected = paidCount * BUYIN;
+
+    document.getElementById("buyinValue").textContent = money(BUYIN);
+    document.getElementById("teamCountValue").textContent = TEAM_COUNT;
+    document.getElementById("potValue").textContent = money(pot);
+    document.getElementById("collectedValue").textContent = money(collected) + " / " + money(pot);
+
+    var payoutList = document.getElementById("payoutList");
+    payoutList.innerHTML = "";
+    PAYOUT_SPLIT.forEach(function (p) {
+      var amount = Math.round(pot * (p.pct / 100));
+      var row = document.createElement("div");
+      row.className = "payout-row";
+      row.innerHTML =
+        '<span class="place">' + p.place + '<span class="pct">(' + p.pct + '%)</span></span>' +
+        '<span class="amount">' + money(amount) + '</span>';
+      payoutList.appendChild(row);
+    });
+
+    var paymentTbody = document.querySelector("#paymentTable tbody");
+    paymentTbody.innerHTML = "";
+    PAYMENTS.forEach(function (p) {
+      var tr = document.createElement("tr");
+      var pillClass = p.paid ? "paid" : "unpaid";
+      var pillText = p.paid ? "Paid" : "Unpaid";
+      tr.innerHTML =
+        "<td>" + p.name + "</td>" +
+        '<td><span class="pill ' + pillClass + '">' + pillText + "</span></td>";
+      paymentTbody.appendChild(tr);
+    });
+  }
+
+  function renderPlayoffs() {
+    document.getElementById("winnersSeedCount").textContent = WINNERS_BRACKET_TEAMS;
+    document.getElementById("losersSeedCount").textContent = TEAM_COUNT - WINNERS_BRACKET_TEAMS;
+    document.getElementById("playoffWeeksNote").textContent =
+      "Playoff weeks: " + PLAYOFF_WEEKS + ". Update this section once the league sets the regular-season length and playoff-team count for the year.";
+  }
+
+  renderSchedule();
+  renderBuyIn();
+  renderPlayoffs();
+})();
+</script>
+
+</body>
+</html>
