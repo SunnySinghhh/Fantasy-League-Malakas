@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hall of Fame</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .section { display: flex; flex-direction: column; gap: 14px; }
+
+  .record-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .record-card {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 22px;
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .record-card .record-label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .record-card .record-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .record-card .record-holder { font-size: 15px; }
+  .record-card .record-meta {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--rail-dim);
+  }
+
+  .season-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .season-card {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 20px clamp(16px, 3vw, 26px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .season-card .season-year {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .season-podium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .podium-slot { display: flex; align-items: flex-start; gap: 10px; }
+  .podium-slot .medal { font-size: 22px; line-height: 1.2; }
+  .podium-slot .slot-body { display: flex; flex-direction: column; gap: 2px; }
+  .podium-slot .slot-title {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .podium-slot .slot-name { font-size: 16px; font-weight: 700; }
+  .podium-slot .slot-record {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--rail-dim);
+  }
+  .podium-slot.champion .slot-name { color: var(--accent); }
+  .podium-slot.last .slot-name { color: var(--rail-dim); }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 40px 20px;
+    border: 1px dashed var(--paper-line);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .empty-state .icon { font-size: 30px; opacity: 0.8; }
+  .empty-state p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 48ch; }
+  .empty-state .sync-note {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    opacity: 0.75;
+  }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">League Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+  <span aria-hidden="true">/</span>
+  <a href="rules.html">League Rules</a>
+  <span aria-hidden="true">/</span>
+  <a href="standings.html">Standings</a>
+  <span aria-hidden="true">/</span>
+  <span class="current">Hall of Fame</span>
+  <span aria-hidden="true">/</span>
+  <a href="constitution.html">Constitution</a>
+</nav>
+
+<div class="masthead">
+  <div class="title">Hall of <em>Fame</em></div>
+  <div class="sub">Champions, records, and the good and bad of league history</div>
+</div>
+
+<div class="section">
+  <div class="section-label">League Records</div>
+  <div class="record-grid" id="recordGrid">
+    <div class="record-card">
+      <div class="record-label">Loading&hellip;</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Season by Season</div>
+  <div class="season-list" id="seasonList">
+    <div class="empty-state">
+      <div class="icon">🏆</div>
+      <p>Loading past seasons&hellip;</p>
+    </div>
+  </div>
+</div>
+
+<footer>Malaka's United &middot; built for our fantasy football crew</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  function fmtPoints(n) {
+    return typeof n === "number" ? n.toFixed(1) : "—";
+  }
+
+  function recordCardHtml(label, holderName, value, meta) {
+    return (
+      '<div class="record-card">' +
+        '<div class="record-label">' + label + '</div>' +
+        '<div class="record-value">' + value + '</div>' +
+        '<div class="record-holder">' + holderName + '</div>' +
+        '<div class="record-meta">' + meta + '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderRecords(history) {
+    var el = document.getElementById("recordGrid");
+    var points = history.records && history.records.points;
+    var weekHigh = history.records && history.records.weekHigh;
+
+    if (!points && !weekHigh) {
+      el.innerHTML =
+        '<div class="record-card"><div class="record-label">No records yet</div>' +
+        '<div class="record-meta">Records populate once a full season is synced.</div></div>';
+      return;
+    }
+
+    var html = "";
+    if (points) {
+      html += recordCardHtml(
+        "Most Points, Single Season",
+        points.name,
+        fmtPoints(points.pointsFor),
+        points.season + " season"
+      );
+    }
+    if (weekHigh) {
+      html += recordCardHtml(
+        "Highest Single-Week Score",
+        weekHigh.name,
+        fmtPoints(weekHigh.points),
+        weekHigh.season + " season, week " + weekHigh.week
+      );
+    }
+    el.innerHTML = html;
+  }
+
+  function podiumSlotHtml(cls, medal, title, team) {
+    if (!team) return "";
+    var recordStr = team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "");
+    return (
+      '<div class="podium-slot ' + cls + '">' +
+        '<div class="medal">' + medal + '</div>' +
+        '<div class="slot-body">' +
+          '<div class="slot-title">' + title + '</div>' +
+          '<div class="slot-name">' + team.name + '</div>' +
+          '<div class="slot-record">' + recordStr + '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function seasonCardHtml(s) {
+    return (
+      '<div class="season-card">' +
+        '<div class="season-year">' + s.season + ' Season</div>' +
+        '<div class="season-podium">' +
+          podiumSlotHtml("champion", "🏆", "Champion", s.champion) +
+          podiumSlotHtml("runner-up", "🥈", "Runner-Up", s.runnerUp) +
+          podiumSlotHtml("last", "🪑", "Last Place", s.lastPlace) +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderSeasons(history) {
+    var el = document.getElementById("seasonList");
+    var seasons = history.seasons || [];
+
+    if (!seasons.length) {
+      el.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="icon">🏆</div>' +
+          '<p>No completed past seasons have synced yet. Once a season wraps, its champion, runner-up, and last place finisher will show up here automatically.</p>' +
+          '<div class="sync-note">Pulled straight from ESPN, synced every 30 minutes.</div>' +
+        '</div>';
+      return;
+    }
+
+    el.innerHTML = seasons.map(seasonCardHtml).join("");
+  }
+
+  fetch("data/espn-history.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .catch(function () { return null; })
+    .then(function (history) {
+      history = history || { seasons: [], records: { points: null, weekHigh: null } };
+      renderRecords(history);
+      renderSeasons(history);
+    });
+})();
+</script>
+
+</body>
+</html>
