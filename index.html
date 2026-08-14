@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Home</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 62ch;
+  }
+  .hero p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--rail-dim);
+  }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 22px;
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--rail);
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .icon { font-size: 28px; }
+  .card h3 { font-size: 19px; }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--rail-dim); margin: 0; }
+  .card .cta {
+    margin-top: auto;
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .card.stub {
+    opacity: 0.55;
+    cursor: default;
+  }
+  .card.stub:hover { transform: none; border-color: var(--paper-line); }
+  .card.stub .cta { color: var(--rail-dim); }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="current">League Home</span>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+</nav>
+
+<div class="masthead">
+  <div class="title">The <em>League</em></div>
+  <div class="sub">Fantasy football headquarters</div>
+</div>
+
+<div class="hero">
+  <h1 style="font-size: 22px;">Welcome to the league site.</h1>
+  <p>
+    This is home base for standings, rules, trash talk, and anything else the
+    league needs — starting with the tool built for draft night.
+  </p>
+</div>
+
+<div>
+  <div class="section-label">This Season</div>
+  <div class="card-grid">
+    <a class="card" href="draft-lottery.html">
+      <div class="icon">🐎</div>
+      <h3>Post Position</h3>
+      <p>Run the weighted horse-race draft lottery live, on a big screen, to set this year's draft order.</p>
+      <div class="cta">Enter the paddock →</div>
+    </a>
+    <div class="card stub">
+      <div class="icon">🏆</div>
+      <h3>Standings</h3>
+      <p>Live standings and matchups, coming soon.</p>
+      <div class="cta">Coming soon</div>
+    </div>
+    <div class="card stub">
+      <div class="icon">📜</div>
+      <h3>League Rules</h3>
+      <p>Scoring, roster rules, and the fine print, coming soon.</p>
+      <div class="cta">Coming soon</div>
+    </div>
+  </div>
+</div>
+
+<footer>The League &middot; built for our fantasy football crew</footer>
+
+</body>
+</html>
