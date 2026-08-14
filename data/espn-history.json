@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-14T23:44:29.480Z",
+  "lastUpdated": "2026-08-14T23:53:03.569Z",
   "leagueId": "1166030619",
   "seasons": [
     {
@@ -124,6 +124,816 @@
           "pointsFor": 1643.1,
           "pointsAgainst": 1805.9,
           "finalRank": 11
+        }
+      ],
+      "matchups": [
+        {
+          "week": 1,
+          "homeTeamId": 4,
+          "homeScore": 152.4,
+          "awayTeamId": 3,
+          "awayScore": 80.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 7,
+          "homeScore": 131.7,
+          "awayTeamId": 2,
+          "awayScore": 106.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 6,
+          "homeScore": 101.4,
+          "awayTeamId": 11,
+          "awayScore": 86.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 10,
+          "homeScore": 94.8,
+          "awayTeamId": 8,
+          "awayScore": 111.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 9,
+          "homeScore": 134.9,
+          "awayTeamId": 12,
+          "awayScore": 113.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 1,
+          "homeScore": 79.5,
+          "awayTeamId": 5,
+          "awayScore": 133.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 3,
+          "homeScore": 76.7,
+          "awayTeamId": 2,
+          "awayScore": 139.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 11,
+          "homeScore": 116.2,
+          "awayTeamId": 4,
+          "awayScore": 111.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 6,
+          "homeScore": 98.5,
+          "awayTeamId": 7,
+          "awayScore": 151.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 8,
+          "homeScore": 129.8,
+          "awayTeamId": 12,
+          "awayScore": 119.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 5,
+          "homeScore": 91.4,
+          "awayTeamId": 10,
+          "awayScore": 111.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 1,
+          "homeScore": 128.2,
+          "awayTeamId": 9,
+          "awayScore": 120.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 11,
+          "homeScore": 118,
+          "awayTeamId": 3,
+          "awayScore": 144.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 2,
+          "homeScore": 153.9,
+          "awayTeamId": 6,
+          "awayScore": 101.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 4,
+          "homeScore": 109.1,
+          "awayTeamId": 7,
+          "awayScore": 97.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 5,
+          "homeScore": 115,
+          "awayTeamId": 8,
+          "awayScore": 104,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 12,
+          "homeScore": 112.6,
+          "awayTeamId": 1,
+          "awayScore": 139.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 10,
+          "homeScore": 89,
+          "awayTeamId": 9,
+          "awayScore": 125.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 3,
+          "homeScore": 114,
+          "awayTeamId": 6,
+          "awayScore": 148.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 7,
+          "homeScore": 98.7,
+          "awayTeamId": 11,
+          "awayScore": 139.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 4,
+          "homeScore": 120.7,
+          "awayTeamId": 2,
+          "awayScore": 93.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 8,
+          "homeScore": 132.7,
+          "awayTeamId": 1,
+          "awayScore": 139.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 9,
+          "homeScore": 146.9,
+          "awayTeamId": 5,
+          "awayScore": 116,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 10,
+          "homeScore": 104.4,
+          "awayTeamId": 12,
+          "awayScore": 122.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 7,
+          "homeScore": 136.4,
+          "awayTeamId": 3,
+          "awayScore": 125.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 6,
+          "homeScore": 101.9,
+          "awayTeamId": 4,
+          "awayScore": 138.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 11,
+          "homeScore": 113.1,
+          "awayTeamId": 2,
+          "awayScore": 153.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 9,
+          "homeScore": 123.2,
+          "awayTeamId": 8,
+          "awayScore": 125,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 1,
+          "homeScore": 117.5,
+          "awayTeamId": 10,
+          "awayScore": 97.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 5,
+          "homeScore": 124.7,
+          "awayTeamId": 12,
+          "awayScore": 113.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 3,
+          "homeScore": 100.7,
+          "awayTeamId": 8,
+          "awayScore": 139.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 4,
+          "homeScore": 125,
+          "awayTeamId": 10,
+          "awayScore": 87.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 2,
+          "homeScore": 105.8,
+          "awayTeamId": 12,
+          "awayScore": 122.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 11,
+          "homeScore": 102.5,
+          "awayTeamId": 5,
+          "awayScore": 96.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 6,
+          "homeScore": 129.6,
+          "awayTeamId": 1,
+          "awayScore": 98.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 7,
+          "homeScore": 108.6,
+          "awayTeamId": 9,
+          "awayScore": 154.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 8,
+          "homeScore": 107.3,
+          "awayTeamId": 4,
+          "awayScore": 96.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 10,
+          "homeScore": 93,
+          "awayTeamId": 2,
+          "awayScore": 116.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 12,
+          "homeScore": 122.8,
+          "awayTeamId": 11,
+          "awayScore": 126.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 5,
+          "homeScore": 149.1,
+          "awayTeamId": 6,
+          "awayScore": 116.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 1,
+          "homeScore": 114,
+          "awayTeamId": 7,
+          "awayScore": 119.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 9,
+          "homeScore": 139.5,
+          "awayTeamId": 3,
+          "awayScore": 91.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 2,
+          "homeScore": 139.2,
+          "awayTeamId": 8,
+          "awayScore": 86,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 11,
+          "homeScore": 117.1,
+          "awayTeamId": 10,
+          "awayScore": 60.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 6,
+          "homeScore": 168.7,
+          "awayTeamId": 12,
+          "awayScore": 116.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 7,
+          "homeScore": 110.4,
+          "awayTeamId": 5,
+          "awayScore": 118.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 3,
+          "homeScore": 121.8,
+          "awayTeamId": 1,
+          "awayScore": 115.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 4,
+          "homeScore": 107.5,
+          "awayTeamId": 9,
+          "awayScore": 130.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 8,
+          "homeScore": 183.9,
+          "awayTeamId": 11,
+          "awayScore": 83.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 10,
+          "homeScore": 128,
+          "awayTeamId": 6,
+          "awayScore": 125.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 12,
+          "homeScore": 100.7,
+          "awayTeamId": 7,
+          "awayScore": 136.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 5,
+          "homeScore": 92.7,
+          "awayTeamId": 3,
+          "awayScore": 125.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 1,
+          "homeScore": 111.3,
+          "awayTeamId": 4,
+          "awayScore": 117.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 9,
+          "homeScore": 117.3,
+          "awayTeamId": 2,
+          "awayScore": 96.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 6,
+          "homeScore": 78.2,
+          "awayTeamId": 8,
+          "awayScore": 123.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 7,
+          "homeScore": 153,
+          "awayTeamId": 10,
+          "awayScore": 121.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 3,
+          "homeScore": 141.4,
+          "awayTeamId": 12,
+          "awayScore": 117.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 4,
+          "homeScore": 111.5,
+          "awayTeamId": 5,
+          "awayScore": 117.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 2,
+          "homeScore": 131.6,
+          "awayTeamId": 1,
+          "awayScore": 117.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 11,
+          "homeScore": 101.6,
+          "awayTeamId": 9,
+          "awayScore": 176.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 8,
+          "homeScore": 120.4,
+          "awayTeamId": 7,
+          "awayScore": 98.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 10,
+          "homeScore": 69.7,
+          "awayTeamId": 3,
+          "awayScore": 92.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 12,
+          "homeScore": 144.6,
+          "awayTeamId": 4,
+          "awayScore": 111.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 5,
+          "homeScore": 85.2,
+          "awayTeamId": 2,
+          "awayScore": 106.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 1,
+          "homeScore": 125.3,
+          "awayTeamId": 11,
+          "awayScore": 107.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 9,
+          "homeScore": 142,
+          "awayTeamId": 6,
+          "awayScore": 105.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 4,
+          "homeScore": 116.9,
+          "awayTeamId": 3,
+          "awayScore": 145.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 10,
+          "homeScore": 133.1,
+          "awayTeamId": 8,
+          "awayScore": 144.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 12,
+          "homeScore": 113.5,
+          "awayTeamId": 9,
+          "awayScore": 126.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 6,
+          "homeScore": 92.9,
+          "awayTeamId": 11,
+          "awayScore": 154,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 1,
+          "homeScore": 106.8,
+          "awayTeamId": 5,
+          "awayScore": 129,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 2,
+          "homeScore": 70.3,
+          "awayTeamId": 7,
+          "awayScore": 97.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 12,
+          "homeScore": 95.2,
+          "awayTeamId": 8,
+          "awayScore": 153.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 7,
+          "homeScore": 121.8,
+          "awayTeamId": 6,
+          "awayScore": 107.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 11,
+          "homeScore": 99.2,
+          "awayTeamId": 4,
+          "awayScore": 84.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 10,
+          "homeScore": 103.2,
+          "awayTeamId": 5,
+          "awayScore": 134.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 9,
+          "homeScore": 150.8,
+          "awayTeamId": 1,
+          "awayScore": 101.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 3,
+          "homeScore": 91.2,
+          "awayTeamId": 2,
+          "awayScore": 109.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 8,
+          "homeScore": 98.5,
+          "awayTeamId": 5,
+          "awayScore": 100.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 10,
+          "homeScore": 106.3,
+          "awayTeamId": 9,
+          "awayScore": 106.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 3,
+          "homeScore": 133.1,
+          "awayTeamId": 11,
+          "awayScore": 127.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 4,
+          "homeScore": 130,
+          "awayTeamId": 7,
+          "awayScore": 131.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 1,
+          "homeScore": 101.2,
+          "awayTeamId": 12,
+          "awayScore": 128,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 6,
+          "homeScore": 114.5,
+          "awayTeamId": 2,
+          "awayScore": 113,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 5,
+          "homeScore": 94.1,
+          "awayTeamId": 2,
+          "awayScore": 114.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 8,
+          "homeScore": 111.6,
+          "awayTeamId": 11,
+          "awayScore": 103.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 3,
+          "homeScore": 132.9,
+          "awayTeamId": 4,
+          "awayScore": 150.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 1,
+          "homeScore": 144.9,
+          "awayTeamId": 6,
+          "awayScore": 139.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 12,
+          "homeScore": 94.1,
+          "awayTeamId": 10,
+          "awayScore": 88.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 9,
+          "homeScore": 121.1,
+          "awayTeamId": 2,
+          "awayScore": 100.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 7,
+          "homeScore": 126.2,
+          "awayTeamId": 8,
+          "awayScore": 147.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 5,
+          "homeScore": 110,
+          "awayTeamId": 11,
+          "awayScore": 106.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 4,
+          "homeScore": 129,
+          "awayTeamId": 1,
+          "awayScore": 110.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 3,
+          "homeScore": 156.2,
+          "awayTeamId": 12,
+          "awayScore": 127.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 6,
+          "homeScore": 84.8,
+          "awayTeamId": 10,
+          "awayScore": 152.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 9,
+          "homeScore": 160.5,
+          "awayTeamId": 8,
+          "awayScore": 99.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 7,
+          "homeScore": 104.2,
+          "awayTeamId": 2,
+          "awayScore": 126.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 5,
+          "homeScore": 55.2,
+          "awayTeamId": 11,
+          "awayScore": 97.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 3,
+          "homeScore": 101.5,
+          "awayTeamId": 4,
+          "awayScore": 119.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 1,
+          "homeScore": 80.2,
+          "awayTeamId": 10,
+          "awayScore": 97.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 6,
+          "homeScore": 58.3,
+          "awayTeamId": 12,
+          "awayScore": 135.7,
+          "winner": "AWAY"
         }
       ],
       "champion": {
@@ -279,6 +1089,816 @@
           "finalRank": 12
         }
       ],
+      "matchups": [
+        {
+          "week": 1,
+          "homeTeamId": 5,
+          "homeScore": 106.4,
+          "awayTeamId": 7,
+          "awayScore": 138.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 12,
+          "homeScore": 142.6,
+          "awayTeamId": 3,
+          "awayScore": 117.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 1,
+          "homeScore": 82,
+          "awayTeamId": 4,
+          "awayScore": 113.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 10,
+          "homeScore": 117.4,
+          "awayTeamId": 2,
+          "awayScore": 141.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 11,
+          "homeScore": 131.5,
+          "awayTeamId": 8,
+          "awayScore": 86.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 9,
+          "homeScore": 126.7,
+          "awayTeamId": 6,
+          "awayScore": 91.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 7,
+          "homeScore": 97,
+          "awayTeamId": 3,
+          "awayScore": 114.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 4,
+          "homeScore": 142.4,
+          "awayTeamId": 5,
+          "awayScore": 132.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 1,
+          "homeScore": 122.5,
+          "awayTeamId": 12,
+          "awayScore": 131.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 2,
+          "homeScore": 118.9,
+          "awayTeamId": 8,
+          "awayScore": 110.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 6,
+          "homeScore": 89.4,
+          "awayTeamId": 10,
+          "awayScore": 92.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 9,
+          "homeScore": 133.2,
+          "awayTeamId": 11,
+          "awayScore": 130.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 4,
+          "homeScore": 92.2,
+          "awayTeamId": 7,
+          "awayScore": 140.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 3,
+          "homeScore": 154.9,
+          "awayTeamId": 1,
+          "awayScore": 113.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 5,
+          "homeScore": 150.9,
+          "awayTeamId": 12,
+          "awayScore": 98,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 6,
+          "homeScore": 85.6,
+          "awayTeamId": 2,
+          "awayScore": 146.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 8,
+          "homeScore": 102,
+          "awayTeamId": 9,
+          "awayScore": 98.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 10,
+          "homeScore": 156.6,
+          "awayTeamId": 11,
+          "awayScore": 66,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 7,
+          "homeScore": 92.3,
+          "awayTeamId": 1,
+          "awayScore": 114.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 12,
+          "homeScore": 135.6,
+          "awayTeamId": 4,
+          "awayScore": 106.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 5,
+          "homeScore": 120.2,
+          "awayTeamId": 3,
+          "awayScore": 134.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 2,
+          "homeScore": 107.8,
+          "awayTeamId": 9,
+          "awayScore": 96.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 11,
+          "homeScore": 131.8,
+          "awayTeamId": 6,
+          "awayScore": 92.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 10,
+          "homeScore": 122,
+          "awayTeamId": 8,
+          "awayScore": 140.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 12,
+          "homeScore": 125.9,
+          "awayTeamId": 7,
+          "awayScore": 143.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 1,
+          "homeScore": 131.4,
+          "awayTeamId": 5,
+          "awayScore": 114,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 4,
+          "homeScore": 141,
+          "awayTeamId": 3,
+          "awayScore": 109.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 11,
+          "homeScore": 119.3,
+          "awayTeamId": 2,
+          "awayScore": 123.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 9,
+          "homeScore": 127.1,
+          "awayTeamId": 10,
+          "awayScore": 90.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 6,
+          "homeScore": 114.5,
+          "awayTeamId": 8,
+          "awayScore": 111.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 7,
+          "homeScore": 96.6,
+          "awayTeamId": 2,
+          "awayScore": 128.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 5,
+          "homeScore": 144.8,
+          "awayTeamId": 10,
+          "awayScore": 123.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 3,
+          "homeScore": 112.3,
+          "awayTeamId": 8,
+          "awayScore": 143.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 4,
+          "homeScore": 119.4,
+          "awayTeamId": 6,
+          "awayScore": 98.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 1,
+          "homeScore": 134.9,
+          "awayTeamId": 9,
+          "awayScore": 119.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 12,
+          "homeScore": 105.1,
+          "awayTeamId": 11,
+          "awayScore": 72.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 2,
+          "homeScore": 132.3,
+          "awayTeamId": 5,
+          "awayScore": 123.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 10,
+          "homeScore": 89.9,
+          "awayTeamId": 3,
+          "awayScore": 127.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 8,
+          "homeScore": 117.7,
+          "awayTeamId": 4,
+          "awayScore": 121,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 6,
+          "homeScore": 82.9,
+          "awayTeamId": 1,
+          "awayScore": 113.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 9,
+          "homeScore": 103.6,
+          "awayTeamId": 12,
+          "awayScore": 105.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 11,
+          "homeScore": 97.9,
+          "awayTeamId": 7,
+          "awayScore": 103.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 3,
+          "homeScore": 134.3,
+          "awayTeamId": 2,
+          "awayScore": 124.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 4,
+          "homeScore": 135.3,
+          "awayTeamId": 10,
+          "awayScore": 137.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 1,
+          "homeScore": 105.6,
+          "awayTeamId": 8,
+          "awayScore": 135.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 12,
+          "homeScore": 93.9,
+          "awayTeamId": 6,
+          "awayScore": 125.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 7,
+          "homeScore": 106.7,
+          "awayTeamId": 9,
+          "awayScore": 141.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 5,
+          "homeScore": 121.9,
+          "awayTeamId": 11,
+          "awayScore": 132.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 2,
+          "homeScore": 145,
+          "awayTeamId": 4,
+          "awayScore": 131.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 10,
+          "homeScore": 103.2,
+          "awayTeamId": 1,
+          "awayScore": 110,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 8,
+          "homeScore": 127.7,
+          "awayTeamId": 12,
+          "awayScore": 101.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 6,
+          "homeScore": 117,
+          "awayTeamId": 7,
+          "awayScore": 115,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 9,
+          "homeScore": 106.7,
+          "awayTeamId": 5,
+          "awayScore": 164.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 11,
+          "homeScore": 130.4,
+          "awayTeamId": 3,
+          "awayScore": 120.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 1,
+          "homeScore": 107.9,
+          "awayTeamId": 2,
+          "awayScore": 82.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 12,
+          "homeScore": 108.1,
+          "awayTeamId": 10,
+          "awayScore": 99.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 7,
+          "homeScore": 165.2,
+          "awayTeamId": 8,
+          "awayScore": 82.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 5,
+          "homeScore": 98.6,
+          "awayTeamId": 6,
+          "awayScore": 108.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 3,
+          "homeScore": 78.5,
+          "awayTeamId": 9,
+          "awayScore": 117.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 4,
+          "homeScore": 127.7,
+          "awayTeamId": 11,
+          "awayScore": 96.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 2,
+          "homeScore": 159.9,
+          "awayTeamId": 12,
+          "awayScore": 96.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 10,
+          "homeScore": 133.1,
+          "awayTeamId": 7,
+          "awayScore": 118.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 8,
+          "homeScore": 169.9,
+          "awayTeamId": 5,
+          "awayScore": 91,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 6,
+          "homeScore": 111,
+          "awayTeamId": 3,
+          "awayScore": 105.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 9,
+          "homeScore": 134.6,
+          "awayTeamId": 4,
+          "awayScore": 114,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 11,
+          "homeScore": 118.1,
+          "awayTeamId": 1,
+          "awayScore": 136.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 5,
+          "homeScore": 111.6,
+          "awayTeamId": 7,
+          "awayScore": 116.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 10,
+          "homeScore": 97.7,
+          "awayTeamId": 2,
+          "awayScore": 170.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 12,
+          "homeScore": 143.5,
+          "awayTeamId": 3,
+          "awayScore": 151.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 6,
+          "homeScore": 90.6,
+          "awayTeamId": 9,
+          "awayScore": 103.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 4,
+          "homeScore": 77.5,
+          "awayTeamId": 1,
+          "awayScore": 110.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 11,
+          "homeScore": 111.6,
+          "awayTeamId": 8,
+          "awayScore": 118.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 8,
+          "homeScore": 90.4,
+          "awayTeamId": 2,
+          "awayScore": 108.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 3,
+          "homeScore": 163,
+          "awayTeamId": 7,
+          "awayScore": 136.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 4,
+          "homeScore": 110.2,
+          "awayTeamId": 5,
+          "awayScore": 115.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 1,
+          "homeScore": 103.2,
+          "awayTeamId": 12,
+          "awayScore": 105.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 11,
+          "homeScore": 141,
+          "awayTeamId": 9,
+          "awayScore": 139.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 10,
+          "homeScore": 139.5,
+          "awayTeamId": 6,
+          "awayScore": 115.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 2,
+          "homeScore": 140.7,
+          "awayTeamId": 6,
+          "awayScore": 109.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 7,
+          "homeScore": 139.2,
+          "awayTeamId": 4,
+          "awayScore": 111.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 3,
+          "homeScore": 126.7,
+          "awayTeamId": 1,
+          "awayScore": 122.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 8,
+          "homeScore": 127.6,
+          "awayTeamId": 9,
+          "awayScore": 112.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 11,
+          "homeScore": 139.6,
+          "awayTeamId": 10,
+          "awayScore": 113.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 12,
+          "homeScore": 88.2,
+          "awayTeamId": 5,
+          "awayScore": 185.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 1,
+          "homeScore": 125.6,
+          "awayTeamId": 7,
+          "awayScore": 149,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 8,
+          "homeScore": 172.9,
+          "awayTeamId": 9,
+          "awayScore": 125.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 12,
+          "homeScore": 93.2,
+          "awayTeamId": 4,
+          "awayScore": 100.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 11,
+          "homeScore": 161.2,
+          "awayTeamId": 5,
+          "awayScore": 181.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 10,
+          "homeScore": 108.2,
+          "awayTeamId": 6,
+          "awayScore": 97.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 2,
+          "homeScore": 154.5,
+          "awayTeamId": 7,
+          "awayScore": 145.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 3,
+          "homeScore": 123.8,
+          "awayTeamId": 8,
+          "awayScore": 128.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 1,
+          "homeScore": 88.6,
+          "awayTeamId": 9,
+          "awayScore": 107,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 4,
+          "homeScore": 73,
+          "awayTeamId": 5,
+          "awayScore": 160.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 12,
+          "homeScore": 104,
+          "awayTeamId": 10,
+          "awayScore": 154.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 11,
+          "homeScore": 189,
+          "awayTeamId": 6,
+          "awayScore": 146.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 2,
+          "homeScore": 176.6,
+          "awayTeamId": 8,
+          "awayScore": 115.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 3,
+          "homeScore": 149.6,
+          "awayTeamId": 7,
+          "awayScore": 84.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 1,
+          "homeScore": 139.7,
+          "awayTeamId": 9,
+          "awayScore": 127.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 5,
+          "homeScore": 134.5,
+          "awayTeamId": 10,
+          "awayScore": 112.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 4,
+          "homeScore": 120.1,
+          "awayTeamId": 11,
+          "awayScore": 91.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 12,
+          "homeScore": 103.3,
+          "awayTeamId": 6,
+          "awayScore": 143.1,
+          "winner": "AWAY"
+        }
+      ],
       "champion": {
         "name": "JPOPS",
         "wins": 12,
@@ -432,6 +2052,816 @@
           "finalRank": 12
         }
       ],
+      "matchups": [
+        {
+          "week": 1,
+          "homeTeamId": 11,
+          "homeScore": 72.4,
+          "awayTeamId": 10,
+          "awayScore": 104.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 9,
+          "homeScore": 148.5,
+          "awayTeamId": 12,
+          "awayScore": 106.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 6,
+          "homeScore": 114.9,
+          "awayTeamId": 4,
+          "awayScore": 137.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 7,
+          "homeScore": 111.8,
+          "awayTeamId": 1,
+          "awayScore": 70.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 2,
+          "homeScore": 93.6,
+          "awayTeamId": 3,
+          "awayScore": 88.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 8,
+          "homeScore": 96.4,
+          "awayTeamId": 5,
+          "awayScore": 71.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 10,
+          "homeScore": 120.2,
+          "awayTeamId": 12,
+          "awayScore": 85.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 4,
+          "homeScore": 129.1,
+          "awayTeamId": 11,
+          "awayScore": 129.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 6,
+          "homeScore": 149.8,
+          "awayTeamId": 9,
+          "awayScore": 134.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 1,
+          "homeScore": 114.8,
+          "awayTeamId": 3,
+          "awayScore": 104.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 5,
+          "homeScore": 100.8,
+          "awayTeamId": 7,
+          "awayScore": 109.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 8,
+          "homeScore": 126.9,
+          "awayTeamId": 2,
+          "awayScore": 132.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 4,
+          "homeScore": 175.3,
+          "awayTeamId": 10,
+          "awayScore": 148.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 12,
+          "homeScore": 128.1,
+          "awayTeamId": 6,
+          "awayScore": 100.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 11,
+          "homeScore": 109.2,
+          "awayTeamId": 9,
+          "awayScore": 117.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 5,
+          "homeScore": 145.6,
+          "awayTeamId": 1,
+          "awayScore": 91.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 3,
+          "homeScore": 132.2,
+          "awayTeamId": 8,
+          "awayScore": 115.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 7,
+          "homeScore": 85.5,
+          "awayTeamId": 2,
+          "awayScore": 148.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 10,
+          "homeScore": 117,
+          "awayTeamId": 6,
+          "awayScore": 79,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 9,
+          "homeScore": 163.9,
+          "awayTeamId": 4,
+          "awayScore": 165.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 11,
+          "homeScore": 65.2,
+          "awayTeamId": 12,
+          "awayScore": 104,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 1,
+          "homeScore": 131.1,
+          "awayTeamId": 8,
+          "awayScore": 130.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 2,
+          "homeScore": 85.5,
+          "awayTeamId": 5,
+          "awayScore": 139,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 7,
+          "homeScore": 109.7,
+          "awayTeamId": 3,
+          "awayScore": 104.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 9,
+          "homeScore": 158.1,
+          "awayTeamId": 10,
+          "awayScore": 81.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 6,
+          "homeScore": 89.9,
+          "awayTeamId": 11,
+          "awayScore": 134.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 4,
+          "homeScore": 188.6,
+          "awayTeamId": 12,
+          "awayScore": 95.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 2,
+          "homeScore": 123.3,
+          "awayTeamId": 1,
+          "awayScore": 68,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 8,
+          "homeScore": 94.7,
+          "awayTeamId": 7,
+          "awayScore": 96.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 5,
+          "homeScore": 113.5,
+          "awayTeamId": 3,
+          "awayScore": 158.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 10,
+          "homeScore": 117.5,
+          "awayTeamId": 1,
+          "awayScore": 90.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 11,
+          "homeScore": 118,
+          "awayTeamId": 7,
+          "awayScore": 144.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 12,
+          "homeScore": 92,
+          "awayTeamId": 3,
+          "awayScore": 105.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 4,
+          "homeScore": 126,
+          "awayTeamId": 5,
+          "awayScore": 95.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 6,
+          "homeScore": 119.6,
+          "awayTeamId": 8,
+          "awayScore": 96.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 9,
+          "homeScore": 133.5,
+          "awayTeamId": 2,
+          "awayScore": 92.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 1,
+          "homeScore": 131.8,
+          "awayTeamId": 11,
+          "awayScore": 101.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 7,
+          "homeScore": 90.6,
+          "awayTeamId": 12,
+          "awayScore": 111.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 3,
+          "homeScore": 107.3,
+          "awayTeamId": 4,
+          "awayScore": 164.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 5,
+          "homeScore": 104.6,
+          "awayTeamId": 6,
+          "awayScore": 120.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 8,
+          "homeScore": 75.8,
+          "awayTeamId": 9,
+          "awayScore": 133,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 2,
+          "homeScore": 93.4,
+          "awayTeamId": 10,
+          "awayScore": 96.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 12,
+          "homeScore": 102.6,
+          "awayTeamId": 1,
+          "awayScore": 112.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 4,
+          "homeScore": 148.1,
+          "awayTeamId": 7,
+          "awayScore": 123.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 6,
+          "homeScore": 114.1,
+          "awayTeamId": 3,
+          "awayScore": 119.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 9,
+          "homeScore": 149.6,
+          "awayTeamId": 5,
+          "awayScore": 86.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 10,
+          "homeScore": 156.5,
+          "awayTeamId": 8,
+          "awayScore": 114,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 11,
+          "homeScore": 108.1,
+          "awayTeamId": 2,
+          "awayScore": 142,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 1,
+          "homeScore": 118.4,
+          "awayTeamId": 4,
+          "awayScore": 123.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 7,
+          "homeScore": 91.7,
+          "awayTeamId": 6,
+          "awayScore": 113.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 3,
+          "homeScore": 139.1,
+          "awayTeamId": 9,
+          "awayScore": 87,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 5,
+          "homeScore": 93.6,
+          "awayTeamId": 10,
+          "awayScore": 134.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 8,
+          "homeScore": 160.8,
+          "awayTeamId": 11,
+          "awayScore": 62,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 2,
+          "homeScore": 114.2,
+          "awayTeamId": 12,
+          "awayScore": 79.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 6,
+          "homeScore": 65.6,
+          "awayTeamId": 1,
+          "awayScore": 123.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 9,
+          "homeScore": 136.7,
+          "awayTeamId": 7,
+          "awayScore": 152.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 10,
+          "homeScore": 128.2,
+          "awayTeamId": 3,
+          "awayScore": 128.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 11,
+          "homeScore": 128.9,
+          "awayTeamId": 5,
+          "awayScore": 86.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 12,
+          "homeScore": 126.1,
+          "awayTeamId": 8,
+          "awayScore": 121.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 4,
+          "homeScore": 76,
+          "awayTeamId": 2,
+          "awayScore": 117,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 1,
+          "homeScore": 134.9,
+          "awayTeamId": 9,
+          "awayScore": 121,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 7,
+          "homeScore": 71.1,
+          "awayTeamId": 10,
+          "awayScore": 130.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 3,
+          "homeScore": 135.2,
+          "awayTeamId": 11,
+          "awayScore": 110.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 5,
+          "homeScore": 104.5,
+          "awayTeamId": 12,
+          "awayScore": 104,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 8,
+          "homeScore": 84.8,
+          "awayTeamId": 4,
+          "awayScore": 93.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 2,
+          "homeScore": 100.3,
+          "awayTeamId": 6,
+          "awayScore": 102.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 1,
+          "homeScore": 111.6,
+          "awayTeamId": 7,
+          "awayScore": 109.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 3,
+          "homeScore": 152.7,
+          "awayTeamId": 2,
+          "awayScore": 87.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 11,
+          "homeScore": 137.4,
+          "awayTeamId": 10,
+          "awayScore": 127.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 6,
+          "homeScore": 118.8,
+          "awayTeamId": 4,
+          "awayScore": 150.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 8,
+          "homeScore": 134.4,
+          "awayTeamId": 5,
+          "awayScore": 133.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 12,
+          "homeScore": 113.2,
+          "awayTeamId": 9,
+          "awayScore": 136.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 3,
+          "homeScore": 153.5,
+          "awayTeamId": 1,
+          "awayScore": 134.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 5,
+          "homeScore": 96.3,
+          "awayTeamId": 7,
+          "awayScore": 121.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 4,
+          "homeScore": 117.8,
+          "awayTeamId": 11,
+          "awayScore": 112.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 6,
+          "homeScore": 94.6,
+          "awayTeamId": 9,
+          "awayScore": 104,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 12,
+          "homeScore": 131.8,
+          "awayTeamId": 10,
+          "awayScore": 138.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 8,
+          "homeScore": 134.7,
+          "awayTeamId": 2,
+          "awayScore": 138.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 1,
+          "homeScore": 124.1,
+          "awayTeamId": 5,
+          "awayScore": 105.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 7,
+          "homeScore": 93.6,
+          "awayTeamId": 2,
+          "awayScore": 114.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 3,
+          "homeScore": 103.7,
+          "awayTeamId": 8,
+          "awayScore": 88.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 11,
+          "homeScore": 124.1,
+          "awayTeamId": 9,
+          "awayScore": 139.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 6,
+          "homeScore": 154.6,
+          "awayTeamId": 12,
+          "awayScore": 117.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 4,
+          "homeScore": 117.3,
+          "awayTeamId": 10,
+          "awayScore": 119.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 9,
+          "homeScore": 125.2,
+          "awayTeamId": 2,
+          "awayScore": 123.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 10,
+          "homeScore": 108.2,
+          "awayTeamId": 1,
+          "awayScore": 77.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 7,
+          "homeScore": 113.7,
+          "awayTeamId": 6,
+          "awayScore": 99.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 11,
+          "homeScore": 119.6,
+          "awayTeamId": 12,
+          "awayScore": 115.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 8,
+          "homeScore": 124,
+          "awayTeamId": 5,
+          "awayScore": 102.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 4,
+          "homeScore": 103.5,
+          "awayTeamId": 9,
+          "awayScore": 115.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 3,
+          "homeScore": 130.1,
+          "awayTeamId": 10,
+          "awayScore": 117.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 2,
+          "homeScore": 130.8,
+          "awayTeamId": 1,
+          "awayScore": 133.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 7,
+          "homeScore": 124.8,
+          "awayTeamId": 11,
+          "awayScore": 103.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 6,
+          "homeScore": 112.3,
+          "awayTeamId": 8,
+          "awayScore": 140,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 12,
+          "homeScore": 92.9,
+          "awayTeamId": 5,
+          "awayScore": 94.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 3,
+          "homeScore": 122.8,
+          "awayTeamId": 9,
+          "awayScore": 85,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 4,
+          "homeScore": 129.1,
+          "awayTeamId": 10,
+          "awayScore": 100.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 2,
+          "homeScore": 99,
+          "awayTeamId": 1,
+          "awayScore": 132.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 7,
+          "homeScore": 91.6,
+          "awayTeamId": 8,
+          "awayScore": 133.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 11,
+          "homeScore": 105.3,
+          "awayTeamId": 5,
+          "awayScore": 151.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 6,
+          "homeScore": 163.2,
+          "awayTeamId": 12,
+          "awayScore": 78.6,
+          "winner": "HOME"
+        }
+      ],
       "champion": {
         "name": "The Navengers",
         "wins": 10,
@@ -583,6 +3013,816 @@
           "pointsFor": 1569.7,
           "pointsAgainst": 1520.5,
           "finalRank": 9
+        }
+      ],
+      "matchups": [
+        {
+          "week": 1,
+          "homeTeamId": 5,
+          "homeScore": 106.6,
+          "awayTeamId": 11,
+          "awayScore": 86.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 3,
+          "homeScore": 121.9,
+          "awayTeamId": 9,
+          "awayScore": 120.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 1,
+          "homeScore": 157.7,
+          "awayTeamId": 7,
+          "awayScore": 91.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 2,
+          "homeScore": 130.3,
+          "awayTeamId": 6,
+          "awayScore": 126.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 8,
+          "homeScore": 118,
+          "awayTeamId": 10,
+          "awayScore": 105.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "homeTeamId": 12,
+          "homeScore": 129.8,
+          "awayTeamId": 4,
+          "awayScore": 117.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 11,
+          "homeScore": 111.8,
+          "awayTeamId": 9,
+          "awayScore": 122.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 7,
+          "homeScore": 116.9,
+          "awayTeamId": 5,
+          "awayScore": 98.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 1,
+          "homeScore": 129.8,
+          "awayTeamId": 3,
+          "awayScore": 112.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 6,
+          "homeScore": 130.7,
+          "awayTeamId": 10,
+          "awayScore": 86.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 4,
+          "homeScore": 176.8,
+          "awayTeamId": 2,
+          "awayScore": 116.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "homeTeamId": 12,
+          "homeScore": 136.6,
+          "awayTeamId": 8,
+          "awayScore": 133.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 7,
+          "homeScore": 122.5,
+          "awayTeamId": 11,
+          "awayScore": 109.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 9,
+          "homeScore": 84.3,
+          "awayTeamId": 1,
+          "awayScore": 89.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 5,
+          "homeScore": 91.6,
+          "awayTeamId": 3,
+          "awayScore": 134.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 4,
+          "homeScore": 114.4,
+          "awayTeamId": 6,
+          "awayScore": 103.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 10,
+          "homeScore": 102.3,
+          "awayTeamId": 12,
+          "awayScore": 93.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "homeTeamId": 2,
+          "homeScore": 109,
+          "awayTeamId": 8,
+          "awayScore": 100.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 11,
+          "homeScore": 102.7,
+          "awayTeamId": 1,
+          "awayScore": 125.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 3,
+          "homeScore": 146.1,
+          "awayTeamId": 7,
+          "awayScore": 139.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 5,
+          "homeScore": 50.8,
+          "awayTeamId": 9,
+          "awayScore": 91.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 6,
+          "homeScore": 93.3,
+          "awayTeamId": 12,
+          "awayScore": 137.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 8,
+          "homeScore": 115.7,
+          "awayTeamId": 4,
+          "awayScore": 127.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 2,
+          "homeScore": 167,
+          "awayTeamId": 10,
+          "awayScore": 153.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 3,
+          "homeScore": 131.4,
+          "awayTeamId": 11,
+          "awayScore": 131.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 1,
+          "homeScore": 146,
+          "awayTeamId": 5,
+          "awayScore": 55.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 7,
+          "homeScore": 127.8,
+          "awayTeamId": 9,
+          "awayScore": 144.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 8,
+          "homeScore": 95,
+          "awayTeamId": 6,
+          "awayScore": 106.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 12,
+          "homeScore": 110.5,
+          "awayTeamId": 2,
+          "awayScore": 142,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 4,
+          "homeScore": 115.5,
+          "awayTeamId": 10,
+          "awayScore": 71.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 11,
+          "homeScore": 126.7,
+          "awayTeamId": 6,
+          "awayScore": 106,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 5,
+          "homeScore": 73.2,
+          "awayTeamId": 2,
+          "awayScore": 126.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 9,
+          "homeScore": 123.8,
+          "awayTeamId": 10,
+          "awayScore": 85.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 7,
+          "homeScore": 94.5,
+          "awayTeamId": 4,
+          "awayScore": 118.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 1,
+          "homeScore": 105.1,
+          "awayTeamId": 12,
+          "awayScore": 100.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "homeTeamId": 3,
+          "homeScore": 92.6,
+          "awayTeamId": 8,
+          "awayScore": 77.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 6,
+          "homeScore": 92.4,
+          "awayTeamId": 5,
+          "awayScore": 81.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 2,
+          "homeScore": 124.3,
+          "awayTeamId": 9,
+          "awayScore": 140.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 10,
+          "homeScore": 135.9,
+          "awayTeamId": 7,
+          "awayScore": 98.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 4,
+          "homeScore": 118.5,
+          "awayTeamId": 1,
+          "awayScore": 103.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 12,
+          "homeScore": 78.1,
+          "awayTeamId": 3,
+          "awayScore": 115.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "homeTeamId": 8,
+          "homeScore": 61.6,
+          "awayTeamId": 11,
+          "awayScore": 122.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 9,
+          "homeScore": 153.3,
+          "awayTeamId": 6,
+          "awayScore": 90.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 7,
+          "homeScore": 183,
+          "awayTeamId": 2,
+          "awayScore": 110.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 1,
+          "homeScore": 117.2,
+          "awayTeamId": 10,
+          "awayScore": 119.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 3,
+          "homeScore": 141.9,
+          "awayTeamId": 4,
+          "awayScore": 139.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 11,
+          "homeScore": 95.8,
+          "awayTeamId": 12,
+          "awayScore": 150.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "homeTeamId": 5,
+          "homeScore": 97.9,
+          "awayTeamId": 8,
+          "awayScore": 123.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 6,
+          "homeScore": 94.3,
+          "awayTeamId": 7,
+          "awayScore": 139.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 2,
+          "homeScore": 107,
+          "awayTeamId": 1,
+          "awayScore": 118.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 10,
+          "homeScore": 89.5,
+          "awayTeamId": 3,
+          "awayScore": 87.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 4,
+          "homeScore": 166.8,
+          "awayTeamId": 11,
+          "awayScore": 121.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 12,
+          "homeScore": 111.5,
+          "awayTeamId": 5,
+          "awayScore": 70.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "homeTeamId": 8,
+          "homeScore": 99.1,
+          "awayTeamId": 9,
+          "awayScore": 128,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 1,
+          "homeScore": 134.1,
+          "awayTeamId": 6,
+          "awayScore": 97.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 3,
+          "homeScore": 100,
+          "awayTeamId": 2,
+          "awayScore": 104.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 11,
+          "homeScore": 93,
+          "awayTeamId": 10,
+          "awayScore": 135.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 5,
+          "homeScore": 115.9,
+          "awayTeamId": 4,
+          "awayScore": 84.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 9,
+          "homeScore": 83.6,
+          "awayTeamId": 12,
+          "awayScore": 76.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "homeTeamId": 7,
+          "homeScore": 162.6,
+          "awayTeamId": 8,
+          "awayScore": 115.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 6,
+          "homeScore": 131.8,
+          "awayTeamId": 3,
+          "awayScore": 103.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 2,
+          "homeScore": 133.8,
+          "awayTeamId": 11,
+          "awayScore": 98.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 10,
+          "homeScore": 139.2,
+          "awayTeamId": 5,
+          "awayScore": 51.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 4,
+          "homeScore": 79.6,
+          "awayTeamId": 9,
+          "awayScore": 145.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 12,
+          "homeScore": 95.6,
+          "awayTeamId": 7,
+          "awayScore": 121.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "homeTeamId": 8,
+          "homeScore": 94.5,
+          "awayTeamId": 1,
+          "awayScore": 154.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 6,
+          "homeScore": 110.7,
+          "awayTeamId": 11,
+          "awayScore": 97.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 2,
+          "homeScore": 158.9,
+          "awayTeamId": 5,
+          "awayScore": 120.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 10,
+          "homeScore": 157.6,
+          "awayTeamId": 9,
+          "awayScore": 100.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 4,
+          "homeScore": 107.3,
+          "awayTeamId": 7,
+          "awayScore": 95.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 12,
+          "homeScore": 118.7,
+          "awayTeamId": 1,
+          "awayScore": 124.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "homeTeamId": 8,
+          "homeScore": 108.7,
+          "awayTeamId": 3,
+          "awayScore": 104.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 5,
+          "homeScore": 96.5,
+          "awayTeamId": 6,
+          "awayScore": 94.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 9,
+          "homeScore": 165.5,
+          "awayTeamId": 2,
+          "awayScore": 135.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 7,
+          "homeScore": 113.2,
+          "awayTeamId": 10,
+          "awayScore": 112.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 1,
+          "homeScore": 122.1,
+          "awayTeamId": 4,
+          "awayScore": 108.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 3,
+          "homeScore": 127.7,
+          "awayTeamId": 12,
+          "awayScore": 128.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "homeTeamId": 11,
+          "homeScore": 110,
+          "awayTeamId": 8,
+          "awayScore": 114.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 6,
+          "homeScore": 92.1,
+          "awayTeamId": 9,
+          "awayScore": 93.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 2,
+          "homeScore": 109.9,
+          "awayTeamId": 7,
+          "awayScore": 121.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 10,
+          "homeScore": 128.9,
+          "awayTeamId": 1,
+          "awayScore": 149.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 4,
+          "homeScore": 99.6,
+          "awayTeamId": 3,
+          "awayScore": 74.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 12,
+          "homeScore": 101.5,
+          "awayTeamId": 11,
+          "awayScore": 88.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "homeTeamId": 8,
+          "homeScore": 108.3,
+          "awayTeamId": 5,
+          "awayScore": 87.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 2,
+          "homeScore": 108.5,
+          "awayTeamId": 7,
+          "awayScore": 122.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 9,
+          "homeScore": 120.3,
+          "awayTeamId": 10,
+          "awayScore": 129.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 3,
+          "homeScore": 117,
+          "awayTeamId": 12,
+          "awayScore": 118.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 6,
+          "homeScore": 109.6,
+          "awayTeamId": 8,
+          "awayScore": 102.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "homeTeamId": 5,
+          "homeScore": 93.4,
+          "awayTeamId": 11,
+          "awayScore": 113.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 1,
+          "homeScore": 128.2,
+          "awayTeamId": 7,
+          "awayScore": 107.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 4,
+          "homeScore": 116.2,
+          "awayTeamId": 10,
+          "awayScore": 124,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 9,
+          "homeScore": 115.3,
+          "awayTeamId": 2,
+          "awayScore": 109.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 12,
+          "homeScore": 95.5,
+          "awayTeamId": 6,
+          "awayScore": 107.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 3,
+          "homeScore": 132.4,
+          "awayTeamId": 11,
+          "awayScore": 133.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "homeTeamId": 8,
+          "homeScore": 84.3,
+          "awayTeamId": 5,
+          "awayScore": 75.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 1,
+          "homeScore": 85.2,
+          "awayTeamId": 10,
+          "awayScore": 101.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 4,
+          "homeScore": 115.1,
+          "awayTeamId": 7,
+          "awayScore": 152,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 9,
+          "homeScore": 117.7,
+          "awayTeamId": 2,
+          "awayScore": 144.8,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 6,
+          "homeScore": 68.3,
+          "awayTeamId": 11,
+          "awayScore": 137.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 12,
+          "homeScore": 77,
+          "awayTeamId": 8,
+          "awayScore": 72,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "homeTeamId": 3,
+          "homeScore": 71.1,
+          "awayTeamId": 5,
+          "awayScore": 66.7,
+          "winner": "HOME"
         }
       ],
       "champion": {
