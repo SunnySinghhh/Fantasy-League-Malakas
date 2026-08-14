@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standings &amp; Scores</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --lose: #e2604f;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --lose: #e2604f;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --lose: #a4342a;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .page-section {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 26px clamp(18px, 3vw, 32px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .page-section h2 { font-size: 24px; }
+  .page-section > p.lede {
+    color: var(--rail-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .stat {
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat .label {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .stat .value {
+    font-size: 22px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .value.accent { color: var(--accent); }
+  .stat .value.live { color: var(--win); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .table-wrap { overflow-x: auto; }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--paper-line);
+    vertical-align: middle;
+  }
+  th {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+    font-weight: 400;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-variant-numeric: tabular-nums; }
+  td.rank { font-family: ui-monospace, monospace; color: var(--brass); }
+  .team-cell { display: flex; align-items: center; gap: 10px; }
+  .team-cell img { width: 26px; height: 26px; border-radius: 4px; object-fit: cover; flex: none; }
+  .team-cell .fallback-logo {
+    width: 26px; height: 26px; border-radius: 4px; flex: none;
+    background: var(--paper-line); display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, monospace; font-size: 10px; color: var(--rail-dim);
+  }
+
+  .matchup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .matchup-card {
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .matchup-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 14.5px;
+  }
+  .matchup-side .name { color: var(--rail-dim); }
+  .matchup-side.winner .name { color: var(--rail); font-weight: 700; }
+  .matchup-side .score { font-variant-numeric: tabular-nums; font-size: 16px; color: var(--rail-dim); }
+  .matchup-side.winner .score { color: var(--win); font-weight: 700; }
+  .matchup-vs {
+    text-align: center;
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+    opacity: 0.6;
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 36px 20px;
+    border: 1px dashed var(--paper-line);
+    border-radius: 6px;
+    background: var(--ground);
+  }
+  .empty-state .icon { font-size: 28px; opacity: 0.8; }
+  .empty-state p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 46ch; }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">League Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+  <span aria-hidden="true">/</span>
+  <a href="rules.html">League Rules</a>
+  <span aria-hidden="true">/</span>
+  <span class="current">Standings</span>
+</nav>
+
+<div class="masthead">
+  <div class="title">Standings <em>&amp; Scores</em></div>
+  <div class="sub">Synced straight from ESPN</div>
+</div>
+
+<div class="stat-row">
+  <div class="stat"><div class="label">Sync Status</div><div class="value" id="syncStatusValue">—</div></div>
+  <div class="stat"><div class="label">Current Week</div><div class="value accent" id="currentWeekValue">—</div></div>
+  <div class="stat"><div class="label">Last Updated</div><div class="value" id="lastUpdatedValue" style="font-size: 14px;">—</div></div>
+</div>
+
+<section class="page-section" id="scoreboard">
+  <div class="section-label">This Week</div>
+  <h2>Matchups</h2>
+  <div id="scoreboardContent"></div>
+</section>
+
+<section class="page-section" id="standings">
+  <div class="section-label">Season</div>
+  <h2>Standings</h2>
+  <div id="standingsContent"></div>
+</section>
+
+<footer>Malaka's United &middot; standings sync every 30 minutes via GitHub Actions</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  function fmtRecord(t) {
+    return t.wins + "-" + t.losses + (t.ties ? "-" + t.ties : "");
+  }
+
+  function fmtStreak(t) {
+    if (!t.streakLength) return "—";
+    var letter = t.streakType === "WIN" ? "W" : t.streakType === "LOSS" ? "L" : "T";
+    return letter + t.streakLength;
+  }
+
+  function fmtTimestamp(iso) {
+    if (!iso) return "Not synced yet";
+    var d = new Date(iso);
+    return d.toLocaleString("en-US", {
+      month: "short", day: "numeric", hour: "numeric", minute: "2-digit"
+    });
+  }
+
+  function teamCellHtml(name, logo) {
+    var logoHtml = logo
+      ? '<img src="' + logo + '" alt="" loading="lazy">'
+      : '<span class="fallback-logo">' + (name ? name.charAt(0) : "?") + '</span>';
+    return '<div class="team-cell">' + logoHtml + '<span>' + name + '</span></div>';
+  }
+
+  function emptyState(message) {
+    return '<div class="empty-state"><div class="icon">📡</div><p>' + message + '</p></div>';
+  }
+
+  function renderStandings(data) {
+    var el = document.getElementById("standingsContent");
+    if (!data || !data.teams || !data.teams.length) {
+      el.innerHTML = emptyState(
+        "No standings synced yet. Once the GitHub Actions sync runs (every 30 minutes, or triggered manually), team records will show up here automatically."
+      );
+      return;
+    }
+
+    var rows = data.teams.map(function (t) {
+      return (
+        "<tr>" +
+        '<td class="rank">' + t.rank + "</td>" +
+        "<td>" + teamCellHtml(t.name, t.logo) + "</td>" +
+        '<td class="num">' + fmtRecord(t) + "</td>" +
+        '<td class="num">' + t.pointsFor.toFixed(1) + "</td>" +
+        '<td class="num">' + t.pointsAgainst.toFixed(1) + "</td>" +
+        '<td class="num">' + fmtStreak(t) + "</td>" +
+        "</tr>"
+      );
+    }).join("");
+
+    el.innerHTML =
+      '<div class="table-wrap"><table><thead><tr>' +
+      "<th>Rk</th><th>Team</th><th>Record</th><th>PF</th><th>PA</th><th>Streak</th>" +
+      "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+  }
+
+  function renderScoreboard(data) {
+    var el = document.getElementById("scoreboardContent");
+    if (!data || !data.matchups || !data.matchups.length) {
+      el.innerHTML = emptyState(
+        "No matchups synced yet. This fills in once the season's underway and the sync job has run at least once."
+      );
+      return;
+    }
+
+    var cards = data.matchups.map(function (m) {
+      var homeWin = m.winner === "HOME";
+      var awayWin = m.winner === "AWAY";
+      var awayHtml = m.away
+        ? matchupSideHtml(m.away, awayWin)
+        : '<div class="matchup-side"><span class="name">BYE</span></div>';
+      return (
+        '<div class="matchup-card">' +
+        matchupSideHtml(m.home, homeWin) +
+        '<div class="matchup-vs">vs</div>' +
+        awayHtml +
+        "</div>"
+      );
+    }).join("");
+
+    el.innerHTML = '<div class="matchup-grid">' + cards + "</div>";
+  }
+
+  function matchupSideHtml(side, isWinner) {
+    return (
+      '<div class="matchup-side' + (isWinner ? " winner" : "") + '">' +
+      '<span class="name">' + side.name + "</span>" +
+      '<span class="score">' + side.score.toFixed(1) + "</span>" +
+      "</div>"
+    );
+  }
+
+  function setStats(standings, scoreboard) {
+    var synced = standings && standings.lastUpdated;
+    document.getElementById("syncStatusValue").textContent = synced ? "Live" : "Pending";
+    document.getElementById("syncStatusValue").className = "value" + (synced ? " live" : "");
+    document.getElementById("currentWeekValue").textContent = scoreboard && scoreboard.week ? scoreboard.week : "—";
+    document.getElementById("lastUpdatedValue").textContent = fmtTimestamp(standings && standings.lastUpdated);
+  }
+
+  Promise.all([
+    fetch("data/espn-standings.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch("data/espn-scoreboard.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+  ]).then(function (results) {
+    var standings = results[0];
+    var scoreboard = results[1];
+    setStats(standings, scoreboard);
+    renderScoreboard(scoreboard);
+    renderStandings(standings);
+  });
+})();
+</script>
+
+</body>
+</html>
