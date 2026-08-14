@@ -1149,9 +1149,23 @@
   runBtn.addEventListener("click", runRace);
   resetBtn.addEventListener("click", resetBoard);
 
-  renderEntries();
-  buildTrack();
-  renderBoard();
+  function initTeams(liveTeams) {
+    if (liveTeams && liveTeams.length) {
+      teams = liveTeams.map(function (t, i) {
+        return { id: "t" + t.teamId, name: t.name, rank: i + 1, color: PALETTE[i % PALETTE.length] };
+      });
+    }
+    renderEntries();
+    buildTrack();
+    renderBoard();
+  }
+
+  entriesEl.innerHTML = '<div class="rank-hint" style="margin:0;">Loading teams from live standings&hellip;</div>';
+
+  fetch("data/espn-standings.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) { initTeams(data && data.teams); })
+    .catch(function () { initTeams(null); });
 })();
 </script>
 
