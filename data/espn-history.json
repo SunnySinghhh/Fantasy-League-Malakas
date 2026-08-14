@@ -1,6 +1,631 @@
 {
-  "lastUpdated": null,
+  "lastUpdated": "2026-08-14T23:37:24.376Z",
   "leagueId": "1166030619",
-  "seasons": [],
-  "records": { "points": null, "weekHigh": null }
+  "seasons": [
+    {
+      "season": 2025,
+      "teams": [
+        {
+          "teamId": 1,
+          "name": "Sunny's Sp*rm Bank",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1595.1,
+          "pointsAgainst": 1732.1,
+          "finalRank": 10
+        },
+        {
+          "teamId": 2,
+          "name": "JPOPS",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1635,
+          "pointsAgainst": 1468.5,
+          "finalRank": 3
+        },
+        {
+          "teamId": 3,
+          "name": "The Navengers",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1583.2,
+          "pointsAgainst": 1722.6,
+          "finalRank": 8
+        },
+        {
+          "teamId": 4,
+          "name": "Byzantine Boomers",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1632.8,
+          "pointsAgainst": 1564,
+          "finalRank": 7
+        },
+        {
+          "teamId": 5,
+          "name": "Ecuador roof repair",
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1603.9,
+          "pointsAgainst": 1536.7,
+          "finalRank": 6
+        },
+        {
+          "teamId": 6,
+          "name": "CP Central",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1590.5,
+          "pointsAgainst": 1790.2,
+          "finalRank": 12
+        },
+        {
+          "teamId": 7,
+          "name": "Xios United",
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1693.2,
+          "pointsAgainst": 1617.5,
+          "finalRank": 4
+        },
+        {
+          "teamId": 8,
+          "name": "Pandelidis FC",
+          "wins": 10,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1760.7,
+          "pointsAgainst": 1516.8,
+          "finalRank": 2
+        },
+        {
+          "teamId": 9,
+          "name": "Milkballs Revengers ",
+          "wins": 11,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1895.6,
+          "pointsAgainst": 1503.5,
+          "finalRank": 1
+        },
+        {
+          "teamId": 10,
+          "name": "Perry Hall  Pickers ",
+          "wins": 3,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1401.2,
+          "pointsAgainst": 1683,
+          "finalRank": 9
+        },
+        {
+          "teamId": 11,
+          "name": "Chase Brown Kids",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1592.3,
+          "pointsAgainst": 1685.6,
+          "finalRank": 5
+        },
+        {
+          "teamId": 12,
+          "name": "DeeGotti's Welfare Warriors ",
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1643.1,
+          "pointsAgainst": 1805.9,
+          "finalRank": 11
+        }
+      ],
+      "champion": {
+        "name": "Milkballs Revengers ",
+        "wins": 11,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1895.6
+      },
+      "runnerUp": {
+        "name": "Pandelidis FC",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0
+      },
+      "lastPlace": {
+        "name": "CP Central",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0
+      },
+      "pointsLeader": {
+        "name": "Milkballs Revengers ",
+        "pointsFor": 1895.6
+      },
+      "weekHigh": {
+        "name": "Pandelidis FC",
+        "points": 183.9,
+        "week": 9
+      }
+    },
+    {
+      "season": 2024,
+      "teams": [
+        {
+          "teamId": 1,
+          "name": "Sunny's Soldiers",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1607.7,
+          "pointsAgainst": 1557.2,
+          "finalRank": 5
+        },
+        {
+          "teamId": 2,
+          "name": "JPOPS",
+          "wins": 12,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1830,
+          "pointsAgainst": 1516.7,
+          "finalRank": 1
+        },
+        {
+          "teamId": 3,
+          "name": "The Navengers",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1751.6,
+          "pointsAgainst": 1733.3,
+          "finalRank": 3
+        },
+        {
+          "teamId": 4,
+          "name": "Byzantine Boomers",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1644.3,
+          "pointsAgainst": 1694.5,
+          "finalRank": 9
+        },
+        {
+          "teamId": 5,
+          "name": "Ecuador roof repaire ",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1781.3,
+          "pointsAgainst": 1732.9,
+          "finalRank": 7
+        },
+        {
+          "teamId": 6,
+          "name": "CP Central",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1430.3,
+          "pointsAgainst": 1638.8,
+          "finalRank": 11
+        },
+        {
+          "teamId": 7,
+          "name": "Xios United",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1709.5,
+          "pointsAgainst": 1640.1,
+          "finalRank": 4
+        },
+        {
+          "teamId": 8,
+          "name": "The Jacking Goffs",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1663.9,
+          "pointsAgainst": 1614.4,
+          "finalRank": 2
+        },
+        {
+          "teamId": 9,
+          "name": "Milkballs Revengers ",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1659.7,
+          "pointsAgainst": 1584.9,
+          "finalRank": 6
+        },
+        {
+          "teamId": 10,
+          "name": "Perry Hall  Pickers ",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1616.8,
+          "pointsAgainst": 1733.6,
+          "finalRank": 8
+        },
+        {
+          "teamId": 11,
+          "name": "Brock Hard",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1619.4,
+          "pointsAgainst": 1678.3,
+          "finalRank": 10
+        },
+        {
+          "teamId": 12,
+          "name": "Purple P()ssy Eaters",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1580.2,
+          "pointsAgainst": 1770.1,
+          "finalRank": 12
+        }
+      ],
+      "champion": {
+        "name": "JPOPS",
+        "wins": 12,
+        "losses": 2,
+        "ties": 0,
+        "pointsFor": 1830
+      },
+      "runnerUp": {
+        "name": "The Jacking Goffs",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0
+      },
+      "lastPlace": {
+        "name": "Purple P()ssy Eaters",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0
+      },
+      "pointsLeader": {
+        "name": "JPOPS",
+        "pointsFor": 1830
+      },
+      "weekHigh": {
+        "name": "Brock Hard",
+        "points": 189,
+        "week": 16
+      }
+    },
+    {
+      "season": 2023,
+      "teams": [
+        {
+          "teamId": 1,
+          "name": "Sunny's S*X! Workers",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1557.5,
+          "pointsAgainst": 1616.4,
+          "finalRank": 5
+        },
+        {
+          "teamId": 2,
+          "name": "JPOPS",
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1582.5,
+          "pointsAgainst": 1484.7,
+          "finalRank": 6
+        },
+        {
+          "teamId": 3,
+          "name": "The Navengers",
+          "wins": 10,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1733.5,
+          "pointsAgainst": 1554.5,
+          "finalRank": 1
+        },
+        {
+          "teamId": 4,
+          "name": "Byzantine Boomers",
+          "wins": 11,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1913,
+          "pointsAgainst": 1649.4,
+          "finalRank": 3
+        },
+        {
+          "teamId": 5,
+          "name": "Telako Gridiron Club",
+          "wins": 3,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1477.2,
+          "pointsAgainst": 1684.4,
+          "finalRank": 9
+        },
+        {
+          "teamId": 6,
+          "name": "Baltimore Bricks",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1539.1,
+          "pointsAgainst": 1658.6,
+          "finalRank": 11
+        },
+        {
+          "teamId": 7,
+          "name": "Xios United",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1510.9,
+          "pointsAgainst": 1600.2,
+          "finalRank": 8
+        },
+        {
+          "teamId": 8,
+          "name": "Chow Central",
+          "wins": 3,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1574.1,
+          "pointsAgainst": 1630.5,
+          "finalRank": 7
+        },
+        {
+          "teamId": 9,
+          "name": "Milkballs Revengers ",
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1862.9,
+          "pointsAgainst": 1625.3,
+          "finalRank": 2
+        },
+        {
+          "teamId": 10,
+          "name": "Perry Hall  Pickers ",
+          "wins": 10,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1720.7,
+          "pointsAgainst": 1547.4,
+          "finalRank": 4
+        },
+        {
+          "teamId": 11,
+          "name": "Waddles World",
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1514.1,
+          "pointsAgainst": 1729.9,
+          "finalRank": 10
+        },
+        {
+          "teamId": 12,
+          "name": "Purple P()ssy Eaters",
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1497.5,
+          "pointsAgainst": 1701.8,
+          "finalRank": 12
+        }
+      ],
+      "champion": {
+        "name": "The Navengers",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1733.5
+      },
+      "runnerUp": {
+        "name": "Milkballs Revengers ",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0
+      },
+      "lastPlace": {
+        "name": "Purple P()ssy Eaters",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0
+      },
+      "pointsLeader": {
+        "name": "Byzantine Boomers",
+        "pointsFor": 1913
+      },
+      "weekHigh": {
+        "name": "Byzantine Boomers",
+        "points": 188.6,
+        "week": 5
+      }
+    },
+    {
+      "season": 2022,
+      "teams": [
+        {
+          "teamId": 1,
+          "name": "Osama Bin Madden",
+          "wins": 12,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1777.4,
+          "pointsAgainst": 1440.7,
+          "finalRank": 2
+        },
+        {
+          "teamId": 2,
+          "name": "Team Select",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1775.3,
+          "pointsAgainst": 1788.9,
+          "finalRank": 5
+        },
+        {
+          "teamId": 3,
+          "name": "The Navengers",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1593.7,
+          "pointsAgainst": 1570.4,
+          "finalRank": 11
+        },
+        {
+          "teamId": 4,
+          "name": "Byzantine Boomers",
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1674.9,
+          "pointsAgainst": 1552.1,
+          "finalRank": 4
+        },
+        {
+          "teamId": 5,
+          "name": "Feem  Dealer ",
+          "wins": 3,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1198,
+          "pointsAgainst": 1614.1,
+          "finalRank": 12
+        },
+        {
+          "teamId": 6,
+          "name": "Baltimore Bricks",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1470.5,
+          "pointsAgainst": 1588.7,
+          "finalRank": 8
+        },
+        {
+          "teamId": 7,
+          "name": "Xios United",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1727.5,
+          "pointsAgainst": 1656.6,
+          "finalRank": 3
+        },
+        {
+          "teamId": 8,
+          "name": "Vick's  Doghouse",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1464.7,
+          "pointsAgainst": 1645.7,
+          "finalRank": 10
+        },
+        {
+          "teamId": 9,
+          "name": "Milkballs Revengers ",
+          "wins": 11,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1698.6,
+          "pointsAgainst": 1443.2,
+          "finalRank": 6
+        },
+        {
+          "teamId": 10,
+          "name": "Perry Hall  Pickers ",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1622.8,
+          "pointsAgainst": 1559.8,
+          "finalRank": 1
+        },
+        {
+          "teamId": 11,
+          "name": "Patty's Mahomies",
+          "wins": 2,
+          "losses": 12,
+          "ties": 0,
+          "pointsFor": 1497,
+          "pointsAgainst": 1689.3,
+          "finalRank": 7
+        },
+        {
+          "teamId": 12,
+          "name": "O’Block Steppas",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1569.7,
+          "pointsAgainst": 1520.5,
+          "finalRank": 9
+        }
+      ],
+      "champion": {
+        "name": "Perry Hall  Pickers ",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1622.8
+      },
+      "runnerUp": {
+        "name": "Osama Bin Madden",
+        "wins": 12,
+        "losses": 2,
+        "ties": 0
+      },
+      "lastPlace": {
+        "name": "Feem  Dealer ",
+        "wins": 3,
+        "losses": 11,
+        "ties": 0
+      },
+      "pointsLeader": {
+        "name": "Osama Bin Madden",
+        "pointsFor": 1777.4
+      },
+      "weekHigh": {
+        "name": "Xios United",
+        "points": 183,
+        "week": 8
+      }
+    }
+  ],
+  "records": {
+    "points": {
+      "name": "Byzantine Boomers",
+      "pointsFor": 1913,
+      "season": 2023
+    },
+    "weekHigh": {
+      "name": "Brock Hard",
+      "points": 189,
+      "week": 16,
+      "season": 2024
+    }
+  }
 }
