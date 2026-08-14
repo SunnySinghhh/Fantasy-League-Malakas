@@ -276,39 +276,6 @@
     padding-left: 12px;
   }
 
-  .bracket-flow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: stretch;
-  }
-  .bracket-step {
-    flex: 1 1 150px;
-    background: var(--ground);
-    border: 1px solid var(--paper-line);
-    border-radius: 6px;
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .bracket-step .step-label {
-    font-family: ui-monospace, monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--brass);
-  }
-  .bracket-step p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--rail-dim); }
-  .bracket-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--rail-dim);
-    font-size: 18px;
-    flex: 0 0 auto;
-  }
-
   .locked-card {
     display: flex;
     flex-direction: column;
@@ -329,6 +296,78 @@
     color: var(--accent);
   }
   .locked-card p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 42ch; }
+
+  .punishment-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .punishment-grid { grid-template-columns: 1fr; }
+  }
+  .punishment-challenge, .punishment-ammo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .punishment-challenge p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--rail-dim);
+  }
+  .punishment-challenge ul {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .punishment-challenge li {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--rail-dim);
+  }
+
+  .ammo-blur {
+    position: relative;
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    background: var(--ground);
+    overflow: hidden;
+    min-height: 240px;
+  }
+  .ammo-blur ol {
+    margin: 0;
+    padding: 18px 18px 18px 36px;
+    filter: blur(6px);
+    user-select: none;
+    color: var(--rail-dim);
+    font-size: 13.5px;
+    line-height: 2.1;
+  }
+  .ammo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding: 20px;
+    background: color-mix(in srgb, var(--ground) 45%, transparent);
+  }
+  .ammo-overlay .lock-icon { font-size: 26px; opacity: 0.85; }
+  .ammo-overlay .locked-title {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .ammo-overlay p { margin: 0; font-size: 12.5px; color: var(--rail-dim); max-width: 30ch; }
 
   footer {
     font-family: ui-monospace, monospace;
@@ -462,44 +501,54 @@
   <div class="section-label">Section 4</div>
   <h2>Playoff Format: The Losers Bracket</h2>
   <p class="lede">Missing the playoffs doesn't mean your season is over &mdash; it means you're playing for something worse than a trophy.</p>
-
-  <div class="bracket-flow">
-    <div class="bracket-step">
-      <div class="step-label">Regular Season</div>
-      <p>All 12 teams play a full regular season. Final standings set seeding for both brackets.</p>
-    </div>
-    <div class="bracket-arrow">&rarr;</div>
-    <div class="bracket-step">
-      <div class="step-label">Top Seeds</div>
-      <p>The top <strong style="color: var(--rail);" id="winnersSeedCount">—</strong> teams enter the Winners Bracket and play for the championship.</p>
-    </div>
-    <div class="bracket-arrow">&rarr;</div>
-    <div class="bracket-step">
-      <div class="step-label">Bottom Seeds</div>
-      <p>The remaining <strong style="color: var(--rail);" id="losersSeedCount">—</strong> teams enter the Losers Bracket, seeded by regular-season finish.</p>
-    </div>
+  <div class="locked-card">
+    <div class="lock-icon">🚧</div>
+    <div class="locked-title">More Information Coming</div>
+    <p>The losers bracket format is still being finalized. Full rules will go up here once it's locked in.</p>
   </div>
-
-  <p style="font-size: 14.5px; line-height: 1.65; color: var(--rail-dim); max-width: 70ch; margin: 0;">
-    The Losers Bracket runs on the same weekly schedule as the Winners Bracket &mdash; it isn't optional and it
-    isn't over once you're eliminated from title contention. Every team in the bracket keeps setting a real lineup
-    every week; ESPN re-seeds each round based on who wins and loses within the bracket, so a hot week can still
-    move you up the ladder. After the final round, the bracket resolves into a full ranking from best-of-the-worst
-    down to dead last. That last spot is the one that matters most: whoever finishes at the bottom of the Losers
-    Bracket &mdash; meaning last place in the entire league &mdash; is the one who faces
-    <a href="#punishment" style="color: var(--accent);">the punishment</a>.
-  </p>
-
-  <p class="note" id="playoffWeeksNote">Playoff weeks: TBD. Update this section once the league sets the regular-season length and playoff-team count for the year.</p>
 </section>
 
 <section class="rule-section" id="punishment">
   <div class="section-label">Section 5</div>
   <h2>The Punishment</h2>
-  <div class="locked-card">
-    <div class="lock-icon">🔒</div>
-    <div class="locked-title">Will Be Revealed Soon</div>
-    <p>Last place in the league doesn't just lose bragging rights. Details drop closer to the season &mdash; for now, just know it's being planned.</p>
+  <p class="lede">Last place doesn't just lose bragging rights. Last place takes the test.</p>
+
+  <div class="punishment-grid">
+    <div class="punishment-challenge">
+      <div class="section-label" style="margin-bottom: 10px;">The SAT Challenge</div>
+      <p>
+        Whoever finishes dead last in the league has to sit down and take a real SAT, in front of everyone,
+        at a party in someone's backyard.
+      </p>
+      <ul>
+        <li><strong style="color: var(--rail);">Score 1100 or higher</strong> &mdash; walks away clean, no further punishment.</li>
+        <li><strong style="color: var(--rail);">Score under 1100</strong> &mdash; eats a hot chip or a chili, loser's choice of poison.</li>
+      </ul>
+      <p class="note">Test conditions: a backyard, a party going on around them, and the rest of the league watching.</p>
+    </div>
+
+    <div class="punishment-ammo">
+      <div class="section-label" style="margin-bottom: 10px;">Approved Ammo</div>
+      <div class="ammo-blur">
+        <ol>
+          <li>Item one</li>
+          <li>Item two</li>
+          <li>Item three</li>
+          <li>Item four</li>
+          <li>Item five</li>
+          <li>Item six</li>
+          <li>Item seven</li>
+          <li>Item eight</li>
+          <li>Item nine</li>
+          <li>Item ten</li>
+        </ol>
+        <div class="ammo-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="locked-title">Coming Soon</div>
+          <p>The 10 items league members are allowed to pour or throw at the test-taker are still being finalized.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -512,8 +561,8 @@
   // ---- EDIT THIS SECTION to update league info -------------------------
 
   var SCHEDULE = [
-    { event: "Draft Lottery", date: "TBD", time: "TBD", location: "TBD", zoom: "" },
-    { event: "Draft", date: "TBD", time: "TBD", location: "TBD", zoom: "" },
+    { event: "Draft Lottery", date: "Friday, August 14", time: "7:00 PM", location: "", zoom: "https://us04web.zoom.us/j/76756461155?pwd=tTAya4edvXqdtJvyMJUFYAC0Edjmya.1" },
+    { event: "Draft", date: "Sunday, August 30", time: "8:00 PM", location: "TBD", zoom: "" },
     { event: "Trade Deadline", date: "TBD", time: "TBD", location: "", zoom: "" }
   ];
 
@@ -521,28 +570,25 @@
   var TEAM_COUNT = 12;
 
   var PAYOUT_SPLIT = [
-    { place: "1st Place", pct: 60 },
-    { place: "2nd Place", pct: 25 },
-    { place: "3rd Place", pct: 15 }
+    { place: "1st Place", amount: 400 },
+    { place: "2nd Place", amount: 150 },
+    { place: "3rd Place", amount: 50, note: "buy-in refund" }
   ];
 
   var PAYMENTS = [
-    { name: "Gridiron Gamblers", paid: false },
-    { name: "Waiver Wire Warlocks", paid: false },
-    { name: "Hail Mary Hooligans", paid: false },
-    { name: "Interception Nation", paid: false },
-    { name: "The Blitz Brigade", paid: false },
-    { name: "End Zone Elite", paid: false },
-    { name: "Fumble Dynasty", paid: false },
-    { name: "Red Zone Rogues", paid: false },
-    { name: "Pigskin Pirates", paid: false },
-    { name: "Turf Titans", paid: false },
-    { name: "Sunday Scorchers", paid: false },
-    { name: "Draft Day Dynasty", paid: false }
+    { name: "JPOPS", paid: true },
+    { name: "The Navengers", paid: true },
+    { name: "Byzantine Boomers", paid: true },
+    { name: "Baltimore Bricks", paid: true },
+    { name: "Chase Brown Kids", paid: true },
+    { name: "Sunny's Sp*rm Bank", paid: true },
+    { name: "Pandelidis FC", paid: true },
+    { name: "Perry Hall Pickers", paid: true },
+    { name: "Xios United", paid: false },
+    { name: "Ecuador Roof Repair", paid: false },
+    { name: "Milkballs Revengers", paid: false },
+    { name: "DeeGotti's Welfare Warriors", paid: false }
   ];
-
-  var WINNERS_BRACKET_TEAMS = 6;
-  var PLAYOFF_WEEKS = "TBD";
 
   // ------------------------------------------------------------------------
 
@@ -556,7 +602,7 @@
     SCHEDULE.forEach(function (row) {
       var tr = document.createElement("tr");
 
-      var locationCell = row.location ? row.location : "&mdash;";
+      var locationCell = row.location ? row.location : (row.zoom ? "Video call" : "&mdash;");
       var zoomHtml = row.zoom
         ? '<br><a class="zoom-link" href="' + row.zoom + '" target="_blank" rel="noopener">&#128421; Join via Zoom</a>'
         : "";
@@ -583,12 +629,12 @@
     var payoutList = document.getElementById("payoutList");
     payoutList.innerHTML = "";
     PAYOUT_SPLIT.forEach(function (p) {
-      var amount = Math.round(pot * (p.pct / 100));
+      var note = p.note ? '<span class="pct">(' + p.note + ')</span>' : "";
       var row = document.createElement("div");
       row.className = "payout-row";
       row.innerHTML =
-        '<span class="place">' + p.place + '<span class="pct">(' + p.pct + '%)</span></span>' +
-        '<span class="amount">' + money(amount) + '</span>';
+        '<span class="place">' + p.place + note + '</span>' +
+        '<span class="amount">' + money(p.amount) + '</span>';
       payoutList.appendChild(row);
     });
 
@@ -605,16 +651,8 @@
     });
   }
 
-  function renderPlayoffs() {
-    document.getElementById("winnersSeedCount").textContent = WINNERS_BRACKET_TEAMS;
-    document.getElementById("losersSeedCount").textContent = TEAM_COUNT - WINNERS_BRACKET_TEAMS;
-    document.getElementById("playoffWeeksNote").textContent =
-      "Playoff weeks: " + PLAYOFF_WEEKS + ". Update this section once the league sets the regular-season length and playoff-team count for the year.";
-  }
-
   renderSchedule();
   renderBuyIn();
-  renderPlayoffs();
 })();
 </script>
 
