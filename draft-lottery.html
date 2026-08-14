@@ -285,6 +285,7 @@
 
   .track-controls {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     padding: 14px 18px;
     border-bottom: 1px solid var(--paper-line);
@@ -293,8 +294,14 @@
     width: auto;
     margin-top: 0;
   }
-  .track-controls .run-btn { flex: 2; }
-  .track-controls .reset-btn { flex: 1; }
+  .track-controls .run-btn { flex: 2 1 160px; }
+  .track-controls .reset-btn { flex: 1 1 110px; }
+  .track-controls .reset-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    color: var(--rail-dim);
+    border-color: var(--paper-line);
+  }
 
   /* --- Track --- */
   .track-panel { padding: 0; overflow: hidden; }
@@ -527,6 +534,8 @@
     <div class="track-controls">
       <button class="run-btn" id="runBtn" type="button">Start the race</button>
       <button class="reset-btn" id="resetBtn" type="button">Reset board</button>
+      <button class="reset-btn" id="speedBtn" type="button">1&times; Speed</button>
+      <button class="reset-btn" id="skipBtn" type="button" disabled>Skip to Finish</button>
     </div>
     <div class="track-svg-wrap">
       <svg id="trackSvg" viewBox="0 0 1040 560" role="img" aria-label="Oval race track"></svg>
@@ -573,6 +582,8 @@
   var rankHint = document.getElementById("rankHint");
   var layoutEl = document.querySelector(".layout");
   var bigScreenBtn = document.getElementById("bigScreenBtn");
+  var speedBtn = document.getElementById("speedBtn");
+  var skipBtn = document.getElementById("skipBtn");
 
   var teams = DEFAULT_NAMES.map(function (name, i) {
     return { id: "t" + i, name: name, rank: i + 1, color: PALETTE[i % PALETTE.length] };
@@ -580,6 +591,10 @@
   var oddsMode = "equal";
   var raceRunning = false;
   var raceTimer = null;
+  var raceState = null; // { state, finishedCount, pickIndex } while a race is in progress
+  var speedMultiplier = 1;
+  var fastForwarding = false; // true while skip-to-finish is draining ticks synchronously
+  var SPEEDS = [1, 2, 4];
 
   function renderEntries() {
     entriesEl.innerHTML = "";
@@ -655,6 +670,14 @@
     var on = layoutEl.classList.toggle("race-mode");
     bigScreenBtn.textContent = on ? "🗗 Exit Big Screen" : "⛶ Big Screen";
   });
+
+  speedBtn.addEventListener("click", function () {
+    var idx = SPEEDS.indexOf(speedMultiplier);
+    speedMultiplier = SPEEDS[(idx + 1) % SPEEDS.length];
+    speedBtn.textContent = speedMultiplier + "× Speed";
+  });
+
+  skipBtn.addEventListener("click", skipToEnd);
 
   // A "stadium" oval: two straights joined by two semicircular turns.
   // Lane radius shrinks per lane index while the straight length stays fixed,
@@ -859,18 +882,20 @@
 
   // Passing an obstacle has a chance to trigger a brief stumble or a burst of
   // speed — pure suspense, symmetric across every horse so it never biases the odds.
+  // The effect itself still applies while fast-forwarding; only the on-track
+  // popup and marker flash (which nobody would see mid-skip) are skipped.
   function rollObstacle(state, obstacleIndex, pt) {
     var roll = Math.random();
     if (roll < 0.4) {
       state.effectMult = 0.32;
       state.effectTicks = 7;
-      popEffect(pt, "😵");
+      if (!fastForwarding) popEffect(pt, "😵");
     } else if (roll < 0.6) {
       state.effectMult = 1.9;
       state.effectTicks = 6;
-      popEffect(pt, "⚡");
+      if (!fastForwarding) popEffect(pt, "⚡");
     }
-    flashMarker(obstacleIndex);
+    if (!fastForwarding) flashMarker(obstacleIndex);
   }
 
   function weightFor(team) {
@@ -881,10 +906,79 @@
     return 1 + base * strength * 3.2;
   }
 
+  var TICK_MS = 90;
+  var BASE_STEP = 0.0022; // tuned so an equal-odds race runs ~40-45s at 90ms ticks and 1x speed, before the stretch slowdown
+  var STRETCH_START = 0.8; // the last 20% of the lap eases off for a suspenseful, closer finish
+
+  // Advances every unfinished horse by one tick. Used both by the live
+  // setInterval loop and by skipToEnd(), which just calls this in a tight
+  // synchronous loop instead of waiting between frames — same odds either way.
+  function tickOnce() {
+    var rs = raceState;
+    if (!rs) return true;
+
+    teams.forEach(function (t) {
+      var s = rs.state[t.id];
+      if (s.done) return;
+
+      var jitter = 0.35 + Math.random() * 1.05;
+      var randomSurge = Math.random() < 0.08 ? 1.8 : 1;
+      var stretchEase = s.progress > STRETCH_START
+        ? lerp(1, 0.32, Math.min(1, (s.progress - STRETCH_START) / (1 - STRETCH_START)))
+        : 1;
+      var effect = 1;
+      if (s.effectTicks > 0) {
+        effect = s.effectMult;
+        s.effectTicks--;
+      }
+
+      var step = jitter * s.weight * randomSurge * stretchEase * effect * BASE_STEP * speedMultiplier;
+      var prevProgress = s.progress;
+      s.progress = Math.min(1, s.progress + step);
+
+      var node = horseNodes[t.id];
+      var pt = node ? placeHorse(node, s.progress) : null;
+
+      OBSTACLES.forEach(function (ob, oi) {
+        if (prevProgress < ob.progress && s.progress >= ob.progress) {
+          rollObstacle(s, oi, pt);
+        }
+      });
+
+      if (s.progress >= 1 && !s.done) {
+        s.done = true;
+        if (node) node.body.classList.add("done");
+        fillSlot(rs.pickIndex, t);
+        rs.pickIndex++;
+        rs.finishedCount++;
+      }
+    });
+
+    if (rs.finishedCount >= teams.length) {
+      finishRace();
+      return true;
+    }
+    return false;
+  }
+
+  function finishRace() {
+    raceRunning = false;
+    raceState = null;
+    runBtn.disabled = false;
+    skipBtn.disabled = true;
+    statusPill.textContent = "Final";
+    statusPill.classList.remove("live");
+    if (raceTimer) {
+      clearInterval(raceTimer);
+      raceTimer = null;
+    }
+  }
+
   function runRace() {
     if (raceRunning) return;
     raceRunning = true;
     runBtn.disabled = true;
+    skipBtn.disabled = false;
     statusPill.textContent = "Live";
     statusPill.classList.add("live");
     renderBoard();
@@ -894,68 +988,34 @@
     teams.forEach(function (t) {
       state[t.id] = { progress: 0, done: false, weight: weightFor(t), effectMult: 1, effectTicks: 0 };
     });
+    raceState = { state: state, finishedCount: 0, pickIndex: 0 };
 
-    var finishedCount = 0;
-    var pickIndex = 0;
-    var tickMs = 90;
-    var BASE_STEP = 0.0022; // tuned so an equal-odds race runs ~40-45s at 90ms ticks, before the stretch slowdown
-    var STRETCH_START = 0.8; // the last 20% of the lap eases off for a suspenseful, closer finish
+    raceTimer = setInterval(tickOnce, TICK_MS);
+  }
 
-    function tick() {
-      teams.forEach(function (t) {
-        var s = state[t.id];
-        if (s.done) return;
-
-        var jitter = 0.35 + Math.random() * 1.05;
-        var randomSurge = Math.random() < 0.08 ? 1.8 : 1;
-        var stretchEase = s.progress > STRETCH_START
-          ? lerp(1, 0.32, Math.min(1, (s.progress - STRETCH_START) / (1 - STRETCH_START)))
-          : 1;
-        var effect = 1;
-        if (s.effectTicks > 0) {
-          effect = s.effectMult;
-          s.effectTicks--;
-        }
-
-        var step = jitter * s.weight * randomSurge * stretchEase * effect * BASE_STEP;
-        var prevProgress = s.progress;
-        s.progress = Math.min(1, s.progress + step);
-
-        var node = horseNodes[t.id];
-        var pt = node ? placeHorse(node, s.progress) : null;
-
-        OBSTACLES.forEach(function (ob, oi) {
-          if (prevProgress < ob.progress && s.progress >= ob.progress) {
-            rollObstacle(s, oi, pt);
-          }
-        });
-
-        if (s.progress >= 1 && !s.done) {
-          s.done = true;
-          if (node) node.body.classList.add("done");
-          fillSlot(pickIndex, t);
-          pickIndex++;
-          finishedCount++;
-        }
-      });
-
-      if (finishedCount >= teams.length) {
-        raceRunning = false;
-        runBtn.disabled = false;
-        statusPill.textContent = "Final";
-        statusPill.classList.remove("live");
-        clearInterval(raceTimer);
-        return;
-      }
+  // Drains the rest of the race synchronously — same per-tick odds and
+  // obstacle rolls as watching it live, just without waiting between frames.
+  function skipToEnd() {
+    if (!raceRunning || !raceState) return;
+    if (raceTimer) {
+      clearInterval(raceTimer);
+      raceTimer = null;
     }
-
-    raceTimer = setInterval(tick, tickMs);
+    fastForwarding = true;
+    var guard = 0;
+    while (raceState && guard < 100000) {
+      if (tickOnce()) break;
+      guard++;
+    }
+    fastForwarding = false;
   }
 
   function resetBoard() {
     if (raceTimer) clearInterval(raceTimer);
     raceRunning = false;
+    raceState = null;
     runBtn.disabled = false;
+    skipBtn.disabled = true;
     statusPill.textContent = "Ready";
     statusPill.classList.remove("live");
     buildTrack();
