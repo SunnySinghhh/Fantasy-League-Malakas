@@ -370,14 +370,13 @@
   }
   .finish-flag-text { font-size: 22px; text-anchor: middle; }
   .horse-emoji {
-    font-size: 32px;
     text-anchor: middle;
     dominant-baseline: central;
-    filter: drop-shadow(0 1px 1.5px var(--shadow));
+    filter: drop-shadow(0 1px 2px var(--shadow));
   }
   .horse-body { transition: opacity 0.3s ease; }
   .horse-body.done { opacity: 0.42; }
-  .silk-circle { stroke: var(--ground); stroke-width: 1.4; }
+  .silk-circle { stroke: var(--ground); stroke-width: 1.6; }
   .silk-num {
     font-family: ui-monospace, monospace;
     font-weight: 700;
@@ -385,39 +384,7 @@
     dominant-baseline: central;
     fill: var(--ground);
   }
-
-  .obstacle-pole { stroke: var(--rail); opacity: 0.45; stroke-width: 2; }
-  .obstacle-ring {
-    fill: var(--paper);
-    stroke: var(--brass);
-    stroke-width: 1.5;
-    transition: fill 0.3s ease, stroke 0.3s ease;
-  }
-  .obstacle-icon {
-    font-size: 17px;
-    text-anchor: middle;
-    dominant-baseline: central;
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-  .obstacle-marker.active .obstacle-ring { fill: var(--accent); stroke: var(--accent); }
-  .obstacle-marker.active .obstacle-icon { transform: scale(1.4); }
-
-  .fx-pop {
-    font-size: 20px;
-    text-anchor: middle;
-    pointer-events: none;
-    animation: popRise 0.75s ease-out forwards;
-  }
-  @keyframes popRise {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-22px); opacity: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .fx-pop { animation: none; opacity: 0; }
-    .obstacle-icon, .obstacle-ring { transition: none; }
-  }
+  .lane-line { fill: none; stroke-width: 2.5; opacity: 0.4; }
 
   .results {
     padding: 16px 18px 18px;
@@ -652,7 +619,7 @@
       <button class="reset-btn" id="skipBtn" type="button" disabled>Skip to Finish</button>
     </div>
     <div class="track-svg-wrap">
-      <svg id="trackSvg" viewBox="0 0 1040 560" role="img" aria-label="Oval race track"></svg>
+      <svg id="trackSvg" viewBox="0 0 1880 940" role="img" aria-label="Oval race track"></svg>
     </div>
     <div class="results">
       <h2 style="margin:0 0 12px;">Draft Order</h2>
@@ -679,17 +646,8 @@
   var DEFAULT_NAMES = ["Gridiron Gamblers", "Waiver Wire Warlocks", "Hail Mary Hooligans", "Interception Nation", "The Blitz Brigade", "End Zone Elite", "Fumble Dynasty", "Red Zone Rogues"];
 
   var SVG_NS = "http://www.w3.org/2000/svg";
-  var VB_W = 1040, VB_H = 560, CX = 520, CY = 280, STRAIGHT = 480;
-  var R_OUTER = 185, RAIL_PAD = 24, MIN_LANE_R = 60, MAX_LANE_GAP = 15;
-  var OBSTACLE_R_OFFSET = 34;
-
-  var OBSTACLES = [
-    { progress: 0.15, icon: "🚑", label: "Injury Report" },
-    { progress: 0.32, icon: "📋", label: "Waiver Wire" },
-    { progress: 0.50, icon: "🔁", label: "Bye Week" },
-    { progress: 0.68, icon: "⚠️", label: "Trade Rumor" },
-    { progress: 0.85, icon: "🔥", label: "Sleeper Alert" }
-  ];
+  var VB_W = 1880, VB_H = 940, CX = 940, CY = 470, STRAIGHT = 1000;
+  var R_OUTER = 410, RAIL_PAD = 30, MIN_LANE_R = 80, MAX_LANE_GAP = 34;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
@@ -717,7 +675,6 @@
   var raceTimer = null;
   var raceState = null; // { state, finishedCount, pickIndex } while a race is in progress
   var speedMultiplier = 1;
-  var fastForwarding = false; // true while skip-to-finish is draining ticks synchronously
   var SPEEDS = [1, 2, 4];
 
   function renderEntries() {
@@ -862,7 +819,6 @@
   }
 
   var horseNodes = {}; // teamId -> { body, silk, num, radius, silkR }
-  var obstacleNodes = []; // parallel to OBSTACLES
 
   // The horse emoji is a side-view glyph, not a top-down sprite, so it should
   // never be rotated (that flips it upside down mid-turn) — only mirrored
@@ -873,7 +829,7 @@
     var facingRight = ahead.x >= pt.x;
     var sx = facingRight ? -1 : 1;
     node.body.setAttribute("transform", "translate(" + pt.x + "," + pt.y + ") scale(" + sx + ",1)");
-    var by = pt.y - node.silkR - 9;
+    var by = pt.y - node.silkR - 16;
     node.silk.setAttribute("cx", pt.x);
     node.silk.setAttribute("cy", by);
     node.num.setAttribute("x", pt.x);
@@ -884,12 +840,13 @@
   function buildTrack() {
     trackSvg.innerHTML = "";
     horseNodes = {};
-    obstacleNodes = [];
     var n = teams.length;
     var laneGap = currentLaneGap(n);
     var innermost = laneRadius(n - 1, laneGap);
     var outerR = R_OUTER + RAIL_PAD;
     var innerR = Math.max(18, innermost - RAIL_PAD);
+    var emojiSize = Math.max(26, Math.min(48, laneGap * 1.35));
+    var silkR = Math.max(9, Math.min(20, laneGap > 0 ? laneGap * 0.55 : 20));
 
     var defs = svgEl("defs", {});
     var pattern = svgEl("pattern", { id: "turf", patternUnits: "userSpaceOnUse", width: 30, height: 30 });
@@ -917,39 +874,26 @@
     }));
     trackSvg.appendChild(svgEl("text", { x: finishX, y: CY - outerR - 6, class: "finish-flag-text" })).textContent = "🏁";
 
-    var obstacleGroup = svgEl("g", {});
-    trackSvg.appendChild(obstacleGroup);
-    OBSTACLES.forEach(function (ob) {
-      var markerR = outerR + OBSTACLE_R_OFFSET;
-      var pt = stadiumPoint(markerR, ob.progress);
-      var railPt = stadiumPoint(outerR, ob.progress);
-      var g = svgEl("g", { class: "obstacle-marker" });
-      g.appendChild(svgEl("line", { x1: railPt.x, y1: railPt.y, x2: pt.x, y2: pt.y, class: "obstacle-pole" }));
-      g.appendChild(svgEl("circle", { cx: pt.x, cy: pt.y, r: 16, class: "obstacle-ring" }));
-      var icon = svgEl("text", { x: pt.x, y: pt.y, class: "obstacle-icon" });
-      icon.textContent = ob.icon;
-      g.appendChild(icon);
-      var title = svgEl("title", {});
-      title.textContent = ob.label;
-      g.appendChild(title);
-      obstacleGroup.appendChild(g);
-      obstacleNodes.push(g);
-    });
+    // One colored guide line per lane, running the exact path each horse follows,
+    // so a horse's own color is easy to spot and trace around the whole lap.
+    var laneGroup = svgEl("g", {});
+    trackSvg.appendChild(laneGroup);
 
     var horseGroup = svgEl("g", {});
     trackSvg.appendChild(horseGroup);
 
     teams.forEach(function (team, idx) {
       var r = laneRadius(idx, laneGap);
-      var silkR = Math.max(7, Math.min(13, laneGap > 0 ? laneGap * 0.62 : 13));
+
+      laneGroup.appendChild(svgEl("path", { d: stadiumPathD(r), class: "lane-line", stroke: team.color }));
 
       var body = svgEl("g", { class: "horse-body" });
-      var emoji = svgEl("text", { class: "horse-emoji" });
+      var emoji = svgEl("text", { class: "horse-emoji", style: "font-size:" + emojiSize + "px" });
       emoji.textContent = "🐎";
       body.appendChild(emoji);
 
       var silk = svgEl("circle", { class: "silk-circle", r: silkR, fill: team.color });
-      var num = svgEl("text", { class: "silk-num", style: "font-size:" + Math.max(7, silkR) + "px" });
+      var num = svgEl("text", { class: "silk-num", style: "font-size:" + Math.max(9, silkR) + "px" });
       num.textContent = idx + 1;
 
       horseGroup.appendChild(body);
@@ -989,39 +933,6 @@
     if (pickIndex === 0) slot.classList.add("first");
   }
 
-  function popEffect(pt, glyph) {
-    if (!pt) return;
-    var fx = svgEl("text", { x: pt.x, y: pt.y - 24, class: "fx-pop" });
-    fx.textContent = glyph;
-    trackSvg.appendChild(fx);
-    setTimeout(function () { fx.remove(); }, 750);
-  }
-
-  function flashMarker(index) {
-    var marker = obstacleNodes[index];
-    if (!marker) return;
-    marker.classList.add("active");
-    setTimeout(function () { marker.classList.remove("active"); }, 650);
-  }
-
-  // Passing an obstacle has a chance to trigger a brief stumble or a burst of
-  // speed — pure suspense, symmetric across every horse so it never biases the odds.
-  // The effect itself still applies while fast-forwarding; only the on-track
-  // popup and marker flash (which nobody would see mid-skip) are skipped.
-  function rollObstacle(state, obstacleIndex, pt) {
-    var roll = Math.random();
-    if (roll < 0.4) {
-      state.effectMult = 0.32;
-      state.effectTicks = 7;
-      if (!fastForwarding) popEffect(pt, "😵");
-    } else if (roll < 0.6) {
-      state.effectMult = 1.9;
-      state.effectTicks = 6;
-      if (!fastForwarding) popEffect(pt, "⚡");
-    }
-    if (!fastForwarding) flashMarker(obstacleIndex);
-  }
-
   function weightFor(team) {
     if (oddsMode === "equal") return 1;
     var n = teams.length;
@@ -1046,28 +957,15 @@
       if (s.done) return;
 
       var jitter = 0.35 + Math.random() * 1.05;
-      var randomSurge = Math.random() < 0.08 ? 1.8 : 1;
       var stretchEase = s.progress > STRETCH_START
         ? lerp(1, 0.32, Math.min(1, (s.progress - STRETCH_START) / (1 - STRETCH_START)))
         : 1;
-      var effect = 1;
-      if (s.effectTicks > 0) {
-        effect = s.effectMult;
-        s.effectTicks--;
-      }
 
-      var step = jitter * s.weight * randomSurge * stretchEase * effect * BASE_STEP * speedMultiplier;
-      var prevProgress = s.progress;
+      var step = jitter * s.weight * stretchEase * BASE_STEP * speedMultiplier;
       s.progress = Math.min(1, s.progress + step);
 
       var node = horseNodes[t.id];
-      var pt = node ? placeHorse(node, s.progress) : null;
-
-      OBSTACLES.forEach(function (ob, oi) {
-        if (prevProgress < ob.progress && s.progress >= ob.progress) {
-          rollObstacle(s, oi, pt);
-        }
-      });
+      if (node) placeHorse(node, s.progress);
 
       if (s.progress >= 1 && !s.done) {
         s.done = true;
@@ -1110,28 +1008,26 @@
 
     var state = {};
     teams.forEach(function (t) {
-      state[t.id] = { progress: 0, done: false, weight: weightFor(t), effectMult: 1, effectTicks: 0 };
+      state[t.id] = { progress: 0, done: false, weight: weightFor(t) };
     });
     raceState = { state: state, finishedCount: 0, pickIndex: 0 };
 
     raceTimer = setInterval(tickOnce, TICK_MS);
   }
 
-  // Drains the rest of the race synchronously — same per-tick odds and
-  // obstacle rolls as watching it live, just without waiting between frames.
+  // Drains the rest of the race synchronously — same per-tick odds as
+  // watching it live, just without waiting between frames.
   function skipToEnd() {
     if (!raceRunning || !raceState) return;
     if (raceTimer) {
       clearInterval(raceTimer);
       raceTimer = null;
     }
-    fastForwarding = true;
     var guard = 0;
     while (raceState && guard < 100000) {
       if (tickOnce()) break;
       guard++;
     }
-    fastForwarding = false;
   }
 
   function resetBoard() {
