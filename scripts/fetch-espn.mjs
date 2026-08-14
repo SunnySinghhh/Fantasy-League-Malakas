@@ -26,15 +26,21 @@ const ESPN_S2 = rawEnv.ESPN_S2.trim();
 // ESPN's SWID cookie is wrapped in curly braces; tolerate the value being pasted with or without them.
 const ESPN_SWID = rawEnv.ESPN_SWID.trim().replace(/^\{?/, "{").replace(/\}?$/, "}");
 
+// ESPN's browser app calls this host directly (not fantasy.espn.com/apis/...), and requires
+// CORS-style headers (Origin/Referer + x-fantasy-*) or it silently rejects the request.
 const API_URL =
-  `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE_ID}` +
-  `?view=mTeam&view=mStandings&view=mScoreboard&view=mMatchupScore&view=mSettings`;
+  `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE_ID}` +
+  `?view=mTeam&view=mRoster&view=mMatchupScore&view=mScoreboard&view=mSettings`;
 
 async function fetchLeague() {
   const res = await fetch(API_URL, {
     headers: {
       Accept: "application/json",
-      "User-Agent": "Mozilla/5.0 (compatible; league-site-sync/1.0)",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+      Origin: "https://fantasy.espn.com",
+      Referer: "https://fantasy.espn.com/",
+      "x-fantasy-platform": "espn-fantasy-web",
+      "x-fantasy-source": "kona",
       Cookie: `espn_s2=${ESPN_S2}; SWID=${ESPN_SWID}`,
     },
   });
