@@ -406,8 +406,8 @@
   }
 
   Promise.all([
-    fetch("data/espn-standings.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
-    fetch("data/espn-scoreboard.json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+    fetch("data/espn-standings.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch("data/espn-scoreboard.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
   ]).then(function (results) {
     var standings = results[0];
     var scoreboard = results[1];
