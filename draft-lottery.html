@@ -21,8 +21,6 @@
       --shadow: rgba(0,0,0,0.5);
       --dirt: #5a3b28;
       --dirt-dark: #40291b;
-      --turf-a: #20502f;
-      --turf-b: #1a4326;
     }
   }
   :root[data-theme="dark"] {
@@ -40,8 +38,6 @@
     --shadow: rgba(0,0,0,0.5);
     --dirt: #5a3b28;
     --dirt-dark: #40291b;
-    --turf-a: #20502f;
-    --turf-b: #1a4326;
   }
   :root {
     --ground: #f2ede0;
@@ -58,8 +54,6 @@
     --shadow: rgba(60,45,10,0.18);
     --dirt: #c17a45;
     --dirt-dark: #9c5c2c;
-    --turf-a: #7fa363;
-    --turf-b: #6c8f52;
   }
 
   * { box-sizing: border-box; }
@@ -344,23 +338,21 @@
   }
   .rail-outer, .rail-inner { fill: none; stroke: var(--rail); stroke-width: 2.5; opacity: 0.6; }
   .surface-outer { fill: var(--dirt); }
-  .surface-infield { fill: url(#turf); }
+  .surface-infield { fill: #000; }
   .dirt-ring { fill: none; stroke: var(--dirt-dark); stroke-width: 1; opacity: 0.4; stroke-dasharray: 2 7; }
-  .turf-a { fill: var(--turf-a); }
-  .turf-b { fill: var(--turf-b); }
-  .infield-ring { fill: none; stroke: var(--paper-line); stroke-width: 1; opacity: 0.45; }
+  .infield-ring { fill: none; stroke: #f4efe2; stroke-width: 1; opacity: 0.35; }
   .track-title-text {
     font-family: Georgia, serif;
     font-weight: 700;
-    fill: var(--rail);
-    opacity: 0.5;
+    fill: #f4efe2;
     text-anchor: middle;
   }
+  .track-title-text .accent-span { fill: var(--accent); }
   .track-sub-text {
     font-family: ui-monospace, monospace;
     letter-spacing: 0.12em;
-    fill: var(--rail);
-    opacity: 0.4;
+    fill: #f4efe2;
+    opacity: 0.65;
     text-anchor: middle;
     text-transform: uppercase;
   }
@@ -370,23 +362,49 @@
     stroke-dasharray: 5 4;
   }
   .finish-flag-text { font-size: 22px; text-anchor: middle; }
-  .finish-name-pop {
+  .live-finish-panel {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: clamp(140px, 22%, 220px);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    pointer-events: none;
+  }
+  .live-finish-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     font-family: Georgia, serif;
     font-weight: 700;
-    font-size: 20px;
-    text-anchor: start;
-    dominant-baseline: central;
-    filter: drop-shadow(0 1px 2px var(--shadow)) drop-shadow(0 0 3px var(--ground));
-    pointer-events: none;
-    animation: finishNamePop 1.45s ease-out forwards;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #f4efe2;
+    background: rgba(10, 10, 8, 0.55);
+    border-radius: 4px;
+    padding: 3px 8px;
+    animation: liveFinishRowIn 0.35s ease-out;
   }
-  @keyframes finishNamePop {
-    0% { transform: translate(-6px, 4px); opacity: 0; }
-    12% { transform: translate(0, 0); opacity: 1; }
-    72% { transform: translate(0, -8px); opacity: 1; }
-    100% { transform: translate(4px, -22px); opacity: 0; }
+  .live-finish-row .live-finish-pick {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--accent);
+    flex: none;
   }
-  @media (prefers-reduced-motion: reduce) { .finish-name-pop { animation: none; opacity: 0; } }
+  .live-finish-row .live-finish-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  @keyframes liveFinishRowIn {
+    from { opacity: 0; transform: translateX(8px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .live-finish-row { animation: none; } }
 
   .finish-overlay {
     position: fixed;
@@ -694,6 +712,7 @@
     </div>
     <div class="track-svg-wrap">
       <svg id="trackSvg" viewBox="0 0 1880 940" role="img" aria-label="Oval race track"></svg>
+      <div class="live-finish-panel" id="liveFinishPanel"></div>
       <div class="finish-overlay" id="finishOverlay" hidden>
         <div class="finish-card">
           <div class="finish-title">🏁 Final Draft Order</div>
@@ -750,6 +769,7 @@
   var finishOverlay = document.getElementById("finishOverlay");
   var finishList = document.getElementById("finishList");
   var dismissFinishBtn = document.getElementById("dismissFinishBtn");
+  var liveFinishPanel = document.getElementById("liveFinishPanel");
 
   var teams = DEFAULT_NAMES.map(function (name, i) {
     return { id: "t" + i, name: name, rank: i + 1, color: PALETTE[i % PALETTE.length] };
@@ -759,7 +779,6 @@
   var raceTimer = null;
   var raceState = null; // { state, finishedCount, pickIndex } while a race is in progress
   var speedMultiplier = 1;
-  var fastForwarding = false; // true while skip-to-finish is draining ticks synchronously
   var SPEEDS = [1, 2, 4];
 
   function renderEntries() {
@@ -937,13 +956,6 @@
     var emojiSize = Math.max(26, Math.min(48, laneGap * 1.35));
     var silkR = Math.max(9, Math.min(20, laneGap > 0 ? laneGap * 0.55 : 20));
 
-    var defs = svgEl("defs", {});
-    var pattern = svgEl("pattern", { id: "turf", patternUnits: "userSpaceOnUse", width: 30, height: 30 });
-    pattern.appendChild(svgEl("rect", { width: 15, height: 30, class: "turf-a" }));
-    pattern.appendChild(svgEl("rect", { x: 15, width: 15, height: 30, class: "turf-b" }));
-    defs.appendChild(pattern);
-    trackSvg.appendChild(defs);
-
     trackSvg.appendChild(svgEl("path", { d: stadiumPathD(outerR), class: "surface-outer" }));
     var texR1 = innerR + (outerR - innerR) * 0.33;
     var texR2 = innerR + (outerR - innerR) * 0.66;
@@ -954,7 +966,15 @@
     trackSvg.appendChild(svgEl("path", { d: stadiumPathD(innerR), class: "rail-inner" }));
     trackSvg.appendChild(svgEl("circle", { cx: CX, cy: CY, r: Math.max(4, innerR - 14), class: "infield-ring" }));
 
-    trackSvg.appendChild(svgEl("text", { x: CX, y: CY - 8, class: "track-title-text", style: "font-size:" + Math.min(34, innerR * 0.42) + "px" })).textContent = "FANTASY DOWNS";
+    var titleText = svgEl("text", { x: CX, y: CY - 8, class: "track-title-text", style: "font-size:" + Math.min(34, innerR * 0.42) + "px" });
+    var titlePlain = svgEl("tspan", {});
+    titlePlain.textContent = "Malaka's ";
+    var titleAccent = svgEl("tspan", { class: "accent-span" });
+    titleAccent.textContent = "United";
+    titleText.appendChild(titlePlain);
+    titleText.appendChild(titleAccent);
+    trackSvg.appendChild(titleText);
+
     trackSvg.appendChild(svgEl("text", { x: CX, y: CY + 16, class: "track-sub-text", style: "font-size:" + Math.min(12, innerR * 0.16) + "px" })).textContent = "Draft Lottery Cup";
 
     var finishX = CX - STRAIGHT / 2 + FINISH_SHIFT;
@@ -1022,15 +1042,16 @@
     if (pickIndex === 0) slot.classList.add("first");
   }
 
-  // A team's name rises and fades right where they crossed the line, offset
-  // to the right (their direction of travel) so it never covers the finish
-  // line itself. No background box — just colored text with a shadow for contrast.
-  function popFinishName(pt, name, color) {
-    if (!pt) return;
-    var label = svgEl("text", { x: pt.x + 34, y: pt.y - 4, class: "finish-name-pop", fill: color });
-    label.textContent = name;
-    trackSvg.appendChild(label);
-    setTimeout(function () { label.remove(); }, 1450);
+  // As each horse finishes, its name is appended to the live results panel
+  // on the right — it stays put in the exact position it finished, building
+  // up the order in real time instead of disappearing after a moment.
+  function addLiveFinishRow(pickIndex, team) {
+    var row = document.createElement("div");
+    row.className = "live-finish-row";
+    row.innerHTML =
+      '<span class="live-finish-pick">#' + (pickIndex + 1) + '</span>' +
+      '<span class="live-finish-name" style="color:' + team.color + '">' + team.name + '</span>';
+    liveFinishPanel.appendChild(row);
   }
 
   function weightFor(team) {
@@ -1065,12 +1086,12 @@
       s.progress = Math.min(1, s.progress + step);
 
       var node = horseNodes[t.id];
-      var pt = node ? placeHorse(node, s.progress) : null;
+      if (node) placeHorse(node, s.progress);
 
       if (s.progress >= 1 && !s.done) {
         s.done = true;
         if (node) node.body.classList.add("done");
-        if (!fastForwarding) popFinishName(pt, t.name, t.color);
+        addLiveFinishRow(rs.pickIndex, t);
         fillSlot(rs.pickIndex, t);
         rs.pickIndex++;
         rs.finishedCount++;
@@ -1127,6 +1148,7 @@
     skipBtn.disabled = false;
     statusPill.textContent = "Live";
     statusPill.classList.add("live");
+    liveFinishPanel.innerHTML = "";
     renderBoard();
     buildTrack();
 
@@ -1140,22 +1162,18 @@
   }
 
   // Drains the rest of the race synchronously — same per-tick odds as
-  // watching it live, just without waiting between frames. The per-finish
-  // name pop-up is skipped here since instant resolution has no real time
-  // for it to animate across.
+  // watching it live, just without waiting between frames.
   function skipToEnd() {
     if (!raceRunning || !raceState) return;
     if (raceTimer) {
       clearInterval(raceTimer);
       raceTimer = null;
     }
-    fastForwarding = true;
     var guard = 0;
     while (raceState && guard < 100000) {
       if (tickOnce()) break;
       guard++;
     }
-    fastForwarding = false;
   }
 
   function resetBoard() {
@@ -1167,6 +1185,7 @@
     statusPill.textContent = "Ready";
     statusPill.classList.remove("live");
     hideFinishOverlay();
+    liveFinishPanel.innerHTML = "";
     buildTrack();
     renderBoard();
   }
