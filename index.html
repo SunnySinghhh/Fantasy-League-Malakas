@@ -118,6 +118,66 @@
     color: var(--rail-dim);
   }
 
+  .countdown-banner {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 20px clamp(18px, 3vw, 28px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .countdown-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .countdown-event { display: flex; flex-direction: column; gap: 4px; }
+  .countdown-event .name { font-size: 20px; font-weight: 700; }
+  .countdown-event .when {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--rail-dim);
+  }
+  .countdown-event .countdown-link {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 2px;
+  }
+  .countdown-event .countdown-link:hover { text-decoration: underline; }
+  .countdown-clock { display: flex; gap: 10px; }
+  .countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: var(--ground);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 10px 14px;
+    min-width: 60px;
+  }
+  .countdown-unit .num {
+    font-size: 26px;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .countdown-unit .unit-label {
+    font-family: ui-monospace, monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .countdown-empty { color: var(--rail-dim); font-size: 14px; }
+
   .section-label {
     font-family: ui-monospace, monospace;
     font-size: 13px;
@@ -194,6 +254,8 @@
   <a href="rules.html">League Rules</a>
   <span aria-hidden="true">/</span>
   <a href="standings.html">Standings</a>
+  <span aria-hidden="true">/</span>
+  <a href="constitution.html">Constitution</a>
 </nav>
 
 <div class="masthead">
@@ -208,6 +270,13 @@
     league needs — starting with the tool built for draft night.
   </p>
 </div>
+
+<section class="countdown-banner" id="countdownBanner">
+  <div class="section-label">Next Up</div>
+  <div class="countdown-inner" id="countdownInner">
+    <div class="countdown-empty">Loading schedule&hellip;</div>
+  </div>
+</section>
 
 <div>
   <div class="section-label">This Season</div>
@@ -230,10 +299,76 @@
       <p>Schedule, buy-in and payouts, scoring, the losers bracket, and (soon) the punishment.</p>
       <div class="cta">Read the fine print →</div>
     </a>
+    <a class="card" href="constitution.html">
+      <div class="icon">📖</div>
+      <h3>Constitution</h3>
+      <p>The league's governing document — how decisions get made, and what's changed over the years.</p>
+      <div class="cta">Read the bylaws →</div>
+    </a>
   </div>
 </div>
 
 <footer>Malaka's United &middot; built for our fantasy football crew</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+
+  function pickNextEvent(schedule, now) {
+    var upcoming = schedule.filter(function (row) { return row.datetime && new Date(row.datetime) > now; });
+    upcoming.sort(function (a, b) { return new Date(a.datetime) - new Date(b.datetime); });
+    return upcoming[0] || null;
+  }
+
+  function render(schedule) {
+    var el = document.getElementById("countdownInner");
+    var now = new Date();
+    var next = schedule ? pickNextEvent(schedule, now) : null;
+
+    if (!next) {
+      el.innerHTML = '<div class="countdown-empty">Nothing on the calendar right now — check back once dates are set.</div>';
+      return;
+    }
+
+    var diff = Math.max(0, new Date(next.datetime) - now);
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+
+    var zoomHtml = next.zoom
+      ? '<a class="countdown-link" href="' + next.zoom + '" target="_blank" rel="noopener">&#128421; Join via Zoom</a>'
+      : "";
+
+    el.innerHTML =
+      '<div class="countdown-event">' +
+        '<div class="name">' + next.event + '</div>' +
+        '<div class="when">' + next.date + ' &middot; ' + next.time + '</div>' +
+        zoomHtml +
+      '</div>' +
+      '<div class="countdown-clock">' +
+        unitHtml(days, "Days") +
+        unitHtml(pad(hours), "Hrs") +
+        unitHtml(pad(minutes), "Min") +
+        unitHtml(pad(seconds), "Sec") +
+      '</div>';
+  }
+
+  function unitHtml(value, label) {
+    return '<div class="countdown-unit"><div class="num">' + value + '</div><div class="unit-label">' + label + '</div></div>';
+  }
+
+  fetch("data/schedule.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .catch(function () { return []; })
+    .then(function (schedule) {
+      render(schedule);
+      setInterval(function () { render(schedule); }, 1000);
+    });
+})();
+</script>
 
 </body>
 </html>

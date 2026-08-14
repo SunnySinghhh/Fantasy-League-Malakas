@@ -388,6 +388,8 @@
   <span class="current">League Rules</span>
   <span aria-hidden="true">/</span>
   <a href="standings.html">Standings</a>
+  <span aria-hidden="true">/</span>
+  <a href="constitution.html">Constitution</a>
 </nav>
 
 <div class="masthead">
@@ -561,12 +563,7 @@
   "use strict";
 
   // ---- EDIT THIS SECTION to update league info -------------------------
-
-  var SCHEDULE = [
-    { event: "Draft Lottery", date: "Friday, August 14", time: "7:00 PM", location: "", zoom: "https://us04web.zoom.us/j/76756461155?pwd=tTAya4edvXqdtJvyMJUFYAC0Edjmya.1" },
-    { event: "Draft", date: "Sunday, August 30", time: "8:00 PM", location: "TBD", zoom: "" },
-    { event: "Trade Deadline", date: "TBD", time: "TBD", location: "", zoom: "" }
-  ];
+  // Schedule now lives in data/schedule.json (shared with the countdown timer on the home page).
 
   var BUYIN = 50;         // dollars per team
   var TEAM_COUNT = 12;
@@ -598,11 +595,25 @@
     return "$" + n.toLocaleString("en-US");
   }
 
-  function renderSchedule() {
+  function renderSchedule(schedule) {
     var tbody = document.querySelector("#scheduleTable tbody");
     tbody.innerHTML = "";
-    SCHEDULE.forEach(function (row) {
+
+    if (!schedule || !schedule.length) {
+      tbody.innerHTML = '<tr><td colspan="4">Schedule not available right now.</td></tr>';
+      return;
+    }
+
+    var now = new Date();
+    var nextEvent = schedule
+      .filter(function (row) { return row.datetime && new Date(row.datetime) > now; })
+      .sort(function (a, b) { return new Date(a.datetime) - new Date(b.datetime); })[0];
+
+    schedule.forEach(function (row) {
       var tr = document.createElement("tr");
+      if (nextEvent && row === nextEvent) {
+        tr.style.color = "var(--accent)";
+      }
 
       var locationCell = row.location ? row.location : (row.zoom ? "Video call" : "&mdash;");
       var zoomHtml = row.zoom
@@ -653,7 +664,11 @@
     });
   }
 
-  renderSchedule();
+  fetch("data/schedule.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .catch(function () { return []; })
+    .then(renderSchedule);
+
   renderBuyIn();
 })();
 </script>

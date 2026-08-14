@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Constitution</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a120d;
+      --track: #132018;
+      --track-line: #24382c;
+      --rail: #f4efe2;
+      --rail-dim: #a9b8ac;
+      --paper: #16261c;
+      --paper-line: #2b3f31;
+      --accent: #ffb020;
+      --accent-dim: #a87418;
+      --brass: #c9a227;
+      --win: #7fd858;
+      --shadow: rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a120d;
+    --track: #132018;
+    --track-line: #24382c;
+    --rail: #f4efe2;
+    --rail-dim: #a9b8ac;
+    --paper: #16261c;
+    --paper-line: #2b3f31;
+    --accent: #ffb020;
+    --accent-dim: #a87418;
+    --brass: #c9a227;
+    --win: #7fd858;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  :root {
+    --ground: #f2ede0;
+    --track: #dcd0ad;
+    --track-line: #c3b489;
+    --rail: #20261d;
+    --rail-dim: #5b6152;
+    --paper: #fbf8ee;
+    --paper-line: #d9cfab;
+    --accent: #b6551a;
+    --accent-dim: #8a4114;
+    --brass: #8a6d1f;
+    --win: #2f7a2f;
+    --shadow: rgba(60,45,10,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--rail);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    margin: 0;
+    padding: clamp(16px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--accent); color: var(--ground); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+  .site-nav a { text-decoration: none; color: var(--rail-dim); }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav .current { color: var(--accent); }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    border-bottom: 3px double var(--paper-line);
+    padding-bottom: 14px;
+  }
+  .masthead .title {
+    font-size: clamp(28px, 4.2vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .masthead .title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .masthead .sub {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+  }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--ground);
+    padding: 10px 0;
+  }
+  .toc a {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--rail-dim);
+    border: 1px solid var(--paper-line);
+    background: var(--paper);
+    border-radius: 999px;
+    padding: 7px 14px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .section-label {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  .rule-section {
+    scroll-margin-top: 56px;
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 26px clamp(18px, 3vw, 32px);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .rule-section h2 { font-size: 24px; }
+  .rule-section > p.lede {
+    color: var(--rail-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+  .rule-section p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--rail-dim);
+    max-width: 70ch;
+  }
+  .rule-section p strong { color: var(--rail); }
+  .rule-section ol, .rule-section ul {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 70ch;
+  }
+  .rule-section li {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--rail-dim);
+  }
+  .rule-section li strong { color: var(--rail); }
+
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .article-title {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .table-wrap { overflow-x: auto; }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--paper-line);
+    vertical-align: top;
+  }
+  th {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rail-dim);
+    font-weight: 400;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 30px 20px;
+    border: 1px dashed var(--paper-line);
+    border-radius: 6px;
+    background: var(--ground);
+  }
+  .empty-state .icon { font-size: 26px; opacity: 0.8; }
+  .empty-state p { margin: 0; color: var(--rail-dim); font-size: 14px; max-width: 46ch; }
+
+  footer {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--rail-dim);
+    text-align: center;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">League Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="draft-lottery.html">Draft Lottery</a>
+  <span aria-hidden="true">/</span>
+  <a href="rules.html">League Rules</a>
+  <span aria-hidden="true">/</span>
+  <a href="standings.html">Standings</a>
+  <span aria-hidden="true">/</span>
+  <span class="current">Constitution</span>
+</nav>
+
+<div class="masthead">
+  <div class="title">League <em>Constitution</em></div>
+  <div class="sub">The governing document, for when the fine print isn't enough</div>
+</div>
+
+<nav class="toc">
+  <a href="#purpose">Purpose</a>
+  <a href="#governance">Governance</a>
+  <a href="#membership">Membership</a>
+  <a href="#amendments">Amendments</a>
+  <a href="#changelog">Change Log</a>
+</nav>
+
+<section class="rule-section" id="purpose">
+  <div class="section-label">Article I</div>
+  <h2>Purpose</h2>
+  <p>
+    This constitution governs Malaka's United, a 12-team fantasy football league. Where this document and the
+    <a href="rules.html" style="color: var(--accent);">League Rules</a> page disagree, this constitution takes
+    precedence &mdash; Rules covers this season's specifics (dates, payouts, scoring); this document covers how
+    the league governs itself season over season.
+  </p>
+</section>
+
+<section class="rule-section" id="governance">
+  <div class="section-label">Article II</div>
+  <h2>Governance</h2>
+
+  <div class="article">
+    <div class="article-title">Section 1 &mdash; Commissioner</div>
+    <p>
+      The Commissioner administers the league day to day: runs the draft lottery, processes payouts, settles
+      disputes not covered by these rules, and keeps the site up to date. The Commissioner does not have unilateral
+      authority to change scoring, roster settings, or payout structure mid-season without a league vote.
+    </p>
+  </div>
+
+  <div class="article">
+    <div class="article-title">Section 2 &mdash; Decisions</div>
+    <p>
+      Day-to-day rulings (trade fairness, waiver disputes, lineup mistakes) are decided by the Commissioner.
+      Anything that changes the rules for future seasons requires a league vote under the Amendment process below.
+    </p>
+  </div>
+</section>
+
+<section class="rule-section" id="membership">
+  <div class="section-label">Article III</div>
+  <h2>Membership</h2>
+
+  <div class="article">
+    <div class="article-title">Section 1 &mdash; Returning Members</div>
+    <p>
+      All 12 teams are expected to return each season unless a member opts out before the following year's draft.
+      Buy-in must be paid before the draft to retain a roster spot.
+    </p>
+  </div>
+
+  <div class="article">
+    <div class="article-title">Section 2 &mdash; Replacement</div>
+    <p>
+      If a team owner leaves the league, the Commissioner finds a replacement before the next draft. A
+      replacement owner inherits the outgoing owner's roster and draft slot as-is.
+    </p>
+  </div>
+</section>
+
+<section class="rule-section" id="amendments">
+  <div class="section-label">Article IV</div>
+  <h2>Amendments</h2>
+  <p class="lede">How this document &mdash; or the League Rules it governs &mdash; actually gets changed.</p>
+  <ol>
+    <li><strong>Propose.</strong> Any owner can propose a rule change at any point in the offseason.</li>
+    <li><strong>Discuss.</strong> The proposal is put in front of the full league for discussion.</li>
+    <li><strong>Vote.</strong> A majority of owners must approve the change for it to take effect.</li>
+    <li><strong>Record.</strong> Approved changes are logged in the Change Log below and take effect the following season, unless the league votes to apply it immediately.</li>
+  </ol>
+</section>
+
+<section class="rule-section" id="changelog">
+  <div class="section-label">Article V</div>
+  <h2>Change Log</h2>
+  <p class="lede">Every amendment made to league governance, scoring, or structure, in order.</p>
+  <div id="changelogContent"></div>
+</section>
+
+<footer>Malaka's United &middot; built for our fantasy football crew</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- EDIT THIS SECTION as amendments get voted in -------------------------
+  // Add one entry per approved change: { date: "Month Year", summary: "What changed and why." }
+  var CHANGELOG = [];
+  // ------------------------------------------------------------------------
+
+  var el = document.getElementById("changelogContent");
+
+  if (!CHANGELOG.length) {
+    el.innerHTML =
+      '<div class="empty-state"><div class="icon">📖</div>' +
+      "<p>No amendments recorded yet. Once the league votes on a change, it'll be logged here with the date and what changed.</p></div>";
+  } else {
+    var rows = CHANGELOG.map(function (c) {
+      return "<tr><td>" + c.date + "</td><td>" + c.summary + "</td></tr>";
+    }).join("");
+    el.innerHTML =
+      '<div class="table-wrap"><table><thead><tr><th>Date</th><th>Change</th></tr></thead><tbody>' +
+      rows + "</tbody></table></div>";
+  }
+})();
+</script>
+
+</body>
+</html>
