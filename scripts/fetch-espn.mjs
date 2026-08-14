@@ -6,14 +6,25 @@
 
 import { writeFile } from "node:fs/promises";
 
-const { ESPN_S2, ESPN_SWID, LEAGUE_ID, SEASON } = process.env;
+const rawEnv = process.env;
 
-for (const [key, value] of Object.entries({ ESPN_S2, ESPN_SWID, LEAGUE_ID, SEASON })) {
+for (const [key, value] of Object.entries({
+  ESPN_S2: rawEnv.ESPN_S2,
+  ESPN_SWID: rawEnv.ESPN_SWID,
+  LEAGUE_ID: rawEnv.LEAGUE_ID,
+  SEASON: rawEnv.SEASON,
+})) {
   if (!value) {
     console.error(`Missing required env var: ${key}`);
     process.exit(1);
   }
 }
+
+const LEAGUE_ID = rawEnv.LEAGUE_ID.trim();
+const SEASON = rawEnv.SEASON.trim();
+const ESPN_S2 = rawEnv.ESPN_S2.trim();
+// ESPN's SWID cookie is wrapped in curly braces; tolerate the value being pasted with or without them.
+const ESPN_SWID = rawEnv.ESPN_SWID.trim().replace(/^\{?/, "{").replace(/\}?$/, "}");
 
 const API_URL =
   `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE_ID}` +
@@ -28,12 +39,28 @@ async function fetchLeague() {
     },
   });
 
+  const bodyText = await res.text();
+  console.log(
+    `ESPN API responded ${res.status} ${res.statusText} (content-type: ${res.headers.get("content-type") || "none"}, body length: ${bodyText.length})`
+  );
+
   if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    throw new Error(`ESPN API request failed: ${res.status} ${res.statusText}\n${body.slice(0, 500)}`);
+    throw new Error(`ESPN API request failed: ${res.status} ${res.statusText}\n${bodyText.slice(0, 500)}`);
   }
 
-  return res.json();
+  if (!bodyText) {
+    throw new Error(
+      "ESPN API returned a 200 OK with an empty body. This almost always means the espn_s2/SWID " +
+      "cookies aren't authenticating for this league (expired, mismatched account, or copied incorrectly). " +
+      "Re-grab both cookie values from a logged-in browser session and update the ESPN_S2 / ESPN_SWID repo secrets."
+    );
+  }
+
+  try {
+    return JSON.parse(bodyText);
+  } catch (err) {
+    throw new Error(`ESPN API returned non-JSON content (status ${res.status}):\n${bodyText.slice(0, 500)}`);
+  }
 }
 
 function teamName(team) {
