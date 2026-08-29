@@ -169,7 +169,6 @@
     text-anchor: middle; text-transform: uppercase;
   }
   .finish-line { stroke: var(--accent); stroke-width: 3; stroke-dasharray: 5 4; }
-  .finish-flag-text { font-size: 22px; text-anchor: middle; }
 
   .live-finish-panel {
     position: absolute; top: 14px; right: 14px; bottom: 14px;
@@ -220,7 +219,7 @@
   #dismissFinishBtn { width: 100%; margin-top: 0; }
   @media (prefers-reduced-motion: reduce) { .finish-overlay { animation: none; } }
 
-  .horse-emoji { text-anchor: middle; dominant-baseline: central; filter: drop-shadow(0 1px 2px var(--shadow-strong)); }
+  .horse-emoji { filter: drop-shadow(0 1px 2px var(--shadow-strong)); }
   .horse-body { transition: opacity 0.3s ease; }
   .horse-body.done { opacity: 0.42; }
   .silk-circle { stroke: var(--bg); stroke-width: 1.6; }
@@ -603,6 +602,43 @@
     ].join(" ");
   }
 
+  // A small stylized horse silhouette (body, neck, head, ear, tail, four legs),
+  // built from plain shapes rather than an emoji glyph. Drawn facing left in
+  // its own 0-140 local coordinate space; placeHorse() mirrors it via scale(-1,1)
+  // when the horse is heading right, and colors it with the team's own color.
+  function buildHorseIcon(color, size) {
+    var k = size / 128;
+    var g = svgEl("g", { class: "horse-emoji", fill: color, stroke: color, transform: "scale(" + k.toFixed(3) + ") translate(-66,-40)" });
+    g.appendChild(svgEl("path", { d: "M 113 40 C 124 42, 132 50, 128 62", fill: "none", "stroke-width": 6, "stroke-linecap": "round" }));
+    g.appendChild(svgEl("ellipse", { cx: 85, cy: 46, rx: 30, ry: 15, stroke: "none" }));
+    g.appendChild(svgEl("path", { d: "M 60 36 C 50 30, 38 24, 30 18 L 38 14 C 48 22, 58 28, 66 36 Z", stroke: "none" }));
+    g.appendChild(svgEl("ellipse", { cx: 21, cy: 16, rx: 14, ry: 8.5, transform: "rotate(-25 21 16)", stroke: "none" }));
+    g.appendChild(svgEl("path", { d: "M 24 7 L 20 -2 L 30 5 Z", stroke: "none" }));
+    g.appendChild(svgEl("path", { d: "M 68 58 L 58 80", "stroke-width": 7, "stroke-linecap": "round" }));
+    g.appendChild(svgEl("path", { d: "M 78 59 L 88 81", "stroke-width": 7, "stroke-linecap": "round" }));
+    g.appendChild(svgEl("path", { d: "M 95 59 L 87 81", "stroke-width": 7, "stroke-linecap": "round" }));
+    g.appendChild(svgEl("path", { d: "M 105 58 L 118 80", "stroke-width": 7, "stroke-linecap": "round" }));
+    return g;
+  }
+
+  // A small checkered finish flag (pole + 4x2 checkerboard), replacing the
+  // finish-line flag emoji.
+  function buildFinishFlag(cx, cy) {
+    var g = svgEl("g", { transform: "translate(" + (cx - 9) + "," + (cy - 22) + ")" });
+    g.appendChild(svgEl("line", { x1: 1.5, y1: 0, x2: 1.5, y2: 24, stroke: "#8a8f9c", "stroke-width": 1.6 }));
+    var colors = ["#15171c", "#f4f4f4"];
+    var cols = 4, rows = 2, sw = 3.6, sh = 5.2;
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        g.appendChild(svgEl("rect", {
+          x: 3 + c * sw, y: r * sh, width: sw, height: sh,
+          fill: colors[(r + c) % 2]
+        }));
+      }
+    }
+    return g;
+  }
+
   var horseNodes = {}; // teamId -> { body, silk, num, radius, silkR }
 
   // The horse emoji is a side-view glyph, not a top-down sprite, so it should
@@ -658,7 +694,7 @@
     trackSvg.appendChild(svgEl("line", {
       x1: finishX, y1: CY - outerR + 4, x2: finishX, y2: CY - innerR - 4, class: "finish-line"
     }));
-    trackSvg.appendChild(svgEl("text", { x: finishX, y: CY - outerR - 6, class: "finish-flag-text" })).textContent = "🏁";
+    trackSvg.appendChild(buildFinishFlag(finishX, CY - outerR - 6));
 
     // One colored guide line per lane, running the exact path each horse follows,
     // so a horse's own color is easy to spot and trace around the whole lap.
@@ -674,9 +710,7 @@
       laneGroup.appendChild(svgEl("path", { d: stadiumPathD(r), class: "lane-line", stroke: team.color }));
 
       var body = svgEl("g", { class: "horse-body" });
-      var emoji = svgEl("text", { class: "horse-emoji", style: "font-size:" + emojiSize + "px" });
-      emoji.textContent = "🐎";
-      body.appendChild(emoji);
+      body.appendChild(buildHorseIcon(team.color, emojiSize));
 
       var silk = svgEl("circle", { class: "silk-circle", r: silkR, fill: team.color });
       var num = svgEl("text", { class: "silk-num", style: "font-size:" + Math.max(9, silkR) + "px" });

@@ -177,7 +177,7 @@
     var seconds = Math.floor((diff % 60000) / 1000);
 
     var zoomHtml = next.zoom
-      ? '<a class="countdown-link" href="' + next.zoom + '" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><polygon points="16 10 22 7 22 17 16 14"/></svg> Join via Zoom</a>'
+      ? '<a class="countdown-link" href="' + next.zoom + '" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3l-9 9M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg> Join Virtually</a>'
       : "";
 
     el.innerHTML =
