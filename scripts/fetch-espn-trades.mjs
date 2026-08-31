@@ -16,11 +16,19 @@
 //      TRADE_ACCEPT records untouched — so a real payload can be inspected
 //      and this file fixed if `unresolved` turns out non-empty.
 //
+// It's also unconfirmed whether mTransactions2 returns a whole season with
+// no scoringPeriodId or needs one per week — a whole-season request that
+// comes back completely empty is retried as a per-week loop (1..MAX_WEEK)
+// before concluding the season really has none. A past season's trades
+// can't change once settled (see `settledSeasons` in the output and its
+// use in main()), so that expensive loop only runs once per season ever,
+// not on every 30-minute sync — only the current season always re-fetches.
+//
 // Requires env vars: ESPN_S2, ESPN_SWID, LEAGUE_ID, SEASON (current season —
 // every season from 2022 up to and including this one is fetched).
 // Run by .github/workflows/espn-sync.yml.
 
-import { writeFile } from "node:fs/promises";
+import { writeFile, readFile } from "node:fs/promises";
 
 const rawEnv = process.env;
 
@@ -80,13 +88,54 @@ async function getJson(url, headers) {
 // deliberately excludes.
 const TRADE_TYPE = "TRADE_ACCEPT";
 
-async function fetchSeasonTransactions(season) {
+// Returns { trades, diagnostic }. diagnostic distinguishes "the request
+// worked and this league truly has zero matching transactions" from "the
+// request itself is silently failing" — both look identical from the
+// outside otherwise, and this view is unverified/undocumented enough that
+// telling them apart matters. requestFailed means getJson() got no body at
+// all (network/auth/4xx); totalCount is EVERY transaction type returned
+// (waivers, adds, drops, trades) — a real league with any activity across a
+// full season should show a nonzero totalCount even in seasons with no
+// trades, so a 0 there across every season is the tell that something
+// upstream of type-filtering is wrong, not that the league is trade-free.
+const MAX_WEEK = 17; // regular season + playoffs/consolation, matches fetch-espn-history.mjs's observed range
+
+async function fetchTransactionsFor(season, scoringPeriodId) {
   const filter = JSON.stringify({ transactions: { filterType: { value: [TRADE_TYPE] } } });
-  const data = await getJson(leagueUrl(season, "view=mTransactions2"), { "x-fantasy-filter": filter });
-  const all = (data && data.transactions) || [];
+  const params = "view=mTransactions2" + (scoringPeriodId ? `&scoringPeriodId=${scoringPeriodId}` : "");
+  const data = await getJson(leagueUrl(season, params), { "x-fantasy-filter": filter });
+  return { requestFailed: data == null, all: (data && data.transactions) || [] };
+}
+
+async function fetchSeasonTransactions(season) {
+  // Try one whole-season request first (cheap, and may well be how this
+  // view actually works) — if it comes back completely empty, that's
+  // ambiguous (zero trades ever, vs. this view being scoped to a scoring
+  // period and returning nothing without one), so fall back to looping
+  // every week and aggregating before concluding there's really nothing.
+  let { requestFailed, all } = await fetchTransactionsFor(season, null);
+  let usedWeekLoop = false;
+
+  if (!requestFailed && all.length === 0) {
+    usedWeekLoop = true;
+    const seen = new Set();
+    for (let week = 1; week <= MAX_WEEK; week++) {
+      const weekResult = await fetchTransactionsFor(season, week);
+      if (weekResult.requestFailed) continue;
+      for (const t of weekResult.all) {
+        const key = t.id ?? JSON.stringify(t);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        all.push(t);
+      }
+    }
+  }
+
   const trades = all.filter((t) => t.type === TRADE_TYPE);
-  console.log(`Season ${season}: ${all.length} transaction(s) returned, ${trades.length} trade(s).`);
-  return trades;
+  const typeCounts = {};
+  for (const t of all) typeCounts[t.type] = (typeCounts[t.type] || 0) + 1;
+  console.log(`Season ${season}: ${all.length} transaction(s) returned${usedWeekLoop ? " (via per-week loop)" : ""}, ${trades.length} trade(s). Types: ${JSON.stringify(typeCounts)}`);
+  return { trades, diagnostic: { season, requestFailed, usedWeekLoop, totalCount: all.length, typeCounts } };
 }
 
 // Builds a season's playerId → name map from ESPN's season-scoped (not
@@ -143,7 +192,10 @@ function namePlayers(ids, playerMap) {
 }
 
 async function buildSeasonTrades(season) {
-  const [transactions, playerMap] = await Promise.all([fetchSeasonTransactions(season), fetchPlayerMap(season)]);
+  const [{ trades: transactions, diagnostic }, playerMap] = await Promise.all([
+    fetchSeasonTransactions(season),
+    fetchPlayerMap(season),
+  ]);
 
   const trades = [];
   const unresolved = [];
@@ -171,27 +223,62 @@ async function buildSeasonTrades(season) {
     });
   }
 
-  return { trades, unresolved, rawSamples };
+  return { trades, unresolved, rawSamples, diagnostic };
+}
+
+async function loadPrior() {
+  try {
+    return JSON.parse(await readFile(new URL("../data/espn-trades.json", import.meta.url), "utf8"));
+  } catch {
+    return null;
+  }
 }
 
 async function main() {
   const seasons = [];
   for (let s = OLDEST_SEASON; s <= CURRENT_SEASON; s++) seasons.push(s);
 
+  const prior = await loadPrior();
+  const priorSettled = new Set((prior && prior.settledSeasons) || []);
+  const priorTradesBySeason = new Map();
+  if (prior && Array.isArray(prior.trades)) {
+    for (const t of prior.trades) {
+      if (!priorTradesBySeason.has(t.season)) priorTradesBySeason.set(t.season, []);
+      priorTradesBySeason.get(t.season).push(t);
+    }
+  }
+
   const allTrades = [];
   const allUnresolved = [];
   const allRawSamples = [];
+  const diagnostics = [];
+  const settledSeasons = [];
 
   for (const season of seasons) {
+    // A past season's trade history can't change. Once a run gets a real
+    // (non-failed) answer for it — trades found, or confirmed via the
+    // per-week loop that there are none — there's no need to keep paying
+    // for a 17-request-per-season loop on every 30-minute sync forever.
+    // The current season always re-fetches, since new trades can happen.
+    if (season !== CURRENT_SEASON && priorSettled.has(season)) {
+      allTrades.push(...(priorTradesBySeason.get(season) || []));
+      settledSeasons.push(season);
+      console.log(`Season ${season}: already settled from a prior run, reusing ${priorTradesBySeason.get(season)?.length || 0} trade(s).`);
+      continue;
+    }
+
     try {
-      const { trades, unresolved, rawSamples } = await buildSeasonTrades(season);
+      const { trades, unresolved, rawSamples, diagnostic } = await buildSeasonTrades(season);
       allTrades.push(...trades);
       allUnresolved.push(...unresolved);
       if (allRawSamples.length < 5) allRawSamples.push(...rawSamples);
+      diagnostics.push(diagnostic);
+      if (season !== CURRENT_SEASON && !diagnostic.requestFailed) settledSeasons.push(season);
     } catch (err) {
       // One season's request failing (network blip, unexpected shape) shouldn't
       // discard every other season's already-fetched trades.
       console.error(`Season ${season}: failed to fetch/parse trades —`, err);
+      diagnostics.push({ season, requestFailed: true, error: String(err) });
     }
   }
 
@@ -208,6 +295,10 @@ async function main() {
         // trades this run — inspect espn-trades-raw-sample.json and fix
         // resolveSides() in scripts/fetch-espn-trades.mjs.
         unresolvedCount: allUnresolved.length,
+        // Past seasons in this list are skipped on future runs (see main())
+        // rather than re-fetched every 30 minutes — the current season is
+        // deliberately never added here since it's still live.
+        settledSeasons: settledSeasons,
       },
       null,
       2
@@ -218,7 +309,21 @@ async function main() {
   // saw a real trade at all vs. the league just having none yet.
   await writeFile(
     new URL("../data/espn-trades-raw-sample.json", import.meta.url),
-    JSON.stringify({ lastUpdated: new Date().toISOString(), samples: allRawSamples, unresolved: allUnresolved.slice(0, 5) }, null, 2) + "\n"
+    JSON.stringify(
+      {
+        lastUpdated: new Date().toISOString(),
+        // Per-season diagnostic: if totalCount is 0 for every season here,
+        // the request itself is silently failing (a real season always has
+        // SOME waiver/add/drop activity) — not that the league has no
+        // trades. requestFailed:true means getJson() got no response body
+        // at all (network/auth/4xx).
+        diagnostics,
+        samples: allRawSamples,
+        unresolved: allUnresolved.slice(0, 5),
+      },
+      null,
+      2
+    ) + "\n"
   );
 
   console.log(`Synced ${allTrades.length} trade(s) across ${seasons.length} season(s), ${allUnresolved.length} unresolved.`);
