@@ -86,6 +86,30 @@
 
   .h2h-summary { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-dim); }
   .h2h-summary strong { color: var(--accent); font-size: 15px; }
+
+  /* ---- league records ---- */
+  .record-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 14px; }
+  .record-grid-totals { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); margin-top: 8px; }
+  .record-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .record-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .record-value { font-family: "Lexend", sans-serif; font-size: 25px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .record-body { display: flex; flex-direction: column; gap: 6px; }
+  .record-context { font-size: 12px; color: var(--text-dim); }
+  .record-section-note { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; color: var(--text-faint); margin-top: 16px; }
 </style>
 </head>
 <body>
@@ -142,6 +166,7 @@
 
 <script src="assets/theme.js"></script>
 <script src="assets/owners.js"></script>
+<script src="assets/season-utils.js"></script>
 <script>
 (function () {
   "use strict";
@@ -234,6 +259,230 @@
     var colorById = new Map();
     sorted.forEach(function (id, i) { colorById.set(id, PALETTE[i % PALETTE.length]); });
     return colorById;
+  }
+
+  // ---------------------------------------------------------------------
+  // League records ("Accolades") — data/espn-history.json includes every
+  // matchup (regular season AND playoffs/consolation), tagged here as
+  // "regular" or "playoff" by week via regularSeasonWeeksFor(). Every
+  // category is attributed by real owner, same as the rest of this page.
+  // ---------------------------------------------------------------------
+
+  // One row per team per game (both sides of every matchup) — used for
+  // single-game score extremes and win/loss streaks.
+  function buildGameLog(seasons, ownerIndex) {
+    var log = [];
+    seasons.forEach(function (season) {
+      var regWeeks = regularSeasonWeeksFor(season);
+      (season.matchups || []).forEach(function (m) {
+        var phase = m.week <= regWeeks ? "regular" : "playoff";
+        var homeOwner = ownerIdFor(ownerIndex, m.homeTeamId, season.season);
+        var awayOwner = ownerIdFor(ownerIndex, m.awayTeamId, season.season);
+        function result(pf, pa) { return pf > pa ? "W" : pf < pa ? "L" : "T"; }
+        log.push({ season: season.season, week: m.week, phase: phase, ownerId: homeOwner, oppId: awayOwner, pf: m.homeScore, pa: m.awayScore, result: result(m.homeScore, m.awayScore) });
+        log.push({ season: season.season, week: m.week, phase: phase, ownerId: awayOwner, oppId: homeOwner, pf: m.awayScore, pa: m.homeScore, result: result(m.awayScore, m.homeScore) });
+      });
+    });
+    return log;
+  }
+
+  // One row per matchup — used for combined-score and margin records, since
+  // both sides of a matchup share the same combined score and margin.
+  function buildMatchupLog(seasons, ownerIndex) {
+    var log = [];
+    seasons.forEach(function (season) {
+      var regWeeks = regularSeasonWeeksFor(season);
+      (season.matchups || []).forEach(function (m) {
+        var phase = m.week <= regWeeks ? "regular" : "playoff";
+        var homeOwner = ownerIdFor(ownerIndex, m.homeTeamId, season.season);
+        var awayOwner = ownerIdFor(ownerIndex, m.awayTeamId, season.season);
+        var isTie = m.homeScore === m.awayScore;
+        var winnerOwner = isTie ? null : (m.homeScore > m.awayScore ? homeOwner : awayOwner);
+        var loserOwner = isTie ? null : (m.homeScore > m.awayScore ? awayOwner : homeOwner);
+        log.push({
+          season: season.season, week: m.week, phase: phase,
+          homeOwner: homeOwner, awayOwner: awayOwner, isTie: isTie,
+          combined: m.homeScore + m.awayScore,
+          margin: Math.abs(m.homeScore - m.awayScore),
+          winnerOwner: winnerOwner, loserOwner: loserOwner,
+          winnerScore: isTie ? null : Math.max(m.homeScore, m.awayScore),
+          loserScore: isTie ? null : Math.min(m.homeScore, m.awayScore),
+        });
+      });
+    });
+    return log;
+  }
+
+  // scope: { season: number|null (null = all-time), phase: "regular"|"playoff" }
+  function filterByScope(rows, scope) {
+    return rows.filter(function (r) {
+      if (scope.season != null && r.season !== scope.season) return false;
+      return r.phase === scope.phase;
+    });
+  }
+
+  function ownerName(registry, ownerId) {
+    var t = registry.get(ownerId);
+    return t ? t.name : "Owner " + ownerId;
+  }
+
+  // dir: 1 picks the highest value, -1 the lowest. Rows with a null value
+  // (e.g. a tied matchup has no winnerScore) are skipped.
+  function bestRow(rows, key, dir) {
+    var winner = null;
+    rows.forEach(function (r) {
+      if (r[key] == null) return;
+      if (!winner || (dir === 1 ? r[key] > winner[key] : r[key] < winner[key])) winner = r;
+    });
+    return winner;
+  }
+
+  function computeStreaks(gameRows) {
+    var byOwner = new Map();
+    gameRows.forEach(function (r) {
+      if (r.result === "T") return; // a tie is neither a win nor a loss — it breaks a streak
+      if (!byOwner.has(r.ownerId)) byOwner.set(r.ownerId, []);
+      byOwner.get(r.ownerId).push(r);
+    });
+    var bestWin = null, bestLoss = null;
+    byOwner.forEach(function (rows) {
+      rows.sort(function (a, b) { return a.season - b.season || a.week - b.week; });
+      var curType = null, curLen = 0, curStart = null;
+      rows.forEach(function (r) {
+        if (r.result === curType) { curLen++; } else { curType = r.result; curLen = 1; curStart = r; }
+        var candidate = { ownerId: r.ownerId, length: curLen, startSeason: curStart.season, startWeek: curStart.week, endSeason: r.season, endWeek: r.week };
+        if (curType === "W" && (!bestWin || curLen > bestWin.length)) bestWin = candidate;
+        if (curType === "L" && (!bestLoss || curLen > bestLoss.length)) bestLoss = candidate;
+      });
+    });
+    return { bestWin: bestWin, bestLoss: bestLoss };
+  }
+
+  // Season point totals come from record.overall (regular season only, same
+  // basis as the PF/PA charts above) — there's no playoff equivalent, so
+  // this ignores scope.phase and only respects scope.season.
+  function seasonTotalRecords(seasons, ownerIndex, scope) {
+    var rows = [];
+    seasons.forEach(function (season) {
+      if (scope.season != null && season.season !== scope.season) return;
+      (season.teams || []).forEach(function (t) {
+        rows.push({ season: season.season, ownerId: ownerIdFor(ownerIndex, t.teamId, season.season), pointsFor: t.pointsFor });
+      });
+    });
+    return { most: bestRow(rows, "pointsFor", 1), least: bestRow(rows, "pointsFor", -1) };
+  }
+
+  function computeAccolades(seasons, ownerIndex, scope) {
+    var gameLog = filterByScope(buildGameLog(seasons, ownerIndex), scope);
+    var matchLog = filterByScope(buildMatchupLog(seasons, ownerIndex), scope);
+    var decisive = matchLog.filter(function (m) { return !m.isTie; });
+    var streaks = computeStreaks(gameLog);
+    var totals = seasonTotalRecords(seasons, ownerIndex, scope);
+
+    return {
+      highScore: bestRow(gameLog, "pf", 1),
+      lowScore: bestRow(gameLog, "pf", -1),
+      winStreak: streaks.bestWin,
+      lossStreak: streaks.bestLoss,
+      lowCombined: bestRow(matchLog, "combined", -1),
+      highCombined: bestRow(matchLog, "combined", 1),
+      smallMargin: bestRow(decisive, "margin", -1),
+      bigMargin: bestRow(decisive, "margin", 1),
+      fewestInWin: bestRow(decisive, "winnerScore", -1),
+      mostInLoss: bestRow(decisive, "loserScore", 1),
+      mostInSeason: totals.most,
+      leastInSeason: totals.least,
+    };
+  }
+
+  function ownerCellHtml(registry, ownerId) {
+    var t = registry.get(ownerId) || { name: "Owner " + ownerId };
+    return '<span class="team-cell">' + teamLogoHtml(t) + '<span>' + t.name + '</span></span>';
+  }
+
+  function recordCard(label, valueHtml, bodyHtml) {
+    return (
+      '<div class="record-card">' +
+        '<div class="record-label">' + label + '</div>' +
+        '<div class="record-value">' + valueHtml + '</div>' +
+        '<div class="record-body">' + bodyHtml + '</div>' +
+      '</div>'
+    );
+  }
+
+  function emptyRecordCard(label) {
+    return recordCard(label, "—", '<span class="record-context">No games in this view</span>');
+  }
+
+  function weekLabel(season, week) { return season + " · Wk " + week; }
+
+  function recordGridHtml(acc, registry) {
+    var cards = [];
+
+    function single(label, r) {
+      if (!r) { cards.push(emptyRecordCard(label)); return; }
+      cards.push(recordCard(label, fmt1(r.pf),
+        ownerCellHtml(registry, r.ownerId) +
+        '<div class="record-context">' + weekLabel(r.season, r.week) + " vs " + ownerName(registry, r.oppId) + '</div>'));
+    }
+    single("Highest Score", acc.highScore);
+    single("Lowest Score", acc.lowScore);
+
+    function streakCard(label, r) {
+      if (!r) { cards.push(emptyRecordCard(label)); return; }
+      var range = r.startSeason === r.endSeason
+        ? r.startSeason + " · Wk " + r.startWeek + "–" + r.endWeek
+        : r.startSeason + " Wk " + r.startWeek + " – " + r.endSeason + " Wk " + r.endWeek;
+      cards.push(recordCard(label, r.length + (r.length === 1 ? " game" : " games"),
+        ownerCellHtml(registry, r.ownerId) + '<div class="record-context">' + range + '</div>'));
+    }
+    streakCard("Longest Win Streak", acc.winStreak);
+    streakCard("Longest Loss Streak", acc.lossStreak);
+
+    function combinedCard(label, r) {
+      if (!r) { cards.push(emptyRecordCard(label)); return; }
+      cards.push(recordCard(label, fmt1(r.combined),
+        ownerCellHtml(registry, r.homeOwner) + ownerCellHtml(registry, r.awayOwner) +
+        '<div class="record-context">' + weekLabel(r.season, r.week) + '</div>'));
+    }
+    combinedCard("Highest Combined Score", acc.highCombined);
+    combinedCard("Lowest Combined Score", acc.lowCombined);
+
+    function marginCard(label, r) {
+      if (!r) { cards.push(emptyRecordCard(label)); return; }
+      cards.push(recordCard(label, fmt1(r.margin),
+        ownerCellHtml(registry, r.winnerOwner) +
+        '<div class="record-context">beat ' + ownerName(registry, r.loserOwner) + ", " + weekLabel(r.season, r.week) + '</div>'));
+    }
+    marginCard("Largest Margin of Victory", acc.bigMargin);
+    marginCard("Smallest Margin of Victory", acc.smallMargin);
+
+    if (!acc.fewestInWin) {
+      cards.push(emptyRecordCard("Fewest Points in a Win"));
+    } else {
+      var fw = acc.fewestInWin;
+      cards.push(recordCard("Fewest Points in a Win", fmt1(fw.winnerScore),
+        ownerCellHtml(registry, fw.winnerOwner) +
+        '<div class="record-context">beat ' + ownerName(registry, fw.loserOwner) + " " + fmt1(fw.loserScore) + ", " + weekLabel(fw.season, fw.week) + '</div>'));
+    }
+    if (!acc.mostInLoss) {
+      cards.push(emptyRecordCard("Most Points in a Loss"));
+    } else {
+      var ml = acc.mostInLoss;
+      cards.push(recordCard("Most Points in a Loss", fmt1(ml.loserScore),
+        ownerCellHtml(registry, ml.loserOwner) +
+        '<div class="record-context">lost to ' + ownerName(registry, ml.winnerOwner) + " " + fmt1(ml.winnerScore) + ", " + weekLabel(ml.season, ml.week) + '</div>'));
+    }
+
+    return cards.join("");
+  }
+
+  function seasonTotalsHtml(acc, registry) {
+    function card(label, r) {
+      if (!r) return emptyRecordCard(label);
+      return recordCard(label, fmt1(r.pointsFor), ownerCellHtml(registry, r.ownerId) + '<div class="record-context">' + r.season + " season</div>");
+    }
+    return card("Most Points in a Season", acc.mostInSeason) + card("Least Points in a Season", acc.leastInSeason);
   }
 
   // ---------------------------------------------------------------------
@@ -412,10 +661,15 @@
   // Head to head
   // ---------------------------------------------------------------------
 
+  // Head-to-head is regular-season only, matching record.overall — the data
+  // file itself includes playoff/consolation weeks too (the Records section
+  // below wants those), so it's filtered out here by week.
   function allMatchups(history) {
     var all = [];
     (history.seasons || []).forEach(function (s) {
+      var regWeeks = regularSeasonWeeksFor(s);
       (s.matchups || []).forEach(function (m) {
+        if (m.week > regWeeks) return;
         all.push({ season: s.season, homeTeamId: m.homeTeamId, awayTeamId: m.awayTeamId, winner: m.winner });
       });
     });
@@ -494,6 +748,30 @@
 
   function pageHtml() {
     return (
+      '<div class="section">' +
+        '<div class="eyebrow">League Records</div>' +
+        '<p class="lede">Single-game and single-season extremes across league history, attributed by owner. Switch between one season and all-time, and between regular season and playoffs.</p>' +
+        '<div class="panel">' +
+          '<div class="controls-row">' +
+            '<label for="recScopeSelect">View</label>' +
+            '<select class="control-select" id="recScopeSelect">' +
+              '<option value="alltime">All-Time</option>' +
+              '<option value="season">By Season</option>' +
+            '</select>' +
+            '<label for="recSeasonSelect" id="recSeasonLabel" style="display:none;">Season</label>' +
+            '<select class="control-select" id="recSeasonSelect" style="display:none;"></select>' +
+            '<label for="recPhaseSelect">Games</label>' +
+            '<select class="control-select" id="recPhaseSelect">' +
+              '<option value="regular">Regular Season</option>' +
+              '<option value="playoff">Playoffs</option>' +
+            '</select>' +
+          '</div>' +
+          '<div class="record-grid" id="recordGrid"></div>' +
+          '<div class="record-section-note">Season totals below are regular-season point totals — they don&rsquo;t change with the Games toggle.</div>' +
+          '<div class="record-grid record-grid-totals" id="seasonTotalsGrid"></div>' +
+        '</div>' +
+      '</div>' +
+
       '<div class="section">' +
         '<div class="eyebrow">Points For, By Season</div>' +
         '<p class="lede">Total regular-season points scored, tracked year over year. Click a team in the legend to hide or show its line.</p>' +
@@ -580,6 +858,35 @@
     };
 
     document.getElementById("pageBody").innerHTML = pageHtml();
+
+    (function wireRecords() {
+      var scopeSelect = document.getElementById("recScopeSelect");
+      var seasonSelect = document.getElementById("recSeasonSelect");
+      var seasonLabel = document.getElementById("recSeasonLabel");
+      var phaseSelect = document.getElementById("recPhaseSelect");
+
+      seasonSelect.innerHTML = seasonsAsc.slice().reverse().map(function (s) {
+        return '<option value="' + s + '">' + s + '</option>';
+      }).join("");
+
+      function renderRecords() {
+        var isSeason = scopeSelect.value === "season";
+        seasonSelect.style.display = isSeason ? "" : "none";
+        seasonLabel.style.display = isSeason ? "" : "none";
+        var scope = {
+          season: isSeason ? Number(seasonSelect.value) : null,
+          phase: phaseSelect.value,
+        };
+        var acc = computeAccolades(seasons, ownerIndex, scope);
+        document.getElementById("recordGrid").innerHTML = recordGridHtml(acc, registry);
+        document.getElementById("seasonTotalsGrid").innerHTML = seasonTotalsHtml(acc, registry);
+      }
+
+      scopeSelect.addEventListener("change", renderRecords);
+      seasonSelect.addEventListener("change", renderRecords);
+      phaseSelect.addEventListener("change", renderRecords);
+      renderRecords();
+    })();
 
     var pfSeries = buildSeriesForStat(seasons, ownerIds, registry, colorById, "pointsFor", ownerIndex);
     var paSeries = buildSeriesForStat(seasons, ownerIds, registry, colorById, "pointsAgainst", ownerIndex);

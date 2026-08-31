@@ -12,17 +12,6 @@
 <style>
   .lede { color: var(--text-dim); font-size: 13.5px; max-width: 68ch; margin: -4px 0 0; }
 
-  /* ---- controls ---- */
-  .controls-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .controls-row label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-  }
-  select.rank-select { min-width: 150px; font-size: 14.5px; }
-
   /* ---- how it works ---- */
   details.how-it-works {
     border: 1px solid var(--border);
@@ -206,9 +195,9 @@
   <div class="section">
     <div class="controls-row">
       <label for="seasonSelect">Season</label>
-      <select class="rank-select" id="seasonSelect"></select>
+      <select class="control-select" id="seasonSelect"></select>
       <label for="weekSelect">Week</label>
-      <select class="rank-select" id="weekSelect"></select>
+      <select class="control-select" id="weekSelect"></select>
     </div>
   </div>
 
@@ -225,6 +214,7 @@
 
 <script src="assets/theme.js"></script>
 <script src="assets/owners.js"></script>
+<script src="assets/season-utils.js"></script>
 <script>
 (function () {
   "use strict";
@@ -239,16 +229,9 @@
   // Stats engine
   // -----------------------------------------------------------------------
 
-  // ESPN's schedule mixes playoff/consolation weeks in with the regular
-  // season, but record.overall (wins/losses/ties) only ever counts regular
-  // season games. Every team plays the same number of regular-season games,
-  // so the max games any team has recorded is that season's regular-season
-  // length — recomputed here (not trusted from the data file) so this page
-  // is correct even if espn-history.json hasn't re-synced since a scoring
-  // change.
-  function regularSeasonWeeksFor(season) {
-    return Math.max.apply(null, season.teams.map(function (t) { return t.wins + t.losses + t.ties; }));
-  }
+  // regularSeasonWeeksFor lives in assets/season-utils.js — espn-history.json
+  // now includes playoff/consolation weeks too, so every consumer filters by
+  // week itself rather than trusting the data file to have done it.
 
   function gamesByTeam(season) {
     var regWeeks = regularSeasonWeeksFor(season);

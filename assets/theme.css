@@ -459,6 +459,16 @@ select, input {
 }
 select:focus, input:focus { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
 
+.controls-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.controls-row label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+select.control-select { min-width: 150px; font-size: 14.5px; }
+
 /* ---- footer ---- */
 .site-footer {
   border-top: 1px solid var(--border);
