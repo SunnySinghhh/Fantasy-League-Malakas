@@ -39,24 +39,25 @@
   .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 
   .board-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
-  .board-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1400px; }
+  .board-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1500px; table-layout: fixed; }
   .board-table th, .board-table td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 0; }
   .board-table th:last-child, .board-table td:last-child { border-right: none; }
   .board-table thead th {
     background: var(--surface-2);
     font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
     color: var(--text); text-transform: none; letter-spacing: 0;
-    padding: 12px 14px; text-align: left; white-space: nowrap;
+    padding: 12px 10px; text-align: left;
+    overflow-wrap: break-word; word-break: break-word;
   }
-  .board-table thead th.round-col { min-width: 54px; text-align: center; }
+  .board-table thead th.round-col { width: 50px; text-align: center; }
   .round-cell {
     text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 12px;
     color: var(--text-faint); background: var(--surface-2); font-weight: 600;
   }
-  .pick-cell { min-width: 132px; vertical-align: top; }
+  .pick-cell { vertical-align: top; }
   .pick {
     display: flex; flex-direction: column; gap: 3px;
-    padding: 9px 11px; height: 100%;
+    padding: 9px 10px; height: 100%;
   }
   .pick .pick-meta {
     display: flex; align-items: center; gap: 5px;
@@ -65,9 +66,13 @@
   .pick .pos-tag {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 1px 5px; border-radius: 4px; font-size: 9.5px; letter-spacing: 0.02em;
+    flex: none;
   }
   .pick .team-abbr { color: var(--text-faint); }
-  .pick .pick-name { font-size: 12.5px; font-weight: 600; line-height: 1.25; }
+  .pick .pick-name {
+    font-size: 12.5px; font-weight: 600; line-height: 1.3;
+    overflow-wrap: break-word; word-break: break-word;
+  }
 
   .pick.pos-RB { background: var(--pos-rb-soft); } .pick.pos-RB .pos-tag { background: var(--pos-rb); color: #fff; }
   .pick.pos-WR { background: var(--pos-wr-soft); } .pick.pos-WR .pos-tag { background: var(--pos-wr); color: #fff; }
