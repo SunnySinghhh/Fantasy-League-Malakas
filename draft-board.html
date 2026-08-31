@@ -10,14 +10,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/theme.css">
 <style>
-  .board-image-wrap {
-    overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    padding: 8px;
+  :root {
+    --pos-rb: #3e8f5c; --pos-rb-soft: #e4f3ea;
+    --pos-wr: #b8862c; --pos-wr-soft: #f7ecd6;
+    --pos-te: #3a7fb0; --pos-te-soft: #e2f0f8;
+    --pos-qb: #c1483a; --pos-qb-soft: #f9e3e0;
+    --pos-k: #8a4fae; --pos-k-soft: #f0e2f6;
+    --pos-def: #b1621f; --pos-def-soft: #f7e6d4;
   }
-  .board-image-wrap img { min-width: 1200px; width: 100%; border-radius: 6px; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --pos-rb-soft: #163826; --pos-wr-soft: #3a2c10; --pos-te-soft: #12293b;
+      --pos-qb-soft: #3a1a15; --pos-k-soft: #2c1938; --pos-def-soft: #33210c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --pos-rb-soft: #163826; --pos-wr-soft: #3a2c10; --pos-te-soft: #12293b;
+    --pos-qb-soft: #3a1a15; --pos-k-soft: #2c1938; --pos-def-soft: #33210c;
+  }
+
+  .legend-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .legend-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+  .board-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  .board-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1400px; }
+  .board-table th, .board-table td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 0; }
+  .board-table th:last-child, .board-table td:last-child { border-right: none; }
+  .board-table thead th {
+    background: var(--surface-2);
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
+    color: var(--text); text-transform: none; letter-spacing: 0;
+    padding: 12px 14px; text-align: left; white-space: nowrap;
+  }
+  .board-table thead th.round-col { min-width: 54px; text-align: center; }
+  .round-cell {
+    text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--text-faint); background: var(--surface-2); font-weight: 600;
+  }
+  .pick-cell { min-width: 132px; vertical-align: top; }
+  .pick {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 9px 11px; height: 100%;
+  }
+  .pick .pick-meta {
+    display: flex; align-items: center; gap: 5px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  }
+  .pick .pos-tag {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 1px 5px; border-radius: 4px; font-size: 9.5px; letter-spacing: 0.02em;
+  }
+  .pick .team-abbr { color: var(--text-faint); }
+  .pick .pick-name { font-size: 12.5px; font-weight: 600; line-height: 1.25; }
+
+  .pick.pos-RB { background: var(--pos-rb-soft); } .pick.pos-RB .pos-tag { background: var(--pos-rb); color: #fff; }
+  .pick.pos-WR { background: var(--pos-wr-soft); } .pick.pos-WR .pos-tag { background: var(--pos-wr); color: #fff; }
+  .pick.pos-TE { background: var(--pos-te-soft); } .pick.pos-TE .pos-tag { background: var(--pos-te); color: #fff; }
+  .pick.pos-QB { background: var(--pos-qb-soft); } .pick.pos-QB .pos-tag { background: var(--pos-qb); color: #fff; }
+  .pick.pos-K { background: var(--pos-k-soft); } .pick.pos-K .pos-tag { background: var(--pos-k); color: #fff; }
+  .pick.pos-DEF { background: var(--pos-def-soft); } .pick.pos-DEF .pos-tag { background: var(--pos-def); color: #fff; }
 </style>
 </head>
 <body>
@@ -61,8 +118,20 @@
   </div>
 
   <div class="section">
-    <div class="board-image-wrap">
-      <img src="assets/draft-board-2026.png" alt="2026 draft board — 12 teams by 16 rounds">
+    <div class="legend-row">
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-rb)"></span>RB</span>
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-wr)"></span>WR</span>
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-te)"></span>TE</span>
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-qb)"></span>QB</span>
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-k)"></span>K</span>
+      <span class="legend-chip"><span class="legend-dot" style="background:var(--pos-def)"></span>DEF</span>
+    </div>
+
+    <div class="board-wrap">
+      <table class="board-table" id="boardTable">
+        <thead><tr id="boardHead"></tr></thead>
+        <tbody id="boardBody"></tbody>
+      </table>
     </div>
   </div>
 
@@ -71,5 +140,57 @@
 <footer class="site-footer">Malaka's United &middot; built for our fantasy football crew</footer>
 
 <script src="assets/theme.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // Column order = Round 1 pick order.
+  var TEAMS = [
+    "Pandelidis FC", "Perry Hall Pickers", "Houston Hicks", "DeeGotti's Welfare Warriors",
+    "Milkballs Revengers", "Sunny's Sp*rm Bank", "JPOPS", "Byzantine Boomers",
+    "The Navengers", "Chase Brown Kids", "Ecuador roof repair", "Xios United"
+  ];
+
+  // Each round: { teamName: {pos, team, name} }
+  var ROUNDS = [
+    { "Pandelidis FC": {pos:"RB",team:"DET",name:"Jahmyr Gibbs"}, "Perry Hall Pickers": {pos:"RB",team:"ATL",name:"Bijan Robinson"}, "Houston Hicks": {pos:"WR",team:"LAR",name:"Puka Nacua"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"CIN",name:"Ja'Marr Chase"}, "Milkballs Revengers": {pos:"RB",team:"SF",name:"Christian McCaffrey"}, "Sunny's Sp*rm Bank": {pos:"RB",team:"IND",name:"Jonathan Taylor"}, "JPOPS": {pos:"WR",team:"SEA",name:"Jaxon Smith-Njigba"}, "Byzantine Boomers": {pos:"WR",team:"DET",name:"Amon-Ra St. Brown"}, "The Navengers": {pos:"RB",team:"BUF",name:"James Cook III"}, "Chase Brown Kids": {pos:"WR",team:"DAL",name:"CeeDee Lamb"}, "Ecuador roof repair": {pos:"WR",team:"MIN",name:"Justin Jefferson"}, "Xios United": {pos:"RB",team:"MIA",name:"De'Von Achane"} },
+    { "Xios United": {pos:"RB",team:"CIN",name:"Chase Brown"}, "Ecuador roof repair": {pos:"RB",team:"PHI",name:"Saquon Barkley"}, "Chase Brown Kids": {pos:"RB",team:"LAC",name:"Omarion Hampton"}, "The Navengers": {pos:"RB",team:"KC",name:"Kenneth Walker III"}, "Byzantine Boomers": {pos:"WR",team:"ATL",name:"Drake London"}, "JPOPS": {pos:"RB",team:"BAL",name:"Derrick Henry"}, "Sunny's Sp*rm Bank": {pos:"RB",team:"LV",name:"Ashton Jeanty"}, "Milkballs Revengers": {pos:"WR",team:"NE",name:"A.J. Brown"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"KC",name:"Rashee Rice"}, "Houston Hicks": {pos:"WR",team:"HOU",name:"Nico Collins"}, "Perry Hall Pickers": {pos:"TE",team:"LV",name:"Brock Bowers"}, "Pandelidis FC": {pos:"WR",team:"DAL",name:"George Pickens"} },
+    { "Pandelidis FC": {pos:"WR",team:"PHI",name:"DeVonta Smith"}, "Perry Hall Pickers": {pos:"WR",team:"TB",name:"Emeka Egbuka"}, "Houston Hicks": {pos:"RB",team:"NYJ",name:"Breece Hall"}, "DeeGotti's Welfare Warriors": {pos:"TE",team:"ARI",name:"Trey McBride"}, "Milkballs Revengers": {pos:"WR",team:"NYG",name:"Malik Nabers"}, "Sunny's Sp*rm Bank": {pos:"WR",team:"BAL",name:"Zay Flowers"}, "JPOPS": {pos:"WR",team:"CIN",name:"Tee Higgins"}, "Byzantine Boomers": {pos:"RB",team:"ARI",name:"Jeremiyah Love"}, "The Navengers": {pos:"WR",team:"NO",name:"Chris Olave"}, "Chase Brown Kids": {pos:"RB",team:"LAR",name:"Kyren Williams"}, "Ecuador roof repair": {pos:"QB",team:"BUF",name:"Josh Allen"}, "Xios United": {pos:"WR",team:"NYJ",name:"Garrett Wilson"} },
+    { "Xios United": {pos:"WR",team:"LAC",name:"Ladd McConkey"}, "Ecuador roof repair": {pos:"RB",team:"DAL",name:"Javonte Williams"}, "Chase Brown Kids": {pos:"WR",team:"CAR",name:"Tetairoa McMillan"}, "The Navengers": {pos:"WR",team:"DEN",name:"Jaylen Waddle"}, "Byzantine Boomers": {pos:"RB",team:"NYG",name:"Cam Skattebo"}, "JPOPS": {pos:"RB",team:"CHI",name:"D'Andre Swift"}, "Sunny's Sp*rm Bank": {pos:"WR",team:"LAR",name:"Davante Adams"}, "Milkballs Revengers": {pos:"RB",team:"NO",name:"Travis Etienne Jr."}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"CLE",name:"Quinshon Judkins"}, "Houston Hicks": {pos:"RB",team:"TB",name:"Bucky Irving"}, "Perry Hall Pickers": {pos:"WR",team:"WSH",name:"Terry McLaurin"}, "Pandelidis FC": {pos:"RB",team:"JAX",name:"Bhayshul Tuten"} },
+    { "Pandelidis FC": {pos:"QB",team:"BAL",name:"Lamar Jackson"}, "Perry Hall Pickers": {pos:"WR",team:"BUF",name:"DJ Moore"}, "Houston Hicks": {pos:"WR",team:"DET",name:"Jameson Williams"}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"HOU",name:"David Montgomery"}, "Milkballs Revengers": {pos:"TE",team:"CHI",name:"Colston Loveland"}, "Sunny's Sp*rm Bank": {pos:"TE",team:"IND",name:"Tyler Warren"}, "JPOPS": {pos:"TE",team:"CLE",name:"Harold Fannin Jr."}, "Byzantine Boomers": {pos:"WR",team:"CHI",name:"Rome Odunze"}, "The Navengers": {pos:"WR",team:"CHI",name:"Luther Burden III"}, "Chase Brown Kids": {pos:"RB",team:"NE",name:"TreVeyon Henderson"}, "Ecuador roof repair": {pos:"WR",team:"ARI",name:"Marvin Harrison Jr."}, "Xios United": {pos:"RB",team:"SEA",name:"Jadarian Price"} },
+    { "Xios United": {pos:"WR",team:"TEN",name:"Carnell Tate"}, "Ecuador roof repair": {pos:"TE",team:"SF",name:"George Kittle"}, "Chase Brown Kids": {pos:"QB",team:"NE",name:"Drake Maye"}, "The Navengers": {pos:"WR",team:"GB",name:"Christian Watson"}, "Byzantine Boomers": {pos:"TE",team:"DET",name:"Sam LaPorta"}, "JPOPS": {pos:"QB",team:"CIN",name:"Joe Burrow"}, "Sunny's Sp*rm Bank": {pos:"QB",team:"WSH",name:"Jayden Daniels"}, "Milkballs Revengers": {pos:"WR",team:"JAX",name:"Parker Washington"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"DEN",name:"Courtland Sutton"}, "Houston Hicks": {pos:"QB",team:"PHI",name:"Jalen Hurts"}, "Perry Hall Pickers": {pos:"RB",team:"PIT",name:"Jaylen Warren"}, "Pandelidis FC": {pos:"RB",team:"GB",name:"MarShawn Lloyd"} },
+    { "Pandelidis FC": {pos:"WR",team:"SF",name:"Mike Evans"}, "Perry Hall Pickers": {pos:"RB",team:"GB",name:"Josh Jacobs"}, "Houston Hicks": {pos:"RB",team:"NE",name:"Rhamondre Stevenson"}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"CAR",name:"Chuba Hubbard"}, "Milkballs Revengers": {pos:"RB",team:"TEN",name:"Tony Pollard"}, "Sunny's Sp*rm Bank": {pos:"WR",team:"PIT",name:"Michael Pittman Jr."}, "JPOPS": {pos:"WR",team:"PIT",name:"DK Metcalf"}, "Byzantine Boomers": {pos:"RB",team:"PIT",name:"Rico Dowdle"}, "The Navengers": {pos:"RB",team:"CAR",name:"Jonathon Brooks"}, "Chase Brown Kids": {pos:"TE",team:"ATL",name:"Kyle Pitts Sr."}, "Ecuador roof repair": {pos:"WR",team:"ARI",name:"Michael Wilson"}, "Xios United": {pos:"QB",team:"NYG",name:"Jaxson Dart"} },
+    { "Xios United": {pos:"WR",team:"JAX",name:"Brian Thomas Jr."}, "Ecuador roof repair": {pos:"WR",team:"WSH",name:"Stefon Diggs"}, "Chase Brown Kids": {pos:"TE",team:"GB",name:"Tucker Kraft"}, "The Navengers": {pos:"QB",team:"CHI",name:"Caleb Williams"}, "Byzantine Boomers": {pos:"QB",team:"LAC",name:"Justin Herbert"}, "JPOPS": {pos:"WR",team:"TB",name:"Chris Godwin Jr."}, "Sunny's Sp*rm Bank": {pos:"RB",team:"TB",name:"Kenny Gainwell"}, "Milkballs Revengers": {pos:"WR",team:"TEN",name:"Wan'Dale Robinson"}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"MIN",name:"Aaron Jones Sr."}, "Houston Hicks": {pos:"WR",team:"MIN",name:"Jordan Addison"}, "Perry Hall Pickers": {pos:"WR",team:"GB",name:"Matthew Golden"}, "Pandelidis FC": {pos:"WR",team:"JAX",name:"Jakobi Meyers"} },
+    { "Pandelidis FC": {pos:"RB",team:"DET",name:"Isiah Pacheco"}, "Perry Hall Pickers": {pos:"RB",team:"WSH",name:"Rachaad White"}, "Houston Hicks": {pos:"RB",team:"DEN",name:"RJ Harvey"}, "DeeGotti's Welfare Warriors": {pos:"QB",team:"KC",name:"Patrick Mahomes"}, "Milkballs Revengers": {pos:"QB",team:"JAX",name:"Trevor Lawrence"}, "Sunny's Sp*rm Bank": {pos:"WR",team:"IND",name:"Alec Pierce"}, "JPOPS": {pos:"RB",team:"TEN",name:"Tyjae Spears"}, "Byzantine Boomers": {pos:"RB",team:"LAR",name:"Blake Corum"}, "The Navengers": {pos:"WR",team:"IND",name:"Josh Downs"}, "Chase Brown Kids": {pos:"RB",team:"CHI",name:"Kyle Monangai"}, "Ecuador roof repair": {pos:"RB",team:"DEN",name:"J.K. Dobbins"}, "Xios United": {pos:"TE",team:"KC",name:"Travis Kelce"} },
+    { "Xios United": {pos:"K",team:"DAL",name:"Brandon Aubrey"}, "Ecuador roof repair": {pos:"WR",team:"PHI",name:"Makai Lemon"}, "Chase Brown Kids": {pos:"WR",team:"LAC",name:"Quentin Johnston"}, "The Navengers": {pos:"RB",team:"MIN",name:"Jordan Mason"}, "Byzantine Boomers": {pos:"WR",team:"KC",name:"Xavier Worthy"}, "JPOPS": {pos:"WR",team:"GB",name:"Jayden Reed"}, "Sunny's Sp*rm Bank": {pos:"TE",team:"NYG",name:"Isaiah Likely"}, "Milkballs Revengers": {pos:"WR",team:"BUF",name:"Khalil Shakir"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"SF",name:"De'Zhaun Stribling"}, "Houston Hicks": {pos:"TE",team:"PHI",name:"Dallas Goedert"}, "Perry Hall Pickers": {pos:"RB",team:"WSH",name:"Jacory Croskey-Merritt"}, "Pandelidis FC": {pos:"RB",team:"LAC",name:"Keaton Mitchell"} },
+    { "Pandelidis FC": {pos:"WR",team:"CAR",name:"Jalen Coker"}, "Perry Hall Pickers": {pos:"QB",team:"DEN",name:"Bo Nix"}, "Houston Hicks": {pos:"WR",team:"NE",name:"Romeo Doubs"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"SF",name:"Deebo Samuel Sr."}, "Milkballs Revengers": {pos:"WR",team:"CLE",name:"KC Concepcion"}, "Sunny's Sp*rm Bank": {pos:"RB",team:"BAL",name:"Justice Hill"}, "JPOPS": {pos:"RB",team:"JAX",name:"Chris Rodriguez Jr."}, "Byzantine Boomers": {pos:"RB",team:"ARI",name:"Tyler Allgeier"}, "The Navengers": {pos:"RB",team:"LV",name:"Mike Washington Jr."}, "Chase Brown Kids": {pos:"WR",team:"NO",name:"Jordyn Tyson"}, "Ecuador roof repair": {pos:"WR",team:"JAX",name:"Travis Hunter"}, "Xios United": {pos:"RB",team:"SEA",name:"Zach Charbonnet"} },
+    { "Xios United": {pos:"DEF",team:"HOU",name:"Texans D/ST"}, "Ecuador roof repair": {pos:"TE",team:"BUF",name:"Dalton Kincaid"}, "Chase Brown Kids": {pos:"RB",team:"HOU",name:"Woody Marks"}, "The Navengers": {pos:"TE",team:"BAL",name:"Mark Andrews"}, "Byzantine Boomers": {pos:"WR",team:"SEA",name:"Rashid Shaheed"}, "JPOPS": {pos:"K",team:"LAC",name:"Cameron Dicker"}, "Sunny's Sp*rm Bank": {pos:"RB",team:"ATL",name:"Brian Robinson Jr."}, "Milkballs Revengers": {pos:"RB",team:"NO",name:"Alvin Kamara"}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"CLE",name:"Dylan Sampson"}, "Houston Hicks": {pos:"DEF",team:"DEN",name:"Broncos D/ST"}, "Perry Hall Pickers": {pos:"TE",team:"NO",name:"Juwan Johnson"}, "Pandelidis FC": {pos:"WR",team:"BAL",name:"Ja'Kobi Lane"} },
+    { "Pandelidis FC": {pos:"TE",team:"LAC",name:"Oronde Gadsden"}, "Perry Hall Pickers": {pos:"WR",team:"HOU",name:"Tank Dell"}, "Houston Hicks": {pos:"K",team:"SEA",name:"Jason Myers"}, "DeeGotti's Welfare Warriors": {pos:"WR",team:"CLE",name:"Jerry Jeudy"}, "Milkballs Revengers": {pos:"DEF",team:"LAR",name:"Rams D/ST"}, "Sunny's Sp*rm Bank": {pos:"RB",team:"BUF",name:"Ray Davis"}, "JPOPS": {pos:"DEF",team:"PIT",name:"Steelers D/ST"}, "Byzantine Boomers": {pos:"RB",team:"NYJ",name:"Braelon Allen"}, "The Navengers": {pos:"RB",team:"DEN",name:"Jonah Coleman"}, "Chase Brown Kids": {pos:"RB",team:"PHI",name:"Tank Bigsby"}, "Ecuador roof repair": {pos:"DEF",team:"PHI",name:"Eagles D/ST"}, "Xios United": {pos:"RB",team:"MIA",name:"Jaylen Wright"} },
+    { "Xios United": {pos:"WR",team:"TEN",name:"Calvin Ridley"}, "Ecuador roof repair": {pos:"K",team:"HOU",name:"Ka'imi Fairbairn"}, "Chase Brown Kids": {pos:"DEF",team:"SEA",name:"Seahawks D/ST"}, "The Navengers": {pos:"DEF",team:"JAX",name:"Jaguars D/ST"}, "Byzantine Boomers": {pos:"WR",team:"TB",name:"Jalen McMillan"}, "JPOPS": {pos:"RB",team:"NYG",name:"Najee Harris"}, "Sunny's Sp*rm Bank": {pos:"K",team:"DET",name:"Jake Bates"}, "Milkballs Revengers": {pos:"RB",team:"SF",name:"Kaelon Black"}, "DeeGotti's Welfare Warriors": {pos:"RB",team:"KC",name:"Emmett Johnson"}, "Houston Hicks": {pos:"QB",team:"DAL",name:"Dak Prescott"}, "Perry Hall Pickers": {pos:"K",team:"SF",name:"Eddy Pineiro"}, "Pandelidis FC": {pos:"DEF",team:"BAL",name:"Ravens D/ST"} },
+    { "Pandelidis FC": {pos:"WR",team:"KC",name:"Cyrus Allen"}, "Perry Hall Pickers": {pos:"DEF",team:"CLE",name:"Browns D/ST"}, "Houston Hicks": {pos:"TE",team:"NE",name:"Hunter Henry"}, "DeeGotti's Welfare Warriors": {pos:"DEF",team:"DET",name:"Lions D/ST"}, "Milkballs Revengers": {pos:"WR",team:"MIA",name:"Malik Washington"}, "Sunny's Sp*rm Bank": {pos:"DEF",team:"LAC",name:"Chargers D/ST"}, "JPOPS": {pos:"TE",team:"DAL",name:"Jake Ferguson"}, "Byzantine Boomers": {pos:"DEF",team:"KC",name:"Chiefs D/ST"}, "The Navengers": {pos:"TE",team:"LAR",name:"Terrance Ferguson"}, "Chase Brown Kids": {pos:"K",team:"JAX",name:"Cam Little"}, "Ecuador roof repair": {pos:"QB",team:"SF",name:"Brock Purdy"}, "Xios United": {pos:"WR",team:"IND",name:"Keenan Allen"} },
+    { "Xios United": {pos:"RB",team:"CIN",name:"Samaje Perine"}, "Ecuador roof repair": {pos:"RB",team:"DAL",name:"Malik Davis"}, "Chase Brown Kids": {pos:"WR",team:"PHI",name:"Dontayvion Wicks"}, "The Navengers": {pos:"K",team:"BAL",name:"Tyler Loop"}, "Byzantine Boomers": {pos:"K",team:"IND",name:"Spencer Shrader"}, "JPOPS": {pos:"QB",team:"LAR",name:"Matthew Stafford"}, "Sunny's Sp*rm Bank": {pos:"WR",team:"CLE",name:"Denzel Boston"}, "Milkballs Revengers": {pos:"K",team:"LAR",name:"Harrison Mevis"}, "DeeGotti's Welfare Warriors": {pos:"K",team:"KC",name:"Harrison Butker"}, "Houston Hicks": {pos:"WR",team:"NYJ",name:"Adonai Mitchell"}, "Perry Hall Pickers": {pos:"QB",team:"PIT",name:"Aaron Rodgers"}, "Pandelidis FC": {pos:"K",team:"MIN",name:"Will Reichard"} }
+  ];
+
+  var headEl = document.getElementById("boardHead");
+  var bodyEl = document.getElementById("boardBody");
+
+  headEl.innerHTML = '<th class="round-col">Rd</th>' + TEAMS.map(function (t) { return "<th>" + t + "</th>"; }).join("");
+
+  bodyEl.innerHTML = ROUNDS.map(function (round, i) {
+    var cells = TEAMS.map(function (team) {
+      var pick = round[team];
+      if (!pick) return '<td class="pick-cell"></td>';
+      return (
+        '<td class="pick-cell"><div class="pick pos-' + pick.pos + '">' +
+          '<div class="pick-meta"><span class="pos-tag">' + pick.pos + '</span><span class="team-abbr">' + pick.team + '</span></div>' +
+          '<div class="pick-name">' + pick.name + '</div>' +
+        '</div></td>'
+      );
+    }).join("");
+    return "<tr><td class=\"round-cell\">" + (i + 1) + "</td>" + cells + "</tr>";
+  }).join("");
+})();
+</script>
+
 </body>
 </html>
