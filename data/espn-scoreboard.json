@@ -1,32 +1,17 @@
 {
-  "lastUpdated": "2026-08-31T09:06:35.883Z",
+  "lastUpdated": "2026-08-31T16:12:54.937Z",
   "week": 1,
   "matchups": [
     {
       "home": {
+        "teamId": 8,
+        "name": "Pandelidis FC",
+        "score": 0,
+        "projected": 115.4
+      },
+      "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
-        "score": 0,
-        "projected": 119.8
-      },
-      "away": {
-        "teamId": 3,
-        "name": "The Navengers",
-        "score": 0,
-        "projected": 111.8
-      },
-      "winner": "UNDECIDED"
-    },
-    {
-      "home": {
-        "teamId": 7,
-        "name": "Xios United",
-        "score": 0,
-        "projected": 119.9
-      },
-      "away": {
-        "teamId": 2,
-        "name": "JPOPS",
         "score": 0,
         "projected": 119.8
       },
@@ -40,40 +25,25 @@
         "projected": 124.9
       },
       "away": {
-        "teamId": 11,
-        "name": "Chase Brown Kids",
-        "score": 0,
-        "projected": 116.1
-      },
-      "winner": "UNDECIDED"
-    },
-    {
-      "home": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
         "projected": 115.1
       },
-      "away": {
-        "teamId": 8,
-        "name": "Pandelidis FC",
-        "score": 0,
-        "projected": 108.4
-      },
       "winner": "UNDECIDED"
     },
     {
       "home": {
-        "teamId": 9,
-        "name": "Milkballs Revengers ",
-        "score": 0,
-        "projected": 117.3
-      },
-      "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
         "projected": 117.5
+      },
+      "away": {
+        "teamId": 3,
+        "name": "The Navengers",
+        "score": 0,
+        "projected": 111.8
       },
       "winner": "UNDECIDED"
     },
@@ -89,6 +59,36 @@
         "name": "Ecuador roof repair",
         "score": 0,
         "projected": 118.5
+      },
+      "winner": "UNDECIDED"
+    },
+    {
+      "home": {
+        "teamId": 11,
+        "name": "Chase Brown Kids",
+        "score": 0,
+        "projected": 116.1
+      },
+      "away": {
+        "teamId": 2,
+        "name": "JPOPS",
+        "score": 0,
+        "projected": 119.8
+      },
+      "winner": "UNDECIDED"
+    },
+    {
+      "home": {
+        "teamId": 7,
+        "name": "Xios United",
+        "score": 0,
+        "projected": 119.9
+      },
+      "away": {
+        "teamId": 9,
+        "name": "Milkballs Revengers ",
+        "score": 0,
+        "projected": 117.3
       },
       "winner": "UNDECIDED"
     }
