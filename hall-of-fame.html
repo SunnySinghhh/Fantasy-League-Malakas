@@ -54,7 +54,6 @@
     </a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="draft-lottery.html">Draft Lottery</a>
       <a href="draft-board.html">Draft Board</a>
       <a href="rules.html">Rules</a>
       <a href="standings.html">Standings</a>
@@ -81,16 +80,7 @@
   <div class="page-head">
     <div class="eyebrow">League History</div>
     <h1 class="page-title">Hall of Fame</h1>
-    <p class="page-sub">Champions, runners-up, last place, and the all-time scoring records &mdash; pulled from ESPN, season by season.</p>
-  </div>
-
-  <div class="section">
-    <div class="eyebrow">League Records</div>
-    <div class="stat-grid" id="recordGrid">
-      <div class="stat-tile">
-        <div class="stat-label">Loading&hellip;</div>
-      </div>
-    </div>
+    <p class="page-sub">Champions, runners-up, and last place &mdash; pulled from ESPN, season by season. For all-time scoring records, see <a href="team-history.html" style="color:var(--accent); text-decoration:underline;">Team History</a>.</p>
   </div>
 
   <div class="section">
@@ -115,52 +105,6 @@
   var ICON_RUNNER_UP = '<svg class="icon" style="color:var(--text-dim)" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.5 13 6 21l6-3 6 3-2.5-8"/></svg>';
   var ICON_LAST = '<svg class="icon" style="color:var(--text-faint)" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>';
   var ICON_EMPTY = '<svg class="icon" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4a1 1 0 0 0-1 1 4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1 4 4 0 0 1-4 4"/></svg>';
-
-  function fmtPoints(n) {
-    return typeof n === "number" ? n.toFixed(1) : "—";
-  }
-
-  function recordCardHtml(label, holderName, value, meta) {
-    return (
-      '<div class="stat-tile">' +
-        '<div class="stat-label">' + label + '</div>' +
-        '<div class="stat-value">' + value + '</div>' +
-        '<div class="stat-meta">' + holderName + ' &mdash; ' + meta + '</div>' +
-      '</div>'
-    );
-  }
-
-  function renderRecords(history) {
-    var el = document.getElementById("recordGrid");
-    var points = history.records && history.records.points;
-    var weekHigh = history.records && history.records.weekHigh;
-
-    if (!points && !weekHigh) {
-      el.innerHTML =
-        '<div class="stat-tile"><div class="stat-label">No records yet</div>' +
-        '<div class="stat-meta">Records populate once a full season is synced.</div></div>';
-      return;
-    }
-
-    var html = "";
-    if (points) {
-      html += recordCardHtml(
-        "Most Points, Single Season",
-        points.name,
-        fmtPoints(points.pointsFor),
-        points.season + " season"
-      );
-    }
-    if (weekHigh) {
-      html += recordCardHtml(
-        "Highest Single-Week Score",
-        weekHigh.name,
-        fmtPoints(weekHigh.points),
-        weekHigh.season + " season, week " + weekHigh.week
-      );
-    }
-    el.innerHTML = html;
-  }
 
   function podiumSlotHtml(cls, medal, title, team) {
     if (!team) return "";
@@ -211,8 +155,7 @@
     .then(function (r) { return r.ok ? r.json() : null; })
     .catch(function () { return null; })
     .then(function (history) {
-      history = history || { seasons: [], records: { points: null, weekHigh: null } };
-      renderRecords(history);
+      history = history || { seasons: [] };
       renderSeasons(history);
     });
 })();
