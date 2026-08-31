@@ -1,3 +1,14 @@
+// BACKLOG STATUS: this script still runs in the sync workflow (cheap, and
+// keeps quietly gathering real data), but there is currently no trades.html
+// page consuming data/espn-trades.json — it was pulled from the live site
+// because the parsing below has never been verified against a real ESPN
+// payload (see warning below), only against mocked responses. Before
+// re-adding a trade log page: check data/espn-trades-raw-sample.json's
+// `diagnostics` for real totalCount/typeCounts per season, confirm
+// `unresolvedCount` in espn-trades.json is 0, and spot-check that a real
+// trade's `sides` look right, THEN reintroduce the page (trades.html was
+// removed via git — see repo history around this comment being added).
+//
 // Pulls every completed trade across league history (2022 through the
 // current season) and writes them to data/espn-trades.json.
 //

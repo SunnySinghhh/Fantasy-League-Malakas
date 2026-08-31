@@ -130,7 +130,6 @@
       <a href="power-rankings.html">Power Rankings</a>
       <a href="hall-of-fame.html">Hall of Fame</a>
       <a href="team-history.html" class="current">Team History</a>
-      <a href="trades.html">Trade Log</a>
       <a href="constitution.html">Constitution</a>
     </nav>
     <div class="nav-right">
@@ -203,7 +202,7 @@
   // in OWNER_OVERRIDES above. Either way, every raw ESPN name that slot
   // actually used during THIS owner's seasons is preserved as a "↺"
   // former-name marker, so nothing gets silently relabeled.
-  // buildRegistry lives in assets/owners.js, shared with trades.html.
+  // buildRegistry lives in assets/owners.js.
 
   function renamedMarkerHtml(team) {
     if (!team || !team.formerNames || !team.formerNames.length) return "";
