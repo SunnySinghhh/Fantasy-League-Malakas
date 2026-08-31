@@ -124,13 +124,22 @@ function summarizeSeason(seasonId, league) {
   const lastPlace = ranked.length > 1 ? ranked[ranked.length - 1] : null;
   const pointsLeader = [...teams].sort((a, b) => b.pointsFor - a.pointsFor)[0] || null;
 
+  // ESPN's schedule includes playoff and consolation-bracket weeks alongside
+  // the regular season, but `record.overall` (wins/losses/ties) only ever
+  // counts regular-season games. Head-to-head needs to reconcile with that
+  // total, so it's restricted to the regular season too — every team plays
+  // the same number of regular-season games, so the max games any team has
+  // recorded is that season's regular-season length.
+  const regularSeasonWeeks = Math.max(...teams.map((t) => t.wins + t.losses + t.ties));
+
   const nameById = new Map(teams.map((t) => [t.teamId, t.name]));
   let weekHigh = null;
   const matchups = [];
   for (const matchup of league.schedule || []) {
     const home = matchup.home;
     const away = matchup.away;
-    if (home && away && typeof home.totalPoints === "number" && typeof away.totalPoints === "number") {
+    const isRegularSeason = matchup.matchupPeriodId <= regularSeasonWeeks;
+    if (isRegularSeason && home && away && typeof home.totalPoints === "number" && typeof away.totalPoints === "number") {
       matchups.push({
         week: matchup.matchupPeriodId,
         homeTeamId: home.teamId,

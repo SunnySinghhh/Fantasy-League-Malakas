@@ -146,11 +146,79 @@
 
   var PALETTE = ["#dba84a", "#e8544a", "#5fb3d9", "#9b7fd4", "#5fbf85", "#ff8fb1", "#6bc9c0", "#d9a441", "#8f9bd4", "#e0824a", "#4d6dc9", "#c96bd4"];
 
+  // ---------------------------------------------------------------------
+  // Owner identity — several ESPN team slots have changed hands over the
+  // years (a different real person took over the same roster slot), and a
+  // couple of owners have even switched slots season to season. Stats need
+  // to follow the PERSON, not the slot, so this table (confirmed with the
+  // commissioner, not inferred from name changes) maps every historical
+  // (teamId, season) to the owner who actually ran it that year. Any
+  // (teamId, season) not listed here falls back to "one continuous owner
+  // for that slot," which covers every team that's never changed hands.
+  //
+  // activeTeamId: set if this owner currently holds a slot (their name/logo
+  // comes from live standings); omit/null if they've since left the league
+  // (their name/logo comes from `name` below instead).
+  var OWNER_OVERRIDES = [
+    { id: "sunny", name: "Sunny's Sp*rm Bank", activeTeamId: 1,
+      grants: [{ teamId: 1, seasons: [2022, 2023, 2024, 2025] }] },
+    { id: "jpops-owner", name: "JPOPS", activeTeamId: 2,
+      grants: [{ teamId: 2, seasons: [2022, 2023, 2024, 2025] }] },
+    { id: "manpreet", name: "Manpreet", activeTeamId: null,
+      grants: [{ teamId: 5, seasons: [2022] }] },
+    { id: "kosta", name: "Kostas", activeTeamId: null,
+      // Kosta ran team 12's slot in 2022, then moved to team 5's slot in 2023.
+      grants: [{ teamId: 12, seasons: [2022] }, { teamId: 5, seasons: [2023] }] },
+    { id: "evan", name: "Ecuador roof repair", activeTeamId: 5,
+      grants: [{ teamId: 5, seasons: [2024, 2025] }] },
+    { id: "chris", name: "Houston Hicks", activeTeamId: 6,
+      // Chris owned this slot in 2022, Alex took it over for two years, then Chris returned in 2025.
+      grants: [{ teamId: 6, seasons: [2022, 2025] }] },
+    { id: "alex", name: "CP Central", activeTeamId: null,
+      grants: [{ teamId: 6, seasons: [2023, 2024] }] },
+    { id: "pandelidis-owner", name: "Pandelidis FC", activeTeamId: 8,
+      grants: [{ teamId: 8, seasons: [2022, 2023, 2024, 2025] }] },
+    { id: "chase-brown-kids-owner", name: "Chase Brown Kids", activeTeamId: 11,
+      grants: [{ teamId: 11, seasons: [2022, 2023, 2024, 2025] }] },
+    { id: "nick", name: "Purple P()ssy Eaters", activeTeamId: null,
+      grants: [{ teamId: 12, seasons: [2023, 2024] }] },
+    { id: "dimitri", name: "DeeGotti's Welfare Warriors", activeTeamId: 12,
+      grants: [{ teamId: 12, seasons: [2025] }] }
+  ];
+
+  function buildOwnerIndex() {
+    var map = new Map(); // "teamId:season" -> ownerId
+    OWNER_OVERRIDES.forEach(function (o) {
+      o.grants.forEach(function (g) {
+        g.seasons.forEach(function (season) {
+          map.set(g.teamId + ":" + season, o.id);
+        });
+      });
+    });
+    return map;
+  }
+
+  // Any (teamId, season) not covered by an override is one continuous
+  // owner for that slot — the common case.
+  function ownerIdFor(ownerIndex, teamId, season) {
+    var key = teamId + ":" + season;
+    return ownerIndex.has(key) ? ownerIndex.get(key) : "team-" + teamId;
+  }
+
   var hiddenPF = new Set();
   var hiddenPA = new Set();
-  var STATE = null; // { seasons, registry, teamIds, matchups }
+  var STATE = null; // { registry, teamIds (really ownerIds), matchups, ownerIndex }
 
   function fmt1(n) { return typeof n === "number" ? n.toFixed(1) : "—"; }
+
+  // Baseball-style ".679" win-pct formatting — handled as a special case at
+  // the top end so a perfect record renders "1.000", not a truncated ".100"
+  // (Math.round(1000) has 4 digits, which a plain 3-char slice mangles).
+  function fmtPct(pct) {
+    if (pct == null) return "—";
+    if (pct >= 0.9995) return "1.000";
+    return "." + String(Math.round(pct * 1000)).padStart(3, "0");
+  }
 
   function fallbackLogoHtml(name) {
     return '<span class="fallback-logo">' + (name ? name.charAt(0) : "?") + '</span>';
@@ -166,35 +234,55 @@
   // Data shaping
   // ---------------------------------------------------------------------
 
-  // Team names change season to season (rebrands, and sometimes a new owner taking
-  // over an existing roster slot). We key everything by ESPN's stable teamId, but
-  // surface every name a slot has used — via a "↺" marker + tooltip — rather than
-  // silently relabeling old seasons under whichever name is current today.
-  function buildRegistry(standings, history) {
+  // Registry is keyed by ownerId (a person), not raw teamId. For an owner
+  // still in the league, name/logo come from live standings for the slot
+  // they currently hold; for a departed owner, from the reference name set
+  // in OWNER_OVERRIDES above. Either way, every raw ESPN name that slot
+  // actually used during THIS owner's seasons is preserved as a "↺"
+  // former-name marker, so nothing gets silently relabeled.
+  function buildRegistry(standings, history, ownerIndex) {
     var registry = new Map();
-    (standings && standings.teams || []).forEach(function (t) {
-      registry.set(t.teamId, { teamId: t.teamId, name: t.name, logo: t.logo || "" });
+    var standingsById = new Map((standings && standings.teams || []).map(function (t) { return [t.teamId, t]; }));
+
+    // Default identity for every teamId — covers any slot untouched by
+    // OWNER_OVERRIDES, and any (teamId, season) an override doesn't claim.
+    standingsById.forEach(function (t, teamId) {
+      registry.set("team-" + teamId, { id: "team-" + teamId, name: t.name, logo: t.logo || "" });
     });
+
+    // Explicit owner identities.
+    OWNER_OVERRIDES.forEach(function (o) {
+      var cur = o.activeTeamId ? standingsById.get(o.activeTeamId) : null;
+      registry.set(o.id, {
+        id: o.id,
+        name: cur ? cur.name : o.name,
+        logo: cur ? (cur.logo || "") : ""
+      });
+    });
+
     var seasonsAsc = (history.seasons || []).slice().sort(function (a, b) { return a.season - b.season; });
-    var nameHistory = new Map();
+    var nameHistory = new Map(); // ownerId -> raw ESPN names used during that owner's seasons
     seasonsAsc.forEach(function (s) {
       (s.teams || []).forEach(function (t) {
-        if (!registry.has(t.teamId)) {
-          registry.set(t.teamId, { teamId: t.teamId, name: t.name, logo: "" });
+        var ownerId = ownerIdFor(ownerIndex, t.teamId, s.season);
+        if (!registry.has(ownerId)) {
+          registry.set(ownerId, { id: ownerId, name: t.name, logo: "" });
         }
-        var arr = nameHistory.get(t.teamId) || [];
+        var arr = nameHistory.get(ownerId) || [];
         arr.push(t.name);
-        nameHistory.set(t.teamId, arr);
+        nameHistory.set(ownerId, arr);
       });
     });
-    registry.forEach(function (team) {
-      var seen = new Set([team.name]);
+
+    registry.forEach(function (owner) {
+      var seen = new Set([owner.name]);
       var former = [];
-      (nameHistory.get(team.teamId) || []).forEach(function (n) {
+      (nameHistory.get(owner.id) || []).forEach(function (n) {
         if (!seen.has(n)) { seen.add(n); former.push(n); }
       });
-      team.formerNames = former;
+      owner.formerNames = former;
     });
+
     return registry;
   }
 
@@ -203,8 +291,8 @@
     return ' <span class="renamed-mark" title="Also played as: ' + team.formerNames.join(", ") + '">&#8635;</span>';
   }
 
-  function assignColors(teamIds) {
-    var sorted = teamIds.slice().sort(function (a, b) { return a - b; });
+  function assignColors(ownerIds) {
+    var sorted = ownerIds.slice().sort();
     var colorById = new Map();
     sorted.forEach(function (id, i) { colorById.set(id, PALETTE[i % PALETTE.length]); });
     return colorById;
@@ -214,17 +302,19 @@
   // Line chart (Points For / Points Against)
   // ---------------------------------------------------------------------
 
-  function buildSeriesForStat(seasons, teamIds, registry, colorById, statKey) {
-    return teamIds.map(function (teamId) {
-      var team = registry.get(teamId) || { name: "Team " + teamId };
+  function buildSeriesForStat(seasons, ownerIds, registry, colorById, statKey, ownerIndex) {
+    return ownerIds.map(function (ownerId) {
+      var owner = registry.get(ownerId) || { name: ownerId };
       var values = [];
       var seasonNames = [];
       seasons.forEach(function (s) {
-        var row = (s.teams || []).find(function (t) { return t.teamId === teamId; });
+        // Which raw team (if any) did this owner hold that season? A gap here
+        // (owner not active that year) correctly breaks the line on the chart.
+        var row = (s.teams || []).find(function (t) { return ownerIdFor(ownerIndex, t.teamId, s.season) === ownerId; });
         values.push(row ? row[statKey] : null);
-        seasonNames.push(row ? row.name : team.name);
+        seasonNames.push(row ? row.name : owner.name);
       });
-      return { teamId: teamId, name: team.name, seasonNames: seasonNames, color: colorById.get(teamId), values: values };
+      return { teamId: ownerId, name: owner.name, seasonNames: seasonNames, color: colorById.get(ownerId), values: values };
     });
   }
 
@@ -319,7 +409,7 @@
     document.addEventListener("click", function (e) {
       var item = e.target.closest('.legend-item[data-group="' + groupId + '"]');
       if (item) {
-        var teamId = Number(item.getAttribute("data-team"));
+        var teamId = item.getAttribute("data-team");
         if (hiddenSet.has(teamId)) hiddenSet.delete(teamId); else hiddenSet.add(teamId);
         onChange();
         return;
@@ -338,22 +428,23 @@
   // Career win/loss bars
   // ---------------------------------------------------------------------
 
-  function careerRecords(history, registry) {
+  function careerRecords(history, registry, ownerIndex) {
     var totals = new Map();
     (history.seasons || []).forEach(function (s) {
       (s.teams || []).forEach(function (t) {
-        var rec = totals.get(t.teamId) || { teamId: t.teamId, wins: 0, losses: 0, ties: 0 };
+        var ownerId = ownerIdFor(ownerIndex, t.teamId, s.season);
+        var rec = totals.get(ownerId) || { ownerId: ownerId, wins: 0, losses: 0, ties: 0 };
         rec.wins += t.wins;
         rec.losses += t.losses;
         rec.ties += t.ties;
-        totals.set(t.teamId, rec);
+        totals.set(ownerId, rec);
       });
     });
     var list = Array.from(totals.values()).map(function (r) {
-      var team = registry.get(r.teamId) || { name: "Team " + r.teamId, logo: "" };
+      var owner = registry.get(r.ownerId) || { name: "Owner " + r.ownerId, logo: "" };
       var games = r.wins + r.losses + r.ties;
       var pct = games ? (r.wins + r.ties * 0.5) / games : 0;
-      return { teamId: r.teamId, name: team.name, logo: team.logo, formerNames: team.formerNames || [], wins: r.wins, losses: r.losses, ties: r.ties, pct: pct };
+      return { teamId: r.ownerId, name: owner.name, logo: owner.logo, formerNames: owner.formerNames || [], wins: r.wins, losses: r.losses, ties: r.ties, pct: pct };
     });
     list.sort(function (a, b) { return b.pct - a.pct; });
     return list;
@@ -364,7 +455,7 @@
     var winPct = games ? (r.wins / games) * 100 : 0;
     var lossPct = games ? (r.losses / games) * 100 : 0;
     var tiePct = games ? (r.ties / games) * 100 : 0;
-    var pctStr = "." + String(Math.round(r.pct * 1000)).padStart(3, "0").slice(0, 3);
+    var pctStr = fmtPct(r.pct);
     var recordStr = r.wins + "-" + r.losses + (r.ties ? "-" + r.ties : "") + "  (" + pctStr + ")";
     return (
       '<div class="wl-row">' +
@@ -386,18 +477,22 @@
   function allMatchups(history) {
     var all = [];
     (history.seasons || []).forEach(function (s) {
-      (s.matchups || []).forEach(function (m) { all.push(m); });
+      (s.matchups || []).forEach(function (m) {
+        all.push({ season: s.season, homeTeamId: m.homeTeamId, awayTeamId: m.awayTeamId, winner: m.winner });
+      });
     });
     return all;
   }
 
-  function h2hFor(matchups, teamId) {
+  function h2hFor(matchups, ownerId, ownerIndex) {
     var recs = new Map();
     matchups.forEach(function (m) {
-      var isHome = m.homeTeamId === teamId;
-      var isAway = m.awayTeamId === teamId;
+      var homeOwner = ownerIdFor(ownerIndex, m.homeTeamId, m.season);
+      var awayOwner = ownerIdFor(ownerIndex, m.awayTeamId, m.season);
+      var isHome = homeOwner === ownerId;
+      var isAway = awayOwner === ownerId;
       if (!isHome && !isAway) return;
-      var oppId = isHome ? m.awayTeamId : m.homeTeamId;
+      var oppId = isHome ? awayOwner : homeOwner;
       var rec = recs.get(oppId) || { oppId: oppId, w: 0, l: 0, t: 0 };
       if (m.winner === "TIE") {
         rec.t++;
@@ -410,17 +505,17 @@
     return recs;
   }
 
-  function renderH2H(teamId) {
+  function renderH2H(ownerId) {
     var registry = STATE.registry;
     var matchups = STATE.matchups;
-    var recs = h2hFor(matchups, teamId);
-    var team = registry.get(teamId) || { name: "Team " + teamId };
+    var recs = h2hFor(matchups, ownerId, STATE.ownerIndex);
+    var team = registry.get(ownerId) || { name: "Owner " + ownerId };
 
     var totalW = 0, totalL = 0, totalT = 0;
     var rows = STATE.teamIds
-      .filter(function (id) { return id !== teamId; })
+      .filter(function (id) { return id !== ownerId; })
       .map(function (oppId) {
-        var opp = registry.get(oppId) || { name: "Team " + oppId };
+        var opp = registry.get(oppId) || { name: "Owner " + oppId };
         var rec = recs.get(oppId) || { w: 0, l: 0, t: 0 };
         totalW += rec.w; totalL += rec.l; totalT += rec.t;
         var games = rec.w + rec.l + rec.t;
@@ -443,7 +538,7 @@
     var bodyEl = document.getElementById("h2hTableBody");
     bodyEl.innerHTML = rows.map(function (r) {
       var recordStr = r.games ? (r.w + "-" + r.l + (r.t ? "-" + r.t : "")) : "—";
-      var pctStr = r.pct == null ? "—" : "." + String(Math.round(r.pct * 1000)).padStart(3, "0").slice(0, 3);
+      var pctStr = fmtPct(r.pct);
       return (
         "<tr>" +
           "<td>" + '<div class="team-cell">' + teamLogoHtml(r.opp) + "<span>" + r.opp.name + renamedMarkerHtml(r.opp) + "</span></div>" + "</td>" +
@@ -525,27 +620,31 @@
       return;
     }
 
-    var registry = buildRegistry(standings, history);
-    var teamIdSet = new Set();
-    seasons.forEach(function (s) { (s.teams || []).forEach(function (t) { teamIdSet.add(t.teamId); }); });
-    var teamIds = Array.from(teamIdSet);
-    var colorById = assignColors(teamIds);
+    var ownerIndex = buildOwnerIndex();
+    var registry = buildRegistry(standings, history, ownerIndex);
+    var ownerIdSet = new Set();
+    seasons.forEach(function (s) {
+      (s.teams || []).forEach(function (t) { ownerIdSet.add(ownerIdFor(ownerIndex, t.teamId, s.season)); });
+    });
+    var ownerIds = Array.from(ownerIdSet);
+    var colorById = assignColors(ownerIds);
     var seasonsAsc = seasons.map(function (s) { return s.season; });
 
     STATE = {
       registry: registry,
-      teamIds: teamIds.sort(function (a, b) {
+      teamIds: ownerIds.sort(function (a, b) {
         var an = (registry.get(a) || {}).name || "";
         var bn = (registry.get(b) || {}).name || "";
         return an.localeCompare(bn);
       }),
       matchups: allMatchups(history),
+      ownerIndex: ownerIndex
     };
 
     document.getElementById("pageBody").innerHTML = pageHtml();
 
-    var pfSeries = buildSeriesForStat(seasons, teamIds, registry, colorById, "pointsFor");
-    var paSeries = buildSeriesForStat(seasons, teamIds, registry, colorById, "pointsAgainst");
+    var pfSeries = buildSeriesForStat(seasons, ownerIds, registry, colorById, "pointsFor", ownerIndex);
+    var paSeries = buildSeriesForStat(seasons, ownerIds, registry, colorById, "pointsAgainst", ownerIndex);
 
     function renderPF() { renderPointsChart("pfChart", "pfLegend", seasonsAsc, pfSeries, hiddenPF); }
     function renderPA() { renderPointsChart("paChart", "paLegend", seasonsAsc, paSeries, hiddenPA); }
@@ -554,22 +653,22 @@
     wireLegend("pfChart", hiddenPF, renderPF);
     wireLegend("paChart", hiddenPA, renderPA);
 
-    var records = careerRecords(history, registry);
+    var records = careerRecords(history, registry, ownerIndex);
     document.getElementById("wlList").innerHTML = records.map(wlRowHtml).join("");
 
     var select = document.getElementById("h2hTeamSelect");
     var anyRenamed = false;
     select.innerHTML = STATE.teamIds.map(function (id) {
-      var t = registry.get(id) || { name: "Team " + id };
+      var t = registry.get(id) || { name: "Owner " + id };
       var former = t.formerNames && t.formerNames.length;
       if (former) anyRenamed = true;
       var titleAttr = former ? ' title="Also played as: ' + t.formerNames.join(", ") + '"' : "";
       return '<option value="' + id + '"' + titleAttr + '>' + t.name + (former ? " *" : "") + '</option>';
     }).join("");
     document.getElementById("h2hRenameNote").style.display = anyRenamed ? "" : "none";
-    select.addEventListener("change", function () { renderH2H(Number(select.value)); });
+    select.addEventListener("change", function () { renderH2H(select.value); });
     if (STATE.teamIds.length) {
-      select.value = String(STATE.teamIds[0]);
+      select.value = STATE.teamIds[0];
       renderH2H(STATE.teamIds[0]);
     }
   }
