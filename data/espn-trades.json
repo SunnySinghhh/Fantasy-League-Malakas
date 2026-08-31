@@ -1,6 +1,2050 @@
 {
-  "lastUpdated": "2026-08-31T20:24:49.073Z",
+  "lastUpdated": "2026-08-31T20:41:09.052Z",
   "leagueId": "1166030619",
-  "trades": [],
-  "unresolvedCount": 0
+  "trades": [
+    {
+      "season": 2025,
+      "id": "f83aa674-c45d-42b7-bb79-23cbe390e4ed",
+      "date": 1759505563409,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4373678,
+              "name": "Khalil Shakir"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4428209,
+              "name": "Ricky Pearsall"
+            }
+          ]
+        },
+        {
+          "teamId": 3,
+          "playersIn": [
+            {
+              "id": 4428209,
+              "name": "Ricky Pearsall"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4373678,
+              "name": "Khalil Shakir"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "056baf04-d57e-438f-be12-c59bcd957b8a",
+      "date": 1759325686198,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 9,
+          "playersIn": [
+            {
+              "id": 4430539,
+              "name": "Brenton Strange"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 7,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4430539,
+              "name": "Brenton Strange"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "fb299c8b-9d39-4ed2-83a7-db6d51ce445c",
+      "date": 1759325650090,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 9,
+          "playersIn": [
+            {
+              "id": 4428557,
+              "name": "Tyjae Spears"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4430539,
+              "name": "Brenton Strange"
+            }
+          ]
+        },
+        {
+          "teamId": 7,
+          "playersIn": [
+            {
+              "id": 4430539,
+              "name": "Brenton Strange"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4428557,
+              "name": "Tyjae Spears"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "40ee2efa-7a44-4a54-8e46-0175ee136fb9",
+      "date": 1759278805918,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3054212,
+              "name": "Jonnu Smith"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 12,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3054212,
+              "name": "Jonnu Smith"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "55095c16-202f-4ad8-b7aa-1ece4f2d6202",
+      "date": 1759231931398,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4432773,
+              "name": "Brian Thomas Jr."
+            },
+            {
+              "id": 4258173,
+              "name": "Nico Collins"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4373678,
+              "name": "Khalil Shakir"
+            },
+            {
+              "id": 4374302,
+              "name": "Amon-Ra St. Brown"
+            }
+          ]
+        },
+        {
+          "teamId": 3,
+          "playersIn": [
+            {
+              "id": 4373678,
+              "name": "Khalil Shakir"
+            },
+            {
+              "id": 4374302,
+              "name": "Amon-Ra St. Brown"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4432773,
+              "name": "Brian Thomas Jr."
+            },
+            {
+              "id": 4258173,
+              "name": "Nico Collins"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "be520f82-5607-44b2-9cd9-def5840d5faf",
+      "date": 1758205251868,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4360635,
+              "name": "Chig Okonkwo"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 3,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4360635,
+              "name": "Chig Okonkwo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "c204a746-2bdf-4611-a8ec-0d31ee863ebd",
+      "date": 1758146289707,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3895856,
+              "name": "Christian Kirk"
+            },
+            {
+              "id": 4036133,
+              "name": "T.J. Hockenson"
+            },
+            {
+              "id": 4239996,
+              "name": "Travis Etienne Jr."
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4429275,
+              "name": "Trey Benson"
+            },
+            {
+              "id": 4241478,
+              "name": "DeVonta Smith"
+            },
+            {
+              "id": 4685472,
+              "name": "Tetairoa McMillan"
+            }
+          ]
+        },
+        {
+          "teamId": 4,
+          "playersIn": [
+            {
+              "id": 4429275,
+              "name": "Trey Benson"
+            },
+            {
+              "id": 4241478,
+              "name": "DeVonta Smith"
+            },
+            {
+              "id": 4685472,
+              "name": "Tetairoa McMillan"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3895856,
+              "name": "Christian Kirk"
+            },
+            {
+              "id": 4036133,
+              "name": "T.J. Hockenson"
+            },
+            {
+              "id": 4239996,
+              "name": "Travis Etienne Jr."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "312f9628-f38e-463e-aae8-801cf7864ef6",
+      "date": 1758082959460,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 7,
+          "playersIn": [
+            {
+              "id": 4711533,
+              "name": "Ollie Gordon II"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4723086,
+              "name": "Colston Loveland"
+            }
+          ]
+        },
+        {
+          "teamId": 9,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4711533,
+              "name": "Ollie Gordon II"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4723086,
+              "name": "Colston Loveland"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "fb9d2c7c-4fef-4802-b014-1c78c22b7a88",
+      "date": 1758054348217,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3116406,
+              "name": "Tyreek Hill"
+            },
+            {
+              "id": 4685472,
+              "name": "Tetairoa McMillan"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4685247,
+              "name": "Braelon Allen"
+            },
+            {
+              "id": 4427366,
+              "name": "Breece Hall"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4685247,
+              "name": "Braelon Allen"
+            },
+            {
+              "id": 4427366,
+              "name": "Breece Hall"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3116406,
+              "name": "Tyreek Hill"
+            },
+            {
+              "id": 4685472,
+              "name": "Tetairoa McMillan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "089dbe9a-04aa-4397-921e-2346470fb325",
+      "date": 1757594705045,
+      "week": 2,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3054212,
+              "name": "Jonnu Smith"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 10,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3054212,
+              "name": "Jonnu Smith"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "id": "039fc78c-fd80-4359-b791-1110a02b56e0",
+      "date": 1757476530648,
+      "week": 2,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4685247,
+              "name": "Braelon Allen"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 3,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4685247,
+              "name": "Braelon Allen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "f40f449d-fbac-4a5e-a4bb-2c39f30d916c",
+      "date": 1733891992779,
+      "week": 15,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3051926,
+              "name": "Gus Edwards"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 3051926,
+              "name": "Gus Edwards"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "3b39a382-3c80-4e71-94a4-b9156446720e",
+      "date": 1732047393242,
+      "week": 12,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4249417,
+              "name": "Jalen Tolbert"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 4,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4249417,
+              "name": "Jalen Tolbert"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "3ae74338-e7c8-47a5-a9db-745d70b7d8f5",
+      "date": 1731185494919,
+      "week": 10,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4248528,
+              "name": "Christian Watson"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 10,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4248528,
+              "name": "Christian Watson"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "c7c3b4eb-2e59-4b78-a10b-0c6f356ff4d6",
+      "date": 1730227757741,
+      "week": 9,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 2976212,
+              "name": "Stefon Diggs"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 2,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 2976212,
+              "name": "Stefon Diggs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "0394e84b-b9ef-4701-ae2d-727fd9004964",
+      "date": 1729277645551,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3912547,
+              "name": "Sam Darnold"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 11,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3912547,
+              "name": "Sam Darnold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "5890e73c-86b7-4aee-95e2-c58cd8b108a9",
+      "date": 1729115032586,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 5,
+          "playersIn": [
+            {
+              "id": 4635008,
+              "name": "Keon Coleman"
+            },
+            {
+              "id": 3121023,
+              "name": "Dallas Goedert"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4360248,
+              "name": "Kyle Pitts"
+            },
+            {
+              "id": 4426386,
+              "name": "Roschon Johnson"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4360248,
+              "name": "Kyle Pitts"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4635008,
+              "name": "Keon Coleman"
+            },
+            {
+              "id": 3121023,
+              "name": "Dallas Goedert"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4426386,
+              "name": "Roschon Johnson"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "da84714c-dac9-45cc-8dbd-f3bb78e386b5",
+      "date": 1729114939246,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4426386,
+              "name": "Roschon Johnson"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 5,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4426386,
+              "name": "Roschon Johnson"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "c80ffd26-15ff-4bf6-8217-09fcd342eccc",
+      "date": 1727979955980,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4428718,
+              "name": "Tre Tucker"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4243331,
+              "name": "Cade Otton"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4243331,
+              "name": "Cade Otton"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4428718,
+              "name": "Tre Tucker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "dc24958f-9e41-45b7-9248-459fc68bf44a",
+      "date": 1727784725124,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4036378,
+              "name": "Jordan Love"
+            },
+            {
+              "id": 4372016,
+              "name": "Jaylen Waddle"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4361579,
+              "name": "Javonte Williams"
+            },
+            {
+              "id": 4035687,
+              "name": "Michael Pittman Jr."
+            }
+          ]
+        },
+        {
+          "teamId": 3,
+          "playersIn": [
+            {
+              "id": 4361579,
+              "name": "Javonte Williams"
+            },
+            {
+              "id": 4035687,
+              "name": "Michael Pittman Jr."
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4036378,
+              "name": "Jordan Love"
+            },
+            {
+              "id": 4372016,
+              "name": "Jaylen Waddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "ec55eddf-1d07-4532-b6c1-bfec819d0258",
+      "date": 1727389535468,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4362238,
+              "name": "Chase Brown"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 5,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4362238,
+              "name": "Chase Brown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "id": "66a8836e-efc8-4350-98c3-cbfc266238a7",
+      "date": 1727189015444,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 16757,
+              "name": "Derek Carr"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 11,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 16757,
+              "name": "Derek Carr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "874be93a-a8ea-44ba-9df4-f14023ef3d9b",
+      "date": 1702153997715,
+      "week": 14,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4372066,
+              "name": "Jake Moody"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 5,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4372066,
+              "name": "Jake Moody"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "2b8af854-fe15-4d20-a877-0d50571d2431",
+      "date": 1701271020942,
+      "week": 13,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 2577327,
+              "name": "Tyler Lockett"
+            },
+            {
+              "id": 4241416,
+              "name": "Chuba Hubbard"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3917315,
+              "name": "Kyler Murray"
+            },
+            {
+              "id": 4360238,
+              "name": "Dameon Pierce"
+            }
+          ]
+        },
+        {
+          "teamId": 10,
+          "playersIn": [
+            {
+              "id": 3917315,
+              "name": "Kyler Murray"
+            },
+            {
+              "id": 4360238,
+              "name": "Dameon Pierce"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2577327,
+              "name": "Tyler Lockett"
+            },
+            {
+              "id": 4241416,
+              "name": "Chuba Hubbard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "ce126293-9c09-49fe-85da-76097bf62238",
+      "date": 1701184368726,
+      "week": 13,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": -16027,
+              "name": "Buccaneers D/ST"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 11,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": -16027,
+              "name": "Buccaneers D/ST"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "e269302f-13b6-42ad-9b60-a8ae48d78d77",
+      "date": 1700800254481,
+      "week": 12,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4361411,
+              "name": "Pat Freiermuth"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 9,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4361411,
+              "name": "Pat Freiermuth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "ecc432e5-f71f-48b8-954b-cee07e34100b",
+      "date": 1700707564593,
+      "week": 12,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4239993,
+              "name": "Tee Higgins"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4361741,
+              "name": "Brock Purdy"
+            }
+          ]
+        },
+        {
+          "teamId": 2,
+          "playersIn": [
+            {
+              "id": 4361741,
+              "name": "Brock Purdy"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4239993,
+              "name": "Tee Higgins"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "ab28b08c-1586-496e-afa2-5bae58a464d6",
+      "date": 1698598661553,
+      "week": 8,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3045144,
+              "name": "Tyler Boyd"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 9,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3045144,
+              "name": "Tyler Boyd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "2f6fe048-4852-47f7-8d11-f15bb0663131",
+      "date": 1698355939601,
+      "week": 8,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 2577417,
+              "name": "Dak Prescott"
+            },
+            {
+              "id": 16813,
+              "name": "Logan Thomas"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4385690,
+              "name": "Dalton Kincaid"
+            },
+            {
+              "id": 4426875,
+              "name": "Sam Howell"
+            }
+          ]
+        },
+        {
+          "teamId": 7,
+          "playersIn": [
+            {
+              "id": 4385690,
+              "name": "Dalton Kincaid"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2577417,
+              "name": "Dak Prescott"
+            },
+            {
+              "id": 16813,
+              "name": "Logan Thomas"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4426875,
+              "name": "Sam Howell"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "32b19b9d-9e3c-4b7e-8b90-0691c2cf1ccb",
+      "date": 1698355911042,
+      "week": 8,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4426875,
+              "name": "Sam Howell"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 1,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4426875,
+              "name": "Sam Howell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "9d48338d-663f-4f08-a324-579ec8774539",
+      "date": 1697568460603,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 12,
+          "playersIn": [
+            {
+              "id": 3917232,
+              "name": "Tyler Bass"
+            },
+            {
+              "id": 3128429,
+              "name": "Courtland Sutton"
+            },
+            {
+              "id": 4361370,
+              "name": "Chris Olave"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3121023,
+              "name": "Dallas Goedert"
+            },
+            {
+              "id": 4047650,
+              "name": "DK Metcalf"
+            },
+            {
+              "id": 3116389,
+              "name": "Samaje Perine"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3121023,
+              "name": "Dallas Goedert"
+            },
+            {
+              "id": 4047650,
+              "name": "DK Metcalf"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3917232,
+              "name": "Tyler Bass"
+            },
+            {
+              "id": 3128429,
+              "name": "Courtland Sutton"
+            },
+            {
+              "id": 4361370,
+              "name": "Chris Olave"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3116389,
+              "name": "Samaje Perine"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "6c694f6f-b95a-4104-b9ad-af9b11af7360",
+      "date": 1697568281455,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3116389,
+              "name": "Samaje Perine"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 12,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3116389,
+              "name": "Samaje Perine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "f47ff5da-6dbe-4d8b-8928-2d7c93d49948",
+      "date": 1697553699923,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 12483,
+              "name": "Matthew Stafford"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 8,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 12483,
+              "name": "Matthew Stafford"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "8294839c-0639-4c0f-be1c-368d94783e0d",
+      "date": 1697042889436,
+      "week": 6,
+      "sides": [
+        {
+          "teamId": 6,
+          "playersIn": [
+            {
+              "id": 4429160,
+              "name": "De'Von Achane"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3122976,
+              "name": "Jeff Wilson Jr."
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3122976,
+              "name": "Jeff Wilson Jr."
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4429160,
+              "name": "De'Von Achane"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "43c88d3e-c516-4ffc-a82c-19b915de37c3",
+      "date": 1696015750240,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4361741,
+              "name": "Brock Purdy"
+            },
+            {
+              "id": 4242335,
+              "name": "Jonathan Taylor"
+            },
+            {
+              "id": 4361370,
+              "name": "Chris Olave"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2977187,
+              "name": "Cooper Kupp"
+            },
+            {
+              "id": 3915511,
+              "name": "Joe Burrow"
+            },
+            {
+              "id": 15835,
+              "name": "Zach Ertz"
+            }
+          ]
+        },
+        {
+          "teamId": 7,
+          "playersIn": [
+            {
+              "id": 2977187,
+              "name": "Cooper Kupp"
+            },
+            {
+              "id": 3915511,
+              "name": "Joe Burrow"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4361741,
+              "name": "Brock Purdy"
+            },
+            {
+              "id": 4242335,
+              "name": "Jonathan Taylor"
+            },
+            {
+              "id": 4361370,
+              "name": "Chris Olave"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 15835,
+              "name": "Zach Ertz"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "4b2c1268-cd71-497e-9126-3198bd59987d",
+      "date": 1696015721391,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 15835,
+              "name": "Zach Ertz"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 1,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 15835,
+              "name": "Zach Ertz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "id": "cdb01e3c-2211-4a79-a408-c9d90f989093",
+      "date": 1695185261028,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3051738,
+              "name": "Marquez Valdes-Scantling"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 12,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3051738,
+              "name": "Marquez Valdes-Scantling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "9e404027-02fb-4ac0-bdda-b762dab14deb",
+      "date": 1669870725420,
+      "week": 13,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4240600,
+              "name": "Kadarius Toney"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 7,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4240600,
+              "name": "Kadarius Toney"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "aae23952-b608-4194-a495-03ad37a4eb8c",
+      "date": 1669257209943,
+      "week": 12,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4241416,
+              "name": "Chuba Hubbard"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 8,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4241416,
+              "name": "Chuba Hubbard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "8645af36-baa9-46c3-9ef1-8403bf7c4553",
+      "date": 1668534249656,
+      "week": 11,
+      "sides": [
+        {
+          "teamId": 4,
+          "playersIn": [
+            {
+              "id": 3122840,
+              "name": "Deshaun Watson"
+            },
+            {
+              "id": 4258195,
+              "name": "Donovan Peoples-Jones"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4697815,
+              "name": "Rachaad White"
+            },
+            {
+              "id": 4239934,
+              "name": "AJ Dillon"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4697815,
+              "name": "Rachaad White"
+            },
+            {
+              "id": 4239934,
+              "name": "AJ Dillon"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3122840,
+              "name": "Deshaun Watson"
+            },
+            {
+              "id": 4258195,
+              "name": "Donovan Peoples-Jones"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "0868ac05-6855-4091-afe3-1e115c7c71e1",
+      "date": 1668231123795,
+      "week": 10,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4243537,
+              "name": "Gabe Davis"
+            },
+            {
+              "id": 4258195,
+              "name": "Donovan Peoples-Jones"
+            },
+            {
+              "id": 3043078,
+              "name": "Derrick Henry"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2573401,
+              "name": "Tyler Higbee"
+            },
+            {
+              "id": 3916433,
+              "name": "Jakobi Meyers"
+            },
+            {
+              "id": 3120348,
+              "name": "JuJu Smith-Schuster"
+            },
+            {
+              "id": 4259545,
+              "name": "D'Andre Swift"
+            }
+          ]
+        },
+        {
+          "teamId": 3,
+          "playersIn": [
+            {
+              "id": 2573401,
+              "name": "Tyler Higbee"
+            },
+            {
+              "id": 3916433,
+              "name": "Jakobi Meyers"
+            },
+            {
+              "id": 3120348,
+              "name": "JuJu Smith-Schuster"
+            },
+            {
+              "id": 4259545,
+              "name": "D'Andre Swift"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4243537,
+              "name": "Gabe Davis"
+            },
+            {
+              "id": 4258195,
+              "name": "Donovan Peoples-Jones"
+            },
+            {
+              "id": 3043078,
+              "name": "Derrick Henry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "b89b7a9b-d1c5-4aed-815d-7370c5f939e1",
+      "date": 1667510620002,
+      "week": 9,
+      "sides": [
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 15818,
+              "name": "Keenan Allen"
+            },
+            {
+              "id": 3045147,
+              "name": "James Conner"
+            },
+            {
+              "id": 3115364,
+              "name": "Leonard Fournette"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3059915,
+              "name": "Kareem Hunt"
+            },
+            {
+              "id": 3895856,
+              "name": "Christian Kirk"
+            },
+            {
+              "id": 4259545,
+              "name": "D'Andre Swift"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3059915,
+              "name": "Kareem Hunt"
+            },
+            {
+              "id": 3895856,
+              "name": "Christian Kirk"
+            },
+            {
+              "id": 4259545,
+              "name": "D'Andre Swift"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 15818,
+              "name": "Keenan Allen"
+            },
+            {
+              "id": 3045147,
+              "name": "James Conner"
+            },
+            {
+              "id": 3115364,
+              "name": "Leonard Fournette"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "6536811e-8aad-4d38-bf3a-b5e81aad902f",
+      "date": 1666711470010,
+      "week": 8,
+      "sides": [
+        {
+          "teamId": 10,
+          "playersIn": [
+            {
+              "id": 3059722,
+              "name": "Zay Jones"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4361432,
+              "name": "Romeo Doubs"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4361432,
+              "name": "Romeo Doubs"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3059722,
+              "name": "Zay Jones"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "8c6106d6-1b7c-4052-a4ec-76a333829bf7",
+      "date": 1666110722837,
+      "week": 7,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4361259,
+              "name": "Zach Wilson"
+            },
+            {
+              "id": 3127292,
+              "name": "Will Dissly"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 8,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4361259,
+              "name": "Zach Wilson"
+            },
+            {
+              "id": 3127292,
+              "name": "Will Dissly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "4a570547-649f-456a-8280-d2261cc8f4dd",
+      "date": 1665760932268,
+      "week": 6,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3916433,
+              "name": "Jakobi Meyers"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2976316,
+              "name": "Michael Thomas"
+            }
+          ]
+        },
+        {
+          "teamId": 11,
+          "playersIn": [
+            {
+              "id": 2976316,
+              "name": "Michael Thomas"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3916433,
+              "name": "Jakobi Meyers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "c749bb5e-80b6-491d-a607-235aaf4e279f",
+      "date": 1665011859812,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4360234,
+              "name": "Evan McPherson"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 5,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4360234,
+              "name": "Evan McPherson"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "4b9bad69-a7e7-41d0-835a-4c0fdd44ef90",
+      "date": 1664468831318,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4240600,
+              "name": "Kadarius Toney"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 10,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4240600,
+              "name": "Kadarius Toney"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "a407d280-88dd-46a3-839d-5461f0f22ed3",
+      "date": 1664309551346,
+      "week": 4,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3045147,
+              "name": "James Conner"
+            },
+            {
+              "id": 3059722,
+              "name": "Zay Jones"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4240021,
+              "name": "Cam Akers"
+            },
+            {
+              "id": 4039359,
+              "name": "Darrell Henderson Jr."
+            },
+            {
+              "id": 3117256,
+              "name": "Dalton Schultz"
+            }
+          ]
+        },
+        {
+          "teamId": 5,
+          "playersIn": [
+            {
+              "id": 4240021,
+              "name": "Cam Akers"
+            },
+            {
+              "id": 4039359,
+              "name": "Darrell Henderson Jr."
+            },
+            {
+              "id": 3117256,
+              "name": "Dalton Schultz"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3045147,
+              "name": "James Conner"
+            },
+            {
+              "id": 3059722,
+              "name": "Zay Jones"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "c664e313-fa80-4ecd-ad56-41354022ec64",
+      "date": 1664214049824,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3916148,
+              "name": "Tony Pollard"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 11,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 3916148,
+              "name": "Tony Pollard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "22513902-a034-43fa-b54f-ec8bb1e91e4c",
+      "date": 1663714239679,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 15880,
+              "name": "Robert Woods"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 11,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 15880,
+              "name": "Robert Woods"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "f1a12ac5-36e2-4a07-ad2d-b25346e1b562",
+      "date": 1663682895299,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3040151,
+              "name": "George Kittle"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4426502,
+              "name": "Drake London"
+            }
+          ]
+        },
+        {
+          "teamId": 4,
+          "playersIn": [
+            {
+              "id": 4426502,
+              "name": "Drake London"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3040151,
+              "name": "George Kittle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "id": "b610ca44-ba23-4765-9a67-6ed878f18c5d",
+      "date": 1663162273241,
+      "week": 2,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 3117256,
+              "name": "Dalton Schultz"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2969939,
+              "name": "Jameis Winston"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 2969939,
+              "name": "Jameis Winston"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 3117256,
+              "name": "Dalton Schultz"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unresolvedCount": 73,
+  "settledSeasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ]
 }

@@ -1,5 +1,245 @@
 {
-  "lastUpdated": "2026-08-31T20:24:49.076Z",
-  "samples": [],
-  "unresolved": []
+  "lastUpdated": "2026-08-31T20:41:09.053Z",
+  "diagnostics": [
+    {
+      "season": 2022,
+      "requestFailed": false,
+      "usedWeekLoop": true,
+      "totalCount": 35,
+      "typeCounts": {
+        "TRADE_ACCEPT": 35
+      }
+    },
+    {
+      "season": 2023,
+      "requestFailed": false,
+      "usedWeekLoop": true,
+      "totalCount": 30,
+      "typeCounts": {
+        "TRADE_ACCEPT": 30
+      }
+    },
+    {
+      "season": 2024,
+      "requestFailed": false,
+      "usedWeekLoop": true,
+      "totalCount": 23,
+      "typeCounts": {
+        "TRADE_ACCEPT": 23
+      }
+    },
+    {
+      "season": 2025,
+      "requestFailed": false,
+      "usedWeekLoop": true,
+      "totalCount": 37,
+      "typeCounts": {
+        "TRADE_ACCEPT": 37
+      }
+    },
+    {
+      "season": 2026,
+      "requestFailed": false,
+      "usedWeekLoop": true,
+      "totalCount": 0,
+      "typeCounts": {}
+    }
+  ],
+  "samples": [
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "4d58b1ae-afd3-4308-8cc7-b0c8562e281d",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{CE5A2A59-6C31-4817-B849-DC2D445005B4}",
+      "proposedDate": 1662581134083,
+      "rating": 0,
+      "relatedTransactionId": "6bb44977-2f22-44d8-adee-b7c067dd59e1",
+      "scoringPeriodId": 1,
+      "teamId": 8,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "1066c82c-1b76-4347-aa92-ccb4e7574925",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
+      "proposedDate": 1663030724506,
+      "rating": 0,
+      "relatedTransactionId": "76e7738f-d877-4485-bd1e-9321b4808b9f",
+      "scoringPeriodId": 1,
+      "teamId": 1,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "8a64c78f-817b-46a9-988e-244699fc5412",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "memberId": "{9F67EC7F-9C95-4EC1-8657-D32043B8E2E1}",
+      "proposedDate": 1663615141581,
+      "rating": 0,
+      "relatedTransactionId": "e6c0ebaa-5aa7-4abf-909b-42cfad15db77",
+      "scoringPeriodId": 2,
+      "teamId": 5,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "e9aef1ce-c87f-4db8-9af0-bdd997d8e353",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{31EAB976-A069-44EF-AAB9-76A06954EF5F}",
+      "proposedDate": 1693963684910,
+      "rating": 0,
+      "relatedTransactionId": "e1576dc2-16b1-43c5-b41a-6c3e482c38d4",
+      "scoringPeriodId": 1,
+      "teamId": 9,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "5cabaee5-fa18-4d7a-8b3d-ce50a0ff0988",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{D9952B45-55A5-440B-952B-4555A5840BC2}",
+      "proposedDate": 1693936292779,
+      "rating": 0,
+      "relatedTransactionId": "4b2b033a-3bcb-4e21-802a-ded105476000",
+      "scoringPeriodId": 1,
+      "teamId": 10,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "2ac6513a-013d-4800-9243-4cfa4a95d7f1",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{CE5A2A59-6C31-4817-B849-DC2D445005B4}",
+      "proposedDate": 1694706975586,
+      "rating": 0,
+      "relatedTransactionId": "d5524ffc-df3b-4352-8d17-3b84142db6f8",
+      "scoringPeriodId": 2,
+      "teamId": 8,
+      "type": "TRADE_ACCEPT"
+    }
+  ],
+  "unresolved": [
+    {
+      "season": 2022,
+      "id": "4d58b1ae-afd3-4308-8cc7-b0c8562e281d",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "4d58b1ae-afd3-4308-8cc7-b0c8562e281d",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "items": [],
+        "memberId": "{CE5A2A59-6C31-4817-B849-DC2D445005B4}",
+        "proposedDate": 1662581134083,
+        "rating": 0,
+        "relatedTransactionId": "6bb44977-2f22-44d8-adee-b7c067dd59e1",
+        "scoringPeriodId": 1,
+        "teamId": 8,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2022,
+      "id": "1066c82c-1b76-4347-aa92-ccb4e7574925",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "1066c82c-1b76-4347-aa92-ccb4e7574925",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "items": [],
+        "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
+        "proposedDate": 1663030724506,
+        "rating": 0,
+        "relatedTransactionId": "76e7738f-d877-4485-bd1e-9321b4808b9f",
+        "scoringPeriodId": 1,
+        "teamId": 1,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2022,
+      "id": "8a64c78f-817b-46a9-988e-244699fc5412",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "8a64c78f-817b-46a9-988e-244699fc5412",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "memberId": "{9F67EC7F-9C95-4EC1-8657-D32043B8E2E1}",
+        "proposedDate": 1663615141581,
+        "rating": 0,
+        "relatedTransactionId": "e6c0ebaa-5aa7-4abf-909b-42cfad15db77",
+        "scoringPeriodId": 2,
+        "teamId": 5,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2022,
+      "id": "38d75c19-63f0-47d5-a4a3-2c113e855960",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "38d75c19-63f0-47d5-a4a3-2c113e855960",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "items": [],
+        "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
+        "proposedDate": 1663642953540,
+        "rating": 0,
+        "relatedTransactionId": "02cfed4b-7668-4de3-96d5-0610858ffbf7",
+        "scoringPeriodId": 2,
+        "teamId": 1,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2022,
+      "id": "fb502eb3-1a5e-434e-ae87-13e1784c9f54",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "fb502eb3-1a5e-434e-ae87-13e1784c9f54",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "memberId": "{4CBD9C36-9239-463C-BCFC-8488B7871C41}",
+        "proposedDate": 1663695492787,
+        "rating": 0,
+        "relatedTransactionId": "33fed914-63ee-4ddd-931b-aa8233ea2806",
+        "scoringPeriodId": 3,
+        "teamId": 4,
+        "type": "TRADE_ACCEPT"
+      }
+    }
+  ]
 }
