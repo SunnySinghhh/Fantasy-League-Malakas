@@ -7,58 +7,121 @@
 <script>(function(){try{var t=localStorage.getItem("malaka-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/theme.css">
 <style>
-  .hero-panel {
-    background: linear-gradient(155deg, var(--brand) 0%, color-mix(in srgb, var(--brand) 78%, black) 100%);
-    color: var(--brand-contrast);
-    border-radius: 14px;
-    padding: clamp(24px, 4vw, 36px);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .landing-hero {
     position: relative;
     overflow: hidden;
+    min-height: calc(100vh - 260px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 48px 20px 64px;
   }
-  .hero-panel::after {
+  .landing-hero::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 88% -10%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 55%);
+    inset: -20%;
+    background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 62%);
     pointer-events: none;
+    z-index: 0;
   }
-  .hero-panel .eyebrow { color: var(--accent); position: relative; }
-  .hero-panel .eyebrow::before { background: var(--accent); }
-  .hero-panel h1 { font-size: clamp(24px, 3.4vw, 32px); position: relative; max-width: 46ch; }
-  .hero-panel p { color: color-mix(in srgb, var(--brand-contrast) 72%, transparent); font-size: 14.5px; max-width: 56ch; position: relative; }
+  .landing-hero > * { position: relative; z-index: 1; }
 
-  .countdown-panel {
+  .landing-crest {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    background: linear-gradient(155deg, var(--brand) 0%, color-mix(in srgb, var(--brand) 78%, black) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 32px var(--shadow-strong);
+    margin-bottom: 4px;
+  }
+  .landing-crest .icon { width: 34px; height: 34px; color: var(--accent); }
+
+  .landing-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .landing-title {
+    font-family: "Lexend", sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 8vw, 78px);
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--text);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .landing-title em { font-style: normal; color: var(--accent); }
+
+  .landing-tagline {
+    font-size: clamp(15px, 1.8vw, 18px);
+    color: var(--text-dim);
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  .landing-facts {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
+    justify-content: center;
+    gap: 8px 10px;
+    margin-top: 4px;
   }
-  .countdown-event { display: flex; flex-direction: column; gap: 5px; }
-  .countdown-event .name { font-size: 19px; font-weight: 600; font-family: "Lexend", sans-serif; }
-  .countdown-event .when { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-dim); }
-  .countdown-event .countdown-link {
+  .landing-fact {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+  .landing-fact strong { color: var(--accent); font-weight: 500; }
+
+  .landing-next {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .next-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .next-event { font-family: "Lexend", sans-serif; font-size: 18px; font-weight: 600; color: var(--text); }
+  .next-when { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-dim); }
+  .next-clock { display: flex; gap: 8px; margin-top: 2px; }
+  .next-unit {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 13px; min-width: 54px;
+  }
+  .next-unit .num { font-family: "Lexend", sans-serif; font-size: 21px; font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 700; }
+  .next-unit .unit-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
+  .next-link {
     display: inline-flex; align-items: center; gap: 6px;
     font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--accent);
     text-decoration: none; margin-top: 2px;
   }
-  .countdown-event .countdown-link:hover { text-decoration: underline; }
-  .countdown-event .countdown-link .icon { width: 13px; height: 13px; }
-  .countdown-clock { display: flex; gap: 8px; }
-  .countdown-unit {
-    display: flex; flex-direction: column; align-items: center; gap: 2px;
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
-    padding: 10px 14px; min-width: 58px;
-  }
-  .countdown-unit .num { font-family: "Lexend", sans-serif; font-size: 24px; font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 700; }
-  .countdown-unit .unit-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
-  .countdown-empty { color: var(--text-dim); font-size: 14px; }
+  .next-link:hover { text-decoration: underline; }
+  .next-link .icon { width: 13px; height: 13px; }
+  .landing-next-empty { font-size: 13px; color: var(--text-faint); }
 </style>
 </head>
 <body>
@@ -96,60 +159,22 @@
 
 <main class="page-shell">
 
-  <div class="hero-panel" style="margin-top: 28px;">
-    <div class="eyebrow">Fantasy Football HQ</div>
-    <h1>Everything the league needs, in one place.</h1>
-    <p>Live standings, rules, history, and the tools built for draft night — all synced straight from ESPN.</p>
-  </div>
-
-  <div class="section">
-    <div class="eyebrow">Next Up</div>
-    <div class="panel countdown-panel" id="countdownInner">
-      <div class="countdown-empty">Loading schedule&hellip;</div>
+  <section class="landing-hero">
+    <div class="landing-crest">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5.5v5.5c0 5.2 3.4 9 8 10.5 4.6-1.5 8-5.3 8-10.5V5.5z"/></svg>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="eyebrow">This Season</div>
-    <div class="card-grid">
-      <a class="card" href="standings.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Standings</h3>
-        <p>Live records, points, and this week's matchups, synced straight from ESPN.</p>
-        <div class="card-cta">See the table <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
-      <a class="card" href="draft-board.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="10" x2="9" y2="20"/></svg></div>
-        <h3>Draft Board</h3>
-        <p>Every pick from this year's draft, round by round.</p>
-        <div class="card-cta">See the picks <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
-      <a class="card" href="rules.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></div>
-        <h3>League Rules</h3>
-        <p>Schedule, buy-in and payouts, scoring, the losers bracket, and the punishment.</p>
-        <div class="card-cta">Read the fine print <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
-      <a class="card" href="hall-of-fame.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4a1 1 0 0 0-1 1 4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1 4 4 0 0 1-4 4"/></svg></div>
-        <h3>Hall of Fame</h3>
-        <p>Champions, runners-up, last place, and the all-time scoring records — pulled from ESPN, season by season.</p>
-        <div class="card-cta">See who's on the wall <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
-      <a class="card" href="team-history.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg></div>
-        <h3>Team History</h3>
-        <p>Points for and against by season, career win-loss, and head-to-head records between any two teams.</p>
-        <div class="card-cta">Dig into the numbers <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
-      <a class="card" href="constitution.html">
-        <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 6.5C10.5 5 8 4 4 4v14c4 0 6.5 1 8 2.5 1.5-1.5 4-2.5 8-2.5V4c-4 0-6.5 1-8 2.5z"/></svg></div>
-        <h3>Constitution</h3>
-        <p>The league's governing document — how decisions get made, and what's changed over the years.</p>
-        <div class="card-cta">Read the bylaws <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      </a>
+    <div class="landing-eyebrow">Est. 2022 &middot; Season Five</div>
+    <h1 class="landing-title">Malaka's <em>United</em></h1>
+    <p class="landing-tagline">Twelve owners, one league, and a trophy nobody will let you forget you don't have.</p>
+    <div class="landing-facts">
+      <span class="landing-fact"><strong>12</strong> owners</span>
+      <span class="landing-fact"><strong>4</strong> seasons in the books</span>
+      <span class="landing-fact"><strong>2026</strong> season underway</span>
     </div>
-  </div>
+    <div class="landing-next" id="landingNext">
+      <div class="landing-next-empty">Loading schedule&hellip;</div>
+    </div>
+  </section>
 
 </main>
 
@@ -168,13 +193,17 @@
     return upcoming[0] || null;
   }
 
+  function unitHtml(value, label) {
+    return '<div class="next-unit"><div class="num">' + value + '</div><div class="unit-label">' + label + '</div></div>';
+  }
+
   function render(schedule) {
-    var el = document.getElementById("countdownInner");
+    var el = document.getElementById("landingNext");
     var now = new Date();
     var next = schedule ? pickNextEvent(schedule, now) : null;
 
     if (!next) {
-      el.innerHTML = '<div class="countdown-empty">Nothing on the calendar right now — check back once dates are set.</div>';
+      el.innerHTML = '<div class="landing-next-empty">Nothing on the calendar right now &mdash; check back once dates are set.</div>';
       return;
     }
 
@@ -185,25 +214,20 @@
     var seconds = Math.floor((diff % 60000) / 1000);
 
     var zoomHtml = next.zoom
-      ? '<a class="countdown-link" href="' + next.zoom + '" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3l-9 9M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg> Join Virtually</a>'
+      ? '<a class="next-link" href="' + next.zoom + '" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3l-9 9M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg> Join Virtually</a>'
       : "";
 
     el.innerHTML =
-      '<div class="countdown-event">' +
-        '<div class="name">' + next.event + '</div>' +
-        '<div class="when">' + next.date + ' &middot; ' + next.time + '</div>' +
-        zoomHtml +
-      '</div>' +
-      '<div class="countdown-clock">' +
+      '<div class="next-label">Next Up</div>' +
+      '<div class="next-event">' + next.event + '</div>' +
+      '<div class="next-when">' + next.date + ' &middot; ' + next.time + '</div>' +
+      '<div class="next-clock">' +
         unitHtml(days, "Days") +
         unitHtml(pad(hours), "Hrs") +
         unitHtml(pad(minutes), "Min") +
         unitHtml(pad(seconds), "Sec") +
-      '</div>';
-  }
-
-  function unitHtml(value, label) {
-    return '<div class="countdown-unit"><div class="num">' + value + '</div><div class="unit-label">' + label + '</div></div>';
+      '</div>' +
+      zoomHtml;
   }
 
   fetch("data/schedule.json?t=" + Date.now(), { cache: "no-store" })
