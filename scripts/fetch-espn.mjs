@@ -30,7 +30,7 @@ const ESPN_SWID = rawEnv.ESPN_SWID.trim().replace(/^\{?/, "{").replace(/\}?$/, "
 // CORS-style headers (Origin/Referer + x-fantasy-*) or it silently rejects the request.
 const API_URL =
   `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE_ID}` +
-  `?view=mTeam&view=mRoster&view=mMatchupScore&view=mScoreboard&view=mSettings`;
+  `?view=mTeam&view=mRoster&view=mMatchupScore&view=mScoreboard&view=mSettings&view=mLiveScoring`;
 
 async function fetchLeague() {
   const res = await fetch(API_URL, {
@@ -109,27 +109,55 @@ function round1(n) {
   return typeof n === "number" ? Math.round(n * 10) / 10 : 0;
 }
 
+// Bench (20) and IR (21) slots don't count toward a team's projected total —
+// only players actually in the starting lineup do.
+const BENCH_SLOTS = new Set([20, 21]);
+
+// A player's `stats` array holds one entry per (scoringPeriodId, statSourceId)
+// pair; statSourceId 0 is actual stats, 1 is ESPN's projection. Summing the
+// projected appliedTotal across every starter gives the team's projected score.
+function projectedPointsForTeam(team, week) {
+  const entries = team.roster?.entries || [];
+  let total = 0;
+  let any = false;
+
+  for (const entry of entries) {
+    if (BENCH_SLOTS.has(entry.lineupSlotId)) continue;
+    const stats = entry.playerPoolEntry?.player?.stats || [];
+    const stat = stats.find((s) => s.scoringPeriodId === week && s.statSourceId === 1);
+    if (stat && typeof stat.appliedTotal === "number") {
+      total += stat.appliedTotal;
+      any = true;
+    }
+  }
+
+  return any ? round1(total) : null;
+}
+
 function buildScoreboard(league, standings) {
   const nameById = new Map(standings.map((t) => [t.teamId, t.name]));
+  const teamsById = new Map((league.teams || []).map((t) => [t.id, t]));
   const currentWeek = league.status?.currentMatchupPeriod || league.scoringPeriodId || 1;
 
   const matchups = (league.schedule || [])
     .filter((m) => m.matchupPeriodId === currentWeek)
     .map((m) => ({
-      home: sideInfo(m.home, nameById),
-      away: m.away ? sideInfo(m.away, nameById) : null,
+      home: sideInfo(m.home, nameById, teamsById, currentWeek),
+      away: m.away ? sideInfo(m.away, nameById, teamsById, currentWeek) : null,
       winner: m.winner || "UNDECIDED",
     }));
 
   return { week: currentWeek, matchups };
 }
 
-function sideInfo(side, nameById) {
+function sideInfo(side, nameById, teamsById, week) {
   if (!side) return null;
+  const team = teamsById.get(side.teamId);
   return {
     teamId: side.teamId,
     name: nameById.get(side.teamId) || `Team ${side.teamId}`,
     score: round1(side.totalPoints),
+    projected: team ? projectedPointsForTeam(team, week) : null,
   };
 }
 

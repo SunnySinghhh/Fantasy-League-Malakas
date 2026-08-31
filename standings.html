@@ -40,6 +40,7 @@
   }
   .matchup-side .name { color: var(--text-dim); }
   .matchup-side.winner .name { color: var(--text); font-weight: 700; }
+  .score-group { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
   .matchup-side .score {
     font-family: "IBM Plex Mono", monospace;
     font-variant-numeric: tabular-nums;
@@ -47,6 +48,12 @@
     color: var(--text-dim);
   }
   .matchup-side.winner .score { color: var(--win); font-weight: 700; }
+  .matchup-side .proj {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 10.5px;
+    color: var(--text-faint);
+  }
   .matchup-vs {
     text-align: center;
     font-family: "IBM Plex Mono", monospace;
@@ -92,6 +99,7 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="draft-lottery.html">Draft Lottery</a>
+      <a href="draft-board.html">Draft Board</a>
       <a href="rules.html">Rules</a>
       <a href="standings.html" class="current">Standings</a>
       <a href="hall-of-fame.html">Hall of Fame</a>
@@ -245,10 +253,13 @@
   }
 
   function matchupSideHtml(side, isWinner) {
+    var projHtml = typeof side.projected === "number"
+      ? '<span class="proj">proj ' + side.projected.toFixed(1) + '</span>'
+      : "";
     return (
       '<div class="matchup-side' + (isWinner ? " winner" : "") + '">' +
       '<span class="name">' + side.name + "</span>" +
-      '<span class="score">' + side.score.toFixed(1) + "</span>" +
+      '<span class="score-group"><span class="score">' + side.score.toFixed(1) + "</span>" + projHtml + "</span>" +
       "</div>"
     );
   }
