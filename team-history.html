@@ -104,6 +104,7 @@
       <a href="draft-board.html">Draft Board</a>
       <a href="rules.html">Rules</a>
       <a href="standings.html">Standings</a>
+      <a href="power-rankings.html">Power Rankings</a>
       <a href="hall-of-fame.html">Hall of Fame</a>
       <a href="team-history.html" class="current">Team History</a>
       <a href="constitution.html">Constitution</a>
@@ -140,70 +141,15 @@
 <footer class="site-footer">Malaka's United &middot; built for our fantasy football crew</footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/owners.js"></script>
 <script>
 (function () {
   "use strict";
 
   var PALETTE = ["#dba84a", "#e8544a", "#5fb3d9", "#9b7fd4", "#5fbf85", "#ff8fb1", "#6bc9c0", "#d9a441", "#8f9bd4", "#e0824a", "#4d6dc9", "#c96bd4"];
 
-  // ---------------------------------------------------------------------
-  // Owner identity — several ESPN team slots have changed hands over the
-  // years (a different real person took over the same roster slot), and a
-  // couple of owners have even switched slots season to season. Stats need
-  // to follow the PERSON, not the slot, so this table (confirmed with the
-  // commissioner, not inferred from name changes) maps every historical
-  // (teamId, season) to the owner who actually ran it that year. Any
-  // (teamId, season) not listed here falls back to "one continuous owner
-  // for that slot," which covers every team that's never changed hands.
-  //
-  // activeTeamId: set if this owner currently holds a slot (their name/logo
-  // comes from live standings); omit/null if they've since left the league
-  // (their name/logo comes from `name` below instead).
-  var OWNER_OVERRIDES = [
-    { id: "sunny", name: "Sunny's Sp*rm Bank", activeTeamId: 1,
-      grants: [{ teamId: 1, seasons: [2022, 2023, 2024, 2025] }] },
-    { id: "jpops-owner", name: "JPOPS", activeTeamId: 2,
-      grants: [{ teamId: 2, seasons: [2022, 2023, 2024, 2025] }] },
-    { id: "manpreet", name: "Manpreet", activeTeamId: null,
-      grants: [{ teamId: 5, seasons: [2022] }] },
-    { id: "kosta", name: "Kostas", activeTeamId: null,
-      // Kosta ran team 12's slot in 2022, then moved to team 5's slot in 2023.
-      grants: [{ teamId: 12, seasons: [2022] }, { teamId: 5, seasons: [2023] }] },
-    { id: "evan", name: "Ecuador roof repair", activeTeamId: 5,
-      grants: [{ teamId: 5, seasons: [2024, 2025] }] },
-    { id: "chris", name: "Houston Hicks", activeTeamId: 6,
-      // Chris owned this slot in 2022, Alex took it over for two years, then Chris returned in 2025.
-      grants: [{ teamId: 6, seasons: [2022, 2025] }] },
-    { id: "alex", name: "CP Central", activeTeamId: null,
-      grants: [{ teamId: 6, seasons: [2023, 2024] }] },
-    { id: "pandelidis-owner", name: "Pandelidis FC", activeTeamId: 8,
-      grants: [{ teamId: 8, seasons: [2022, 2023, 2024, 2025] }] },
-    { id: "chase-brown-kids-owner", name: "Chase Brown Kids", activeTeamId: 11,
-      grants: [{ teamId: 11, seasons: [2022, 2023, 2024, 2025] }] },
-    { id: "nick", name: "Purple P()ssy Eaters", activeTeamId: null,
-      grants: [{ teamId: 12, seasons: [2023, 2024] }] },
-    { id: "dimitri", name: "DeeGotti's Welfare Warriors", activeTeamId: 12,
-      grants: [{ teamId: 12, seasons: [2025] }] }
-  ];
-
-  function buildOwnerIndex() {
-    var map = new Map(); // "teamId:season" -> ownerId
-    OWNER_OVERRIDES.forEach(function (o) {
-      o.grants.forEach(function (g) {
-        g.seasons.forEach(function (season) {
-          map.set(g.teamId + ":" + season, o.id);
-        });
-      });
-    });
-    return map;
-  }
-
-  // Any (teamId, season) not covered by an override is one continuous
-  // owner for that slot — the common case.
-  function ownerIdFor(ownerIndex, teamId, season) {
-    var key = teamId + ":" + season;
-    return ownerIndex.has(key) ? ownerIndex.get(key) : "team-" + teamId;
-  }
+  // Owner identity (OWNER_OVERRIDES, buildOwnerIndex, ownerIdFor) lives in
+  // assets/owners.js, shared with power-rankings.html.
 
   var hiddenPF = new Set();
   var hiddenPA = new Set();
@@ -220,15 +166,7 @@
     return "." + String(Math.round(pct * 1000)).padStart(3, "0");
   }
 
-  function fallbackLogoHtml(name) {
-    return '<span class="fallback-logo">' + (name ? name.charAt(0) : "?") + '</span>';
-  }
-
-  function teamLogoHtml(team) {
-    return team.logo
-      ? '<img src="' + team.logo + '" alt="" loading="lazy">'
-      : fallbackLogoHtml(team.name);
-  }
+  // fallbackLogoHtml / teamLogoHtml live in assets/owners.js.
 
   // ---------------------------------------------------------------------
   // Data shaping
