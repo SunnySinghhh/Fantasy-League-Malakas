@@ -66,6 +66,57 @@ function currentOwnerIdFor(teamId) {
   return found ? found.id : "team-" + teamId;
 }
 
+// Builds ownerId -> { id, name, logo, formerNames } from live standings +
+// full season history, so any page can look up an owner's canonical
+// display name/logo (their current team if still in the league, or their
+// OWNER_OVERRIDES reference name/logo if departed) plus every raw ESPN
+// name that slot used during seasons this owner actually held.
+function buildRegistry(standings, history, ownerIndex) {
+  var registry = new Map();
+  var standingsById = new Map((standings && standings.teams || []).map(function (t) { return [t.teamId, t]; }));
+
+  // Default identity for every teamId — covers any slot untouched by
+  // OWNER_OVERRIDES, and any (teamId, season) an override doesn't claim.
+  standingsById.forEach(function (t, teamId) {
+    registry.set("team-" + teamId, { id: "team-" + teamId, name: t.name, logo: t.logo || "" });
+  });
+
+  // Explicit owner identities.
+  OWNER_OVERRIDES.forEach(function (o) {
+    var cur = o.activeTeamId ? standingsById.get(o.activeTeamId) : null;
+    registry.set(o.id, {
+      id: o.id,
+      name: cur ? cur.name : o.name,
+      logo: cur ? (cur.logo || "") : ""
+    });
+  });
+
+  var seasonsAsc = (history.seasons || []).slice().sort(function (a, b) { return a.season - b.season; });
+  var nameHistory = new Map(); // ownerId -> raw ESPN names used during that owner's seasons
+  seasonsAsc.forEach(function (s) {
+    (s.teams || []).forEach(function (t) {
+      var ownerId = ownerIdFor(ownerIndex, t.teamId, s.season);
+      if (!registry.has(ownerId)) {
+        registry.set(ownerId, { id: ownerId, name: t.name, logo: "" });
+      }
+      var arr = nameHistory.get(ownerId) || [];
+      arr.push(t.name);
+      nameHistory.set(ownerId, arr);
+    });
+  });
+
+  registry.forEach(function (owner) {
+    var seen = new Set([owner.name]);
+    var former = [];
+    (nameHistory.get(owner.id) || []).forEach(function (n) {
+      if (!seen.has(n)) { seen.add(n); former.push(n); }
+    });
+    owner.formerNames = former;
+  });
+
+  return registry;
+}
+
 function fallbackLogoHtml(name) {
   return '<span class="fallback-logo">' + (name ? name.charAt(0) : "?") + '</span>';
 }

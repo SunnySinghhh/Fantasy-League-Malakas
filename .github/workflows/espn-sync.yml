@@ -34,10 +34,22 @@ jobs:
           SEASON: "2026"
         run: node scripts/fetch-espn-history.mjs
 
+      - name: Fetch ESPN trade history
+        # This view is undocumented and unverified against a live payload
+        # (see the comment at the top of the script) — continue-on-error so
+        # a bad response here can't block the standings/history sync above.
+        continue-on-error: true
+        env:
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+          LEAGUE_ID: "1166030619"
+          SEASON: "2026"
+        run: node scripts/fetch-espn-trades.mjs
+
       - name: Commit updated data
         run: |
           git config user.name "espn-sync-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/espn-standings.json data/espn-scoreboard.json data/espn-history.json
+          git add data/espn-standings.json data/espn-scoreboard.json data/espn-history.json data/espn-trades.json data/espn-trades-raw-sample.json
           git diff --cached --quiet || git commit -m "Sync ESPN fantasy data"
           git push

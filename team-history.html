@@ -131,6 +131,7 @@
       <a href="power-rankings.html">Power Rankings</a>
       <a href="hall-of-fame.html">Hall of Fame</a>
       <a href="team-history.html" class="current">Team History</a>
+      <a href="trades.html">Trade Log</a>
       <a href="constitution.html">Constitution</a>
     </nav>
     <div class="nav-right">
@@ -203,51 +204,7 @@
   // in OWNER_OVERRIDES above. Either way, every raw ESPN name that slot
   // actually used during THIS owner's seasons is preserved as a "↺"
   // former-name marker, so nothing gets silently relabeled.
-  function buildRegistry(standings, history, ownerIndex) {
-    var registry = new Map();
-    var standingsById = new Map((standings && standings.teams || []).map(function (t) { return [t.teamId, t]; }));
-
-    // Default identity for every teamId — covers any slot untouched by
-    // OWNER_OVERRIDES, and any (teamId, season) an override doesn't claim.
-    standingsById.forEach(function (t, teamId) {
-      registry.set("team-" + teamId, { id: "team-" + teamId, name: t.name, logo: t.logo || "" });
-    });
-
-    // Explicit owner identities.
-    OWNER_OVERRIDES.forEach(function (o) {
-      var cur = o.activeTeamId ? standingsById.get(o.activeTeamId) : null;
-      registry.set(o.id, {
-        id: o.id,
-        name: cur ? cur.name : o.name,
-        logo: cur ? (cur.logo || "") : ""
-      });
-    });
-
-    var seasonsAsc = (history.seasons || []).slice().sort(function (a, b) { return a.season - b.season; });
-    var nameHistory = new Map(); // ownerId -> raw ESPN names used during that owner's seasons
-    seasonsAsc.forEach(function (s) {
-      (s.teams || []).forEach(function (t) {
-        var ownerId = ownerIdFor(ownerIndex, t.teamId, s.season);
-        if (!registry.has(ownerId)) {
-          registry.set(ownerId, { id: ownerId, name: t.name, logo: "" });
-        }
-        var arr = nameHistory.get(ownerId) || [];
-        arr.push(t.name);
-        nameHistory.set(ownerId, arr);
-      });
-    });
-
-    registry.forEach(function (owner) {
-      var seen = new Set([owner.name]);
-      var former = [];
-      (nameHistory.get(owner.id) || []).forEach(function (n) {
-        if (!seen.has(n)) { seen.add(n); former.push(n); }
-      });
-      owner.formerNames = former;
-    });
-
-    return registry;
-  }
+  // buildRegistry lives in assets/owners.js, shared with trades.html.
 
   function renamedMarkerHtml(team) {
     if (!team || !team.formerNames || !team.formerNames.length) return "";
