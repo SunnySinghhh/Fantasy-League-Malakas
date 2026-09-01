@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-01T06:04:59.372Z",
+  "lastUpdated": "2026-09-01T11:51:41.367Z",
   "week": 1,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 115.4
+        "projected": 117.4
       },
       "away": {
         "teamId": 4,
@@ -43,7 +43,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 111.7
+        "projected": 111.5
       },
       "winner": "UNDECIDED"
     },
