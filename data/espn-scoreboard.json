@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-01T00:58:52.775Z",
+  "lastUpdated": "2026-09-01T06:04:59.372Z",
   "week": 1,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 119.8
+        "projected": 118.2
       },
       "winner": "UNDECIDED"
     },
@@ -28,7 +28,7 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 115.1
+        "projected": 115.2
       },
       "winner": "UNDECIDED"
     },
@@ -43,7 +43,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 111.8
+        "projected": 111.7
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 123.3
+        "projected": 121.5
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 118.5
+        "projected": 115.6
       },
       "winner": "UNDECIDED"
     },
@@ -88,7 +88,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 117.3
+        "projected": 116.8
       },
       "winner": "UNDECIDED"
     }
