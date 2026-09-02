@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-02T19:33:59.449Z",
+  "lastUpdated": "2026-09-02T22:11:52.180Z",
   "season": 2026,
   "leagueId": "1166030619",
   "teams": [
@@ -49,7 +49,7 @@
       "teamId": 4,
       "name": "Byzantine Boomers",
       "abbrev": "NIKO",
-      "logo": "https://i.redd.it/8lhx41hcbrv41.jpg",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/a60dba80-a717-11f1-9537-5bd778d76252",
       "wins": 0,
       "losses": 0,
       "ties": 0,
