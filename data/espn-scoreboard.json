@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-02T16:43:38.374Z",
+  "lastUpdated": "2026-09-02T19:33:59.449Z",
   "week": 1,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 117.4
+        "projected": 118
       },
       "away": {
         "teamId": 4,
@@ -67,7 +67,7 @@
         "teamId": 11,
         "name": "Chase Brown Kids",
         "score": 0,
-        "projected": 116.1
+        "projected": 116
       },
       "away": {
         "teamId": 2,
