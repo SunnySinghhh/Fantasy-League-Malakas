@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-03T00:24:47.322Z",
+  "lastUpdated": "2026-09-03T04:47:57.142Z",
   "season": 2026,
   "leagueId": "1166030619",
   "teams": [
@@ -35,7 +35,7 @@
       "teamId": 3,
       "name": "The Navengers",
       "abbrev": "NAV",
-      "logo": "https://i.imgur.com/d7wCSl3.png",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/5261ff70-a737-11f1-a12f-2b44c2a1875d",
       "wins": 0,
       "losses": 0,
       "ties": 0,
