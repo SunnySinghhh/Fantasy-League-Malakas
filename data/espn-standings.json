@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-03T13:41:24.669Z",
+  "lastUpdated": "2026-09-03T17:24:01.549Z",
   "season": 2026,
   "leagueId": "1166030619",
   "teams": [
@@ -21,7 +21,7 @@
       "teamId": 2,
       "name": "JPOPS",
       "abbrev": "JPOP",
-      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/StarWarsTheRiseOfSkywalker/rise-skywalker-chewy.svg",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/935a66d0-a79f-11f1-9537-5bd778d76252",
       "wins": 0,
       "losses": 0,
       "ties": 0,
