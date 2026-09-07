@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-07T20:03:36.776Z",
+  "lastUpdated": "2026-09-07T22:55:09.620Z",
   "week": 1,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 119.4
+        "projected": 119.9
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 118.2
+        "projected": 118.1
       },
       "winner": "UNDECIDED"
     },
@@ -43,7 +43,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 111.5
+        "projected": 111.4
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 115.6
+        "projected": 115.5
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 116.2
+        "projected": 116.5
       },
       "away": {
         "teamId": 2,
@@ -88,7 +88,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 116.8
+        "projected": 116.7
       },
       "winner": "UNDECIDED"
     }
