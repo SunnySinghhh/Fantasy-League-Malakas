@@ -63,6 +63,85 @@
     color: var(--text-faint);
   }
 
+  /* ---- matchup of the week ---- */
+  .featured-matchup {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(155deg, var(--brand) 0%, color-mix(in srgb, var(--brand) 78%, black) 100%);
+    color: var(--brand-contrast);
+    border-radius: 14px;
+    padding: clamp(20px, 3.5vw, 32px);
+  }
+  .featured-matchup::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 90% -10%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 55%);
+    pointer-events: none;
+  }
+  .featured-matchup > * { position: relative; }
+  .featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .featured-badge svg { width: 13px; height: 13px; }
+  .featured-sides {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: clamp(10px, 3vw, 28px);
+  }
+  .featured-side { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+  .featured-side.away { align-items: center; }
+  .featured-logo, .featured-logo-fallback {
+    width: 56px; height: 56px; border-radius: 12px; object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  }
+  .featured-logo-fallback {
+    display: flex; align-items: center; justify-content: center;
+    background: color-mix(in srgb, var(--brand-contrast) 14%, transparent);
+    font-family: "Lexend", sans-serif; font-size: 22px; font-weight: 700;
+    color: var(--brand-contrast);
+  }
+  .featured-name { font-family: "Lexend", sans-serif; font-size: clamp(15px, 2vw, 18px); font-weight: 600; }
+  .featured-record {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: color-mix(in srgb, var(--brand-contrast) 65%, transparent);
+  }
+  .featured-score-row { display: flex; align-items: baseline; gap: 6px; }
+  .featured-score {
+    font-family: "Lexend", sans-serif;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .featured-score.winner { color: var(--accent); }
+  .featured-proj {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: color-mix(in srgb, var(--brand-contrast) 60%, transparent);
+  }
+  .featured-vs {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-contrast) 55%, transparent);
+    padding: 0 4px;
+  }
+  @media (max-width: 560px) {
+    .featured-sides { grid-template-columns: 1fr; gap: 8px; }
+    .featured-vs { padding: 6px 0; }
+  }
+
   /* pulsing live dot for the sync-status pill */
   .live-dot {
     position: relative;
@@ -141,6 +220,10 @@
         <div class="stat-value" id="lastUpdatedValue" style="font-size: 16px;">&mdash;</div>
       </div>
     </div>
+  </div>
+
+  <div class="section" id="featuredSection" style="display:none;">
+    <div id="featuredMatchup"></div>
   </div>
 
   <div class="section">
@@ -252,6 +335,74 @@
     el.innerHTML = '<div class="matchup-grid">' + cards + "</div>";
   }
 
+  // ---------------------------------------------------------------------
+  // Matchup of the Week — one matchup, picked at random but deterministically
+  // seeded by the week number so every visitor sees the SAME pick all week
+  // (re-shuffling on every page load would defeat the point of "the"
+  // matchup of the week). Re-rolls automatically once the week changes.
+  // ---------------------------------------------------------------------
+
+  function seededPick(seed, length) {
+    var x = (Math.imul(seed ^ 0x9e3779b9, 2654435761) >>> 0);
+    x ^= x >>> 15;
+    x = (Math.imul(x, 2246822519) >>> 0);
+    x ^= x >>> 13;
+    return x % length;
+  }
+
+  function teamLookup(standings) {
+    var byId = new Map();
+    (standings && standings.teams || []).forEach(function (t) { byId.set(t.teamId, t); });
+    return byId;
+  }
+
+  function featuredSideHtml(side, cls, isWinner, teamsById) {
+    var team = teamsById.get(side.teamId);
+    var logoHtml = team && team.logo
+      ? '<img class="featured-logo" src="' + team.logo + '" alt="" loading="lazy">'
+      : '<span class="featured-logo-fallback">' + (side.name ? side.name.charAt(0) : "?") + '</span>';
+    var recordHtml = team ? '<div class="featured-record">' + team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "") + '</div>' : "";
+    var projHtml = typeof side.projected === "number"
+      ? '<div class="featured-proj">proj ' + side.projected.toFixed(1) + '</div>'
+      : "";
+    return (
+      '<div class="featured-side ' + cls + '">' +
+        logoHtml +
+        '<div class="featured-name">' + side.name + '</div>' +
+        recordHtml +
+        '<div class="featured-score-row"><span class="featured-score' + (isWinner ? " winner" : "") + '">' + side.score.toFixed(1) + '</span></div>' +
+        projHtml +
+      '</div>'
+    );
+  }
+
+  function renderFeaturedMatchup(scoreboard, standings) {
+    var section = document.getElementById("featuredSection");
+    var el = document.getElementById("featuredMatchup");
+    var candidates = (scoreboard && scoreboard.matchups || []).filter(function (m) { return m.home && m.away; });
+
+    if (!candidates.length) {
+      section.style.display = "none";
+      return;
+    }
+
+    var pick = candidates[seededPick(scoreboard.week || 1, candidates.length)];
+    var teamsById = teamLookup(standings);
+    var homeWin = pick.winner === "HOME";
+    var awayWin = pick.winner === "AWAY";
+
+    section.style.display = "";
+    el.innerHTML =
+      '<div class="featured-matchup">' +
+        '<div class="featured-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5.5v5.5c0 5.2 3.4 9 8 10.5 4.6-1.5 8-5.3 8-10.5V5.5z"/></svg>Matchup of the Week</div>' +
+        '<div class="featured-sides">' +
+          featuredSideHtml(pick.home, "home", homeWin, teamsById) +
+          '<div class="featured-vs">Wk ' + (scoreboard.week || "—") + '<br>vs</div>' +
+          featuredSideHtml(pick.away, "away", awayWin, teamsById) +
+        '</div>' +
+      '</div>';
+  }
+
   function matchupSideHtml(side, isWinner) {
     var projHtml = typeof side.projected === "number"
       ? '<span class="proj">proj ' + side.projected.toFixed(1) + '</span>'
@@ -281,6 +432,7 @@
     var standings = results[0];
     var scoreboard = results[1];
     setStats(standings, scoreboard);
+    renderFeaturedMatchup(scoreboard, standings);
     renderScoreboard(scoreboard);
     renderStandings(standings);
   });
