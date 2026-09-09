@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-31T20:41:00.829Z",
+  "lastUpdated": "2026-09-09T01:20:14.458Z",
   "season": 2026,
   "leagueId": "1166030619",
   "teams": [
@@ -21,7 +21,7 @@
       "teamId": 2,
       "name": "JPOPS",
       "abbrev": "JPOP",
-      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/StarWarsTheRiseOfSkywalker/rise-skywalker-chewy.svg",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/935a66d0-a79f-11f1-9537-5bd778d76252",
       "wins": 0,
       "losses": 0,
       "ties": 0,
@@ -35,7 +35,7 @@
       "teamId": 3,
       "name": "The Navengers",
       "abbrev": "NAV",
-      "logo": "https://i.imgur.com/d7wCSl3.png",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/00ac54f0-a78c-11f1-9afc-5feb43d211a1",
       "wins": 0,
       "losses": 0,
       "ties": 0,
@@ -49,7 +49,7 @@
       "teamId": 4,
       "name": "Byzantine Boomers",
       "abbrev": "NIKO",
-      "logo": "https://i.redd.it/8lhx41hcbrv41.jpg",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/a60dba80-a717-11f1-9537-5bd778d76252",
       "wins": 0,
       "losses": 0,
       "ties": 0,
@@ -145,7 +145,7 @@
     },
     {
       "teamId": 11,
-      "name": "Chase Brown Kids",
+      "name": "🍆💦 Mayebe Lil but u can CDs🥜",
       "abbrev": "CBK",
       "logo": "https://g.espncdn.com/lm-static/logo-packs/core/RalphBreaksTheInternet/ralph-09.svg",
       "wins": 0,

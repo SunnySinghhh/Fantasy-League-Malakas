@@ -1,7 +1,61 @@
 {
-  "lastUpdated": "2026-08-31T20:41:09.052Z",
+  "lastUpdated": "2026-09-09T01:20:15.862Z",
   "leagueId": "1166030619",
   "trades": [
+    {
+      "season": 2026,
+      "id": "ba084672-f512-45c2-b6f1-bf0d690629ad",
+      "date": 1788831389744,
+      "week": 1,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4695883,
+              "name": "Jalen Coker"
+            },
+            {
+              "id": 16737,
+              "name": "Mike Evans"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4360078,
+              "name": "Alec Pierce"
+            },
+            {
+              "id": 4371733,
+              "name": "Kenny Gainwell"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4360078,
+              "name": "Alec Pierce"
+            },
+            {
+              "id": 4371733,
+              "name": "Kenny Gainwell"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4695883,
+              "name": "Jalen Coker"
+            },
+            {
+              "id": 16737,
+              "name": "Mike Evans"
+            }
+          ]
+        }
+      ]
+    },
     {
       "season": 2025,
       "id": "f83aa674-c45d-42b7-bb79-23cbe390e4ed",
@@ -2040,7 +2094,7 @@
       ]
     }
   ],
-  "unresolvedCount": 73,
+  "unresolvedCount": 1,
   "settledSeasons": [
     2022,
     2023,
