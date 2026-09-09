@@ -149,11 +149,22 @@
 (function () {
   "use strict";
 
-  // Column order = Round 1 pick order.
+  // Column order = Round 1 pick order. These are the exact team names ESPN
+  // used at draft time, and every pick below is keyed by them — kept as-is
+  // so the lookups below still work; only the rendered header swaps in the
+  // sanitized display name (see TEAM_DISPLAY).
   var TEAMS = [
     "Pandelidis FC", "Perry Hall Pickers", "Houston Hicks", "DeeGotti's Welfare Warriors",
     "Milkballs Revengers", "Sunny's Sp*rm Bank", "JPOPS", "Byzantine Boomers",
     "The Navengers", "Chase Brown Kids", "Ecuador roof repair", "Xios United"
+  ];
+
+  // Sanitized name shown for each TEAMS entry, in the same order — never
+  // the raw ESPN team name.
+  var TEAM_DISPLAY = [
+    "Stas", "Cejpek", "Chris", "Dimitri",
+    "George K", "Sunny", "Jake", "Michael N",
+    "Nav", "Rohan", "Evan", "Peter"
   ];
 
   // Each round: { teamName: {pos, team, name} }
@@ -179,7 +190,7 @@
   var headEl = document.getElementById("boardHead");
   var bodyEl = document.getElementById("boardBody");
 
-  headEl.innerHTML = '<th class="round-col">Rd</th>' + TEAMS.map(function (t) { return "<th>" + t + "</th>"; }).join("");
+  headEl.innerHTML = '<th class="round-col">Rd</th>' + TEAM_DISPLAY.map(function (t) { return "<th>" + t + "</th>"; }).join("");
 
   bodyEl.innerHTML = ROUNDS.map(function (round, i) {
     var cells = TEAMS.map(function (team) {

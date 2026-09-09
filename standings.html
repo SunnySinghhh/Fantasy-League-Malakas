@@ -247,6 +247,7 @@
 <footer class="site-footer">Malaka's United &middot; built for our fantasy football crew</footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/owners.js"></script>
 <script>
 (function () {
   "use strict";
@@ -293,7 +294,7 @@
       return (
         "<tr>" +
         '<td class="num">' + t.rank + "</td>" +
-        "<td>" + teamCellHtml(t.name, t.logo) + "</td>" +
+        "<td>" + teamCellHtml(displayNameForTeam(t.teamId), t.logo) + "</td>" +
         '<td class="num">' + fmtRecord(t) + "</td>" +
         '<td class="num">' + t.pointsFor.toFixed(1) + "</td>" +
         '<td class="num">' + t.pointsAgainst.toFixed(1) + "</td>" +
@@ -358,9 +359,10 @@
 
   function featuredSideHtml(side, cls, isWinner, teamsById) {
     var team = teamsById.get(side.teamId);
+    var name = displayNameForTeam(side.teamId);
     var logoHtml = team && team.logo
       ? '<img class="featured-logo" src="' + team.logo + '" alt="" loading="lazy">'
-      : '<span class="featured-logo-fallback">' + (side.name ? side.name.charAt(0) : "?") + '</span>';
+      : '<span class="featured-logo-fallback">' + (name ? name.charAt(0) : "?") + '</span>';
     var recordHtml = team ? '<div class="featured-record">' + team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "") + '</div>' : "";
     var projHtml = typeof side.projected === "number"
       ? '<div class="featured-proj">proj ' + side.projected.toFixed(1) + '</div>'
@@ -368,7 +370,7 @@
     return (
       '<div class="featured-side ' + cls + '">' +
         logoHtml +
-        '<div class="featured-name">' + side.name + '</div>' +
+        '<div class="featured-name">' + name + '</div>' +
         recordHtml +
         '<div class="featured-score-row"><span class="featured-score' + (isWinner ? " winner" : "") + '">' + side.score.toFixed(1) + '</span></div>' +
         projHtml +
@@ -409,7 +411,7 @@
       : "";
     return (
       '<div class="matchup-side' + (isWinner ? " winner" : "") + '">' +
-      '<span class="name">' + side.name + "</span>" +
+      '<span class="name">' + displayNameForTeam(side.teamId) + "</span>" +
       '<span class="score-group"><span class="score">' + side.score.toFixed(1) + "</span>" + projHtml + "</span>" +
       "</div>"
     );

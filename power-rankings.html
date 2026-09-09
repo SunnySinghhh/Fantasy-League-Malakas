@@ -286,7 +286,7 @@
         var recent = games.slice(-3);
         var recentPpg = recent.length ? recent.reduce(function (s, g) { return s + g.pf; }, 0) / recent.length : 0;
         return {
-          teamId: t.teamId, name: t.name,
+          teamId: t.teamId, name: displayNameForTeam(t.teamId, season.season),
           gp: gp, wins: wins, losses: losses, ties: ties,
           pointsFor: pf, pointsAgainst: pa,
           ppg: gp ? pf / gp : 0,
@@ -348,7 +348,7 @@
       }
 
       return {
-        teamId: team.teamId, name: team.name, logo: team.logo,
+        teamId: team.teamId, name: displayNameForTeam(team.teamId), logo: team.logo,
         gp: gp, careerWins: wins, careerLosses: losses, careerTies: ties,
         careerWinPct: gp ? (wins + 0.5 * ties) / gp : 0,
         careerPpg: gp ? pf / gp : 0,

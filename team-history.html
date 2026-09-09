@@ -81,9 +81,6 @@
   }
   select.h2h-select { min-width: 220px; font-size: 14.5px; }
 
-  .rename-note { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; color: var(--text-faint); }
-  .renamed-mark { color: var(--accent); font-size: 0.85em; cursor: help; }
-
   .h2h-summary { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-dim); }
   .h2h-summary strong { color: var(--accent); font-size: 15px; }
 
@@ -196,18 +193,9 @@
   // Data shaping
   // ---------------------------------------------------------------------
 
-  // Registry is keyed by ownerId (a person), not raw teamId. For an owner
-  // still in the league, name/logo come from live standings for the slot
-  // they currently hold; for a departed owner, from the reference name set
-  // in OWNER_OVERRIDES above. Either way, every raw ESPN name that slot
-  // actually used during THIS owner's seasons is preserved as a "↺"
-  // former-name marker, so nothing gets silently relabeled.
-  // buildRegistry lives in assets/owners.js.
-
-  function renamedMarkerHtml(team) {
-    if (!team || !team.formerNames || !team.formerNames.length) return "";
-    return ' <span class="renamed-mark" title="Also played as: ' + team.formerNames.join(", ") + '">&#8635;</span>';
-  }
+  // Registry is keyed by ownerId (a person), not raw teamId — name always
+  // comes from OWNER_OVERRIDES (a sanitized first name/handle), never the
+  // raw ESPN team name. buildRegistry lives in assets/owners.js.
 
   function assignColors(ownerIds) {
     var sorted = ownerIds.slice().sort();
@@ -523,11 +511,10 @@
   function legendHtml(series, hiddenSet, groupId) {
     var items = series.map(function (s) {
       var isHidden = hiddenSet.has(s.teamId);
-      var team = STATE.registry.get(s.teamId);
       return (
         '<div class="legend-item' + (isHidden ? ' hidden' : '') + '" data-group="' + groupId + '" data-team="' + s.teamId + '">' +
           '<span class="legend-swatch" style="background:' + s.color + '"></span>' +
-          '<span>' + s.name + renamedMarkerHtml(team) + '</span>' +
+          '<span>' + s.name + '</span>' +
         '</div>'
       );
     }).join("");
@@ -586,7 +573,7 @@
       var owner = registry.get(r.ownerId) || { name: "Owner " + r.ownerId, logo: "" };
       var games = r.wins + r.losses + r.ties;
       var pct = games ? (r.wins + r.ties * 0.5) / games : 0;
-      return { teamId: r.ownerId, name: owner.name, logo: owner.logo, formerNames: owner.formerNames || [], wins: r.wins, losses: r.losses, ties: r.ties, pct: pct };
+      return { teamId: r.ownerId, name: owner.name, logo: owner.logo, wins: r.wins, losses: r.losses, ties: r.ties, pct: pct };
     });
     list.sort(function (a, b) { return b.pct - a.pct; });
     return list;
@@ -601,7 +588,7 @@
     var recordStr = r.wins + "-" + r.losses + (r.ties ? "-" + r.ties : "") + "  (" + pctStr + ")";
     return (
       '<div class="wl-row">' +
-        '<div class="team-cell">' + teamLogoHtml(r) + '<span>' + r.name + renamedMarkerHtml(r) + '</span></div>' +
+        '<div class="team-cell">' + teamLogoHtml(r) + '<span>' + r.name + '</span></div>' +
         '<div class="wl-bar">' +
           '<div class="wl-seg wl-win" style="width:' + winPct.toFixed(2) + '%"></div>' +
           (tiePct ? '<div class="wl-seg wl-tie" style="width:' + tiePct.toFixed(2) + '%"></div>' : "") +
@@ -679,7 +666,7 @@
 
     var summaryEl = document.getElementById("h2hSummary");
     summaryEl.innerHTML =
-      team.name + renamedMarkerHtml(team) + '’s all-time record: <strong>' + totalW + '-' + totalL + (totalT ? "-" + totalT : "") + '</strong>' +
+      team.name + '’s all-time record: <strong>' + totalW + '-' + totalL + (totalT ? "-" + totalT : "") + '</strong>' +
       ' across ' + (totalW + totalL + totalT) + ' games.';
 
     var bodyEl = document.getElementById("h2hTableBody");
@@ -688,7 +675,7 @@
       var pctStr = fmtPct(r.pct);
       return (
         "<tr>" +
-          "<td>" + '<div class="team-cell">' + teamLogoHtml(r.opp) + "<span>" + r.opp.name + renamedMarkerHtml(r.opp) + "</span></div>" + "</td>" +
+          "<td>" + '<div class="team-cell">' + teamLogoHtml(r.opp) + "<span>" + r.opp.name + "</span></div>" + "</td>" +
           '<td class="num">' + recordStr + "</td>" +
           '<td class="num">' + r.games + "</td>" +
           '<td class="num">' + pctStr + "</td>" +
@@ -761,7 +748,6 @@
             '<label for="h2hTeamSelect">Team</label>' +
             '<select class="h2h-select" id="h2hTeamSelect"></select>' +
           '</div>' +
-          '<div class="rename-note" id="h2hRenameNote">* has played under a different name in a past season — hover for details</div>' +
           '<div class="h2h-summary" id="h2hSummary"></div>' +
           '<div class="table-wrap">' +
             '<table>' +
@@ -857,15 +843,10 @@
     document.getElementById("wlList").innerHTML = records.map(wlRowHtml).join("");
 
     var select = document.getElementById("h2hTeamSelect");
-    var anyRenamed = false;
     select.innerHTML = STATE.teamIds.map(function (id) {
       var t = registry.get(id) || { name: "Owner " + id };
-      var former = t.formerNames && t.formerNames.length;
-      if (former) anyRenamed = true;
-      var titleAttr = former ? ' title="Also played as: ' + t.formerNames.join(", ") + '"' : "";
-      return '<option value="' + id + '"' + titleAttr + '>' + t.name + (former ? " *" : "") + '</option>';
+      return '<option value="' + id + '">' + t.name + '</option>';
     }).join("");
-    document.getElementById("h2hRenameNote").style.display = anyRenamed ? "" : "none";
     select.addEventListener("change", function () { renderH2H(select.value); });
     if (STATE.teamIds.length) {
       select.value = STATE.teamIds[0];

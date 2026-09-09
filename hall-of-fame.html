@@ -96,6 +96,7 @@
 <footer class="site-footer">Malaka's United &middot; built for our fantasy football crew</footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/owners.js"></script>
 <script>
 (function () {
   "use strict";
@@ -105,15 +106,25 @@
   var ICON_LAST = '<svg class="icon" style="color:var(--text-faint)" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>';
   var ICON_EMPTY = '<svg class="icon" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4a1 1 0 0 0-1 1 4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1 4 4 0 0 1-4 4"/></svg>';
 
-  function podiumSlotHtml(cls, medal, title, team) {
+  // The season summary (champion/runnerUp/lastPlace) only carries a raw
+  // ESPN name, not a teamId — matched back against that season's own team
+  // list (which does have teamId) to resolve the sanitized display name.
+  function teamIdForName(season, name) {
+    var t = (season.teams || []).find(function (x) { return x.name === name; });
+    return t ? t.teamId : null;
+  }
+
+  function podiumSlotHtml(cls, medal, title, team, season) {
     if (!team) return "";
     var recordStr = team.wins + "-" + team.losses + (team.ties ? "-" + team.ties : "");
+    var teamId = teamIdForName(season, team.name);
+    var displayName = teamId != null ? displayNameForTeam(teamId, season.season) : team.name;
     return (
       '<div class="podium-slot ' + cls + '">' +
         medal +
         '<div class="slot-body">' +
           '<div class="slot-title">' + title + '</div>' +
-          '<div class="slot-name">' + team.name + '</div>' +
+          '<div class="slot-name">' + displayName + '</div>' +
           '<div class="slot-record">' + recordStr + '</div>' +
         '</div>' +
       '</div>'
@@ -125,9 +136,9 @@
       '<div class="panel">' +
         '<div class="season-year">' + s.season + ' Season</div>' +
         '<div class="season-podium">' +
-          podiumSlotHtml("champion", ICON_CHAMPION, "Champion", s.champion) +
-          podiumSlotHtml("runner-up", ICON_RUNNER_UP, "Runner-Up", s.runnerUp) +
-          podiumSlotHtml("last", ICON_LAST, "Last Place", s.lastPlace) +
+          podiumSlotHtml("champion", ICON_CHAMPION, "Champion", s.champion, s) +
+          podiumSlotHtml("runner-up", ICON_RUNNER_UP, "Runner-Up", s.runnerUp, s) +
+          podiumSlotHtml("last", ICON_LAST, "Last Place", s.lastPlace, s) +
         '</div>' +
       '</div>'
     );
