@@ -33,10 +33,12 @@ var OWNER_OVERRIDES = [
   { id: "evan", name: "Evan", activeTeamId: 5,
     grants: [{ teamId: 5, seasons: [2024, 2025] }] },
   { id: "chris", name: "Chris", activeTeamId: 6,
-    // Chris owned this slot in 2022, Alex took it over for two years, then Chris returned in 2025.
-    grants: [{ teamId: 6, seasons: [2022, 2025] }] },
+    // Chris owned this slot in 2022, then Alex ran it through 2025 — Chris
+    // returned for the 2026 season (activeTeamId above covers that; no
+    // grant needed since grants only list already-completed seasons).
+    grants: [{ teamId: 6, seasons: [2022] }] },
   { id: "alex", name: "Alex", activeTeamId: null,
-    grants: [{ teamId: 6, seasons: [2023, 2024] }] },
+    grants: [{ teamId: 6, seasons: [2023, 2024, 2025] }] },
   { id: "team-7", name: "Peter", activeTeamId: 7,
     grants: [{ teamId: 7, seasons: [2022, 2023, 2024, 2025] }] },
   { id: "pandelidis-owner", name: "Stas", activeTeamId: 8,
