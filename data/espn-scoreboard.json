@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-11T18:53:30.143Z",
+  "lastUpdated": "2026-09-11T21:27:50.480Z",
   "week": 1,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 119.8
+        "projected": 118.9
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 118.1
+        "projected": 116.1
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 124.9
+        "projected": 126
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 110.7
+        "projected": 110.4
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 117.5
+        "projected": 117.4
       },
       "away": {
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 112.4
+        "projected": 112.5
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 115.7
+        "projected": 115.6
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 119.8
+        "projected": 119.6
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 119.9
+        "projected": 120.4
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 117.2
+        "projected": 116.7
       },
       "winner": "UNDECIDED"
     }
