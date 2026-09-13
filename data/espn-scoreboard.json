@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T19:08:14.913Z",
+  "lastUpdated": "2026-09-13T21:31:13.306Z",
   "week": 1,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 118.9
+        "projected": 119
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116.1
+        "projected": 116
       },
       "winner": "UNDECIDED"
     },
@@ -28,7 +28,7 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 110.2
+        "projected": 110.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,7 +37,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 117.4
+        "projected": 117.5
       },
       "away": {
         "teamId": 3,
@@ -52,7 +52,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 121.3
+        "projected": 121.2
       },
       "away": {
         "teamId": 5,
