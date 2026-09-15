@@ -1,13 +1,22 @@
-// Pulls final standings + weekly scores for every completed past season and
-// writes a Hall of Fame summary to data/espn-history.json.
+// Pulls final standings + weekly scores for every completed past season,
+// PLUS the current season once it has at least one real result, and writes
+// a Hall of Fame / Team History summary to data/espn-history.json.
 //
-// ESPN's historical seasons live at a different endpoint (leagueHistory) than the
-// current season, and must be requested one seasonId at a time. We walk backward
-// from the current season until we hit a couple of consecutive misses, so this
-// doesn't need to know in advance how many past seasons the league has.
+// Past seasons live at a different endpoint (leagueHistory) than the
+// current season, and must be requested one seasonId at a time. We walk
+// backward from CURRENT_SEASON - 1 until we hit a couple of consecutive
+// misses, so this doesn't need to know in advance how many past seasons
+// the league has. The current season is fetched separately via the same
+// live "seasons/{year}/segments/0" endpoint fetch-espn.mjs already uses
+// successfully — leagueHistory is untested/unreliable for an in-progress
+// season, so this deliberately doesn't reuse it there. summarizeSeason()
+// already treats a season with zero games played as "not ready yet" and
+// returns null, so the current season naturally starts appearing here the
+// same week it gets its first real result, and needs no special handling
+// as more weeks complete — same 30-minute sync as everything else.
 //
-// Requires env vars: ESPN_S2, ESPN_SWID, LEAGUE_ID, SEASON (current season — the
-// walk starts at SEASON - 1). Run by .github/workflows/espn-sync.yml.
+// Requires env vars: ESPN_S2, ESPN_SWID, LEAGUE_ID, SEASON (current season).
+// Run by .github/workflows/espn-sync.yml.
 
 import { writeFile } from "node:fs/promises";
 
@@ -40,8 +49,17 @@ function historyUrl(seasonId) {
   );
 }
 
-async function fetchSeason(seasonId) {
-  const res = await fetch(historyUrl(seasonId), {
+// Same host/path fetch-espn.mjs already uses successfully for the live
+// current season (leagueHistory is the one that's unproven in-progress).
+function currentSeasonUrl(seasonId) {
+  return (
+    `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonId}/segments/0/leagues/${LEAGUE_ID}` +
+    `?view=mTeam&view=mStandings&view=mMatchupScore`
+  );
+}
+
+async function fetchSeason(seasonId, urlBuilder) {
+  const res = await fetch(urlBuilder(seasonId), {
     headers: {
       Accept: "application/json",
       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
@@ -178,10 +196,19 @@ function summarizeSeason(seasonId, league) {
 
 async function main() {
   const seasons = [];
+
+  // The current season, via the live endpoint. summarizeSeason() returns
+  // null on its own if nothing's been played yet, so this is a no-op until
+  // week 1 actually finishes — no separate "has the season started" check
+  // needed here.
+  const currentLeague = await fetchSeason(CURRENT_SEASON, currentSeasonUrl);
+  const currentSummary = currentLeague ? summarizeSeason(CURRENT_SEASON, currentLeague) : null;
+  if (currentSummary) seasons.push(currentSummary);
+
   let misses = 0;
 
   for (let seasonId = CURRENT_SEASON - 1; seasonId >= OLDEST_SEASON_TO_TRY; seasonId--) {
-    const league = await fetchSeason(seasonId);
+    const league = await fetchSeason(seasonId, historyUrl);
     const summary = league ? summarizeSeason(seasonId, league) : null;
 
     if (summary) {
@@ -224,7 +251,7 @@ async function main() {
     ) + "\n"
   );
 
-  console.log(`Synced ${seasons.length} past season(s): ${seasons.map((s) => s.season).join(", ") || "none"}.`);
+  console.log(`Synced ${seasons.length} season(s): ${seasons.map((s) => s.season).join(", ") || "none"}.`);
 }
 
 main().catch((err) => {

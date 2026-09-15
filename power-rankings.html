@@ -475,7 +475,7 @@
   function render() {
     var seasonVal = document.getElementById("seasonSelect").value;
     var season = Number(seasonVal);
-    if (season === CURRENT_SEASON) {
+    if (season === CURRENT_SEASON && !STATE.hasCurrentSeasonData) {
       renderPreseason();
       return;
     }
@@ -488,7 +488,7 @@
   function wireWeekOptions() {
     var seasonVal = Number(document.getElementById("seasonSelect").value);
     var weekSelect = document.getElementById("weekSelect");
-    if (seasonVal === CURRENT_SEASON) {
+    if (seasonVal === CURRENT_SEASON && !STATE.hasCurrentSeasonData) {
       weekSelect.innerHTML = '<option value="0">Preseason</option>';
       weekSelect.disabled = true;
       return;
@@ -502,17 +502,28 @@
   }
 
   function init(standings, historySeasons) {
+    // Once the current season has a real synced result, it flows through
+    // the normal per-week view like any other season — the "(Preseason)"
+    // placeholder (a career-history-only projection with no real games to
+    // show) only makes sense before that, and disappears the same week
+    // real data shows up. No manual step needed either way.
+    var hasCurrentSeasonData = historySeasons.some(function (s) { return s.season === CURRENT_SEASON; });
+
     STATE = {
       standings: standings,
       seasons: historySeasons,
       ownerIndex: buildOwnerIndex(),
       weeklyCache: new Map(),
+      hasCurrentSeasonData: hasCurrentSeasonData,
     };
 
     var seasonNums = historySeasons.map(function (s) { return s.season; }).sort(function (a, b) { return b - a; });
     var seasonSelect = document.getElementById("seasonSelect");
-    var opts = ['<option value="' + CURRENT_SEASON + '">' + CURRENT_SEASON + ' (Preseason)</option>'];
-    seasonNums.forEach(function (s) { opts.push('<option value="' + s + '">' + s + '</option>'); });
+    var opts = hasCurrentSeasonData ? [] : ['<option value="' + CURRENT_SEASON + '">' + CURRENT_SEASON + ' (Preseason)</option>'];
+    seasonNums.forEach(function (s) {
+      var label = s === CURRENT_SEASON ? s + " (In Progress)" : String(s);
+      opts.push('<option value="' + s + '">' + label + '</option>');
+    });
     seasonSelect.innerHTML = opts.join("");
 
     wireWeekOptions();

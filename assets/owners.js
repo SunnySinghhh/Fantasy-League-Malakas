@@ -67,11 +67,17 @@ function buildOwnerIndex() {
   return map;
 }
 
-// Any (teamId, season) not covered by an override is one continuous
-// owner for that slot — the common case.
+// Any (teamId, season) not covered by an override's grants falls back to
+// whoever currently holds that slot — every team has an OWNER_OVERRIDES
+// entry now, so the only seasons that ever hit this are ones not yet
+// confirmed with a grant (in practice, the current season, since grants
+// only get added once a season is fully in the books). Using
+// currentOwnerIdFor() here — instead of a generic "team-N" identity —
+// means this season's results add to that owner's existing career
+// numbers instead of starting a disconnected new bucket.
 function ownerIdFor(ownerIndex, teamId, season) {
   var key = teamId + ":" + season;
-  return ownerIndex.has(key) ? ownerIndex.get(key) : "team-" + teamId;
+  return ownerIndex.has(key) ? ownerIndex.get(key) : currentOwnerIdFor(teamId);
 }
 
 // Who currently holds a slot, for a season not yet covered by any grant
