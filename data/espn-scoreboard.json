@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T11:56:25.928Z",
+  "lastUpdated": "2026-09-15T16:06:12.748Z",
   "week": 2,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 117.4
+        "projected": 117.3
       },
       "away": {
         "teamId": 10,
@@ -22,7 +22,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 115.3
+        "projected": 115.9
       },
       "away": {
         "teamId": 8,
@@ -37,7 +37,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 118.3
+        "projected": 117.3
       },
       "away": {
         "teamId": 6,
@@ -67,7 +67,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 113.4
+        "projected": 113.8
       },
       "away": {
         "teamId": 1,
@@ -82,7 +82,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 120.9
+        "projected": 121.3
       },
       "away": {
         "teamId": 11,
