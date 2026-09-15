@@ -150,20 +150,32 @@ function summarizeSeason(seasonId, league) {
   // season records needs to filter by week using regularSeasonWeeksFor()
   // (assets/season-utils.js) when it wants regular-season-only or
   // playoff-only results.
+  //
+  // For a season still in progress, `league.schedule` already contains
+  // every future week too, each with totalPoints: 0 (a number, not null/
+  // undefined) — so "both scores are numbers" alone isn't enough to mean
+  // "this game happened." matchup.winner stays "UNDECIDED" for a week that
+  // hasn't been decided yet (including one currently live), so requiring a
+  // real winner is what actually distinguishes a played game from a
+  // scheduled-but-not-yet-played one. A currently-live matchup's real-time
+  // score belongs in espn-scoreboard.json (updated every sync), not here —
+  // this file is meant to hold settled results only.
+  const isPlayed = (matchup) => matchup.winner && matchup.winner !== "UNDECIDED";
   const matchups = [];
   for (const matchup of league.schedule || []) {
     const home = matchup.home;
     const away = matchup.away;
-    if (home && away && typeof home.totalPoints === "number" && typeof away.totalPoints === "number") {
+    if (home && away && isPlayed(matchup) && typeof home.totalPoints === "number" && typeof away.totalPoints === "number") {
       matchups.push({
         week: matchup.matchupPeriodId,
         homeTeamId: home.teamId,
         homeScore: round1(home.totalPoints),
         awayTeamId: away.teamId,
         awayScore: round1(away.totalPoints),
-        winner: matchup.winner || "UNDECIDED",
+        winner: matchup.winner,
       });
     }
+    if (!isPlayed(matchup)) continue;
     for (const side of [home, away]) {
       if (!side || typeof side.totalPoints !== "number") continue;
       if (!weekHigh || side.totalPoints > weekHigh.points) {
