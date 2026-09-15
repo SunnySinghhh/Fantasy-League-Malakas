@@ -348,6 +348,11 @@
     x ^= x >>> 15;
     x = (Math.imul(x, 2246822519) >>> 0);
     x ^= x >>> 13;
+    // The XOR above operates on signed int32s, so x can come out negative
+    // when its high bit is set — force back to unsigned before the modulo,
+    // or a negative index here (candidates[-N]) returns undefined and
+    // crashes everything downstream that expects a real matchup.
+    x = x >>> 0;
     return x % length;
   }
 
