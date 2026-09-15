@@ -304,10 +304,25 @@
   // Season point totals come from record.overall (regular season only, same
   // basis as the PF/PA charts above) — there's no playoff equivalent, so
   // this ignores scope.phase and only respects scope.season.
+  // A season still in progress hasn't played as many weeks as a finished
+  // one — comparing its partial total against completed seasons in the
+  // All-Time view would trivially "set" a new lowest-points record every
+  // single week until it wraps, which isn't a real season record. Treat a
+  // season as finished once it's reached the most weeks played by any
+  // season on record (self-adjusting — no hardcoded season length/number).
+  function isSeasonComplete(season, allSeasons) {
+    var maxWeeks = Math.max.apply(null, allSeasons.map(regularSeasonWeeksFor));
+    return regularSeasonWeeksFor(season) >= maxWeeks;
+  }
+
   function seasonTotalRecords(seasons, ownerIndex, scope) {
     var rows = [];
     seasons.forEach(function (season) {
-      if (scope.season != null && season.season !== scope.season) return;
+      if (scope.season != null) {
+        if (season.season !== scope.season) return;
+      } else if (!isSeasonComplete(season, seasons)) {
+        return; // All-Time comparison only makes sense across finished seasons
+      }
       (season.teams || []).forEach(function (t) {
         rows.push({ season: season.season, ownerId: ownerIdFor(ownerIndex, t.teamId, season.season), pointsFor: t.pointsFor });
       });
