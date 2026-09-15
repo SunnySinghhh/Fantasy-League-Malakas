@@ -1,5 +1,9 @@
 name: Sync ESPN Fantasy Data
 
+# Re-saving this file (even a comment-only change) can be needed to get
+# GitHub to re-register the schedule trigger after the repo was briefly
+# made private and back to public — that transition is known to silently
+# stall a cron trigger without disabling the workflow itself.
 on:
   schedule:
     - cron: "*/30 * * * *"
