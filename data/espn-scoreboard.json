@@ -1,34 +1,34 @@
 {
-  "lastUpdated": "2026-09-15T06:19:10.560Z",
-  "week": 1,
+  "lastUpdated": "2026-09-15T11:56:25.928Z",
+  "week": 2,
   "matchups": [
     {
       "home": {
-        "teamId": 8,
-        "name": "Pandelidis FC",
-        "score": 0,
-        "projected": 119
-      },
-      "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116
-      },
-      "winner": "UNDECIDED"
-    },
-    {
-      "home": {
-        "teamId": 6,
-        "name": "Houston Hicks",
-        "score": 0,
-        "projected": 126
+        "projected": 117.4
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 110.1
+        "projected": 114.3
+      },
+      "winner": "UNDECIDED"
+    },
+    {
+      "home": {
+        "teamId": 3,
+        "name": "The Navengers",
+        "score": 0,
+        "projected": 115.3
+      },
+      "away": {
+        "teamId": 8,
+        "name": "Pandelidis FC",
+        "score": 0,
+        "projected": 117.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,43 +37,43 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 117.5
+        "projected": 118.3
       },
       "away": {
-        "teamId": 3,
-        "name": "The Navengers",
+        "teamId": 6,
+        "name": "Houston Hicks",
         "score": 0,
-        "projected": 112.5
+        "projected": 125.6
       },
       "winner": "UNDECIDED"
     },
     {
       "home": {
-        "teamId": 1,
-        "name": "Sunny's Sp*rm Bank",
-        "score": 0,
-        "projected": 121.2
-      },
-      "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 115.6
-      },
-      "winner": "UNDECIDED"
-    },
-    {
-      "home": {
-        "teamId": 11,
-        "name": "🍆💦 Mayebe Lil but u can CDs🥜",
-        "score": 0,
-        "projected": 114.9
+        "projected": 121.4
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 119.6
+        "projected": 116
+      },
+      "winner": "UNDECIDED"
+    },
+    {
+      "home": {
+        "teamId": 9,
+        "name": "Milkballs Revengers ",
+        "score": 0,
+        "projected": 113.4
+      },
+      "away": {
+        "teamId": 1,
+        "name": "Sunny's Sp*rm Bank",
+        "score": 0,
+        "projected": 119.5
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 120.4
+        "projected": 120.9
       },
       "away": {
-        "teamId": 9,
-        "name": "Milkballs Revengers ",
+        "teamId": 11,
+        "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 116.4
+        "projected": 116.6
       },
       "winner": "UNDECIDED"
     }

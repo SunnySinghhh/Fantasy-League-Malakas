@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-15T06:19:11.890Z",
+  "lastUpdated": "2026-09-15T11:56:27.983Z",
   "diagnostics": [
     {
       "season": 2026,
       "requestFailed": false,
-      "usedWeekLoop": false,
+      "usedWeekLoop": true,
       "totalCount": 2,
       "typeCounts": {
         "TRADE_ACCEPT": 2
