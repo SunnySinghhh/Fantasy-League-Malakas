@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-16T10:32:31.776Z",
+  "lastUpdated": "2026-09-16T15:13:17.421Z",
   "week": 2,
   "matchups": [
     {
@@ -52,7 +52,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 122
+        "projected": 123.1
       },
       "away": {
         "teamId": 2,
