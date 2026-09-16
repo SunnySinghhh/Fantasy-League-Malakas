@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-16T05:30:51.826Z",
+  "lastUpdated": "2026-09-16T10:32:31.776Z",
   "week": 2,
   "matchups": [
     {
@@ -22,13 +22,13 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 117.2
+        "projected": 119.5
       },
       "away": {
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 118
+        "projected": 118.1
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 112.7
+        "projected": 112.1
       },
       "away": {
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 120.9
+        "projected": 122.2
       },
       "winner": "UNDECIDED"
     },
