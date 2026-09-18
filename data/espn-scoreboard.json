@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-17T22:18:11.930Z",
+  "lastUpdated": "2026-09-18T00:31:48.457Z",
   "week": 2,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 120.8
+        "projected": 119.2
       },
       "away": {
         "teamId": 10,
@@ -22,7 +22,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 119.8
+        "projected": 122
       },
       "away": {
         "teamId": 8,
@@ -43,7 +43,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 123.5
+        "projected": 123.4
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 115
+        "projected": 116.7
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 122.1
+        "projected": 122
       },
       "winner": "UNDECIDED"
     },
@@ -88,7 +88,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 117.1
+        "projected": 116.8
       },
       "winner": "UNDECIDED"
     }
