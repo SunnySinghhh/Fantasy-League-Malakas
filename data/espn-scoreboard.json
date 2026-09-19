@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-19T13:35:46.212Z",
+  "lastUpdated": "2026-09-19T16:56:13.076Z",
   "week": 2,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 103.1
+        "projected": 103
       },
       "winner": "UNDECIDED"
     },
@@ -28,7 +28,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 119.2
+        "projected": 119.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,7 +37,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 122
+        "projected": 122.1
       },
       "away": {
         "teamId": 6,
@@ -73,7 +73,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 123.2
+        "projected": 123.3
       },
       "winner": "UNDECIDED"
     },
