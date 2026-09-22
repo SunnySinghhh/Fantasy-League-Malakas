@@ -1,56 +1,136 @@
 {
-  "lastUpdated": "2026-09-22T12:43:17.964Z",
+  "lastUpdated": "2026-09-22T17:26:56.031Z",
   "leagueId": "1166030619",
   "trades": [
     {
       "season": 2026,
-      "id": "ba084672-f512-45c2-b6f1-bf0d690629ad",
-      "date": 1788831389744,
-      "week": 1,
+      "id": "0d577416-720b-4ea6-af01-7e79b9189a0f",
+      "date": 1790094236370,
+      "week": 3,
       "sides": [
         {
           "teamId": 1,
           "playersIn": [
             {
-              "id": 4695883,
-              "name": "Jalen Coker"
+              "id": 2577417,
+              "name": "Dak Prescott"
             },
             {
-              "id": 16737,
-              "name": "Mike Evans"
+              "id": 4426388,
+              "name": "Jameson Williams"
             }
           ],
           "playersOut": [
             {
-              "id": 4360078,
-              "name": "Alec Pierce"
+              "id": 4695883,
+              "name": "Jalen Coker"
             },
             {
-              "id": 4371733,
-              "name": "Kenny Gainwell"
+              "id": 0,
+              "name": "Player 0"
+            },
+            {
+              "id": 4038441,
+              "name": "Justice Hill"
             }
           ]
         },
         {
-          "teamId": 8,
+          "teamId": 6,
           "playersIn": [
-            {
-              "id": 4360078,
-              "name": "Alec Pierce"
-            },
-            {
-              "id": 4371733,
-              "name": "Kenny Gainwell"
-            }
-          ],
-          "playersOut": [
             {
               "id": 4695883,
               "name": "Jalen Coker"
             },
             {
-              "id": 16737,
-              "name": "Mike Evans"
+              "id": 0,
+              "name": "Player 0"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 2577417,
+              "name": "Dak Prescott"
+            },
+            {
+              "id": 4426388,
+              "name": "Jameson Williams"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4038441,
+              "name": "Justice Hill"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2026,
+      "id": "22afa84b-5ce5-4d15-b998-3223d0b97673",
+      "date": 1790094224758,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4038441,
+              "name": "Justice Hill"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 1,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4038441,
+              "name": "Justice Hill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2026,
+      "id": "ecf50b73-c68c-4153-8589-5641a080fab5",
+      "date": 1790083906484,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4686658,
+              "name": "Mike Washington Jr."
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 0,
+              "name": "Player 0"
+            }
+          ]
+        },
+        {
+          "teamId": 3,
+          "playersIn": [
+            {
+              "id": 0,
+              "name": "Player 0"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4686658,
+              "name": "Mike Washington Jr."
             }
           ]
         }

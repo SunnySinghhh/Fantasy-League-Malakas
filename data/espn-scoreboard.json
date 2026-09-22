@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-22T12:43:15.838Z",
+  "lastUpdated": "2026-09-22T17:26:54.329Z",
   "week": 3,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 109.3
+        "projected": 109.2
       },
       "away": {
         "teamId": 4,
@@ -22,13 +22,13 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 110
+        "projected": 110.7
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 123.4
+        "projected": 123.7
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 106.8
+        "projected": 102.4
       },
       "away": {
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 122.4
+        "projected": 124.6
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 116.7
+        "projected": 115.9
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 122.8
+        "projected": 122.6
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 116.4
+        "projected": 116.2
       },
       "away": {
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 125.9
+        "projected": 105.5
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 108.5
+        "projected": 120.7
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 110.6
+        "projected": 109.9
       },
       "winner": "UNDECIDED"
     }
