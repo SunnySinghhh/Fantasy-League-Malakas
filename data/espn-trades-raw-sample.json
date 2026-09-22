@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-09-22T20:20:30.806Z",
+  "lastUpdated": "2026-09-22T23:05:31.973Z",
   "diagnostics": [
     {
       "season": 2026,
       "requestFailed": false,
       "usedWeekLoop": false,
-      "totalCount": 4,
+      "totalCount": 5,
       "typeCounts": {
-        "TRADE_ACCEPT": 4
+        "TRADE_ACCEPT": 5
       }
     }
   ],
@@ -76,28 +76,16 @@
     {
       "bidAmount": 0,
       "executionType": "EXECUTE",
-      "id": "22afa84b-5ce5-4d15-b998-3223d0b97673",
+      "id": "cb9e4ec6-47e8-4b81-babb-9630e7e36408",
       "isActingAsTeamOwner": false,
       "isLeagueManager": false,
       "isPending": false,
-      "items": [
-        {
-          "fromLineupSlotId": 20,
-          "fromTeamId": 1,
-          "isKeeper": false,
-          "overallPickNumber": 0,
-          "playerId": 4038441,
-          "toLineupSlotId": -1,
-          "toTeamId": 0,
-          "type": "DROP"
-        }
-      ],
-      "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
-      "proposedDate": 1790094224758,
+      "memberId": "{D9952B45-55A5-440B-952B-4555A5840BC2}",
+      "proposedDate": 1790112699867,
       "rating": 0,
-      "relatedTransactionId": "12658b6e-0147-406b-ac54-29515d4517e9",
+      "relatedTransactionId": "e6baca77-4deb-4bbb-af75-8c9b26a9db90",
       "scoringPeriodId": 3,
-      "teamId": 1,
+      "teamId": 10,
       "type": "TRADE_ACCEPT"
     }
   ],
@@ -119,6 +107,25 @@
         "relatedTransactionId": "77041de3-49ea-4c49-b114-c8038e3295f6",
         "scoringPeriodId": 3,
         "teamId": 1,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2026,
+      "id": "cb9e4ec6-47e8-4b81-babb-9630e7e36408",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "cb9e4ec6-47e8-4b81-babb-9630e7e36408",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "memberId": "{D9952B45-55A5-440B-952B-4555A5840BC2}",
+        "proposedDate": 1790112699867,
+        "rating": 0,
+        "relatedTransactionId": "e6baca77-4deb-4bbb-af75-8c9b26a9db90",
+        "scoringPeriodId": 3,
+        "teamId": 10,
         "type": "TRADE_ACCEPT"
       }
     }
