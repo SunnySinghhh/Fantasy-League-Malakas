@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T07:02:06.682Z",
+  "lastUpdated": "2026-09-23T12:49:48.241Z",
   "diagnostics": [
     {
       "season": 2026,
@@ -74,19 +74,78 @@
       "type": "TRADE_ACCEPT"
     },
     {
+      "acceptedDate": 1790094224783,
       "bidAmount": 0,
-      "executionType": "EXECUTE",
-      "id": "7b391a3e-4e57-40a4-bcbf-23b102fc99a2",
+      "executionType": "PROCESS",
+      "expirationDate": 1790266930153,
+      "id": "0d577416-720b-4ea6-af01-7e79b9189a0f",
       "isActingAsTeamOwner": false,
-      "isLeagueManager": false,
-      "isPending": false,
-      "items": [],
+      "isLeagueManager": true,
+      "isPending": true,
+      "items": [
+        {
+          "fromLineupSlotId": 20,
+          "fromTeamId": 6,
+          "isKeeper": false,
+          "overallPickNumber": 0,
+          "playerId": 2577417,
+          "toLineupSlotId": 0,
+          "toTeamId": 1,
+          "type": "TRADE"
+        },
+        {
+          "fromLineupSlotId": 23,
+          "fromTeamId": 6,
+          "isKeeper": false,
+          "overallPickNumber": 0,
+          "playerId": 4426388,
+          "toLineupSlotId": 4,
+          "toTeamId": 1,
+          "type": "TRADE"
+        },
+        {
+          "fromLineupSlotId": 4,
+          "fromTeamId": 1,
+          "isKeeper": false,
+          "overallPickNumber": 0,
+          "playerId": 4695883,
+          "toLineupSlotId": 23,
+          "toTeamId": 6,
+          "type": "TRADE"
+        },
+        {
+          "fromLineupSlotId": -1,
+          "fromTeamId": 1,
+          "isKeeper": false,
+          "overallPickNumber": 0,
+          "playerId": 0,
+          "toLineupSlotId": -1,
+          "toTeamId": 6,
+          "type": "ACQUISITION_BUDGET_TRADE"
+        },
+        {
+          "fromLineupSlotId": 20,
+          "fromTeamId": 1,
+          "isKeeper": false,
+          "overallPickNumber": 0,
+          "playerId": 4038441,
+          "toLineupSlotId": -1,
+          "toTeamId": 0,
+          "type": "DROP"
+        }
+      ],
       "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
-      "proposedDate": 1790083858407,
+      "processDate": 1790094236370,
+      "proposedDate": 1790094236348,
       "rating": 0,
-      "relatedTransactionId": "77041de3-49ea-4c49-b114-c8038e3295f6",
+      "relatedTransactionId": "12658b6e-0147-406b-ac54-29515d4517e9",
       "scoringPeriodId": 3,
-      "teamId": 1,
+      "status": "EXECUTED",
+      "teamActions": {
+        "1": "ACCEPTED",
+        "6": "ACCEPTED"
+      },
+      "teamId": 6,
       "type": "TRADE_ACCEPT"
     }
   ],
