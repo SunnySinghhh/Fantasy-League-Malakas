@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T20:53:16.995Z",
+  "lastUpdated": "2026-09-23T23:21:39.462Z",
   "week": 3,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 117.1
+        "projected": 116.8
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 112.2
+        "projected": 113.9
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 128.4
+        "projected": 128.2
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 115.9
+        "projected": 115.6
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 121.7
+        "projected": 124.3
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 122
+        "projected": 121.9
       },
       "winner": "UNDECIDED"
     },
