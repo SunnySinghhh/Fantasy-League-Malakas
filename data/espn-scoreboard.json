@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T12:49:46.851Z",
+  "lastUpdated": "2026-09-23T17:36:17.320Z",
   "week": 3,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 118.3
+        "projected": 117.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,7 +37,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 117.1
+        "projected": 118.1
       },
       "away": {
         "teamId": 6,
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 122.1
+        "projected": 122
       },
       "winner": "UNDECIDED"
     },
