@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-09-23T17:36:18.561Z",
+  "lastUpdated": "2026-09-23T20:53:17.979Z",
   "diagnostics": [
     {
       "season": 2026,
       "requestFailed": false,
       "usedWeekLoop": false,
-      "totalCount": 6,
+      "totalCount": 7,
       "typeCounts": {
-        "TRADE_ACCEPT": 6
+        "TRADE_ACCEPT": 7
       }
     }
   ],
@@ -167,6 +167,26 @@
         "relatedTransactionId": "3a37691a-73ca-4f0a-bedc-f59365df8db5",
         "scoringPeriodId": 3,
         "teamId": 5,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2026,
+      "id": "6b80708b-0da7-4698-9e42-5f5936e87efb",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "6b80708b-0da7-4698-9e42-5f5936e87efb",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "items": [],
+        "memberId": "{D562EE4B-E4EB-4E75-A2EE-4BE4EB8E75DA}",
+        "proposedDate": 1790193686517,
+        "rating": 0,
+        "relatedTransactionId": "26f373fc-8f2b-401a-823f-eb4ea49207fc",
+        "scoringPeriodId": 3,
+        "teamId": 12,
         "type": "TRADE_ACCEPT"
       }
     },

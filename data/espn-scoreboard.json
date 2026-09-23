@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T17:36:17.320Z",
+  "lastUpdated": "2026-09-23T20:53:16.995Z",
   "week": 3,
   "matchups": [
     {
@@ -22,13 +22,13 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 110.1
+        "projected": 112.2
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 125.5
+        "projected": 128.4
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 122.6
+        "projected": 121.7
       },
       "winner": "UNDECIDED"
     },
