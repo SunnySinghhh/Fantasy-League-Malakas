@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T20:57:37.007Z",
+  "lastUpdated": "2026-09-24T23:45:33.585Z",
   "week": 3,
   "matchups": [
     {
@@ -37,7 +37,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 119.7
+        "projected": 121.6
       },
       "away": {
         "teamId": 6,
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 124.3
+        "projected": 124.8
       },
       "winner": "UNDECIDED"
     },
