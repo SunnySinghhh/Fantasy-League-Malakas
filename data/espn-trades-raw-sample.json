@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-09-24T01:32:39.826Z",
+  "lastUpdated": "2026-09-24T06:58:23.618Z",
   "diagnostics": [
     {
       "season": 2026,
       "requestFailed": false,
       "usedWeekLoop": false,
-      "totalCount": 7,
+      "totalCount": 9,
       "typeCounts": {
-        "TRADE_ACCEPT": 7
+        "TRADE_ACCEPT": 9
       }
     }
   ],
@@ -74,78 +74,30 @@
       "type": "TRADE_ACCEPT"
     },
     {
-      "acceptedDate": 1790094224783,
       "bidAmount": 0,
-      "executionType": "PROCESS",
-      "expirationDate": 1790266930153,
-      "id": "0d577416-720b-4ea6-af01-7e79b9189a0f",
+      "executionType": "EXECUTE",
+      "id": "b40eddad-30ce-46ba-adf8-506b577fdeb5",
       "isActingAsTeamOwner": false,
-      "isLeagueManager": true,
-      "isPending": true,
+      "isLeagueManager": false,
+      "isPending": false,
       "items": [
         {
           "fromLineupSlotId": 20,
-          "fromTeamId": 6,
-          "isKeeper": false,
-          "overallPickNumber": 0,
-          "playerId": 2577417,
-          "toLineupSlotId": 0,
-          "toTeamId": 1,
-          "type": "TRADE"
-        },
-        {
-          "fromLineupSlotId": 23,
-          "fromTeamId": 6,
-          "isKeeper": false,
-          "overallPickNumber": 0,
-          "playerId": 4426388,
-          "toLineupSlotId": 4,
-          "toTeamId": 1,
-          "type": "TRADE"
-        },
-        {
-          "fromLineupSlotId": 4,
           "fromTeamId": 1,
           "isKeeper": false,
           "overallPickNumber": 0,
-          "playerId": 4695883,
-          "toLineupSlotId": 23,
-          "toTeamId": 6,
-          "type": "TRADE"
-        },
-        {
-          "fromLineupSlotId": -1,
-          "fromTeamId": 1,
-          "isKeeper": false,
-          "overallPickNumber": 0,
-          "playerId": 0,
-          "toLineupSlotId": -1,
-          "toTeamId": 6,
-          "type": "ACQUISITION_BUDGET_TRADE"
-        },
-        {
-          "fromLineupSlotId": 20,
-          "fromTeamId": 1,
-          "isKeeper": false,
-          "overallPickNumber": 0,
-          "playerId": 4038441,
+          "playerId": 4429501,
           "toLineupSlotId": -1,
           "toTeamId": 0,
           "type": "DROP"
         }
       ],
       "memberId": "{96B5C50C-82A1-4EED-ADB2-068B0041A11E}",
-      "processDate": 1790094236370,
-      "proposedDate": 1790094236348,
+      "proposedDate": 1790216307422,
       "rating": 0,
-      "relatedTransactionId": "12658b6e-0147-406b-ac54-29515d4517e9",
+      "relatedTransactionId": "6609e406-0ca7-47e1-bd56-58e06fb07511",
       "scoringPeriodId": 3,
-      "status": "EXECUTED",
-      "teamActions": {
-        "1": "ACCEPTED",
-        "6": "ACCEPTED"
-      },
-      "teamId": 6,
+      "teamId": 1,
       "type": "TRADE_ACCEPT"
     }
   ],

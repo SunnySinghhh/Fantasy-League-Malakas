@@ -1,7 +1,95 @@
 {
-  "lastUpdated": "2026-09-24T01:32:39.825Z",
+  "lastUpdated": "2026-09-24T06:58:23.617Z",
   "leagueId": "1166030619",
   "trades": [
+    {
+      "season": 2026,
+      "id": "793a86f9-fe35-4a81-8302-0405876bac27",
+      "date": 1790216320540,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4429023,
+              "name": "MarShawn Lloyd"
+            },
+            {
+              "id": 4360939,
+              "name": "Rashod Bateman"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4832800,
+              "name": "Denzel Boston"
+            },
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4832800,
+              "name": "Denzel Boston"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4429023,
+              "name": "MarShawn Lloyd"
+            },
+            {
+              "id": 4360939,
+              "name": "Rashod Bateman"
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2026,
+      "id": "b40eddad-30ce-46ba-adf8-506b577fdeb5",
+      "date": 1790216307422,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 1,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4429501,
+              "name": "Ray Davis"
+            }
+          ]
+        }
+      ]
+    },
     {
       "season": 2026,
       "id": "0d577416-720b-4ea6-af01-7e79b9189a0f",
