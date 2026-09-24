@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T17:39:18.654Z",
+  "lastUpdated": "2026-09-24T20:57:37.007Z",
   "week": 3,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 129
+        "projected": 130.5
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116.8
+        "projected": 116.3
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 121.4
+        "projected": 119.7
       },
       "away": {
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 125.8
+        "projected": 90.1
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 126.1
+        "projected": 129.1
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 114
+        "projected": 114.8
       },
       "winner": "UNDECIDED"
     }

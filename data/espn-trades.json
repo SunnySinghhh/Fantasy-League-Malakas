@@ -1,7 +1,35 @@
 {
-  "lastUpdated": "2026-09-24T17:39:19.711Z",
+  "lastUpdated": "2026-09-24T20:57:38.418Z",
   "leagueId": "1166030619",
   "trades": [
+    {
+      "season": 2026,
+      "id": "84dba782-9e09-491e-bc2b-06de0ecdf8c2",
+      "date": 1790278989374,
+      "week": 3,
+      "sides": [
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 4032473,
+              "name": "Rashid Shaheed"
+            }
+          ],
+          "playersOut": []
+        },
+        {
+          "teamId": 4,
+          "playersIn": [],
+          "playersOut": [
+            {
+              "id": 4032473,
+              "name": "Rashid Shaheed"
+            }
+          ]
+        }
+      ]
+    },
     {
       "season": 2026,
       "id": "793a86f9-fe35-4a81-8302-0405876bac27",
