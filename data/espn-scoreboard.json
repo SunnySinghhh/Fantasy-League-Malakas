@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25T13:59:52.536Z",
+  "lastUpdated": "2026-09-25T18:22:01.031Z",
   "week": 3,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 130.5
+        "projected": 130.3
       },
       "away": {
         "teamId": 4,
@@ -37,13 +37,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 121.6
+        "projected": 123.8
       },
       "away": {
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 87
+        "projected": 109.7
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 124.8
+        "projected": 124.9
       },
       "winner": "UNDECIDED"
     },
