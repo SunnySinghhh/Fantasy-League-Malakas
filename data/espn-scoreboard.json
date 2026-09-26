@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26T10:00:37.146Z",
+  "lastUpdated": "2026-09-26T14:36:18.586Z",
   "week": 3,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 130.3
+        "projected": 130.2
       },
       "away": {
         "teamId": 4,
@@ -37,7 +37,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 123.8
+        "projected": 123.4
       },
       "away": {
         "teamId": 6,
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 115.2
+        "projected": 115.1
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 124.9
+        "projected": 124.8
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 121.9
+        "projected": 121.8
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 129.1
+        "projected": 127.9
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 114.8
+        "projected": 114.9
       },
       "winner": "UNDECIDED"
     }
