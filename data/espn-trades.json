@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29T05:56:06.720Z",
+  "lastUpdated": "2026-09-29T11:58:02.884Z",
   "leagueId": "1166030619",
   "trades": [
     {
@@ -247,6 +247,60 @@
             {
               "id": 4686658,
               "name": "Mike Washington Jr."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2026,
+      "id": "ba084672-f512-45c2-b6f1-bf0d690629ad",
+      "date": 1788831389744,
+      "week": 1,
+      "sides": [
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 4695883,
+              "name": "Jalen Coker"
+            },
+            {
+              "id": 16737,
+              "name": "Mike Evans"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4360078,
+              "name": "Alec Pierce"
+            },
+            {
+              "id": 4371733,
+              "name": "Kenny Gainwell"
+            }
+          ]
+        },
+        {
+          "teamId": 8,
+          "playersIn": [
+            {
+              "id": 4360078,
+              "name": "Alec Pierce"
+            },
+            {
+              "id": 4371733,
+              "name": "Kenny Gainwell"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4695883,
+              "name": "Jalen Coker"
+            },
+            {
+              "id": 16737,
+              "name": "Mike Evans"
             }
           ]
         }
@@ -2290,7 +2344,7 @@
       ]
     }
   ],
-  "unresolvedCount": 6,
+  "unresolvedCount": 7,
   "settledSeasons": [
     2022,
     2023,
