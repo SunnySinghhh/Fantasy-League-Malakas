@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-01T07:23:15.352Z",
+  "lastUpdated": "2026-10-01T14:38:22.907Z",
   "week": 4,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 120
+        "projected": 118.8
       },
       "away": {
         "teamId": 3,
