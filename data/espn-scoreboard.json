@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-01T19:59:16.438Z",
+  "lastUpdated": "2026-10-01T23:45:50.194Z",
   "week": 4,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 123.9
+        "projected": 123.5
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 130.9
+        "projected": 131.5
       },
       "winner": "UNDECIDED"
     },
@@ -28,7 +28,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 128
+        "projected": 128.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 125.6
+        "projected": 126.1
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 120.4
+        "projected": 120.1
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 128.8
+        "projected": 128.6
       },
       "away": {
         "teamId": 7,
@@ -67,13 +67,13 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 103.5
+        "projected": 103.3
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 115
+        "projected": 115.1
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 127.3
+        "projected": 126.8
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 125.4
+        "projected": 125.3
       },
       "winner": "UNDECIDED"
     }
