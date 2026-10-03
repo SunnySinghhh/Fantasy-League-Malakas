@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T20:50:21.677Z",
+  "lastUpdated": "2026-10-03T00:04:15.687Z",
   "week": 4,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 119.8
+        "projected": 120
       },
       "away": {
         "teamId": 3,
@@ -58,7 +58,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 108.4
+        "projected": 108.5
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 104.7
+        "projected": 104.8
       },
       "away": {
         "teamId": 9,
@@ -82,13 +82,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 126.7
+        "projected": 126.9
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 125.1
+        "projected": 126
       },
       "winner": "UNDECIDED"
     }
