@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03T14:59:58.412Z",
+  "lastUpdated": "2026-10-03T18:35:38.327Z",
   "week": 4,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 120
+        "projected": 117.3
       },
       "away": {
         "teamId": 3,
@@ -82,7 +82,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 126.9
+        "projected": 127.7
       },
       "away": {
         "teamId": 2,
