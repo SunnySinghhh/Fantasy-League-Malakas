@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-04T12:38:22.186Z",
+  "lastUpdated": "2026-10-04T17:12:56.723Z",
   "week": 4,
   "matchups": [
     {
@@ -58,7 +58,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 108.5
+        "projected": 109.9
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 127.7
+        "projected": 127.8
       },
       "away": {
         "teamId": 2,
