@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-04T17:12:56.723Z",
+  "lastUpdated": "2026-10-04T20:17:07.991Z",
   "week": 4,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 118.1
+        "projected": 118.2
       },
       "away": {
         "teamId": 3,
@@ -37,13 +37,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 121.1
+        "projected": 120.4
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 120.7
+        "projected": 120.6
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 109.9
+        "projected": 109.7
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 127.8
+        "projected": 127.9
       },
       "away": {
         "teamId": 2,
