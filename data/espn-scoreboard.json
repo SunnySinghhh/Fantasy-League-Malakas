@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06T07:01:57.205Z",
+  "lastUpdated": "2026-10-06T14:18:20.095Z",
   "week": 5,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 117.4
+        "projected": 122.8
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 124.5
+        "projected": 125
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 90
+        "projected": 88.9
       },
       "away": {
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 117.5
+        "projected": 116.2
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 110.1
+        "projected": 109.1
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 114
+        "projected": 114.8
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 108.9
+        "projected": 108.6
       },
       "away": {
         "teamId": 5,
@@ -67,13 +67,13 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 104.9
+        "projected": 104.7
       },
       "away": {
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 125.1
+        "projected": 124.9
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 111.5
+        "projected": 109.4
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 126.9
+        "projected": 126.8
       },
       "winner": "UNDECIDED"
     }
