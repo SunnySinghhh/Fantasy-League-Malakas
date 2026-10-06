@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06T19:37:09.320Z",
+  "lastUpdated": "2026-10-06T23:28:00.117Z",
   "week": 5,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 111.9
+        "projected": 106.8
       },
       "away": {
         "teamId": 4,
@@ -82,7 +82,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 109.3
+        "projected": 108.2
       },
       "away": {
         "teamId": 2,
