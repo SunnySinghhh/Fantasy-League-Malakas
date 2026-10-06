@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06T00:30:12.296Z",
+  "lastUpdated": "2026-10-06T07:01:58.263Z",
   "leagueId": "1166030619",
   "seasons": [
     {
@@ -9,120 +9,120 @@
           "teamId": 1,
           "name": "Sunny's Sp*rm Bank",
           "wins": 3,
-          "losses": 0,
+          "losses": 1,
           "ties": 0,
-          "pointsFor": 381.9,
-          "pointsAgainst": 315.5,
+          "pointsFor": 510,
+          "pointsAgainst": 447,
           "finalRank": 0
         },
         {
           "teamId": 2,
           "name": "JPOPS",
-          "wins": 3,
+          "wins": 4,
           "losses": 0,
           "ties": 0,
-          "pointsFor": 451.6,
-          "pointsAgainst": 319.4,
+          "pointsFor": 583.1,
+          "pointsAgainst": 447.5,
           "finalRank": 0
         },
         {
           "teamId": 3,
           "name": "The Navengers",
-          "wins": 3,
+          "wins": 4,
           "losses": 0,
           "ties": 0,
-          "pointsFor": 434,
-          "pointsAgainst": 355.3,
+          "pointsFor": 563.5,
+          "pointsAgainst": 477.4,
           "finalRank": 0
         },
         {
           "teamId": 4,
           "name": "Byzantine Boomers",
-          "wins": 2,
+          "wins": 3,
           "losses": 1,
           "ties": 0,
-          "pointsFor": 345.2,
-          "pointsAgainst": 336.1,
+          "pointsFor": 453.8,
+          "pointsAgainst": 405,
           "finalRank": 0
         },
         {
           "teamId": 5,
           "name": "Ecuador roof repair",
-          "wins": 0,
+          "wins": 1,
           "losses": 3,
           "ties": 0,
-          "pointsFor": 353.1,
-          "pointsAgainst": 380.5,
+          "pointsFor": 477,
+          "pointsAgainst": 478.8,
           "finalRank": 0
         },
         {
           "teamId": 6,
           "name": "Houston Hicks",
           "wins": 1,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 272,
-          "pointsAgainst": 378.6,
+          "pointsFor": 394.2,
+          "pointsAgainst": 508.1,
           "finalRank": 0
         },
         {
           "teamId": 7,
           "name": "Xios United",
           "wins": 1,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 309,
-          "pointsAgainst": 363.9,
+          "pointsFor": 407.2,
+          "pointsAgainst": 487.7,
           "finalRank": 0
         },
         {
           "teamId": 8,
           "name": "Pandelidis FC",
-          "wins": 1,
+          "wins": 2,
           "losses": 2,
           "ties": 0,
-          "pointsFor": 368.3,
-          "pointsAgainst": 291.7,
+          "pointsFor": 482.1,
+          "pointsAgainst": 394.4,
           "finalRank": 0
         },
         {
           "teamId": 9,
           "name": "Milkballs Revengers ",
           "wins": 1,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 285,
-          "pointsAgainst": 349.8,
+          "pointsFor": 403.8,
+          "pointsAgainst": 554.7,
           "finalRank": 0
         },
         {
           "teamId": 10,
           "name": "Perry Hall  Pickers ",
           "wins": 1,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 314.2,
-          "pointsAgainst": 354.2,
+          "pointsFor": 416.9,
+          "pointsAgainst": 468,
           "finalRank": 0
         },
         {
           "teamId": 11,
           "name": "🍆💦 Mayebe Lil but u can CDs🥜",
-          "wins": 1,
+          "wins": 2,
           "losses": 2,
           "ties": 0,
-          "pointsFor": 306.7,
-          "pointsAgainst": 358.3,
+          "pointsFor": 511.6,
+          "pointsAgainst": 477.1,
           "finalRank": 0
         },
         {
           "teamId": 12,
           "name": "DeeGotti's Welfare Warriors ",
           "wins": 1,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 353.6,
-          "pointsAgainst": 371.4,
+          "pointsFor": 422.5,
+          "pointsAgainst": 479.9,
           "finalRank": 0
         }
       ],
@@ -270,35 +270,83 @@
           "awayTeamId": 11,
           "awayScore": 99.5,
           "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 4,
+          "homeScore": 108.5,
+          "awayTeamId": 12,
+          "awayScore": 68.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 6,
+          "homeScore": 122.2,
+          "awayTeamId": 3,
+          "awayScore": 129.5,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 8,
+          "homeScore": 113.8,
+          "awayTeamId": 10,
+          "awayScore": 102.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 5,
+          "homeScore": 123.8,
+          "awayTeamId": 7,
+          "awayScore": 98.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 11,
+          "homeScore": 204.9,
+          "awayTeamId": 9,
+          "awayScore": 118.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "homeTeamId": 1,
+          "homeScore": 128.1,
+          "awayTeamId": 2,
+          "awayScore": 131.5,
+          "winner": "AWAY"
         }
       ],
       "champion": {
         "name": "JPOPS",
-        "wins": 3,
+        "wins": 4,
         "losses": 0,
         "ties": 0,
-        "pointsFor": 451.6
+        "pointsFor": 583.1
       },
       "runnerUp": {
         "name": "The Navengers",
-        "wins": 3,
+        "wins": 4,
         "losses": 0,
         "ties": 0
       },
       "lastPlace": {
-        "name": "Ecuador roof repair",
-        "wins": 0,
+        "name": "Houston Hicks",
+        "wins": 1,
         "losses": 3,
         "ties": 0
       },
       "pointsLeader": {
         "name": "JPOPS",
-        "pointsFor": 451.6
+        "pointsFor": 583.1
       },
       "weekHigh": {
-        "name": "JPOPS",
-        "points": 160.8,
-        "week": 3
+        "name": "🍆💦 Mayebe Lil but u can CDs🥜",
+        "points": 204.9,
+        "week": 4
       }
     },
     {
@@ -4161,10 +4209,10 @@
       "season": 2023
     },
     "weekHigh": {
-      "name": "Brock Hard",
-      "points": 189,
-      "week": 16,
-      "season": 2024
+      "name": "🍆💦 Mayebe Lil but u can CDs🥜",
+      "points": 204.9,
+      "week": 4,
+      "season": 2026
     }
   }
 }
