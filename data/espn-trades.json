@@ -1,306 +1,82 @@
 {
-  "lastUpdated": "2026-10-07T09:34:25.372Z",
+  "lastUpdated": "2026-10-07T17:07:01.900Z",
   "leagueId": "1166030619",
   "trades": [
     {
       "season": 2026,
-      "id": "84dba782-9e09-491e-bc2b-06de0ecdf8c2",
-      "date": 1790278989374,
-      "week": 3,
+      "id": "b21678a6-f5c1-4960-b2c6-f0a96e480344",
+      "date": 1791384946402,
+      "week": 5,
+      "sides": [
+        {
+          "teamId": 10,
+          "playersIn": [
+            {
+              "id": 4241474,
+              "name": "Brian Robinson Jr."
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 0,
+              "name": "Player 0"
+            },
+            {
+              "id": 3052587,
+              "name": "Baker Mayfield"
+            }
+          ]
+        },
+        {
+          "teamId": 1,
+          "playersIn": [
+            {
+              "id": 0,
+              "name": "Player 0"
+            }
+          ],
+          "playersOut": [
+            {
+              "id": 4241474,
+              "name": "Brian Robinson Jr."
+            }
+          ]
+        },
+        {
+          "teamId": 0,
+          "playersIn": [
+            {
+              "id": 3052587,
+              "name": "Baker Mayfield"
+            }
+          ],
+          "playersOut": []
+        }
+      ]
+    },
+    {
+      "season": 2026,
+      "id": "de9576fc-d19e-4fac-a600-35aa86c5ec0d",
+      "date": 1791384215461,
+      "week": 5,
       "sides": [
         {
           "teamId": 0,
           "playersIn": [
             {
-              "id": 4032473,
-              "name": "Rashid Shaheed"
+              "id": 3052587,
+              "name": "Baker Mayfield"
             }
           ],
           "playersOut": []
         },
         {
-          "teamId": 4,
+          "teamId": 10,
           "playersIn": [],
           "playersOut": [
             {
-              "id": 4032473,
-              "name": "Rashid Shaheed"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "793a86f9-fe35-4a81-8302-0405876bac27",
-      "date": 1790216320540,
-      "week": 3,
-      "sides": [
-        {
-          "teamId": 1,
-          "playersIn": [
-            {
-              "id": 4429023,
-              "name": "MarShawn Lloyd"
-            },
-            {
-              "id": 4360939,
-              "name": "Rashod Bateman"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4832800,
-              "name": "Denzel Boston"
-            },
-            {
-              "id": 4429501,
-              "name": "Ray Davis"
-            }
-          ]
-        },
-        {
-          "teamId": 8,
-          "playersIn": [
-            {
-              "id": 4832800,
-              "name": "Denzel Boston"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4429023,
-              "name": "MarShawn Lloyd"
-            },
-            {
-              "id": 4360939,
-              "name": "Rashod Bateman"
-            }
-          ]
-        },
-        {
-          "teamId": 0,
-          "playersIn": [
-            {
-              "id": 4429501,
-              "name": "Ray Davis"
-            }
-          ],
-          "playersOut": []
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "b40eddad-30ce-46ba-adf8-506b577fdeb5",
-      "date": 1790216307422,
-      "week": 3,
-      "sides": [
-        {
-          "teamId": 0,
-          "playersIn": [
-            {
-              "id": 4429501,
-              "name": "Ray Davis"
-            }
-          ],
-          "playersOut": []
-        },
-        {
-          "teamId": 1,
-          "playersIn": [],
-          "playersOut": [
-            {
-              "id": 4429501,
-              "name": "Ray Davis"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "0d577416-720b-4ea6-af01-7e79b9189a0f",
-      "date": 1790094236370,
-      "week": 3,
-      "sides": [
-        {
-          "teamId": 1,
-          "playersIn": [
-            {
-              "id": 2577417,
-              "name": "Dak Prescott"
-            },
-            {
-              "id": 4426388,
-              "name": "Jameson Williams"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4695883,
-              "name": "Jalen Coker"
-            },
-            {
-              "id": 0,
-              "name": "Player 0"
-            },
-            {
-              "id": 4038441,
-              "name": "Justice Hill"
-            }
-          ]
-        },
-        {
-          "teamId": 6,
-          "playersIn": [
-            {
-              "id": 4695883,
-              "name": "Jalen Coker"
-            },
-            {
-              "id": 0,
-              "name": "Player 0"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 2577417,
-              "name": "Dak Prescott"
-            },
-            {
-              "id": 4426388,
-              "name": "Jameson Williams"
-            }
-          ]
-        },
-        {
-          "teamId": 0,
-          "playersIn": [
-            {
-              "id": 4038441,
-              "name": "Justice Hill"
-            }
-          ],
-          "playersOut": []
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "22afa84b-5ce5-4d15-b998-3223d0b97673",
-      "date": 1790094224758,
-      "week": 3,
-      "sides": [
-        {
-          "teamId": 0,
-          "playersIn": [
-            {
-              "id": 4038441,
-              "name": "Justice Hill"
-            }
-          ],
-          "playersOut": []
-        },
-        {
-          "teamId": 1,
-          "playersIn": [],
-          "playersOut": [
-            {
-              "id": 4038441,
-              "name": "Justice Hill"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "ecf50b73-c68c-4153-8589-5641a080fab5",
-      "date": 1790083906484,
-      "week": 3,
-      "sides": [
-        {
-          "teamId": 1,
-          "playersIn": [
-            {
-              "id": 4686658,
-              "name": "Mike Washington Jr."
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 0,
-              "name": "Player 0"
-            }
-          ]
-        },
-        {
-          "teamId": 3,
-          "playersIn": [
-            {
-              "id": 0,
-              "name": "Player 0"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4686658,
-              "name": "Mike Washington Jr."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "season": 2026,
-      "id": "ba084672-f512-45c2-b6f1-bf0d690629ad",
-      "date": 1788831389744,
-      "week": 1,
-      "sides": [
-        {
-          "teamId": 1,
-          "playersIn": [
-            {
-              "id": 4695883,
-              "name": "Jalen Coker"
-            },
-            {
-              "id": 16737,
-              "name": "Mike Evans"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4360078,
-              "name": "Alec Pierce"
-            },
-            {
-              "id": 4371733,
-              "name": "Kenny Gainwell"
-            }
-          ]
-        },
-        {
-          "teamId": 8,
-          "playersIn": [
-            {
-              "id": 4360078,
-              "name": "Alec Pierce"
-            },
-            {
-              "id": 4371733,
-              "name": "Kenny Gainwell"
-            }
-          ],
-          "playersOut": [
-            {
-              "id": 4695883,
-              "name": "Jalen Coker"
-            },
-            {
-              "id": 16737,
-              "name": "Mike Evans"
+              "id": 3052587,
+              "name": "Baker Mayfield"
             }
           ]
         }
@@ -2344,7 +2120,7 @@
       ]
     }
   ],
-  "unresolvedCount": 8,
+  "unresolvedCount": 0,
   "settledSeasons": [
     2022,
     2023,
