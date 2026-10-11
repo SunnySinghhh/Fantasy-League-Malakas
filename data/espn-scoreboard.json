@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-11T18:12:55.807Z",
+  "lastUpdated": "2026-10-11T22:11:07.692Z",
   "week": 5,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 116.7
+        "projected": 116.5
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 124.3
+        "projected": 124.2
       },
       "winner": "UNDECIDED"
     },
@@ -37,7 +37,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 105
+        "projected": 104.8
       },
       "away": {
         "teamId": 10,
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 124.6
+        "projected": 124.7
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 115.3
+        "projected": 115.2
       },
       "away": {
         "teamId": 2,
