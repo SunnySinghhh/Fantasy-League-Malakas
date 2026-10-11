@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-11T13:11:02.055Z",
+  "lastUpdated": "2026-10-11T18:12:55.807Z",
   "week": 5,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 126.4
+        "projected": 126.5
       },
       "away": {
         "teamId": 8,
@@ -43,7 +43,7 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 121.1
+        "projected": 118.8
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 124.3
+        "projected": 124.6
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 101.6
+        "projected": 111.6
       },
       "away": {
         "teamId": 1,
@@ -82,7 +82,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 111.1
+        "projected": 115.3
       },
       "away": {
         "teamId": 2,
