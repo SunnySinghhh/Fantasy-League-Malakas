@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-13T04:43:03.964Z",
+  "lastUpdated": "2026-10-13T12:22:07.902Z",
   "leagueId": "1166030619",
   "seasons": [
     {
@@ -8,121 +8,121 @@
         {
           "teamId": 1,
           "name": "Sunny's Sp*rm Bank",
-          "wins": 3,
+          "wins": 4,
           "losses": 1,
           "ties": 0,
-          "pointsFor": 510,
-          "pointsAgainst": 447,
+          "pointsFor": 673.6,
+          "pointsAgainst": 553.4,
           "finalRank": 0
         },
         {
           "teamId": 2,
           "name": "JPOPS",
           "wins": 4,
-          "losses": 0,
+          "losses": 1,
           "ties": 0,
-          "pointsFor": 583.1,
-          "pointsAgainst": 447.5,
+          "pointsFor": 686.7,
+          "pointsAgainst": 581.6,
           "finalRank": 0
         },
         {
           "teamId": 3,
           "name": "The Navengers",
           "wins": 4,
-          "losses": 0,
+          "losses": 1,
           "ties": 0,
-          "pointsFor": 563.5,
-          "pointsAgainst": 477.4,
+          "pointsFor": 688.5,
+          "pointsAgainst": 642.6,
           "finalRank": 0
         },
         {
           "teamId": 4,
           "name": "Byzantine Boomers",
           "wins": 3,
-          "losses": 1,
+          "losses": 2,
           "ties": 0,
-          "pointsFor": 453.8,
-          "pointsAgainst": 405,
+          "pointsFor": 572.3,
+          "pointsAgainst": 526.1,
           "finalRank": 0
         },
         {
           "teamId": 5,
           "name": "Ecuador roof repair",
-          "wins": 1,
+          "wins": 2,
           "losses": 3,
           "ties": 0,
-          "pointsFor": 477,
-          "pointsAgainst": 478.8,
+          "pointsFor": 594.8,
+          "pointsAgainst": 580.4,
           "finalRank": 0
         },
         {
           "teamId": 6,
           "name": "Houston Hicks",
-          "wins": 1,
+          "wins": 2,
           "losses": 3,
           "ties": 0,
-          "pointsFor": 394.2,
-          "pointsAgainst": 508.1,
+          "pointsFor": 515.3,
+          "pointsAgainst": 626.6,
           "finalRank": 0
         },
         {
           "teamId": 7,
           "name": "Xios United",
           "wins": 1,
-          "losses": 3,
+          "losses": 4,
           "ties": 0,
-          "pointsFor": 407.2,
-          "pointsAgainst": 487.7,
+          "pointsFor": 513.7,
+          "pointsAgainst": 651.2,
           "finalRank": 0
         },
         {
           "teamId": 8,
           "name": "Pandelidis FC",
-          "wins": 2,
+          "wins": 3,
           "losses": 2,
           "ties": 0,
-          "pointsFor": 482.1,
-          "pointsAgainst": 394.4,
+          "pointsFor": 600.2,
+          "pointsAgainst": 498.7,
           "finalRank": 0
         },
         {
           "teamId": 9,
           "name": "Milkballs Revengers ",
-          "wins": 1,
+          "wins": 2,
           "losses": 3,
           "ties": 0,
-          "pointsFor": 403.8,
-          "pointsAgainst": 554.7,
+          "pointsFor": 538,
+          "pointsAgainst": 658.3,
           "finalRank": 0
         },
         {
           "teamId": 10,
           "name": "Perry Hall  Pickers ",
-          "wins": 1,
+          "wins": 2,
           "losses": 3,
           "ties": 0,
-          "pointsFor": 416.9,
-          "pointsAgainst": 468,
+          "pointsFor": 582.1,
+          "pointsAgainst": 593.1,
           "finalRank": 0
         },
         {
           "teamId": 11,
           "name": "🍆💦 Mayebe Lil but u can CDs🥜",
           "wins": 2,
-          "losses": 2,
+          "losses": 3,
           "ties": 0,
-          "pointsFor": 511.6,
-          "pointsAgainst": 477.1,
+          "pointsFor": 613.1,
+          "pointsAgainst": 595,
           "finalRank": 0
         },
         {
           "teamId": 12,
           "name": "DeeGotti's Welfare Warriors ",
           "wins": 1,
-          "losses": 3,
+          "losses": 4,
           "ties": 0,
-          "pointsFor": 422.5,
-          "pointsAgainst": 479.9,
+          "pointsFor": 526.8,
+          "pointsAgainst": 598,
           "finalRank": 0
         }
       ],
@@ -318,30 +318,78 @@
           "awayTeamId": 2,
           "awayScore": 131.5,
           "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 6,
+          "homeScore": 121.1,
+          "awayTeamId": 4,
+          "awayScore": 118.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 12,
+          "homeScore": 104.3,
+          "awayTeamId": 8,
+          "awayScore": 118.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 3,
+          "homeScore": 125.1,
+          "awayTeamId": 10,
+          "awayScore": 165.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 11,
+          "homeScore": 101.6,
+          "awayTeamId": 5,
+          "awayScore": 117.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 7,
+          "homeScore": 106.4,
+          "awayTeamId": 1,
+          "awayScore": 163.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "homeTeamId": 9,
+          "homeScore": 134.1,
+          "awayTeamId": 2,
+          "awayScore": 103.6,
+          "winner": "HOME"
         }
       ],
       "champion": {
-        "name": "JPOPS",
-        "wins": 4,
-        "losses": 0,
-        "ties": 0,
-        "pointsFor": 583.1
-      },
-      "runnerUp": {
         "name": "The Navengers",
         "wins": 4,
-        "losses": 0,
+        "losses": 1,
+        "ties": 0,
+        "pointsFor": 688.5
+      },
+      "runnerUp": {
+        "name": "JPOPS",
+        "wins": 4,
+        "losses": 1,
         "ties": 0
       },
       "lastPlace": {
-        "name": "Houston Hicks",
+        "name": "Xios United",
         "wins": 1,
-        "losses": 3,
+        "losses": 4,
         "ties": 0
       },
       "pointsLeader": {
-        "name": "JPOPS",
-        "pointsFor": 583.1
+        "name": "The Navengers",
+        "pointsFor": 688.5
       },
       "weekHigh": {
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
