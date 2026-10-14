@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14T18:04:42.777Z",
+  "lastUpdated": "2026-10-14T21:50:10.492Z",
   "week": 6,
   "matchups": [
     {
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 86.6
+        "projected": 86.5
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 128.1
+        "projected": 128
       },
       "away": {
         "teamId": 11,
