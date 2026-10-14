@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14T07:50:45.130Z",
+  "lastUpdated": "2026-10-14T13:12:03.192Z",
   "week": 6,
   "matchups": [
     {
@@ -52,7 +52,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 133.2
+        "projected": 134.4
       },
       "away": {
         "teamId": 9,
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 80.5
+        "projected": 86.4
       },
       "winner": "UNDECIDED"
     },
