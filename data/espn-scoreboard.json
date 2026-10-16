@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-16T08:26:14.684Z",
+  "lastUpdated": "2026-10-16T13:23:50.121Z",
   "week": 6,
   "matchups": [
     {
@@ -28,7 +28,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": null
+        "projected": 136.1
       },
       "winner": "UNDECIDED"
     },
