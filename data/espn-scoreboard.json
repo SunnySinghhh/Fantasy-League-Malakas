@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-16T17:34:10.863Z",
+  "lastUpdated": "2026-10-16T20:18:00.202Z",
   "week": 6,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 111.4
+        "projected": 112.5
       },
       "away": {
         "teamId": 5,
@@ -28,7 +28,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 134
+        "projected": 133.9
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 91
+        "projected": 113.8
       },
       "away": {
         "teamId": 7,
