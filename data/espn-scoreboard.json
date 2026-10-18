@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-18T14:45:00.385Z",
+  "lastUpdated": "2026-10-18T17:41:35.290Z",
   "week": 6,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 112.4
+        "projected": 112.5
       },
       "away": {
         "teamId": 5,
@@ -22,13 +22,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 96
+        "projected": 96.1
       },
       "away": {
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 132.8
+        "projected": 133.7
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 134.7
+        "projected": 134.8
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 112.1
+        "projected": 122.8
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 113.7
+        "projected": 110.7
       },
       "away": {
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 87.1
+        "projected": 97.6
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 124.7
+        "projected": 126.6
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 124.5
+        "projected": 124
       },
       "winner": "UNDECIDED"
     }
