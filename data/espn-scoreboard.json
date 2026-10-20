@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T15:29:43.753Z",
+  "lastUpdated": "2026-10-20T19:30:15.757Z",
   "week": 7,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 98.2
+        "projected": 100.1
       },
       "away": {
         "teamId": 8,
@@ -22,13 +22,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 107.1
+        "projected": 91.1
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 130
+        "projected": 130.1
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 102.4
+        "projected": 104
       },
       "away": {
         "teamId": 12,
