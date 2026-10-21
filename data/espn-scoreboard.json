@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T22:50:27.042Z",
+  "lastUpdated": "2026-10-21T01:09:03.387Z",
   "week": 7,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 91.1
+        "projected": 101.7
       },
       "away": {
         "teamId": 10,
@@ -58,7 +58,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 103.5
+        "projected": 106.4
       },
       "winner": "UNDECIDED"
     },
