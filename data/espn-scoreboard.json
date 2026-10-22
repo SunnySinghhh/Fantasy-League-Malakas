@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22T18:17:03.031Z",
+  "lastUpdated": "2026-10-22T21:47:53.277Z",
   "week": 7,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 119.3
+        "projected": 119.5
       },
       "away": {
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 108.1
+        "projected": 128.1
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 117.2
+        "projected": 117.9
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 130
+        "projected": 130.1
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 110.4
+        "projected": 112.3
       },
       "away": {
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 120.6
+        "projected": 120.7
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 121.8
+        "projected": 121.9
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 124.8
+        "projected": 125.2
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 106.1
+        "projected": 106
       },
       "away": {
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 127.6
+        "projected": 127.7
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 127.9
+        "projected": 127.8
       },
       "away": {
         "teamId": 4,
