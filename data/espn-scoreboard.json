@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22T21:47:53.277Z",
+  "lastUpdated": "2026-10-23T00:15:52.615Z",
   "week": 7,
   "matchups": [
     {
@@ -37,13 +37,13 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 112.3
+        "projected": 128.8
       },
       "away": {
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 120.7
+        "projected": 117.8
       },
       "winner": "UNDECIDED"
     },
