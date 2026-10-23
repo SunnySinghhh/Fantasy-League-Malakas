@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-23T15:16:14.256Z",
+  "lastUpdated": "2026-10-23T19:23:23.262Z",
   "week": 7,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 119.5
+        "projected": 119.4
       },
       "away": {
         "teamId": 8,
@@ -22,13 +22,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 117.9
+        "projected": 119.8
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 130.1
+        "projected": 118.4
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 125.2
+        "projected": 125.1
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 127.7
+        "projected": 127.6
       },
       "winner": "UNDECIDED"
     },
