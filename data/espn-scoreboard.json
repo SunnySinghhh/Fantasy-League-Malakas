@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-28T14:43:07.650Z",
+  "lastUpdated": "2026-10-28T19:59:20.580Z",
   "week": 8,
   "matchups": [
     {
@@ -37,13 +37,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 115.5
+        "projected": 115.4
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 128.9
+        "projected": 128.8
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 115.9
+        "projected": 116.8
       },
       "away": {
         "teamId": 7,
