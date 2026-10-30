@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-30T14:42:32.393Z",
+  "lastUpdated": "2026-10-30T19:47:24.139Z",
   "week": 8,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 127.9
+        "projected": 127.8
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 115.4
+        "projected": 116.3
       },
       "winner": "UNDECIDED"
     },
@@ -22,7 +22,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 120.7
+        "projected": 120.6
       },
       "away": {
         "teamId": 1,
@@ -37,7 +37,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 118.1
+        "projected": 118.3
       },
       "away": {
         "teamId": 2,
@@ -52,13 +52,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 123.5
+        "projected": 124
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 111.3
+        "projected": 106
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116.5
+        "projected": 117.7
       },
       "away": {
         "teamId": 7,
@@ -82,13 +82,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 125.4
+        "projected": 111.8
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 122.5
+        "projected": 121.3
       },
       "winner": "UNDECIDED"
     }
