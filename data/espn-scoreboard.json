@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T15:23:01.336Z",
+  "lastUpdated": "2026-11-01T19:49:38.162Z",
   "week": 8,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 127.8
+        "projected": 127.5
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 122.7
+        "projected": 122.9
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 119.1
+        "projected": 119
       },
       "away": {
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 123.5
+        "projected": 124.3
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 118.4
+        "projected": 118.5
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 130.9
+        "projected": 131.5
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 123.1
+        "projected": 122.7
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 106.4
+        "projected": 107
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 117.9
+        "projected": 117.6
       },
       "away": {
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 109
+        "projected": 108.8
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 123.2
+        "projected": 123.1
       },
       "away": {
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 121.4
+        "projected": 120.8
       },
       "winner": "UNDECIDED"
     }
