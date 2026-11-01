@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T08:27:58.527Z",
+  "lastUpdated": "2026-11-01T15:23:01.336Z",
   "week": 8,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 116.2
+        "projected": 122.7
       },
       "winner": "UNDECIDED"
     },
@@ -43,7 +43,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 131
+        "projected": 130.9
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 126.5
+        "projected": 123.1
       },
       "away": {
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 105.9
+        "projected": 106.4
       },
       "winner": "UNDECIDED"
     },
