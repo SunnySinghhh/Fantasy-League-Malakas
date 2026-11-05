@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-05T12:36:48.575Z",
+  "lastUpdated": "2026-11-05T20:24:40.863Z",
   "week": 9,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 127
+        "projected": 127.4
       },
       "away": {
         "teamId": 3,
@@ -22,7 +22,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 125.4
+        "projected": 122.7
       },
       "away": {
         "teamId": 12,
@@ -37,7 +37,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 125.4
+        "projected": 128.2
       },
       "away": {
         "teamId": 6,
@@ -52,7 +52,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 124.6
+        "projected": 125.4
       },
       "away": {
         "teamId": 4,
@@ -73,7 +73,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 115.5
+        "projected": 115.4
       },
       "winner": "UNDECIDED"
     },
