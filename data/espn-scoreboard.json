@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-05T20:24:40.863Z",
+  "lastUpdated": "2026-11-06T01:00:02.217Z",
   "week": 9,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 127.4
+        "projected": 127.3
       },
       "away": {
         "teamId": 3,
@@ -43,7 +43,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 113.9
+        "projected": 116.9
       },
       "winner": "UNDECIDED"
     },
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 125.4
+        "projected": 123.7
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 121.7
+        "projected": 121.8
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 115.4
+        "projected": 115.5
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 122.8
+        "projected": 122.9
       },
       "away": {
         "teamId": 10,
