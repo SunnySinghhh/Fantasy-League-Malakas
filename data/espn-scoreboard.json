@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06T15:29:29.812Z",
+  "lastUpdated": "2026-11-06T20:59:33.005Z",
   "week": 9,
   "matchups": [
     {
@@ -7,7 +7,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 127.3
+        "projected": 114.2
       },
       "away": {
         "teamId": 3,
@@ -37,7 +37,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 128.2
+        "projected": 128.1
       },
       "away": {
         "teamId": 6,
@@ -58,7 +58,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 121.8
+        "projected": 125.7
       },
       "winner": "UNDECIDED"
     },
@@ -67,13 +67,13 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 116.4
+        "projected": 103.7
       },
       "away": {
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 115.5
+        "projected": 115.6
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 122.9
+        "projected": 123
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 127
+        "projected": 128.1
       },
       "winner": "UNDECIDED"
     }
