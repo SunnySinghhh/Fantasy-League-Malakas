@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-07T18:24:29.108Z",
+  "lastUpdated": "2026-11-07T22:07:45.343Z",
   "week": 9,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 134.7
+        "projected": 134.5
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 123.6
+        "projected": 124.7
       },
       "away": {
         "teamId": 4,
@@ -88,7 +88,7 @@
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 128
+        "projected": 128.1
       },
       "winner": "UNDECIDED"
     }
