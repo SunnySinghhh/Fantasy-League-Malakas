@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06T20:59:33.005Z",
+  "lastUpdated": "2026-11-07T00:42:59.834Z",
   "week": 9,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 134.7
+        "projected": 134.8
       },
       "winner": "UNDECIDED"
     },
@@ -37,7 +37,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 128.1
+        "projected": 126.4
       },
       "away": {
         "teamId": 6,
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 123.7
+        "projected": 123.8
       },
       "away": {
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 125.7
+        "projected": 125.8
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 103.7
+        "projected": 113.4
       },
       "away": {
         "teamId": 8,
@@ -82,7 +82,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 123
+        "projected": 123.1
       },
       "away": {
         "teamId": 10,
