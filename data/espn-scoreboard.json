@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-08T08:21:51.478Z",
+  "lastUpdated": "2026-11-08T15:27:17.442Z",
   "week": 9,
   "matchups": [
     {
@@ -28,7 +28,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 119.1
+        "projected": 119.2
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 113.4
+        "projected": 113.5
       },
       "away": {
         "teamId": 8,
