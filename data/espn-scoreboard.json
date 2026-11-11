@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-11T00:08:04.665Z",
+  "lastUpdated": "2026-11-11T06:52:06.180Z",
   "week": 10,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 116.1
+        "projected": 119.8
       },
       "winner": "UNDECIDED"
     },
@@ -37,13 +37,13 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 118
+        "projected": 120.6
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 100.1
+        "projected": 118.7
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 116.6
+        "projected": 117.6
       },
       "winner": "UNDECIDED"
     },
