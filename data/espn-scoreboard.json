@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-11T14:50:09.263Z",
+  "lastUpdated": "2026-11-11T21:42:29.560Z",
   "week": 10,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 95.6
+        "projected": 100.6
       },
       "away": {
         "teamId": 1,
@@ -37,7 +37,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 120.6
+        "projected": 118.1
       },
       "away": {
         "teamId": 2,
