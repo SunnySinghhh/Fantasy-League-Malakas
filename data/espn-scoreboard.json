@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T10:29:38.922Z",
+  "lastUpdated": "2026-11-12T18:31:11.443Z",
   "week": 10,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 113.4
+        "projected": 116.5
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 122.5
+        "projected": 126.2
       },
       "winner": "UNDECIDED"
     },
@@ -43,7 +43,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 118.7
+        "projected": 121.6
       },
       "winner": "UNDECIDED"
     },
