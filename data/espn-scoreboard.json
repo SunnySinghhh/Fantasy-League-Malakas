@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-13T12:43:35.291Z",
+  "lastUpdated": "2026-11-13T20:10:30.522Z",
   "week": 10,
   "matchups": [
     {
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 104.1
+        "projected": 99.2
       },
       "away": {
         "teamId": 1,
@@ -37,13 +37,13 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116
+        "projected": 116.1
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 121.7
+        "projected": 121
       },
       "winner": "UNDECIDED"
     },
@@ -58,7 +58,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 123
+        "projected": 123.1
       },
       "winner": "UNDECIDED"
     },
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 117.5
+        "projected": 117.1
       },
       "winner": "UNDECIDED"
     },
@@ -88,7 +88,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 126.1
+        "projected": 125.5
       },
       "winner": "UNDECIDED"
     }
