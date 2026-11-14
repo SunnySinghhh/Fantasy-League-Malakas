@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-13T20:10:30.522Z",
+  "lastUpdated": "2026-11-14T00:56:37.294Z",
   "week": 10,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 116.4
+        "projected": 117.2
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 126
+        "projected": 126.5
       },
       "winner": "UNDECIDED"
     },
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 99.2
+        "projected": 99.7
       },
       "away": {
         "teamId": 1,
@@ -37,13 +37,13 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 116.1
+        "projected": 116
       },
       "away": {
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 121
+        "projected": 114.9
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 114.7
+        "projected": 114.6
       },
       "away": {
         "teamId": 9,
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 117.1
+        "projected": 112.3
       },
       "winner": "UNDECIDED"
     },
@@ -88,7 +88,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 125.5
+        "projected": 120.5
       },
       "winner": "UNDECIDED"
     }
