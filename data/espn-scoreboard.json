@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-15T17:18:26.502Z",
+  "lastUpdated": "2026-11-15T21:56:12.134Z",
   "week": 10,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 119
+        "projected": 118.9
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 123.7
+        "projected": 124.5
       },
       "winner": "UNDECIDED"
     },
@@ -22,7 +22,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 105.8
+        "projected": 105.6
       },
       "away": {
         "teamId": 1,
@@ -43,7 +43,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 115.8
+        "projected": 115.7
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 115.1
+        "projected": 115
       },
       "away": {
         "teamId": 9,
@@ -73,7 +73,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 112.3
+        "projected": 113.1
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 3,
         "name": "The Navengers",
         "score": 0,
-        "projected": 116.3
+        "projected": 118.2
       },
       "away": {
         "teamId": 11,
