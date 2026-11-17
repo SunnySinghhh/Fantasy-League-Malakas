@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-11-16T19:05:17.095Z",
+  "lastUpdated": "2026-11-17T02:31:55.788Z",
   "diagnostics": [
     {
       "season": 2026,
       "requestFailed": false,
       "usedWeekLoop": false,
-      "totalCount": 2,
+      "totalCount": 3,
       "typeCounts": {
-        "TRADE_ACCEPT": 2
+        "TRADE_ACCEPT": 3
       }
     }
   ],
@@ -25,6 +25,22 @@
       "relatedTransactionId": "83372373-c9fa-47b4-911f-ae7971179f65",
       "scoringPeriodId": 10,
       "teamId": 10,
+      "type": "TRADE_ACCEPT"
+    },
+    {
+      "bidAmount": 0,
+      "executionType": "EXECUTE",
+      "id": "ed430f5e-4193-4b51-a623-6f8432186a96",
+      "isActingAsTeamOwner": false,
+      "isLeagueManager": false,
+      "isPending": false,
+      "items": [],
+      "memberId": "{CE5A2A59-6C31-4817-B849-DC2D445005B4}",
+      "proposedDate": 1794857844904,
+      "rating": 0,
+      "relatedTransactionId": "e94353bc-6f59-4855-b50e-603e80ae9d29",
+      "scoringPeriodId": 10,
+      "teamId": 8,
       "type": "TRADE_ACCEPT"
     },
     {
@@ -61,6 +77,26 @@
         "relatedTransactionId": "83372373-c9fa-47b4-911f-ae7971179f65",
         "scoringPeriodId": 10,
         "teamId": 10,
+        "type": "TRADE_ACCEPT"
+      }
+    },
+    {
+      "season": 2026,
+      "id": "ed430f5e-4193-4b51-a623-6f8432186a96",
+      "raw": {
+        "bidAmount": 0,
+        "executionType": "EXECUTE",
+        "id": "ed430f5e-4193-4b51-a623-6f8432186a96",
+        "isActingAsTeamOwner": false,
+        "isLeagueManager": false,
+        "isPending": false,
+        "items": [],
+        "memberId": "{CE5A2A59-6C31-4817-B849-DC2D445005B4}",
+        "proposedDate": 1794857844904,
+        "rating": 0,
+        "relatedTransactionId": "e94353bc-6f59-4855-b50e-603e80ae9d29",
+        "scoringPeriodId": 10,
+        "teamId": 8,
         "type": "TRADE_ACCEPT"
       }
     },
