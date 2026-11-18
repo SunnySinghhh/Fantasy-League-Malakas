@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18T10:25:54.462Z",
+  "lastUpdated": "2026-11-18T18:56:22.242Z",
   "week": 11,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 93.5
+        "projected": 101.6
       },
       "winner": "UNDECIDED"
     },
@@ -22,7 +22,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 119.8
+        "projected": 120
       },
       "away": {
         "teamId": 4,
@@ -37,7 +37,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 84.7
+        "projected": 85.5
       },
       "away": {
         "teamId": 8,
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 121.4
+        "projected": 127.6
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 78.9
+        "projected": 106
       },
       "winner": "UNDECIDED"
     },
@@ -82,13 +82,13 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 78.3
+        "projected": 107.1
       },
       "away": {
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 103
+        "projected": 123.3
       },
       "winner": "UNDECIDED"
     }
