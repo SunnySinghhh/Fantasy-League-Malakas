@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18T02:05:27.870Z",
+  "lastUpdated": "2026-11-18T10:25:54.462Z",
   "week": 11,
   "matchups": [
     {
@@ -43,7 +43,7 @@
         "teamId": 8,
         "name": "Pandelidis FC",
         "score": 0,
-        "projected": 87.6
+        "projected": 100.4
       },
       "winner": "UNDECIDED"
     },
@@ -52,7 +52,7 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 119.9
+        "projected": 121.4
       },
       "away": {
         "teamId": 10,
