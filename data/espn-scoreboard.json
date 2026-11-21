@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21T10:31:17.278Z",
+  "lastUpdated": "2026-11-21T17:50:14.950Z",
   "week": 11,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 102.1
+        "projected": 102
       },
       "winner": "UNDECIDED"
     },
@@ -28,7 +28,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 129.1
+        "projected": 130.9
       },
       "winner": "UNDECIDED"
     },
@@ -82,7 +82,7 @@
         "teamId": 11,
         "name": "🍆💦 Mayebe Lil but u can CDs🥜",
         "score": 0,
-        "projected": 112.5
+        "projected": 112.4
       },
       "away": {
         "teamId": 12,
