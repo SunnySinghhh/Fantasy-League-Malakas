@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-22T10:32:58.078Z",
+  "lastUpdated": "2026-11-22T18:09:20.959Z",
   "week": 11,
   "matchups": [
     {
@@ -7,13 +7,13 @@
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 129.5
+        "projected": 130.2
       },
       "away": {
         "teamId": 6,
         "name": "Houston Hicks",
         "score": 0,
-        "projected": 102
+        "projected": 102.1
       },
       "winner": "UNDECIDED"
     },
@@ -22,7 +22,7 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 119.4
+        "projected": 119.7
       },
       "away": {
         "teamId": 4,
@@ -37,7 +37,7 @@
         "teamId": 2,
         "name": "JPOPS",
         "score": 0,
-        "projected": 114.9
+        "projected": 114.8
       },
       "away": {
         "teamId": 8,
@@ -52,13 +52,13 @@
         "teamId": 9,
         "name": "Milkballs Revengers ",
         "score": 0,
-        "projected": 127.6
+        "projected": 130.6
       },
       "away": {
         "teamId": 10,
         "name": "Perry Hall  Pickers ",
         "score": 0,
-        "projected": 107
+        "projected": 91.7
       },
       "winner": "UNDECIDED"
     },
@@ -67,7 +67,7 @@
         "teamId": 7,
         "name": "Xios United",
         "score": 0,
-        "projected": 110.9
+        "projected": 107.9
       },
       "away": {
         "teamId": 3,
@@ -88,7 +88,7 @@
         "teamId": 12,
         "name": "DeeGotti's Welfare Warriors ",
         "score": 0,
-        "projected": 123.9
+        "projected": 123.8
       },
       "winner": "UNDECIDED"
     }
