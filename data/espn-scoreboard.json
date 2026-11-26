@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-26T09:02:04.317Z",
+  "lastUpdated": "2026-11-26T19:11:02.924Z",
   "week": 12,
   "matchups": [
     {
@@ -13,7 +13,7 @@
         "teamId": 4,
         "name": "Byzantine Boomers",
         "score": 0,
-        "projected": 129.9
+        "projected": 129.8
       },
       "winner": "UNDECIDED"
     },
@@ -22,13 +22,13 @@
         "teamId": 1,
         "name": "Sunny's Sp*rm Bank",
         "score": 0,
-        "projected": 124.6
+        "projected": 122.2
       },
       "away": {
         "teamId": 5,
         "name": "Ecuador roof repair",
         "score": 0,
-        "projected": 119.9
+        "projected": 123.4
       },
       "winner": "UNDECIDED"
     },
